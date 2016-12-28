@@ -1,0 +1,18 @@
+{
+  "author": "",
+  "dependencies": {},
+  "description": "",
+  "devDependencies": {},
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "",
+  "main": "",
+  "name": "gulp",
+  "version": ""
+}
