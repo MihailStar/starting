@@ -1,30 +1,37 @@
 'use strict';
 
-/* -----------------------------------------------------------
-// packages
-// --------------------------------------------------------- */
-
 var autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     concat = require('gulp-concat'),
     csso = require('gulp-csso'),
     del = require('del'),
     gulp = require('gulp'),
+    gulpIf = require('gulp-if'),
+    htmlmin = require('gulp-htmlmin'),
     imagemin = require('gulp-imagemin'),
+    inject = require('gulp-inject'),
+    mergeStream = require('merge-stream'),
     newer = require('gulp-newer'),
     pngquant = require('imagemin-pngquant'),
     rename = require('gulp-rename'),
     rigger = require('gulp-rigger'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
+    spritesmith = require('gulp.spritesmith'),
+    svgstore = require('gulp-svgstore'),
     uglify = require('gulp-uglify'),
-    watch = require('gulp-watch'),
+    vinylBuffer = require('vinyl-buffer'),
+    watch = require('gulp-watch');
+
+var isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'dev';
+
+var configuration = {
 
 /* -----------------------------------------------------------
-// config | autoprefixer
+// configuration | autoprefixer
 // --------------------------------------------------------- */
 
-    autoprefixerConfig = {
+    autoprefixer: {
         browsers: [
             '> 1%',
             'ie 10',
@@ -35,10 +42,10 @@ var autoprefixer = require('gulp-autoprefixer'),
     },
 
 /* -----------------------------------------------------------
-// config | browserSync
+// configuration | browserSync
 // --------------------------------------------------------- */
 
-    browserSyncConfig = {
+    browserSync: {
         logPrefix: 'browserSync',
         notify: false,
         online: false,
@@ -58,11 +65,31 @@ var autoprefixer = require('gulp-autoprefixer'),
         ui: false
     },
 
-/* ------------------------------------------------------------
-// config | imagemin
+/* -----------------------------------------------------------
+// configuration | concat
 // --------------------------------------------------------- */
 
-    imageminConfig = {
+    concat: {
+        script: {
+            lib: 'lib.min.js',
+            main: 'main.min.js'
+        }
+    },
+
+/* -----------------------------------------------------------
+// configuration | htmlmin
+// --------------------------------------------------------- */
+
+    htmlmin: {
+        collapseWhitespace: true,
+        removeComments: true
+    },
+
+/* -----------------------------------------------------------
+// configuration | imagemin
+// --------------------------------------------------------- */
+
+    imagemin: {
         interlaced: true,
         progressive: true,
         svgoPlugins: [{
@@ -71,117 +98,271 @@ var autoprefixer = require('gulp-autoprefixer'),
         use: [pngquant()]
     },
 
-/* ------------------------------------------------------------
-// config | paths
+/* -----------------------------------------------------------
+// configuration | path
 // --------------------------------------------------------- */
 
-    paths = {
+    path: {
         clean: 'dist',
         input: {
-            fonts: 'src/fonts/**/*.*',
+            font: 'src/font/**/*.*',
             html: 'src/*.html',
-            images: 'src/images/**/*.*',
-            scripts: 'src/scripts/**/*.js',
-            scriptsRoot: '/src/scripts/', // sourcemaps sourceRoot
-            styles: 'src/styles/main.scss',
-            stylesRoot: '/src/styles/' // sourcemaps sourceRoot
+            image: [
+                'src/image/**/*.*',
+                '!src/image/sprite/**/*.*'
+            ],
+            script: {
+                lib: 'src/script/lib/**/*.js',
+                main: [
+                    'src/script/**/*.js',
+                    '!src/script/lib/**/*.js'
+                ]
+            },
+            sprite: {
+                raster: 'src/image/sprite/*.png',
+                vector: 'src/image/sprite/*.svg'
+            },
+            style: 'src/style/main.scss'
         },
         output: {
-            fonts: 'dist/fonts',
+            font: 'dist/font',
             html: 'dist',
-            images: 'dist/images',
-            maps: '.',
-            scripts: 'dist/scripts',
-            styles: 'dist/styles'
+            image: 'dist/image',
+            map: '.',
+            script: {
+                lib: 'dist/script',
+                main: 'dist/script'
+            },
+            sprite: {
+                raster: 'dist/image/sprite',
+                style: 'src/style/sprite',
+                vector: 'src'
+            },
+            style: 'dist/style'
         },
         watch: {
-            fonts: 'src/fonts/**/*.*',
+            font: 'src/font/**/*.*',
             html: 'src/**/*.html',
-            images: 'src/images/**/*.*',
-            scripts: 'src/scripts/**/*.js',
-            styles: 'src/styles/**/*.scss'
+            image: [
+                'src/image/**/*.*',
+                '!src/image/sprite/**/*.*'
+            ],
+            script: [
+                'src/script/**/*.js',
+                '!src/script/lib/**/*.js'
+            ],
+            style: 'src/style/**/*.scss'
         }
-    };
+    },
+
+/* -----------------------------------------------------------
+// configuration | rename
+// --------------------------------------------------------- */
+
+    rename: {
+        style: {
+            basename: 'main',
+            suffix: '.min',
+            extname: '.css'
+        }
+    },
+
+/* ------------------------------------------------------------
+// configuration | sass
+// --------------------------------------------------------- */
+
+    sass: {
+        outputStyle: 'compressed'
+    },
+
+/* ------------------------------------------------------------
+// configuration | sourcemaps
+// --------------------------------------------------------- */
+
+    sourcemaps: {
+        input: {
+            loadMaps: true
+        },
+        output: {
+            script: {
+                includeContent: false,
+                sourceMappingURLPrefix: 'http://localhost:3000/script',
+                sourceRoot: '/src/script/'
+            },
+            style: {
+                includeContent: false,
+                sourceMappingURLPrefix: 'http://localhost:3000/style',
+                sourceRoot: '/src/style/'
+            }
+        }
+    },
+
+/* ------------------------------------------------------------
+// configuration | spritesmith
+// --------------------------------------------------------- */
+
+    spritesmith: {
+        cssName: 'sprite.css',
+        imgName: 'sprite.png',
+        // padding: 2,
+        // retinaImgName: 'sprite@2x.png',
+        // retinaSrcFilter: 'src/image/sprite/*@2x.png'
+    },
+
+/* ------------------------------------------------------------
+// configuration | svgstore
+// --------------------------------------------------------- */
+
+    svgstore: {
+        inlineSvg: true
+    }
+
+};
+
+/* ------------------------------------------------------------
+// task | build:font
+// --------------------------------------------------------- */
+
+gulp.task('build:font', function () {
+    return gulp
+        .src(configuration.path.input.font)
+        .pipe(newer(configuration.path.output.font))
+        .pipe(gulp.dest(configuration.path.output.font))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
+
+/* ------------------------------------------------------------
+// task | build:html
+// --------------------------------------------------------- */
+
+gulp.task('build:html', function () {
+    return gulp
+        .src(configuration.path.input.html)
+        .pipe(rigger())
+        .pipe(htmlmin(configuration.htmlmin))
+        .pipe(gulp.dest(configuration.path.output.html))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
+
+/* ------------------------------------------------------------
+// task | build:image
+// --------------------------------------------------------- */
+
+gulp.task('build:image', function () {
+    return gulp
+        .src(configuration.path.input.image)
+        .pipe(newer(configuration.path.output.image))
+        .pipe(imagemin(configuration.imagemin))
+        .pipe(gulp.dest(configuration.path.output.image))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
+
+/* ------------------------------------------------------------
+// task | build:script
+// --------------------------------------------------------- */
+
+gulp.task('build:script', function () {
+    return gulp
+        .src(configuration.path.input.script.main)
+        .pipe(gulpIf(isDev, sourcemaps.init(configuration.sourcemaps.input)))
+        .pipe(concat(configuration.concat.script.main))
+        .pipe(uglify())
+        .pipe(gulpIf(isDev, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
+        .pipe(gulp.dest(configuration.path.output.script.main))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
+
+/* ------------------------------------------------------------
+// task | build:script:lib
+// --------------------------------------------------------- */
+
+gulp.task('build:script:lib', function () {
+    return gulp
+        .src(configuration.path.input.script.lib)
+        .pipe(concat(configuration.concat.script.lib))
+        .pipe(uglify())
+        .pipe(gulp.dest(configuration.path.output.script.lib))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
+
+/* ------------------------------------------------------------
+// task | build:sprite:raster
+// --------------------------------------------------------- */
+
+gulp.task('build:sprite:raster', function () {
+    var imageStream,
+        styleStream,
+        spriteData;
+    spriteData = gulp
+        .src(configuration.path.input.sprite.raster)
+        .pipe(spritesmith(configuration.spritesmith));
+    imageStream = spriteData.img
+        .pipe(vinylBuffer())
+        .pipe(imagemin(configuration.imagemin))
+        .pipe(gulp.dest(configuration.path.output.sprite.raster));
+    styleStream = spriteData.css
+        .pipe(gulp.dest(configuration.path.output.sprite.style));
+    return mergeStream(imageStream, styleStream);
+});
+
+/* ------------------------------------------------------------
+// task | build:sprite:vector
+// --------------------------------------------------------- */
+
+gulp.task('build:sprite:vector', function () {
+    var spriteData;
+    spriteData = gulp
+        .src(configuration.path.input.sprite.vector)
+        .pipe(imagemin(configuration.imagemin))
+        .pipe(svgstore(configuration.svgstore));
+    function fileContents(filePath, file) {
+        return file.contents.toString();
+    }
+    return gulp
+        .src(configuration.path.input.html)
+        .pipe(inject(spriteData, {
+            transform: fileContents
+        }))
+        .pipe(gulp.dest(configuration.path.output.sprite.vector));
+});
+
+/* ------------------------------------------------------------
+// task | build:style
+// --------------------------------------------------------- */
+
+gulp.task('build:style', function () {
+    return gulp
+        .src(configuration.path.input.style)
+        .pipe(gulpIf(isDev, sourcemaps.init(configuration.sourcemaps.input)))
+        .pipe(sass(configuration.sass).on('error', sass.logError))
+        .pipe(autoprefixer(configuration.autoprefixer))
+        .pipe(gulpIf(!isDev, csso()))
+        .pipe(rename(configuration.rename.style))
+        .pipe(gulpIf(isDev, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.style)))
+        .pipe(gulp.dest(configuration.path.output.style))
+        .pipe(gulpIf(isDev, browserSync.stream()));
+});
 
 /* ------------------------------------------------------------
 // task | build
 // --------------------------------------------------------- */
 
-gulp.task('build:fonts', function () {
-    return gulp.src(paths.input.fonts)
-        .pipe(newer(paths.output.fonts))
-        .pipe(gulp.dest(paths.output.fonts))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('build:html', function () {
-    return gulp.src(paths.input.html)
-        .pipe(newer(paths.output.html))
-        .pipe(rigger())
-        .pipe(gulp.dest(paths.output.html))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('build:images', function () {
-    return gulp.src(paths.input.images)
-        .pipe(newer(paths.output.images))
-        .pipe(imagemin(imageminConfig))
-        .pipe(gulp.dest(paths.output.images))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('build:scripts', function () {
-    return gulp.src(paths.input.scripts)
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(concat('main.min.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write(paths.output.maps, {
-            includeContent: false,
-            sourceMappingURLPrefix: 'http://localhost:' + browserSyncConfig.port + '/scripts',
-            sourceRoot: paths.input.scriptsRoot
-        }))
-        .pipe(gulp.dest(paths.output.scripts))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('build:styles', function () {
-    return gulp.src(paths.input.styles)
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(sass())
-        .pipe(autoprefixer(autoprefixerConfig))
-        .pipe(csso())
-        .pipe(rename({
-            basename: 'main',
-            suffix: '.min',
-            extname: '.css'
-        }))
-        .pipe(sourcemaps.write(paths.output.maps, {
-            includeContent: false,
-            sourceMappingURLPrefix: 'http://localhost:' + browserSyncConfig.port + '/styles',
-            sourceRoot: paths.input.stylesRoot
-        }))
-        .pipe(gulp.dest(paths.output.styles))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('build', gulp.parallel(
-    'build:fonts',
+gulp.task('build', gulp.series('build:sprite:vector', gulp.parallel(
+    'build:font',
     'build:html',
-    'build:images',
-    'build:scripts',
-    'build:styles'
-));
+    'build:image',
+    'build:sprite:raster',
+    'build:script',
+    'build:script:lib',
+    'build:style'
+)));
 
 /* ------------------------------------------------------------
 // task | clean
 // --------------------------------------------------------- */
 
 gulp.task('clean', function () {
-    return del(paths.clean);
+    return del(configuration.path.clean);
 });
 
 /* ------------------------------------------------------------
@@ -189,7 +370,7 @@ gulp.task('clean', function () {
 // --------------------------------------------------------- */
 
 gulp.task('server', function () {
-    browserSync.init(browserSyncConfig);
+    browserSync.init(configuration.browserSync);
 });
 
 /* ------------------------------------------------------------
@@ -197,15 +378,21 @@ gulp.task('server', function () {
 // --------------------------------------------------------- */
 
 gulp.task('watch', function () {
-    watch(paths.watch.fonts, gulp.series('build:fonts'));
-    watch(paths.watch.html, gulp.series('build:html'));
-    watch(paths.watch.images, gulp.series('build:images'));
-    watch(paths.watch.scripts, gulp.series('build:scripts'));
-    watch(paths.watch.styles, gulp.series('build:styles'));
+    watch(configuration.path.watch.font, gulp.series('build:font'));
+    watch(configuration.path.watch.html, gulp.series('build:html'));
+    watch(configuration.path.watch.image, gulp.series('build:image'));
+    watch(configuration.path.watch.script, gulp.series('build:script'));
+    watch(configuration.path.watch.style, function () {
+        setTimeout((gulp.series('build:style')), 50)
+    });
 });
 
 /* ------------------------------------------------------------
 // task | default
 // --------------------------------------------------------- */
 
-gulp.task('default', gulp.series('clean', gulp.parallel('build', 'server', 'watch')));
+gulp.task('default', gulp.series('clean', gulp.parallel(
+    'build',
+    'server',
+    'watch'
+)));
