@@ -225,7 +225,7 @@ var configuration = {
 
 gulp.task('build:font', function () {
     return gulp
-        .src(configuration.path.input.font, {read: false})
+        .src(configuration.path.input.font)
         .pipe(newer(configuration.path.output.font))
         .pipe(gulp.dest(configuration.path.output.font))
         .pipe(gulpIf(isDev, browserSync.stream()));
