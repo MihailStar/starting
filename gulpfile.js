@@ -23,7 +23,7 @@ var autoprefixer = require('gulp-autoprefixer'),
     vinylBuffer = require('vinyl-buffer'),
     watch = require('gulp-watch');
 
-var isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'dev';
+var isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 var configuration = {
 
@@ -228,7 +228,7 @@ gulp.task('build:font', function () {
         .src(configuration.path.input.font)
         .pipe(newer(configuration.path.output.font))
         .pipe(gulp.dest(configuration.path.output.font))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -241,7 +241,7 @@ gulp.task('build:html', function () {
         .pipe(rigger())
         .pipe(htmlmin(configuration.htmlmin))
         .pipe(gulp.dest(configuration.path.output.html))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -254,7 +254,7 @@ gulp.task('build:image', function () {
         .pipe(newer(configuration.path.output.image))
         .pipe(imagemin(configuration.imagemin))
         .pipe(gulp.dest(configuration.path.output.image))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -264,12 +264,12 @@ gulp.task('build:image', function () {
 gulp.task('build:script', function () {
     return gulp
         .src(configuration.path.input.script.main)
-        .pipe(gulpIf(isDev, sourcemaps.init(configuration.sourcemaps.input)))
+        .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
         .pipe(concat(configuration.concat.script.main))
         .pipe(uglify())
-        .pipe(gulpIf(isDev, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
+        .pipe(gulpIf(isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
         .pipe(gulp.dest(configuration.path.output.script.main))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -282,7 +282,7 @@ gulp.task('build:script:lib', function () {
         .pipe(concat(configuration.concat.script.lib))
         .pipe(uglify())
         .pipe(gulp.dest(configuration.path.output.script.lib))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -333,14 +333,14 @@ gulp.task('build:sprite:vector', function () {
 gulp.task('build:style', function () {
     return gulp
         .src(configuration.path.input.style)
-        .pipe(gulpIf(isDev, sourcemaps.init(configuration.sourcemaps.input)))
+        .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
         .pipe(sass(configuration.sass).on('error', sass.logError))
         .pipe(autoprefixer(configuration.autoprefixer))
-        .pipe(gulpIf(!isDev, csso()))
+        .pipe(gulpIf(!isDevelopment, csso()))
         .pipe(rename(configuration.rename.style))
-        .pipe(gulpIf(isDev, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.style)))
+        .pipe(gulpIf(isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.style)))
         .pipe(gulp.dest(configuration.path.output.style))
-        .pipe(gulpIf(isDev, browserSync.stream()));
+        .pipe(gulpIf(isDevelopment, browserSync.stream()));
 });
 
 /* ------------------------------------------------------------
@@ -391,8 +391,7 @@ gulp.task('watch', function () {
 // task | default
 // --------------------------------------------------------- */
 
-gulp.task('default', gulp.series('clean', gulp.parallel(
-    'build',
+gulp.task('default', gulp.series('clean', 'build', gulp.parallel(
     'server',
     'watch'
 )));
