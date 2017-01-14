@@ -220,10 +220,10 @@ var configuration = {
 };
 
 /* ------------------------------------------------------------
-// task | build:font
+// task | font
 // --------------------------------------------------------- */
 
-gulp.task('build:font', function () {
+gulp.task('font', function () {
     return gulp
         .src(configuration.path.input.font)
         .pipe(newer(configuration.path.output.font))
@@ -232,10 +232,10 @@ gulp.task('build:font', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:html
+// task | html
 // --------------------------------------------------------- */
 
-gulp.task('build:html', function () {
+gulp.task('html', function () {
     return gulp
         .src(configuration.path.input.html)
         .pipe(rigger())
@@ -245,10 +245,10 @@ gulp.task('build:html', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:image
+// task | image
 // --------------------------------------------------------- */
 
-gulp.task('build:image', function () {
+gulp.task('image', function () {
     return gulp
         .src(configuration.path.input.image)
         .pipe(newer(configuration.path.output.image))
@@ -258,10 +258,10 @@ gulp.task('build:image', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:script
+// task | script
 // --------------------------------------------------------- */
 
-gulp.task('build:script', function () {
+gulp.task('script', function () {
     return gulp
         .src(configuration.path.input.script.main)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
@@ -273,10 +273,10 @@ gulp.task('build:script', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:script:lib
+// task | script:lib
 // --------------------------------------------------------- */
 
-gulp.task('build:script:lib', function () {
+gulp.task('script:lib', function () {
     return gulp
         .src(configuration.path.input.script.lib)
         .pipe(concat(configuration.concat.script.lib))
@@ -286,10 +286,10 @@ gulp.task('build:script:lib', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:sprite:raster
+// task | sprite:raster
 // --------------------------------------------------------- */
 
-gulp.task('build:sprite:raster', function () {
+gulp.task('sprite:raster', function () {
     var imageStream,
         styleStream,
         spriteData;
@@ -306,10 +306,10 @@ gulp.task('build:sprite:raster', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:sprite:vector
+// task | sprite:vector
 // --------------------------------------------------------- */
 
-gulp.task('build:sprite:vector', function () {
+gulp.task('sprite:vector', function () {
     var spriteData;
     spriteData = gulp
         .src(configuration.path.input.sprite.vector)
@@ -327,10 +327,10 @@ gulp.task('build:sprite:vector', function () {
 });
 
 /* ------------------------------------------------------------
-// task | build:style
+// task | style
 // --------------------------------------------------------- */
 
-gulp.task('build:style', function () {
+gulp.task('style', function () {
     return gulp
         .src(configuration.path.input.style)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
@@ -347,14 +347,14 @@ gulp.task('build:style', function () {
 // task | build
 // --------------------------------------------------------- */
 
-gulp.task('build', gulp.series('build:sprite:vector', gulp.parallel(
-    'build:font',
-    'build:html',
-    'build:image',
-    'build:sprite:raster',
-    'build:script',
-    'build:script:lib',
-    'build:style'
+gulp.task('build', gulp.series('sprite:vector', gulp.parallel(
+    'font',
+    'html',
+    'image',
+    'sprite:raster',
+    'script',
+    'script:lib',
+    'style'
 )));
 
 /* ------------------------------------------------------------
@@ -378,12 +378,12 @@ gulp.task('server', function () {
 // --------------------------------------------------------- */
 
 gulp.task('watch', function () {
-    watch(configuration.path.watch.font, gulp.series('build:font'));
-    watch(configuration.path.watch.html, gulp.series('build:html'));
-    watch(configuration.path.watch.image, gulp.series('build:image'));
-    watch(configuration.path.watch.script, gulp.series('build:script'));
+    watch(configuration.path.watch.font, gulp.series('font'));
+    watch(configuration.path.watch.html, gulp.series('html'));
+    watch(configuration.path.watch.image, gulp.series('image'));
+    watch(configuration.path.watch.script, gulp.series('script'));
     watch(configuration.path.watch.style, function () {
-        setTimeout((gulp.series('build:style')), 50)
+        setTimeout((gulp.series('style')), 50)
     });
 });
 
