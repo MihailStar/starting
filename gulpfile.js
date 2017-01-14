@@ -136,7 +136,7 @@ var configuration = {
             sprite: {
                 raster: 'dist/image/sprite',
                 style: 'src/style/sprite',
-                vector: 'src'
+                vector: 'src/template'
             },
             style: 'dist/style'
         },
@@ -319,7 +319,7 @@ gulp.task('build:sprite:vector', function () {
         return file.contents.toString();
     }
     return gulp
-        .src(configuration.path.input.html)
+        .src(configuration.path.output.sprite.vector + '/sprite.html')
         .pipe(inject(spriteData, {
             transform: fileContents
         }))
