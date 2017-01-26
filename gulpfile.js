@@ -163,6 +163,9 @@ var configuration = {
 // --------------------------------------------------------- */
 
     rename: {
+        sprite: {
+            prefix: 'icon-'
+        },
         style: {
             basename: 'main',
             suffix: '.min',
@@ -316,6 +319,7 @@ gulp.task('sprite:vector', function () {
     var spriteData;
     spriteData = gulp
         .src(configuration.path.input.sprite.vector)
+        .pipe(rename(configuration.rename.sprite))
         .pipe(imagemin(configuration.imagemin))
         .pipe(svgstore(configuration.svgstore));
     function fileContents(filePath, file) {
