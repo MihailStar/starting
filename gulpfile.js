@@ -322,7 +322,7 @@ gulp.task('sprite:vector', function () {
         return file.contents.toString();
     }
     return gulp
-        .src(configuration.path.output.sprite.vector + '/sprite.html')
+        .src(configuration.path.output.sprite.vector + '/_sprite.html')
         .pipe(inject(spriteData, {
             transform: fileContents
         }))
