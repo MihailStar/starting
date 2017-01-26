@@ -383,7 +383,7 @@ gulp.task('watch', function () {
     watch(configuration.path.watch.image, gulp.series('image'));
     watch(configuration.path.watch.script, gulp.series('script'));
     watch(configuration.path.watch.style, function () {
-        setTimeout((gulp.series('style')), 50)
+        setTimeout((gulp.series('style')), 100)
     });
 });
 
