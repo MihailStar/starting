@@ -209,6 +209,7 @@ var configuration = {
 
     spritesmith: {
         cssName: 'sprite.css',
+        // cssName: 'sprite.scss',
         imgName: 'sprite.png',
         // padding: 2,
         // retinaImgName: 'sprite@2x.png',
