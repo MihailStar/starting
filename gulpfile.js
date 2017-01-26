@@ -147,10 +147,13 @@ var configuration = {
                 'src/image/**/*.*',
                 '!src/image/sprite/**/*.*'
             ],
-            script: [
-                'src/script/**/*.js',
-                '!src/script/lib/**/*.js'
-            ],
+            script: {
+                lib: 'src/script/lib/**/*.js',
+                main: [
+                    'src/script/**/*.js',
+                    '!src/script/lib/**/*.js'
+                ]
+            },
             style: 'src/style/**/*.scss'
         }
     },
@@ -381,7 +384,8 @@ gulp.task('watch', function () {
     watch(configuration.path.watch.font, gulp.series('font'));
     watch(configuration.path.watch.html, gulp.series('html'));
     watch(configuration.path.watch.image, gulp.series('image'));
-    watch(configuration.path.watch.script, gulp.series('script'));
+    watch(configuration.path.watch.script.main, gulp.series('script'));
+    watch(configuration.path.watch.script.lib, gulp.series('script:lib'));
     watch(configuration.path.watch.style, function () {
         setTimeout((gulp.series('style')), 100)
     });
