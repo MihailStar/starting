@@ -1,6 +1,6 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer'),
+const autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     concat = require('gulp-concat'),
     csso = require('gulp-csso'),
@@ -23,9 +23,9 @@ var autoprefixer = require('gulp-autoprefixer'),
     vinylBuffer = require('vinyl-buffer'),
     watch = require('gulp-watch');
 
-var isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-var configuration = {
+const configuration = {
 
 /* -----------------------------------------------------------
 // configuration | autoprefixer
@@ -230,7 +230,7 @@ var configuration = {
 // task | font
 // --------------------------------------------------------- */
 
-gulp.task('font', function () {
+gulp.task('font', () => {
     return gulp
         .src(configuration.path.input.font)
         .pipe(newer(configuration.path.output.font))
@@ -242,7 +242,7 @@ gulp.task('font', function () {
 // task | html
 // --------------------------------------------------------- */
 
-gulp.task('html', function () {
+gulp.task('html', () => {
     return gulp
         .src(configuration.path.input.html)
         .pipe(rigger())
@@ -255,7 +255,7 @@ gulp.task('html', function () {
 // task | image
 // --------------------------------------------------------- */
 
-gulp.task('image', function () {
+gulp.task('image', () => {
     return gulp
         .src(configuration.path.input.image)
         .pipe(newer(configuration.path.output.image))
@@ -268,7 +268,7 @@ gulp.task('image', function () {
 // task | script
 // --------------------------------------------------------- */
 
-gulp.task('script', function () {
+gulp.task('script', () => {
     return gulp
         .src(configuration.path.input.script.main)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
@@ -283,7 +283,7 @@ gulp.task('script', function () {
 // task | script:lib
 // --------------------------------------------------------- */
 
-gulp.task('script:lib', function () {
+gulp.task('script:lib', () => {
     return gulp
         .src(configuration.path.input.script.lib)
         .pipe(concat(configuration.concat.script.lib))
@@ -296,8 +296,8 @@ gulp.task('script:lib', function () {
 // task | sprite:raster
 // --------------------------------------------------------- */
 
-gulp.task('sprite:raster', function () {
-    var imageStream,
+gulp.task('sprite:raster', () => {
+    let imageStream,
         styleStream,
         spriteData;
     spriteData = gulp
@@ -316,8 +316,8 @@ gulp.task('sprite:raster', function () {
 // task | sprite:vector
 // --------------------------------------------------------- */
 
-gulp.task('sprite:vector', function () {
-    var spriteData;
+gulp.task('sprite:vector', () => {
+    let spriteData;
     spriteData = gulp
         .src(configuration.path.input.sprite.vector)
         .pipe(rename(configuration.rename.sprite))
@@ -338,7 +338,7 @@ gulp.task('sprite:vector', function () {
 // task | style
 // --------------------------------------------------------- */
 
-gulp.task('style', function () {
+gulp.task('style', () => {
     return gulp
         .src(configuration.path.input.style)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
@@ -369,7 +369,7 @@ gulp.task('build', gulp.series('sprite:vector', gulp.parallel(
 // task | clean
 // --------------------------------------------------------- */
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
     return del(configuration.path.clean);
 });
 
@@ -377,7 +377,7 @@ gulp.task('clean', function () {
 // task | server
 // --------------------------------------------------------- */
 
-gulp.task('server', function () {
+gulp.task('server', () => {
     browserSync.init(configuration.browserSync);
 });
 
@@ -385,13 +385,13 @@ gulp.task('server', function () {
 // task | watch
 // --------------------------------------------------------- */
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
     watch(configuration.path.watch.font, gulp.series('font'));
     watch(configuration.path.watch.html, gulp.series('html'));
     watch(configuration.path.watch.image, gulp.series('image'));
     watch(configuration.path.watch.script.main, gulp.series('script'));
     watch(configuration.path.watch.script.lib, gulp.series('script:lib'));
-    watch(configuration.path.watch.style, function () {
+    watch(configuration.path.watch.style, () => {
         setTimeout((gulp.series('style')), 100)
     });
 });
