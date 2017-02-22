@@ -34,9 +34,7 @@ const configuration = {
     autoprefixer: {
         browsers: [
             '> 1%',
-            'ie 10',
-            'ie 11',
-            'last 3 versions'
+            'last 7 versions'
         ],
         cascade: false
     },
