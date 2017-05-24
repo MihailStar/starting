@@ -3,38 +3,44 @@
 // --------------------------------------------------------- */
 
 @mixin centering($coordinate: xy, $width: null, $height: null) {
-    @if ($coordinate == x and $width == null) {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    } @else if ($coordinate == x and $width != null) {
-        position: absolute;
-        left: 50%;
-        margin-right: 0;
-        margin-left: -$width / 2;
-        width: $width;
-    } @else if ($coordinate == y and $width == null) {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    } @else if ($coordinate == y and $width != null) {
-        position: absolute;
-        top: 50%;
-        margin-top: -$width / 2;
-        margin-bottom: 0;
-        height: $width;
-    } @else if ($coordinate == xy and $width == null) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } @else if ($coordinate == xy and $width != null and $height != null) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: (-$height / 2) 0 0 (-$width / 2);
-        width: $width;
-        height: $height;
+    @if ($coordinate == xy) {
+        @if ($width == null) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } @else if ($width != null and $height != null) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: (-$height / 2) 0 0 (-$width / 2);
+            width: $width;
+            height: $height;
+        }
+    } @else if ($coordinate == x) {
+        @if ($width == null) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        } @else if ($width != null) {
+            position: absolute;
+            left: 50%;
+            margin-right: 0;
+            margin-left: -$width / 2;
+            width: $width;
+        }
+    } @else if ($coordinate == y) {
+        @if ($width == null) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        } @else if ($width != null) {
+            position: absolute;
+            top: 50%;
+            margin-top: -$width / 2;
+            margin-bottom: 0;
+            height: $width;
+        }
     }
 }
 
