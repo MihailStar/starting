@@ -220,6 +220,16 @@ const configuration = {
 
     svgstore: {
         inlineSvg: true
+    },
+
+/* ------------------------------------------------------------
+// configuration | uglify
+// --------------------------------------------------------- */
+
+    uglify: {
+        output: {
+            quote_style: 3
+        }
     }
 
 };
@@ -271,7 +281,7 @@ gulp.task('script', () => {
         .src(configuration.path.input.script.main)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
         .pipe(concat(configuration.concat.script.main))
-        .pipe(uglify())
+        .pipe(uglify(configuration.uglify))
         .pipe(gulpIf(isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
         .pipe(gulp.dest(configuration.path.output.script.main))
         .pipe(gulpIf(isDevelopment, browserSync.stream()));
