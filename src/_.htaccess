@@ -1,0 +1,5 @@
+ErrorDocument 404 /404/
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
