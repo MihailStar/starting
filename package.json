@@ -32,8 +32,7 @@
   "name": "gulp",
   "scripts": {
     "build": "set NODE_ENV=production && npm run gulp clean && npm run gulp build",
-    "gulp": "gulp",
-    "start": "gulp"
+    "gulp": "gulp"
   },
   "version": ""
 }
