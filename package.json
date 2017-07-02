@@ -3,10 +3,12 @@
     "dependencies": {},
     "description": "",
     "devDependencies": {
+        "babel-preset-env": "^1.5.2",
         "browser-sync": "^2.18.12",
         "del": "^3.0.0",
         "gulp": "github:gulpjs/gulp#4.0",
         "gulp-autoprefixer": "^4.0.0",
+        "gulp-babel": "^6.1.2",
         "gulp-concat": "^2.6.1",
         "gulp-csso": "^3.0.0",
         "gulp-htmlmin": "^3.0.0",

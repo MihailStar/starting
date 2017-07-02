@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
     browserSync = require('browser-sync').create(),
     concat = require('gulp-concat'),
     csso = require('gulp-csso'),
@@ -37,6 +38,14 @@ const configuration = {
             'last 7 versions'
         ],
         cascade: false
+    },
+
+/* -----------------------------------------------------------
+// configuration | babel
+// --------------------------------------------------------- */
+
+    babel: {
+        presets: ['env']
     },
 
 /* -----------------------------------------------------------
@@ -280,6 +289,7 @@ gulp.task('script', () => {
     return gulp
         .src(configuration.path.input.script.main)
         .pipe(gulpIf(isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
+        .pipe(babel(configuration.babel))
         .pipe(concat(configuration.concat.script.main))
         .pipe(uglify(configuration.uglify))
         .pipe(gulpIf(isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
