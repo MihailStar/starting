@@ -1,10 +1,15 @@
 {
     "author": "",
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
     "dependencies": {},
     "description": "",
     "devDependencies": {
         "babel-preset-env": "^1.5.2",
         "browser-sync": "^2.18.12",
+        "browserslist": "^2.1.5",
         "del": "^3.0.0",
         "gulp": "github:gulpjs/gulp#4.0",
         "gulp-autoprefixer": "^4.0.0",

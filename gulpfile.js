@@ -33,10 +33,6 @@ const configuration = {
 // --------------------------------------------------------- */
 
     autoprefixer: {
-        browsers: [
-            '> 1%',
-            'last 2 versions'
-        ],
         cascade: false
     },
 
@@ -45,16 +41,7 @@ const configuration = {
 // --------------------------------------------------------- */
 
     babel: {
-        presets: [
-            ['env', {
-                targets: {
-                    browsers: [
-                        '> 1%',
-                        'last 2 versions'
-                    ]
-                }
-            }]
-        ]
+        presets: ['env']
     },
 
 /* -----------------------------------------------------------
