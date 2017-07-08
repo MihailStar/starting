@@ -217,12 +217,12 @@ const configuration = {
             script: {
                 includeContent: false,
                 sourceMappingURLPrefix: 'http://localhost:3000/script',
-                sourceRoot: `/${root.output}/script`
+                sourceRoot: `/${root.input}/script`
             },
             style: {
                 includeContent: false,
                 sourceMappingURLPrefix: 'http://localhost:3000/style',
-                sourceRoot: `/${root.output}/style`
+                sourceRoot: `/${root.input}/style`
             }
         }
     },
