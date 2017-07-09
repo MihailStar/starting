@@ -155,7 +155,6 @@ const configuration = {
             },
             sprite: {
                 raster: `${root.output}/image/sprite`,
-                style: `${root.input}/style/sprite`,
                 vector: `${root.input}/template`
             },
             style: `${root.output}/style`
@@ -352,7 +351,7 @@ gulp.task('sprite:raster', () => {
         .pipe(imagemin(configuration.imagemin))
         .pipe(gulp.dest(configuration.path.output.sprite.raster));
     styleStream = spriteData.css
-        .pipe(gulp.dest(configuration.path.output.sprite.style));
+        .pipe(gulpIf(configuration.isDevelopment, gulp.dest(configuration.path.output.sprite.raster)));
     return mergeStream(imageStream, styleStream);
 });
 
