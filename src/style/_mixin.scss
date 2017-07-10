@@ -20,8 +20,7 @@
             left: 50%;
             margin: (-$height / 2) 0 0 (-$width / 2);
         }
-    }
-    @else if ($coordinate == x) {
+    } @else if ($coordinate == x) {
         @if ($width == null) {
             position: absolute;
             left: 50%;
@@ -32,8 +31,7 @@
             margin-right: 0;
             margin-left: -$width / 2;
         }
-    }
-    @else if ($coordinate == y) {
+    } @else if ($coordinate == y) {
         @if ($width == null) {
             position: absolute;
             top: 50%;
