@@ -4,34 +4,41 @@
 
 @mixin centering($coordinate: xy, $width: null, $height: null) {
     @if ($coordinate == xy) {
-        @if ($width == null) {
+        @if ($width == null and $height == null) {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-        } @else if ($width != null and $height != null) {
+        } @else if ($width != null and $height == null) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: (-$width / 2) 0 0 (-$width / 2);
+        } @else {
             position: absolute;
             top: 50%;
             left: 50%;
             margin: (-$height / 2) 0 0 (-$width / 2);
         }
-    } @else if ($coordinate == x) {
+    }
+    @else if ($coordinate == x) {
         @if ($width == null) {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-        } @else if ($width != null) {
+        } @else {
             position: absolute;
             left: 50%;
             margin-right: 0;
             margin-left: -$width / 2;
         }
-    } @else if ($coordinate == y) {
+    }
+    @else if ($coordinate == y) {
         @if ($width == null) {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-        } @else if ($width != null) {
+        } @else {
             position: absolute;
             top: 50%;
             margin-top: -$width / 2;
@@ -48,8 +55,12 @@
     }
 }
 
-@mixin letter-spacing($ps-unit) {
-    letter-spacing: $ps-unit / 1000 + em;
+@mixin letter-spacing($ps-unit: auto) {
+    @if ($ps-unit == auto) {
+        letter-spacing: 1.4;
+    } @else {
+        letter-spacing: $ps-unit / 1000 + em;
+    }
 }
 
 @mixin outline-none() {
@@ -61,7 +72,6 @@
 }
 
 @mixin text-hide() {
-    border: 0;
     background-color: transparent;
     color: transparent;
     text-shadow: none;
