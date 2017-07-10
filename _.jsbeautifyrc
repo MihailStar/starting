@@ -1,0 +1,14 @@
+{
+    "html": {
+        "extra_liners": [
+            "html",
+            "head",
+            "body",
+            "/html"
+        ],
+        "indent_inner_html": true
+    },
+    "css": {
+        "space_around_combinator": true
+    }
+}
