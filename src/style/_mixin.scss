@@ -58,7 +58,7 @@
 }
 
 @mixin outline-none() {
-    a:active,
+    &:active,
     &:focus,
     &:hover {
         outline: none;
