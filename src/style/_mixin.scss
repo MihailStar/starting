@@ -53,12 +53,8 @@
     }
 }
 
-@mixin letter-spacing($ps-unit: auto) {
-    @if ($ps-unit == auto) {
-        letter-spacing: 1.4;
-    } @else {
-        letter-spacing: $ps-unit / 1000 + em;
-    }
+@mixin letter-spacing($ps-unit) {
+    letter-spacing: $ps-unit / 1000 + em;
 }
 
 @mixin outline-none() {
