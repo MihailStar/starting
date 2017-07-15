@@ -58,7 +58,6 @@
 }
 
 @mixin outline-none() {
-    &:active,
     &:focus,
     &:hover {
         outline: none;
@@ -66,13 +65,14 @@
 }
 
 @mixin text-hide() {
+    border: 0;
     background-color: transparent;
     color: transparent;
     text-shadow: none;
     font: 0/0 a;
 }
 
-@mixin text-overflow() {
+@mixin text-truncate() {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
