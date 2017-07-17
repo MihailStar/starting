@@ -1,7 +1,3 @@
-/* -----------------------------------------------------------
-// _mixin.scss
-// --------------------------------------------------------- */
-
 @mixin centering($coordinate: xy, $width: null, $height: null) {
     @if ($coordinate == xy) {
         @if ($width == null and $height == null) {
