@@ -38,7 +38,7 @@
     "homepage": "",
     "license": "",
     "main": "",
-    "name": "gulp-starting",
+    "name": "starting",
     "scripts": {
         "build": "set NODE_ENV=production && npm run gulp clean && npm run gulp build",
         "gulp": "gulp"
