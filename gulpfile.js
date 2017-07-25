@@ -14,6 +14,7 @@ const autoprefixer = require('autoprefixer'),
     mergeStream = require('merge-stream'),
     mqpacker = require('css-mqpacker'),
     newer = require('gulp-newer'),
+    path = require('./gulp/path'),
     pngquant = require('imagemin-pngquant'),
     postcss = require('gulp-postcss'),
     rename = require('gulp-rename'),
@@ -25,11 +26,6 @@ const autoprefixer = require('autoprefixer'),
     uglify = require('gulp-uglify'),
     vinylBuffer = require('vinyl-buffer'),
     watch = require('gulp-watch');
-
-const root = {
-    input: 'src',
-    output: 'dist'
-};
 
 const configuration = {
 
@@ -55,10 +51,10 @@ const configuration = {
         reloadDelay: 300,
         reloadOnRestart: true,
         server: {
-            baseDir: root.output,
+            baseDir: path.root.output,
             routes: {
                 '/bower_components': 'bower_components',
-                '/src': 'src'
+                '/src': path.root.input
             }
         },
         tunnel: false,
@@ -119,69 +115,6 @@ const configuration = {
     ],
 
 /* -----------------------------------------------------------
-// configuration | path
-// --------------------------------------------------------- */
-
-    path: {
-        clean: root.output,
-        input: {
-            font: `${root.input}/font/**/*.*`,
-            html: `${root.input}/*.html`,
-            image: [
-                `${root.input}/image/**/*.*`,
-                `!${root.input}/image/sprite/**/*.*`
-            ],
-            script: {
-                lib: `${root.input}/script/lib/**/*.js`,
-                main: [
-                    `${root.input}/script/**/*.js`,
-                    `!${root.input}/script/lib/**/*.js`
-                ]
-            },
-            sprite: {
-                raster: `${root.input}/image/sprite/*.png`,
-                vector: `${root.input}/image/sprite/*.svg`
-            },
-            style: `${root.input}/style/main.scss`
-        },
-        output: {
-            font: `${root.output}/font`,
-            html: `${root.output}`,
-            image: `${root.output}/image`,
-            map: '.',
-            script: {
-                lib: `${root.output}/script`,
-                main: `${root.output}/script`
-            },
-            sprite: {
-                raster: `${root.output}/image/sprite`,
-                vector: `${root.input}/template`
-            },
-            style: `${root.output}/style`
-        },
-        watch: {
-            font: `${root.input}/font/**/*.*`,
-            html: `${root.input}/**/*.html`,
-            image: [
-                `${root.input}/image/**/*.*`,
-                `!${root.input}/image/sprite/**/*.*`
-            ],
-            script: {
-                lib: `${root.input}/script/lib/**/*.js`,
-                main: [
-                    `${root.input}/script/**/*.js`,
-                    `!${root.input}/script/lib/**/*.js`
-                ]
-            },
-            sprite: {
-                raster: `${root.input}/image/sprite/*.png`,
-                vector: `${root.input}/image/sprite/*.svg`
-            },
-            style: `${root.input}/style/**/*.scss`
-        }
-    },
-
-/* -----------------------------------------------------------
 // configuration | rename
 // --------------------------------------------------------- */
 
@@ -216,12 +149,12 @@ const configuration = {
             script: {
                 includeContent: false,
                 sourceMappingURLPrefix: 'http://localhost:3000/script',
-                sourceRoot: `/${root.input}/script`
+                sourceRoot: `/${path.root.input}/script`
             },
             style: {
                 includeContent: false,
                 sourceMappingURLPrefix: 'http://localhost:3000/style',
-                sourceRoot: `/${root.input}/style`
+                sourceRoot: `/${path.root.input}/style`
             }
         }
     },
@@ -265,7 +198,7 @@ const configuration = {
 // --------------------------------------------------------- */
 
 gulp.task('clean', () => {
-    return del(configuration.path.clean);
+    return del(path.clean);
 });
 
 /* ------------------------------------------------------------
@@ -274,9 +207,9 @@ gulp.task('clean', () => {
 
 gulp.task('font', () => {
     return gulp
-        .src(configuration.path.input.font)
-        .pipe(newer(configuration.path.output.font))
-        .pipe(gulp.dest(configuration.path.output.font))
+        .src(path.input.font)
+        .pipe(newer(path.output.font))
+        .pipe(gulp.dest(path.output.font))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -286,10 +219,10 @@ gulp.task('font', () => {
 
 gulp.task('html', () => {
     return gulp
-        .src(configuration.path.input.html)
+        .src(path.input.html)
         .pipe(rigger())
         .pipe(htmlmin(configuration.htmlmin))
-        .pipe(gulp.dest(configuration.path.output.html))
+        .pipe(gulp.dest(path.output.html))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -299,10 +232,10 @@ gulp.task('html', () => {
 
 gulp.task('image', () => {
     return gulp
-        .src(configuration.path.input.image)
-        .pipe(newer(configuration.path.output.image))
+        .src(path.input.image)
+        .pipe(newer(path.output.image))
         .pipe(imagemin(configuration.imagemin))
-        .pipe(gulp.dest(configuration.path.output.image))
+        .pipe(gulp.dest(path.output.image))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -312,13 +245,13 @@ gulp.task('image', () => {
 
 gulp.task('script:main', () => {
     return gulp
-        .src(configuration.path.input.script.main)
+        .src(path.input.script.main)
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
         .pipe(babel(configuration.babel))
         .pipe(concat(configuration.concat.script.main))
         .pipe(uglify(configuration.uglify))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.script)))
-        .pipe(gulp.dest(configuration.path.output.script.main))
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(path.output.map, configuration.sourcemaps.output.script)))
+        .pipe(gulp.dest(path.output.script.main))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -328,10 +261,10 @@ gulp.task('script:main', () => {
 
 gulp.task('script:lib', () => {
     return gulp
-        .src(configuration.path.input.script.lib)
+        .src(path.input.script.lib)
         .pipe(concat(configuration.concat.script.lib))
         .pipe(uglify(configuration.uglify))
-        .pipe(gulp.dest(configuration.path.output.script.lib))
+        .pipe(gulp.dest(path.output.script.lib))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -344,14 +277,14 @@ gulp.task('sprite:raster', () => {
         styleStream,
         spriteData;
     spriteData = gulp
-        .src(configuration.path.input.sprite.raster)
+        .src(path.input.sprite.raster)
         .pipe(spritesmith(configuration.spritesmith));
     imageStream = spriteData.img
         .pipe(vinylBuffer())
         .pipe(imagemin(configuration.imagemin))
-        .pipe(gulp.dest(configuration.path.output.sprite.raster));
+        .pipe(gulp.dest(path.output.sprite.raster));
     styleStream = spriteData.css
-        .pipe(gulpIf(configuration.isDevelopment, gulp.dest(configuration.path.output.sprite.raster)));
+        .pipe(gulpIf(configuration.isDevelopment, gulp.dest(path.output.sprite.raster)));
     return mergeStream(imageStream, styleStream);
 });
 
@@ -362,18 +295,18 @@ gulp.task('sprite:raster', () => {
 gulp.task('sprite:vector', () => {
     let spriteData;
     spriteData = gulp
-        .src(configuration.path.input.sprite.vector)
+        .src(path.input.sprite.vector)
         .pipe(rename(configuration.rename.sprite))
         .pipe(imagemin(configuration.imagemin))
         .pipe(svgstore(configuration.svgstore));
     return gulp
-        .src(`${configuration.path.output.sprite.vector}/_sprite.html`)
+        .src(`${path.output.sprite.vector}/_sprite.html`)
         .pipe(inject(spriteData, {
             transform: (filePath, file) => {
                 file.contents.toString();
             }
         }))
-        .pipe(gulp.dest(configuration.path.output.sprite.vector));
+        .pipe(gulp.dest(path.output.sprite.vector));
 });
 
 /* ------------------------------------------------------------
@@ -382,13 +315,13 @@ gulp.task('sprite:vector', () => {
 
 gulp.task('style', () => {
     return gulp
-        .src(configuration.path.input.style)
+        .src(path.input.style)
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init(configuration.sourcemaps.input)))
         .pipe(sass(configuration.sass).on('error', sass.logError))
         .pipe(postcss(configuration.postcss))
         .pipe(rename(configuration.rename.style))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, configuration.sourcemaps.output.style)))
-        .pipe(gulp.dest(configuration.path.output.style))
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(path.output.map, configuration.sourcemaps.output.style)))
+        .pipe(gulp.dest(path.output.style))
         .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
 });
 
@@ -419,14 +352,14 @@ gulp.task('server', () => {
 // --------------------------------------------------------- */
 
 gulp.task('watch', () => {
-    watch(configuration.path.watch.font, gulp.series('font'));
-    watch(configuration.path.watch.html, gulp.series('html'));
-    watch(configuration.path.watch.image, gulp.series('image'));
-    watch(configuration.path.watch.script.main, gulp.series('script:main'));
-    watch(configuration.path.watch.script.lib, gulp.series('script:lib'));
-    watch(configuration.path.watch.sprite.raster, gulp.series('sprite:raster'));
-    watch(configuration.path.watch.sprite.vector, gulp.series('sprite:vector'));
-    watch(configuration.path.watch.style, () => {
+    watch(path.watch.font, gulp.series('font'));
+    watch(path.watch.html, gulp.series('html'));
+    watch(path.watch.image, gulp.series('image'));
+    watch(path.watch.script.main, gulp.series('script:main'));
+    watch(path.watch.script.lib, gulp.series('script:lib'));
+    watch(path.watch.sprite.raster, gulp.series('sprite:raster'));
+    watch(path.watch.sprite.vector, gulp.series('sprite:vector'));
+    watch(path.watch.style, () => {
         setTimeout((gulp.series('style')), 100);
     });
 });
