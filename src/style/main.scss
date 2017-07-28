@@ -1,5 +1,5 @@
-@import '_variable';
-@import '_mixin';
+@import 'variable';
+@import 'mixin';
 
 * {
     box-sizing: border-box;
@@ -20,5 +20,5 @@ textarea {
     line-height: inherit;
 }
 
-@import '_typography';
-@import '_app';
+@import 'typography';
+@import 'app';
