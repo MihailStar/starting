@@ -170,7 +170,7 @@ const configuration = {
         imgName: 'sprite.png',
         // padding: 4,
         // retinaImgName: 'sprite@2x.png',
-        // retinaSrcFilter: `${root.input}/image/sprite/*@2x.png`
+        // retinaSrcFilter: `${path.root.input}/image/sprite/*@2x.png`
     },
 
 /* ------------------------------------------------------------
@@ -197,8 +197,9 @@ const configuration = {
 // task | clean
 // --------------------------------------------------------- */
 
-gulp.task('clean', () => {
-    return del(path.clean);
+gulp.task('clean', (done) => {
+    del(path.clean);
+    done();
 });
 
 /* ------------------------------------------------------------
@@ -209,8 +210,7 @@ gulp.task('font', () => {
     return gulp
         .src(path.input.font)
         .pipe(newer(path.output.font))
-        .pipe(gulp.dest(path.output.font))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
+        .pipe(gulp.dest(path.output.font));
 });
 
 /* ------------------------------------------------------------
@@ -222,8 +222,7 @@ gulp.task('html', () => {
         .src(path.input.html)
         .pipe(rigger())
         .pipe(htmlmin(configuration.htmlmin))
-        .pipe(gulp.dest(path.output.html))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
+        .pipe(gulp.dest(path.output.html));
 });
 
 /* ------------------------------------------------------------
@@ -235,8 +234,19 @@ gulp.task('image', () => {
         .src(path.input.image)
         .pipe(newer(path.output.image))
         .pipe(imagemin(configuration.imagemin))
-        .pipe(gulp.dest(path.output.image))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
+        .pipe(gulp.dest(path.output.image));
+});
+
+/* ------------------------------------------------------------
+// task | script:lib
+// --------------------------------------------------------- */
+
+gulp.task('script:lib', () => {
+    return gulp
+        .src(path.input.script.lib)
+        .pipe(concat(configuration.concat.script.lib))
+        .pipe(uglify(configuration.uglify))
+        .pipe(gulp.dest(path.output.script.lib));
 });
 
 /* ------------------------------------------------------------
@@ -251,21 +261,34 @@ gulp.task('script:main', () => {
         .pipe(concat(configuration.concat.script.main))
         .pipe(uglify(configuration.uglify))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(path.output.map, configuration.sourcemaps.output.script)))
-        .pipe(gulp.dest(path.output.script.main))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
+        .pipe(gulp.dest(path.output.script.main));
 });
 
 /* ------------------------------------------------------------
-// task | script:lib
+// task | server
 // --------------------------------------------------------- */
 
-gulp.task('script:lib', () => {
-    return gulp
-        .src(path.input.script.lib)
-        .pipe(concat(configuration.concat.script.lib))
-        .pipe(uglify(configuration.uglify))
-        .pipe(gulp.dest(path.output.script.lib))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
+gulp.task('server', (done) => {
+    browserSync.init(configuration.browserSync);
+    done();
+});
+
+/* ------------------------------------------------------------
+// task | server:reload
+// --------------------------------------------------------- */
+
+gulp.task('server:reload', (done) => {
+    browserSync.reload();
+    done();
+});
+
+/* ------------------------------------------------------------
+// task | server:stream
+// --------------------------------------------------------- */
+
+gulp.task('server:stream', (done) => {
+    browserSync.stream();
+    done();
 });
 
 /* ------------------------------------------------------------
@@ -321,8 +344,24 @@ gulp.task('style', () => {
         .pipe(postcss(configuration.postcss))
         .pipe(rename(configuration.rename.style))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(path.output.map, configuration.sourcemaps.output.style)))
-        .pipe(gulp.dest(path.output.style))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulp.dest(path.output.style));
+});
+
+/* ------------------------------------------------------------
+// task | watch
+// --------------------------------------------------------- */
+
+gulp.task('watch', () => {
+    watch(path.watch.font, gulp.series('font', 'server:reload'));
+    watch(path.watch.html, gulp.series('html', 'server:reload'));
+    watch(path.watch.image, gulp.series('image', 'server:reload'));
+    watch(path.watch.script.main, gulp.series('script:main', 'server:reload'));
+    watch(path.watch.script.lib, gulp.series('script:lib', 'server:reload'));
+    watch(path.watch.sprite.raster, gulp.series('sprite:raster', 'server:reload'));
+    watch(path.watch.sprite.vector, gulp.series('sprite:vector', 'server:reload'));
+    watch(path.watch.style, () => {
+        setTimeout((gulp.series('style', 'server:stream')), 100);
+    });
 });
 
 /* ------------------------------------------------------------
@@ -333,36 +372,11 @@ gulp.task('build', gulp.series('sprite:vector', gulp.parallel(
     'font',
     'html',
     'image',
-    'script:main',
     'script:lib',
+    'script:main',
     'sprite:raster',
     'style'
 )));
-
-/* ------------------------------------------------------------
-// task | server
-// --------------------------------------------------------- */
-
-gulp.task('server', () => {
-    browserSync.init(configuration.browserSync);
-});
-
-/* ------------------------------------------------------------
-// task | watch
-// --------------------------------------------------------- */
-
-gulp.task('watch', () => {
-    watch(path.watch.font, gulp.series('font'));
-    watch(path.watch.html, gulp.series('html'));
-    watch(path.watch.image, gulp.series('image'));
-    watch(path.watch.script.main, gulp.series('script:main'));
-    watch(path.watch.script.lib, gulp.series('script:lib'));
-    watch(path.watch.sprite.raster, gulp.series('sprite:raster'));
-    watch(path.watch.sprite.vector, gulp.series('sprite:vector'));
-    watch(path.watch.style, () => {
-        setTimeout((gulp.series('style')), 100);
-    });
-});
 
 /* ------------------------------------------------------------
 // task | default
