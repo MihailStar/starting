@@ -210,7 +210,7 @@ gulp.task('font', () => {
         .src(path.input.font)
         .pipe(newer(path.output.font))
         .pipe(gulp.dest(path.output.font))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
 });
 
 /* ------------------------------------------------------------
@@ -223,7 +223,7 @@ gulp.task('html', () => {
         .pipe(rigger())
         .pipe(htmlmin(configuration.htmlmin))
         .pipe(gulp.dest(path.output.html))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
 });
 
 /* ------------------------------------------------------------
@@ -236,7 +236,7 @@ gulp.task('image', () => {
         .pipe(newer(path.output.image))
         .pipe(imagemin(configuration.imagemin))
         .pipe(gulp.dest(path.output.image))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
 });
 
 /* ------------------------------------------------------------
@@ -252,7 +252,7 @@ gulp.task('script:main', () => {
         .pipe(uglify(configuration.uglify))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(path.output.map, configuration.sourcemaps.output.script)))
         .pipe(gulp.dest(path.output.script.main))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
 });
 
 /* ------------------------------------------------------------
@@ -265,7 +265,7 @@ gulp.task('script:lib', () => {
         .pipe(concat(configuration.concat.script.lib))
         .pipe(uglify(configuration.uglify))
         .pipe(gulp.dest(path.output.script.lib))
-        .pipe(gulpIf(configuration.isDevelopment, browserSync.stream()));
+        .pipe(gulpIf(configuration.isDevelopment, browserSync.reload()));
 });
 
 /* ------------------------------------------------------------
