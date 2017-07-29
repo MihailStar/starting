@@ -1,5 +1,3 @@
 'use strict';
 
-require('require-dir')('./gulp/task', {
-    recurse: true
-});
+require('require-dir')('./gulp/task');
