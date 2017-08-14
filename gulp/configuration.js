@@ -65,7 +65,7 @@ const path = {
     }
 };
 
-module.exports.isDevelopment = isDevelopment;
-module.exports.path = path;
-module.exports.port = port;
-module.exports.root = root;
+exports.isDevelopment = isDevelopment;
+exports.path = path;
+exports.port = port;
+exports.root = root;
