@@ -35,6 +35,7 @@
             "overflow-y",
             "-webkit-overflow-scrolling",
             "clip",
+            "clip-path",
             "-webkit-box-flex",
             "-webkit-flex",
             "-moz-box-flex",
