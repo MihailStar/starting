@@ -24,7 +24,6 @@ gulp.task('server', () => {
     });
 });
 
-gulp.task('server:reload', (done) => {
-    browserSync.reload();
-    done();
+gulp.task('server:reload', () => {
+    return browserSync.reload();
 });
