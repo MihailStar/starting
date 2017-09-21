@@ -1,6 +1,7 @@
 const configuration = require('../configuration');
 const frontMatter = require('gulp-front-matter');
 const gulp = require('gulp');
+const gulpIf = require('gulp-if');
 const htmlmin = require('gulp-htmlmin');
 const rigger = require('gulp-rigger');
 const swig = require('gulp-swig');
@@ -18,9 +19,9 @@ gulp.task('html', () => {
                 cache: false
             }
         }))
-        .pipe(htmlmin({
+        .pipe(gulpIf(!configuration.isDevelopment, htmlmin({
             collapseWhitespace: true,
             removeComments: true
-        }))
+        })))
         .pipe(gulp.dest(configuration.path.output.html));
 });

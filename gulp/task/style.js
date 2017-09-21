@@ -19,7 +19,7 @@ gulp.task('style', () => {
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
-        .pipe(postcss([
+        .pipe(gulpIf(!configuration.isDevelopment, postcss([
             autoprefixer({
                 cascade: false
             }),
@@ -27,7 +27,7 @@ gulp.task('style', () => {
                 sort: true
             }),
             csso()
-        ]))
+        ])))
         .pipe(rename({
             basename: 'main',
             suffix: '.min',
