@@ -10,11 +10,11 @@ gulp.task('script:library', () => {
     return gulp
         .src(configuration.path.input.script.library)
         .pipe(concat('library.min.js'))
-        .pipe(uglify({
+        .pipe(gulpIf(!configuration.isDevelopment, uglify({
             output: {
                 quote_style: 3
             }
-        }))
+        })))
         .pipe(gulp.dest(configuration.path.output.script.library));
 });
 
@@ -28,11 +28,11 @@ gulp.task('script:main', () => {
             presets: ['env']
         }))
         .pipe(concat('main.min.js'))
-        .pipe(uglify({
+        .pipe(gulpIf(!configuration.isDevelopment, uglify({
             output: {
                 quote_style: 3
             }
-        }))
+        })))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/script`,
