@@ -1,8 +1,5 @@
 {
-    "author": "",
-    "dependencies": {},
     "description": "",
-    "devDependencies": {},
     "homepage": "",
     "ignore": [
         "**/.*",
@@ -13,6 +10,5 @@
     ],
     "license": "",
     "main": "",
-    "name": "starting",
-    "version": ""
+    "name": "starting"
 }
