@@ -59,6 +59,5 @@ gulp.task('sprite:vector', () => {
         .pipe(inject(spriteData, {
             transform: (filePath, file) => file.contents.toString()
         }))
-        .pipe(inject(spriteData, { transform: fileContents }))
         .pipe(gulp.dest(configuration.path.output.sprite.vector));
 });
