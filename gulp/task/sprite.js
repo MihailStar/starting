@@ -26,7 +26,11 @@ gulp.task('sprite:raster', () => {
         }));
     imageStream = spriteData.img
         .pipe(vinylBuffer())
-        .pipe(imagemin(configuration.imagemin))
+        .pipe(imagemin([
+            imagemin.optipng({
+                optimizationLevel: 5
+            })
+        ]))
         .pipe(gulp.dest(configuration.path.output.sprite.raster));
     styleStream = spriteData.css
         .pipe(gulpIf(configuration.isDevelopment, gulp.dest(configuration.path.output.sprite.raster)));
@@ -40,16 +44,21 @@ gulp.task('sprite:vector', () => {
         .pipe(rename({
             prefix: 'icon-'
         }))
-        .pipe(imagemin(configuration.imagemin))
+        .pipe(imagemin([
+            imagemin.svgo({
+                plugins: [{
+                    cleanupIDs: false
+                }]
+            })
+        ]))
         .pipe(svgstore({
             inlineSvg: true
         }));
     return gulp
         .src(`${configuration.path.output.sprite.vector}/sprite.html`)
         .pipe(inject(spriteData, {
-            transform: (filePath, file) => {
-                file.contents.toString();
-            }
+            transform: (filePath, file) => file.contents.toString()
         }))
+        .pipe(inject(spriteData, { transform: fileContents }))
         .pipe(gulp.dest(configuration.path.output.sprite.vector));
 });
