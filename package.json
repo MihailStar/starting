@@ -33,7 +33,6 @@
         "gulp-uglify": "^3.0.0",
         "gulp-watch": "^4.3.11",
         "gulp.spritesmith": "^6.5.1",
-        "imagemin-pngquant": "^5.0.1",
         "merge-stream": "^1.0.1",
         "postcss-csso": "^3.0.0",
         "require-dir": "^0.3.2",
