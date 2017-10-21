@@ -33,7 +33,7 @@ gulp.task('style', () => {
             suffix: '.min',
             extname: '.css'
         }))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write({
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/style`,
             sourceRoot: `/${configuration.root.input}/style`
