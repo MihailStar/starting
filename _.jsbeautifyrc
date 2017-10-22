@@ -10,10 +10,7 @@
         "brace_style": "collapse",
         "content_unformatted": ["pre"],
         "extra_liners": [
-            "html",
-            "head",
-            "body",
-            "/html"
+            "body"
         ],
         "indent_body_inner_html": true,
         "indent_handlebars": false,
