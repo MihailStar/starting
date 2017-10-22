@@ -17,7 +17,7 @@ gulp.task('style', () => {
             loadMaps: true
         })))
         .pipe(sass({
-            outputStyle: 'compressed'
+            outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(gulpIf(!configuration.isDevelopment, postcss([
             autoprefixer({
