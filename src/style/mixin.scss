@@ -60,18 +60,6 @@
     }
 }
 
-@mixin sr-only() {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    border: 0;
-    white-space: nowrap;
-}
-
 @mixin text-hide() {
     border: 0;
     background-color: transparent;
@@ -83,5 +71,48 @@
 @mixin text-truncate() {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin triangle($direction, $width, $height, $background-color) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    @if ($direction == t) {
+        border-width: 0 ($width / 2)  $height  ($width / 2);
+        border-color: transparent transparent $background-color transparent;
+    } @else if ($direction == r) {
+        border-width: ($height / 2) 0 ($height / 2) $width;
+        border-color: transparent transparent transparent $background-color;
+    } @else if ($direction == b) {
+        border-width: $height ($width / 2) 0 ($width / 2);
+        border-color: $background-color transparent transparent transparent;
+    } @else if ($direction == l) {
+        border-width: ($height / 2) $width ($height / 2) 0;
+        border-color: transparent $background-color transparent transparent;
+    } @else if ($direction == tr) {
+        border-width: 0 $width $height 0;
+        border-color: transparent $background-color transparent transparent;
+    } @else if ($direction == tl) {
+        border-width: $height $width 0 0;
+        border-color: $background-color transparent transparent transparent;
+    } @else if ($direction == br) {
+        border-width: 0 0 $height $width;
+        border-color: transparent transparent $background-color transparent;
+    } @else if ($direction == bl) {
+        border-width: $width 0 0 $height;
+        border-color: transparent transparent transparent $background-color;
+    }
+}
+
+@mixin visually-hidden() {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
     white-space: nowrap;
 }
