@@ -10,11 +10,7 @@ gulp.task('script:library', () => {
     return gulp
         .src(configuration.path.input.script.library)
         .pipe(concat('library.min.js'))
-        .pipe(gulpIf(!configuration.isDevelopment, uglify({
-            output: {
-                quote_style: 3
-            }
-        })))
+        .pipe(gulpIf(!configuration.isDevelopment, uglify()))
         .pipe(gulp.dest(configuration.path.output.script.library));
 });
 
@@ -24,9 +20,9 @@ gulp.task('script:main', () => {
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init({
             loadMaps: true
         })))
-        .pipe(babel({
+        .pipe(gulpIf(!configuration.isDevelopment, babel({
             presets: ['env']
-        }))
+        })))
         .pipe(concat('main.min.js'))
         .pipe(gulpIf(!configuration.isDevelopment, uglify({
             output: {
