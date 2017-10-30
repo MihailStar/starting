@@ -9,8 +9,6 @@ gulp.task('server', () => {
         online: false,
         open: false,
         port: configuration.port,
-        reloadDebounce: 100,
-        reloadDelay: 100,
         reloadOnRestart: true,
         server: {
             baseDir: configuration.root.output,
