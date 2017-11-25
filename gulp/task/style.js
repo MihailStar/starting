@@ -21,7 +21,8 @@ gulp.task('style', () => {
         }).on('error', sass.logError))
         .pipe(gulpIf(!configuration.isDevelopment, postcss([
             autoprefixer({
-                cascade: false
+                cascade: false,
+                remove: false //
             }),
             mqpacker({
                 sort: true
