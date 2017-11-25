@@ -1,14 +1,10 @@
 {
-    "description": "",
-    "homepage": "",
     "ignore": [
         "**/.*",
-        "node_modules",
         "bower_components",
+        "node_modules",
         "test",
         "tests"
     ],
-    "license": "",
-    "main": "",
     "name": "starting"
 }

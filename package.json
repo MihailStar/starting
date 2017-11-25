@@ -1,10 +1,8 @@
 {
-    "author": "",
     "browserslist": [
         "> 1%"
     ],
     "dependencies": {},
-    "description": "",
     "devDependencies": {
         "autoprefixer": "^7.1.5",
         "babel-preset-env": "^1.6.0",
@@ -37,13 +35,10 @@
         "require-dir": "^0.3.2",
         "vinyl-buffer": "^1.0.0"
     },
-    "license": "",
-    "main": "",
     "name": "starting",
     "scripts": {
         "build": "set NODE_ENV=production && npm run gulp clean && npm run gulp build",
         "gulp": "gulp",
         "start": "gulp"
-    },
-    "version": ""
+    }
 }
