@@ -22,7 +22,7 @@ gulp.task('style', () => {
         .pipe(gulpIf(!configuration.isDevelopment, postcss([
             autoprefixer({
                 cascade: false,
-                remove: false //
+                remove: false
             }),
             mqpacker({
                 sort: true
