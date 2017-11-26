@@ -1,6 +1,0 @@
-ErrorDocument 404 /404/
-ErrorDocument 404 http://site.ru
-
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.site.ru$ [NC]
-RewriteRule ^(.*)$ http://site.ru/$1 [R=301,L]
