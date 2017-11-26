@@ -1,4 +1,6 @@
 {
+    "dependencies": {},
+    "devDependencies": {},
     "ignore": [
         "**/.*",
         "bower_components",
