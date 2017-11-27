@@ -34,11 +34,10 @@
         "require-dir": "^0.3.2",
         "vinyl-buffer": "^1.0.0"
     },
-    "name": "js",
+    "name": "starting",
     "scripts": {
-        "build": "set NODE_ENV=production && npm run gulp clean && npm run gulp build",
-        "gulp": "gulp",
-        "init": "node init && npm run gulp default",
+        "build": "set NODE_ENV=production && npm start clean && npm start build",
+        "init": "node init && npm start default",
         "start": "gulp"
     }
 }
