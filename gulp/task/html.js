@@ -10,15 +10,6 @@ gulp.task('html', () => {
     return gulp
         .src(configuration.path.input.html)
         .pipe(rigger())
-        .pipe(frontMatter({
-            property: 'data',
-            remove: true
-        }))
-        .pipe(swig({
-            defaults: {
-                cache: false
-            }
-        }))
         .pipe(gulpIf(!configuration.isDevelopment, htmlmin({
             collapseWhitespace: true,
             removeComments: true
