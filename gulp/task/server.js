@@ -4,7 +4,7 @@ const gulp = require('gulp');
 
 gulp.task('server', () => {
     browserSync.init({
-        // logPrefix: 'browser-syync',
+        logPrefix: 'browser-sync',
         notify: false,
         online: false,
         open: false,
