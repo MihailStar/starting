@@ -21,14 +21,10 @@ gulp.task('script:main', () => {
             loadMaps: true
         })))
         .pipe(gulpIf(!configuration.isDevelopment, babel({
-            presets: ['env']
+            presets: ['@babel/env']
         })))
         .pipe(concat('main.min.js'))
-        .pipe(gulpIf(!configuration.isDevelopment, uglify({
-            output: {
-                quote_style: 3
-            }
-        })))
+        .pipe(gulpIf(!configuration.isDevelopment, uglify()))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/script`,
