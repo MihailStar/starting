@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const watch = require('gulp-watch');
 
 gulp.task('watch', () => {
+    watch(configuration.path.watch.base64, gulp.series('base64'));
     watch(configuration.path.watch.font, gulp.series('font', 'server:reload'));
     watch(configuration.path.watch.html, gulp.series('html', 'server:reload'));
     watch(configuration.path.watch.image, gulp.series('image', 'server:reload'));
