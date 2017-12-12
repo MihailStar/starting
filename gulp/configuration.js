@@ -9,6 +9,7 @@ const root = {
 
 const path = {
     input: {
+        base64: `${root.input}/image/base64/**/*.*`,
         font: `${root.input}/font/**/*.*`,
         html: `${root.input}/*.html`,
         image: [
@@ -29,6 +30,7 @@ const path = {
         style: `${root.input}/style/main.scss`
     },
     output: {
+        base64: `${root.output}/image/base64`,
         font: `${root.output}/font`,
         html: `${root.output}`,
         image: `${root.output}/image`,
@@ -44,6 +46,7 @@ const path = {
         style: `${root.output}/style`
     },
     watch: {
+        base64: `${root.input}/image/base64/**/*.*`,
         font: `${root.input}/font/**/*.*`,
         html: `${root.input}/**/*.html`,
         image: [
