@@ -14,6 +14,7 @@ const path = {
         html: `${root.input}/*.html`,
         image: [
             `${root.input}/image/**/*.*`,
+            `!${root.input}/image/base64/**/*.*`,
             `!${root.input}/image/sprite/**/*.*`
         ],
         script: {
@@ -51,6 +52,7 @@ const path = {
         html: `${root.input}/**/*.html`,
         image: [
             `${root.input}/image/**/*.*`,
+            `!${root.input}/image/base64/**/*.*`,
             `!${root.input}/image/sprite/**/*.*`
         ],
         script: {
