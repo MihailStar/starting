@@ -26,30 +26,29 @@ prompt.get([{
 
 const renameProject = (name) => {
     const paths = [
-        'bower.json',
-        'package.json'
+        ['bower.json', /("name": ").*(")/, `$1${name}$2`],
+        ['package.json', /("name": ").*(")/, `$1${name}$2`],
+        ['README.md', /(# ).*/, `$1${name}`]
     ];
 
-    paths.forEach((path) => {
-        fs.readFile(path, 'utf-8', (error, data) => {
+    const replace = (fileName, regExp, newString) => {
+        fs.readFile(fileName, 'utf-8', (error, data) => {
             if (error) {
                 throw error;
             }
 
-            data = data.replace(/("name": ").*(")/, `$1${name}$2`);
+            data = data.replace(regExp, newString);
 
-            fs.writeFile(path, data, (error) => {
+            fs.writeFile(fileName, data, (error) => {
                 if (error) {
                     throw error;
                 }
             });
         });
-    });
+    };
 
-    fs.writeFile('README.md', `# ${name}`, (error) => {
-        if (error) {
-            throw error;
-        }
+    paths.forEach((path) => {
+        replace(path[0], path[1], path[2]);
     });
 };
 
