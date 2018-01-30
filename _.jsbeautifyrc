@@ -9,7 +9,7 @@
     "html": {
         "brace_style": "collapse",
         "content_unformatted": ["pre"],
-        "extra_liners": ["body"],
+        "extra_liners": [],
         "indent_body_inner_html": true,
         "indent_handlebars": false,
         "indent_head_inner_html": true,
