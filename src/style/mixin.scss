@@ -53,6 +53,10 @@
     letter-spacing: $ps-unit / 1000 + em;
 }
 
+@mixin letter-stroke($color, $size: 1px) {
+    text-shadow: -$size (-$size) 0 $color, $size (-$size) 0 $color, -$size $size 0 $color, $size $size 0 $color;
+}
+
 @mixin outline-none() {
     &:focus,
     &:hover {
@@ -115,4 +119,8 @@
     height: 1px;
     border: 0;
     white-space: nowrap;
+}
+
+@function rem($size) {
+    @return #{$size / 16px}rem;
 }
