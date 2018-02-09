@@ -5,7 +5,7 @@
         "space_around_combinator": true
     },
     "end_with_newline": false,
-    "eol": "\r\n",
+    "eol": "\n",
     "html": {
         "brace_style": "collapse",
         "content_unformatted": ["pre"],
