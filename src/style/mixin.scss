@@ -50,7 +50,7 @@
 }
 
 @mixin letter-spacing($ps-unit) {
-    letter-spacing: $ps-unit / 1000 + em;
+    letter-spacing: #{$ps-unit / 1000}em;
 }
 
 @mixin letter-stroke($color, $size: 1px) {
