@@ -1,5 +1,5 @@
 # starting
-Стартовый шаблон
+Стартовый шаблон для верстки
 - `npm install`
 - `npm run init`
 - `npm start`

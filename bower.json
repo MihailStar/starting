@@ -8,5 +8,6 @@
         "test",
         "tests"
     ],
+    "license": "WTFPL",
     "name": "starting"
 }
