@@ -1,76 +1,84 @@
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-
-const port = 3000;
-
-const root = {
+const directory = {
     input: 'src',
     output: 'dist'
 };
 
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
 const path = {
     input: {
-        base64: `${root.input}/image/base64/**/*.*`,
-        font: `${root.input}/font/**/*.*`,
-        html: `${root.input}/*.html`,
-        image: [
-            `${root.input}/image/**/*.*`,
-            `!${root.input}/image/base64/**/*.*`,
-            `!${root.input}/image/sprite/**/*.*`
-        ],
-        script: {
-            library: `${root.input}/script/library/**/*.js`,
+        data: `${directory.input}/data/data.json`,
+        font: `${directory.input}/font/**/*.*`,
+        html: `${directory.input}/*.html`,
+        image: {
+            base64: `${directory.input}/image/base64/**/*.*`,
             main: [
-                `${root.input}/script/**/*.js`,
-                `!${root.input}/script/library/**/*.js`
+                `${directory.input}/image/**/*.*`,
+                `!${directory.input}/image/base64/**/*.*`,
+                `!${directory.input}/image/sprite/**/*.*`
+            ],
+            sprite: {
+                raster: `${directory.input}/image/sprite/**/*.png`,
+                vector: `${directory.input}/image/sprite/**/*.svg`
+            }
+        },
+        script: {
+            library: `${directory.input}/script/library/**/*.js`,
+            main: [
+                `${directory.input}/script/**/*.js`,
+                `!${directory.input}/script/library/**/*.js`
             ]
         },
-        sprite: {
-            raster: `${root.input}/image/sprite/*.png`,
-            vector: `${root.input}/image/sprite/*.svg`
-        },
-        style: `${root.input}/style/main.scss`
+        style: `${directory.input}/style/main.scss`
     },
     output: {
-        base64: `${root.output}/image/base64`,
-        font: `${root.output}/font`,
-        html: `${root.output}`,
-        image: `${root.output}/image`,
+        font: `${directory.output}/font`,
+        html: `${directory.output}`,
+        image: {
+            base64: `${directory.output}/image/base64`,
+            main: `${directory.output}/image`,
+            sprite: {
+                raster: `${directory.output}/image/sprite`,
+                vector: `${directory.input}/template`
+            },
+        },
         map: '.',
         script: {
-            library: `${root.output}/script`,
-            main: `${root.output}/script`
+            library: `${directory.output}/script`,
+            main: `${directory.output}/script`
         },
-        sprite: {
-            raster: `${root.output}/image/sprite`,
-            vector: `${root.input}/template`
-        },
-        style: `${root.output}/style`
+        style: `${directory.output}/style`
     },
     watch: {
-        base64: `${root.input}/image/base64/**/*.*`,
-        font: `${root.input}/font/**/*.*`,
-        html: `${root.input}/**/*.html`,
-        image: [
-            `${root.input}/image/**/*.*`,
-            `!${root.input}/image/base64/**/*.*`,
-            `!${root.input}/image/sprite/**/*.*`
-        ],
-        script: {
-            library: `${root.input}/script/library/**/*.js`,
+        data: `${directory.input}/data/data.json`,
+        font: `${directory.input}/font/**/*.*`,
+        html: `${directory.input}/**/*.html`,
+        image: {
+            base64: `${directory.input}/image/base64/**/*.*`,
             main: [
-                `${root.input}/script/**/*.js`,
-                `!${root.input}/script/library/**/*.js`
+                `${directory.input}/image/**/*.*`,
+                `!${directory.input}/image/base64/**/*.*`,
+                `!${directory.input}/image/sprite/**/*.*`
+            ],
+            sprite: {
+                raster: `${directory.input}/image/sprite/**/*.png`,
+                vector: `${directory.input}/image/sprite/**/*.svg`
+            }
+        },
+        script: {
+            library: `${directory.input}/script/library/**/*.js`,
+            main: [
+                `${directory.input}/script/**/*.js`,
+                `!${directory.input}/script/library/**/*.js`
             ]
         },
-        sprite: {
-            raster: `${root.input}/image/sprite/*.png`,
-            vector: `${root.input}/image/sprite/*.svg`
-        },
-        style: `${root.input}/style/**/*.scss`
+        style: `${directory.input}/style/**/*.scss`
     }
 };
 
+const port = 3000;
+
+module.exports.directory = directory;
 module.exports.isDevelopment = isDevelopment;
 module.exports.path = path;
 module.exports.port = port;
-module.exports.root = root;

@@ -28,7 +28,7 @@ gulp.task('script:main', () => {
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/script`,
-            sourceRoot: `/${configuration.root.input}/script`
+            sourceRoot: `/${configuration.directory.input}/script`
         })))
         .pipe(gulp.dest(configuration.path.output.script.main));
 });

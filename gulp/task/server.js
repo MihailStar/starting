@@ -11,13 +11,12 @@ gulp.task('server', () => {
         port: configuration.port,
         reloadOnRestart: true,
         server: {
-            baseDir: configuration.root.output,
+            baseDir: configuration.directory.output,
             routes: {
                 '/bower_components': 'bower_components',
-                [`/${configuration.root.input}`]: configuration.root.input
+                [`/${configuration.directory.input}`]: configuration.directory.input
             }
         },
-        tunnel: false,
         ui: false
     });
 });
@@ -26,3 +25,5 @@ gulp.task('server:reload', (done) => {
     browserSync.reload();
     return done();
 });
+
+module.exports = browserSync;

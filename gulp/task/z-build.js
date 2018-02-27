@@ -1,11 +1,11 @@
 const gulp = require('gulp');
 
-gulp.task('build', gulp.series('sprite:vector', gulp.parallel(
+gulp.task('build', gulp.series('image:sprite:vector', gulp.parallel(
     'font',
     'html',
-    'image',
+    'image:main',
+    'image:sprite:raster',
     'script:library',
     'script:main',
-    'sprite:raster',
     'style'
 )));
