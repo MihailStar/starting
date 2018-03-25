@@ -1,3 +1,8 @@
 {
-    "title": "Title"
+    "title": "Title",
+    "list": [
+        "first",
+        "second",
+        "third"
+    ]
 }
