@@ -105,7 +105,7 @@
 @mixin visually-hidden() {
     position: absolute;
     overflow: hidden;
-    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
     clip-path: inset(100%);
     margin: -1px;
     padding: 0;
