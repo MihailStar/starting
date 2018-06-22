@@ -57,13 +57,6 @@
     text-shadow: -$size (-$size) 0 $color, $size (-$size) 0 $color, -$size $size 0 $color, $size $size 0 $color;
 }
 
-@mixin outline-none() {
-    &:focus,
-    &:hover {
-        outline: none;
-    }
-}
-
 @mixin text-hide() {
     border: 0;
     background-color: transparent;
@@ -112,8 +105,9 @@
 @mixin visually-hidden() {
     position: absolute;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    margin: -1px;
     padding: 0;
     width: 1px;
     height: 1px;
