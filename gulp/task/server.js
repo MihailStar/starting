@@ -13,7 +13,6 @@ gulp.task('server', () => {
         server: {
             baseDir: configuration.directory.output,
             routes: {
-                '/bower_components': 'bower_components',
                 [`/${configuration.directory.input}`]: configuration.directory.input
             }
         },
