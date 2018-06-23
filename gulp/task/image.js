@@ -71,13 +71,7 @@ gulp.task('image:sprite:vector', () => {
         .pipe(rename({
             prefix: 'icon-'
         }))
-        .pipe(imagemin([
-            imagemin.svgo({
-                plugins: [{
-                    cleanupIDs: false
-                }]
-            })
-        ]))
+        .pipe(imagemin(imageminConfiguration))
         .pipe(svgstore({
             inlineSvg: true
         }));

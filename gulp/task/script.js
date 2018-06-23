@@ -25,7 +25,7 @@ gulp.task('script:main', () => {
         })))
         .pipe(concat('main.min.js'))
         .pipe(gulpIf(!configuration.isDevelopment, uglify()))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write('./', {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/script`,
             sourceRoot: `/${configuration.directory.input}/script`

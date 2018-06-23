@@ -1,4 +1,4 @@
-const browserSync = require('./server.js');
+const browserSync = require('./server');
 const configuration = require('../configuration');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
@@ -37,7 +37,7 @@ gulp.task('style', () => {
             suffix: '.min',
             extname: '.css'
         }))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write(configuration.path.output.map, {
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write('./', {
             includeContent: false,
             sourceMappingURLPrefix: `http://localhost:${configuration.port}/style`,
             sourceRoot: `/${configuration.directory.input}/style`
