@@ -1,5 +1,5 @@
 # starting
 Стартовый шаблон для верстки
 - `npm install`
-- `npm run dev`
-- `npm run prod`
+- `npm run development`
+- `npm run production`

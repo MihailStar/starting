@@ -41,7 +41,7 @@
     "license": "WTFPL",
     "name": "starting",
     "scripts": {
-        "dev": "gulp default",
-        "prod": "set NODE_ENV=production && gulp clean && gulp build"
+        "development": "gulp default",
+        "production": "set NODE_ENV=production && gulp clean && gulp build"
     }
 }
