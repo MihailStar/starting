@@ -1,8 +1,10 @@
 {
-    "title": "Title",
-    "list": [
-        "first",
-        "second",
-        "third"
-    ]
+    "test": {
+        "list": [
+            "first",
+            "second",
+            "third"
+        ],
+        "tag": "first<br>second<br>third"
+    }
 }

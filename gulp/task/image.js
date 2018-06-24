@@ -76,7 +76,7 @@ gulp.task('image:sprite:vector', () => {
             inlineSvg: true
         }));
     return gulp
-        .src(`${configuration.path.output.image.sprite.vector}/sprite.html`)
+        .src(`${configuration.path.output.image.sprite.vector}/_sprite.html`)
         .pipe(inject(spriteData, {
             transform: (filePath, file) => {
                 return file.contents.toString();

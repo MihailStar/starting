@@ -1,5 +1,4 @@
-@import 'variable';
-@import 'mixin';
+@import './_mixin';
 
 * {
     box-sizing: border-box;
@@ -10,8 +9,9 @@
     }
 }
 
-body {
+.body {
     margin: 0;
+    font-family: sans-serif;
 }
 
 button,
@@ -23,5 +23,6 @@ textarea {
     line-height: inherit;
 }
 
-@import 'typography';
-@import 'app';
+.visuallyhidden {
+    @include visually-hidden;
+}
