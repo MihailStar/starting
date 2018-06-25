@@ -1,12 +1,9 @@
 @import './_mixin';
 
-* {
+*
+*::before,
+*::after, {
     box-sizing: border-box;
-
-    &::after,
-    &::before {
-        box-sizing: border-box;
-    }
 }
 
 body {
