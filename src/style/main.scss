@@ -9,10 +9,14 @@
     }
 }
 
-.body {
+body {
     margin: 0;
     min-width: 320px;
     font-family: sans-serif;
+}
+
+img {
+    max-width: 100%;
 }
 
 button,
@@ -23,6 +27,6 @@ textarea {
     font: inherit;
 }
 
-.visuallyhidden {
+.visually-hidden {
     @include visually-hidden;
 }
