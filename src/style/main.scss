@@ -1,8 +1,8 @@
 @import './_mixin';
 
-*
+*,
 *::before,
-*::after, {
+*::after {
     box-sizing: border-box;
 }
 

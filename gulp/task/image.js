@@ -22,9 +22,14 @@ const imageminConfiguration = [
         optimizationLevel: 5
     }),
     imagemin.svgo({
-        plugins: [{
-            cleanupIDs: false
-        }]
+        plugins: [
+            {
+                cleanupIDs: false
+            },
+            {
+                removeViewBox: false
+            }
+        ]
     })
 ];
 
