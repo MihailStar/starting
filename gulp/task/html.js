@@ -17,7 +17,6 @@ gulp.task('html', () => {
             path: `${configuration.directory.input}`
         }))
         .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify({
-            eol: '\n',
             html: {
                 indent_inner_html: true
             }
