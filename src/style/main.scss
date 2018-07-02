@@ -27,33 +27,4 @@ textarea {
 
 .visually-hidden {
     @include visually-hidden;
-@import './_mixin';
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-width: 320px;
-    font-family: sans-serif;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-button,
-input,
-select,
-textarea {
-    color: inherit;
-    font: inherit;
-}
-
-.visually-hidden {
-    @include visually-hidden;
 }
