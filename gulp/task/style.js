@@ -9,6 +9,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const wait = require('gulp-wait');
 
 const autoprefixer = require('autoprefixer');
+const atImport = require('postcss-import');
 const cssMqpacker = require('css-mqpacker');
 const csso = require('postcss-csso');
 
@@ -22,16 +23,24 @@ gulp.task('style', () => {
         .pipe(sass({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
-        .pipe(gulpIf(!configuration.isDevelopment, postcss([
-            autoprefixer({
-                cascade: false,
-                remove: false
-            }),
-            cssMqpacker({
-                sort: true
-            }),
-            csso()
-        ])))
+        .pipe(gulpIf(configuration.isDevelopment,
+            postcss([
+                atImport()
+            ]),
+            postcss([
+                atImport(),
+                autoprefixer({
+                    cascade: false,
+                    remove: false
+                }),
+                cssMqpacker({
+                    sort: true
+                }),
+                csso({
+                    comments: false
+                })
+            ])
+        ))
         .pipe(rename({
             basename: 'main',
             suffix: '.min',
