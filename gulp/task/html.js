@@ -16,11 +16,7 @@ gulp.task('html', () => {
         .pipe(nunjucksRender({
             path: `${configuration.directory.input}`
         }))
-        .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify({
-            html: {
-                indent_inner_html: true
-            }
-        })))
+        .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify()))
         .pipe(gulpIf(!configuration.isDevelopment, replace(/\n{2,}/g, '\n')))
         .pipe(gulpIf(!configuration.isDevelopment, replace(/\s*<!-- (?:inject:svg|endinject) -->/g, '')))
         .pipe(gulp.dest(configuration.path.output.html));
