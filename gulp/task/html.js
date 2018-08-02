@@ -18,6 +18,5 @@ gulp.task('html', () => {
         }))
         .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify()))
         .pipe(gulpIf(!configuration.isDevelopment, replace(/\n{2,}/g, '\n')))
-        .pipe(gulpIf(!configuration.isDevelopment, replace(/\s*<!-- (?:inject:svg|endinject) -->/g, '')))
         .pipe(gulp.dest(configuration.path.output.html));
 });

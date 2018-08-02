@@ -17,7 +17,6 @@
         "gulp-if": "^2.0.2",
         "gulp-image-data-uri": "^1.2.2",
         "gulp-imagemin": "^4.1.0",
-        "gulp-inject": "^4.3.2",
         "gulp-newer": "^1.4.0",
         "gulp-nunjucks-render": "^2.2.2",
         "gulp-postcss": "^7.0.1",
@@ -39,7 +38,10 @@
     "name": "starting",
     "private": true,
     "scripts": {
-        "development": "gulp default",
-        "production": "set NODE_ENV=production && gulp clean && gulp build"
+        "base64": "gulp image:base64",
+        "dev": "gulp default",
+        "prod": "set NODE_ENV=production && gulp clean && gulp build",
+        "raster": "gulp image:sprite:raster",
+        "vector": "gulp image:sprite:vector"
     }
 }

@@ -1,4 +1,4 @@
-@import './_mixin';
+@import './_mixin.scss';
 
 *,
 *::before,
@@ -9,6 +9,7 @@
 body {
     margin: 0;
     min-width: 320px;
+    background-color: #cad3df;
     font-family: sans-serif;
 }
 

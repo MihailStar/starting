@@ -1,19 +1,15 @@
-{% set pageTitle = 'test' %}
+{% set page = 'index' %}
 
 {% extends './template/_basis.html' %}
 
 {% block content %}
-    <h1>test</h1>
+    <h1>{{ pages[page].pageTitle }}</h1>
 
     <ul>
-        {% for item in test.list %}
+        {% for item in list %}
         <li>
             <a href="javascript:void(0);">{# {{ mixin.icon('example', '18', '18') }} #}<span>{{ item }}</span></a>
         </li>
         {% endfor %}
     </ul>
-
-    <p>{{ test.tag | safe }}</p>
-
-    {# {% include './template/_sprite.html' %} #}
 {% endblock %}

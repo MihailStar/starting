@@ -1,10 +1,12 @@
 {
-    "test": {
-        "list": [
-            "first",
-            "second",
-            "third"
-        ],
-        "tag": "first<br>second<br>third"
+    "list": [
+        "Test item",
+        "Test item"
+    ],
+    "pages": {
+        "index": {
+            "headTitle": "Test page",
+            "pageTitle": "Test page"
+        }
     }
 }

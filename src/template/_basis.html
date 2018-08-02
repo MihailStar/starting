@@ -7,16 +7,14 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="format-detection" content="telephone=no">
-        <!-- <meta name="robots" content="none"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico" rel="icon"> -->
         <link href="./style/main.min.css" rel="stylesheet">
-        <title>{{ pageTitle if pageTitle else 'starting' }}</title>
+        <title>{{ pages[page].headTitle }}</title>
     </head>
     <body class="body body_index">
         {% block content %}{% endblock %}
 
-        <!-- <script src="./script/library.min.js" defer></script> -->
+        <script src="./script/library.min.js" defer></script>
         <script src="./script/main.min.js" defer></script>
     </body>
 </html>

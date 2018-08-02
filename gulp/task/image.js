@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const imageDataURI = require('gulp-image-data-uri');
 const imagemin = require('gulp-imagemin');
-const inject = require('gulp-inject');
 const mergeStream = require('merge-stream');
 const newer = require('gulp-newer');
 const rename = require('gulp-rename');
@@ -55,7 +54,6 @@ gulp.task('image:sprite:raster', () => {
         .pipe(spritesmith({
             // algorithm: 'top-down',
             cssName: 'sprite.css',
-            // cssName: 'sprite.scss',
             imgName: 'sprite.png',
             // padding: 4,
             // retinaImgName: 'sprite@2x.png',
@@ -71,21 +69,12 @@ gulp.task('image:sprite:raster', () => {
 });
 
 gulp.task('image:sprite:vector', () => {
-    const spriteData = gulp
+    return gulp
         .src(configuration.path.input.image.sprite.vector)
         .pipe(rename({
             prefix: 'icon-'
         }))
         .pipe(imagemin(imageminConfiguration))
-        .pipe(svgstore({
-            inlineSvg: true
-        }));
-    return gulp
-        .src(`${configuration.path.output.image.sprite.vector}/_sprite.html`)
-        .pipe(inject(spriteData, {
-            transform: (filePath, file) => {
-                return file.contents.toString();
-            }
-        }))
+        .pipe(svgstore())
         .pipe(gulp.dest(configuration.path.output.image.sprite.vector));
 });

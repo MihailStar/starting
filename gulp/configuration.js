@@ -39,7 +39,7 @@ const path = {
             main: `./${directory.output}/image`,
             sprite: {
                 raster: `./${directory.output}/image/sprite`,
-                vector: `./${directory.input}/template`
+                vector: `./${directory.output}/image/sprite`
             },
         },
         script: {
