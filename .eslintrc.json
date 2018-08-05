@@ -8,6 +8,7 @@
     "parserOptions": {
         "ecmaVersion": 9
     },
+    "root": true,
     "rules": {
         "no-console": "off",
         "quotes": [
