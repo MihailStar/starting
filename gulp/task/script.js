@@ -20,9 +20,7 @@ gulp.task('script:main', () => {
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init({
             loadMaps: true
         })))
-        .pipe(gulpIf(!configuration.isDevelopment, babel({
-            presets: ['@babel/env']
-        })))
+        .pipe(gulpIf(!configuration.isDevelopment, babel()))
         .pipe(concat('main.min.js'))
         .pipe(gulpIf(!configuration.isDevelopment, uglify()))
         .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write('./', {
