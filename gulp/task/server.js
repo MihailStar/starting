@@ -11,10 +11,7 @@ gulp.task('server', () => {
         port: configuration.port,
         reloadOnRestart: true,
         server: {
-            baseDir: configuration.directory.output,
-            routes: {
-                [`/${configuration.directory.input}`]: configuration.directory.input
-            }
+            baseDir: configuration.directory.output
         },
         ui: false
     });

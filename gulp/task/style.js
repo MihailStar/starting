@@ -8,8 +8,8 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const wait = require('gulp-wait');
 
-const autoprefixer = require('autoprefixer');
 const atImport = require('postcss-import');
+const autoprefixer = require('autoprefixer');
 const cssMqpacker = require('css-mqpacker');
 const csso = require('postcss-csso');
 
@@ -17,9 +17,7 @@ gulp.task('style', () => {
     return gulp
         .src(configuration.path.input.style)
         .pipe(wait(100))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init({
-            loadMaps: true
-        })))
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
@@ -46,11 +44,7 @@ gulp.task('style', () => {
             suffix: '.min',
             extname: '.css'
         }))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write('./', {
-            includeContent: false,
-            sourceMappingURLPrefix: `http://localhost:${configuration.port}/style`,
-            sourceRoot: `/${configuration.directory.input}/style`
-        })))
+        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write()))
         .pipe(gulp.dest(configuration.path.output.style))
         .pipe(browserSync.stream());
 });

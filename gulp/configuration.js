@@ -7,7 +7,7 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'develop
 
 const path = {
     input: {
-        data: `./${directory.input}/data/data.json`,
+        data: `./${directory.input}/data/main.json`,
         font: `./${directory.input}/font/**/*.*`,
         html: `./${directory.input}/*.html`,
         image: {
@@ -24,10 +24,7 @@ const path = {
         },
         script: {
             library: `./${directory.input}/script/library/**/*.js`,
-            main: [
-                `./${directory.input}/script/**/*.js`,
-                `!./${directory.input}/script/library/**/*.js`
-            ]
+            main: `./${directory.input}/script/main.js`
         },
         style: `./${directory.input}/style/main.scss`
     },

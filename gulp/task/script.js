@@ -1,10 +1,9 @@
-const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const configuration = require('../configuration');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
-const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const webpackStream = require('webpack-stream');
 
 gulp.task('script:library', () => {
     return gulp
@@ -17,16 +16,34 @@ gulp.task('script:library', () => {
 gulp.task('script:main', () => {
     return gulp
         .src(configuration.path.input.script.main)
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init({
-            loadMaps: true
-        })))
-        .pipe(gulpIf(!configuration.isDevelopment, babel()))
-        .pipe(concat('main.min.js'))
-        .pipe(gulpIf(!configuration.isDevelopment, uglify()))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write('./', {
-            includeContent: false,
-            sourceMappingURLPrefix: `http://localhost:${configuration.port}/script`,
-            sourceRoot: `/${configuration.directory.input}/script`
-        })))
+        .pipe(gulpIf(configuration.isDevelopment,
+            webpackStream({
+                devtool: 'source-map',
+                mode: 'development',
+                output: {
+                    filename: 'main.min.js'
+                }
+            }),
+            webpackStream({
+                mode: 'production',
+                module: {
+                    rules: [
+                        {
+                            exclude: /node_modules/,
+                            test: /\.js$/,
+                            use: {
+                                loader: 'babel-loader',
+                                options: {
+                                    presets: ['@babel/preset-env']
+                                }
+                            }
+                        }
+                    ]
+                },
+                output: {
+                    filename: 'main.min.js'
+                }
+            })
+        ))
         .pipe(gulp.dest(configuration.path.output.script.main));
 });
