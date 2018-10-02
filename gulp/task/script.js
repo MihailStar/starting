@@ -18,7 +18,6 @@ gulp.task('script:main', () => {
         .src(configuration.path.input.script.main)
         .pipe(gulpIf(configuration.isDevelopment,
             webpackStream({
-                devtool: 'source-map',
                 mode: 'development',
                 output: {
                     filename: 'main.min.js'
