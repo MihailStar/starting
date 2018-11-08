@@ -1,8 +1,8 @@
 {
     "dependencies": {},
     "devDependencies": {
-        "@babel/core": "^7.1.2",
-        "@babel/preset-env": "^7.1.0",
+        "@babel/core": "^7.1.5",
+        "@babel/preset-env": "^7.1.5",
         "autoprefixer": "^9.3.1",
         "babel-loader": "^8.0.4",
         "browser-sync": "^2.26.3",
@@ -16,7 +16,7 @@
         "gulp-html-beautify": "^1.0.1",
         "gulp-if": "^2.0.2",
         "gulp-image-data-uri": "^1.2.2",
-        "gulp-imagemin": "^4.1.0",
+        "gulp-imagemin": "^5.0.3",
         "gulp-newer": "^1.4.0",
         "gulp-nunjucks-render": "^2.2.2",
         "gulp-postcss": "^8.0.0",
