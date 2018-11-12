@@ -1,47 +1,4 @@
-@mixin centering($coordinate: xy, $width: null, $height: null) {
-    @if ($coordinate == xy) {
-        @if ($width == null and $height == null) {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        } @else if ($width != null and $height == null) {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: (-$width / 2) 0 0 (-$width / 2);
-        } @else {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: (-$height / 2) 0 0 (-$width / 2);
-        }
-    } @else if ($coordinate == x) {
-        @if ($width == null) {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        } @else {
-            position: absolute;
-            left: 50%;
-            margin-right: 0;
-            margin-left: -$width / 2;
-        }
-    } @else if ($coordinate == y) {
-        @if ($width == null) {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        } @else {
-            position: absolute;
-            top: 50%;
-            margin-top: -$width / 2;
-            margin-bottom: 0;
-        }
-    }
-}
-
-@mixin clearfix() {
+@mixin clearfix {
     &::after {
         display: block;
         clear: both;
@@ -49,23 +6,7 @@
     }
 }
 
-@mixin letter-spacing($ps-unit) {
-    letter-spacing: #{$ps-unit / 1000}em;
-}
-
-@mixin letter-stroke($color, $size: 1px) {
-    text-shadow: -$size (-$size) 0 $color, $size (-$size) 0 $color, -$size $size 0 $color, $size $size 0 $color;
-}
-
-@mixin text-hide() {
-    border: 0;
-    background-color: transparent;
-    color: transparent;
-    text-shadow: none;
-    font: 0/0 a;
-}
-
-@mixin text-truncate() {
+@mixin text-truncate {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -78,36 +19,34 @@
     @if ($direction == t) {
         border-width: 0 ($width / 2)  $height  ($width / 2);
         border-color: transparent transparent $background-color transparent;
-    } @else if ($direction == r) {
+    } @else if ($direction == 'r') {
         border-width: ($height / 2) 0 ($height / 2) $width;
         border-color: transparent transparent transparent $background-color;
-    } @else if ($direction == b) {
+    } @else if ($direction == 'b') {
         border-width: $height ($width / 2) 0 ($width / 2);
         border-color: $background-color transparent transparent transparent;
-    } @else if ($direction == l) {
+    } @else if ($direction == 'l') {
         border-width: ($height / 2) $width ($height / 2) 0;
         border-color: transparent $background-color transparent transparent;
-    } @else if ($direction == tr) {
+    } @else if ($direction == 'tr') {
         border-width: 0 $width $height 0;
         border-color: transparent $background-color transparent transparent;
-    } @else if ($direction == tl) {
+    } @else if ($direction == 'tl') {
         border-width: $height $width 0 0;
         border-color: $background-color transparent transparent transparent;
-    } @else if ($direction == br) {
+    } @else if ($direction == 'br') {
         border-width: 0 0 $height $width;
         border-color: transparent transparent $background-color transparent;
-    } @else if ($direction == bl) {
+    } @else if ($direction == 'bl') {
         border-width: $width 0 0 $height;
         border-color: transparent transparent transparent $background-color;
     }
 }
 
-@mixin visually-hidden() {
+@mixin visually-hidden {
     position: absolute;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    clip-path: inset(100%);
-    margin: -1px;
     padding: 0;
     width: 1px;
     height: 1px;
@@ -115,6 +54,10 @@
     white-space: nowrap;
 }
 
-@function rem($size) {
-    @return #{$size / 16px}rem;
+@function ps-to-em($ps-size) {
+    @return $ps-size / 1000 * 1em;
+}
+
+@function px-to-rem($px-size, $rem-base: 16) {
+    @return $px-size / $rem-base * 1rem;
 }
