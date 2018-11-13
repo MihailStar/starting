@@ -14,37 +14,37 @@ const cssMqpacker = require('css-mqpacker');
 const csso = require('postcss-csso');
 
 gulp.task('style', () => {
-    return gulp
-        .src(configuration.path.input.style)
-        .pipe(wait(100))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init()))
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }).on('error', sass.logError))
-        .pipe(gulpIf(configuration.isDevelopment,
-            postcss([
-                atImport()
-            ]),
-            postcss([
-                atImport(),
-                autoprefixer({
-                    cascade: false,
-                    remove: false
-                }),
-                cssMqpacker({
-                    sort: true
-                }),
-                csso({
-                    comments: false
-                })
-            ])
-        ))
-        .pipe(rename({
-            basename: 'main',
-            suffix: '.min',
-            extname: '.css'
-        }))
-        .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write()))
-        .pipe(gulp.dest(configuration.path.output.style))
-        .pipe(browserSync.stream());
+  return gulp
+    .src(configuration.path.input.style)
+    .pipe(wait(100))
+    .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init()))
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(gulpIf(configuration.isDevelopment,
+      postcss([
+        atImport()
+      ]),
+      postcss([
+        atImport(),
+        autoprefixer({
+          cascade: false,
+          remove: false
+        }),
+        cssMqpacker({
+          sort: true
+        }),
+        csso({
+          comments: false
+        })
+      ])
+    ))
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min',
+      extname: '.css'
+    }))
+    .pipe(gulpIf(configuration.isDevelopment, sourcemaps.write()))
+    .pipe(gulp.dest(configuration.path.output.style))
+    .pipe(browserSync.stream());
 });

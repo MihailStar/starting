@@ -3,5 +3,5 @@ const del = require('del');
 const gulp = require('gulp');
 
 gulp.task('clean', () => {
-    return del(configuration.directory.output);
+  return del(configuration.directory.output);
 });

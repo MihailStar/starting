@@ -1,15 +1,15 @@
 {% set page = 'index' %}
 
-{% extends './template/_basis.html' %}
+{% extends './template/_base.html' %}
 
 {% block content %}
-    <h1>{{ pages[page].pageTitle }}</h1>
+  <h1>{{ pages[page].pageTitle }}</h1>
 
-    <ul>
-        {% for item in list %}
-        <li>
-            <a href="javascript:void(0);">{# {{ mixin.icon('example', '18', '18') }} #}<span>{{ item }}</span></a>
-        </li>
-        {% endfor %}
-    </ul>
+  <ul>
+    {% for item in list %}
+    <li>
+      <a href="javascript:void(0);">{# {{ mixin.icon('example', '18', '18') }} #}<span>{{ item }}</span></a>
+    </li>
+    {% endfor %}
+  </ul>
 {% endblock %}

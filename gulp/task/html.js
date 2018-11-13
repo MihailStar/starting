@@ -8,15 +8,15 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const replace = require('gulp-replace');
 
 gulp.task('html', () => {
-    return gulp
-        .src(configuration.path.input.html)
-        .pipe(data(() => {
-            return JSON.parse(fs.readFileSync(configuration.path.input.data));
-        }))
-        .pipe(nunjucksRender({
-            path: `${configuration.directory.input}`
-        }))
-        .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify()))
-        .pipe(gulpIf(!configuration.isDevelopment, replace(/\n{2,}/g, '\n')))
-        .pipe(gulp.dest(configuration.path.output.html));
+  return gulp
+    .src(configuration.path.input.html)
+    .pipe(data(() => {
+      return JSON.parse(fs.readFileSync(configuration.path.input.data));
+    }))
+    .pipe(nunjucksRender({
+      path: `${configuration.directory.input}`
+    }))
+    .pipe(gulpIf(!configuration.isDevelopment, htmlBeautify()))
+    .pipe(gulpIf(!configuration.isDevelopment, replace(/\n{2,}/g, '\n')))
+    .pipe(gulp.dest(configuration.path.output.html));
 });

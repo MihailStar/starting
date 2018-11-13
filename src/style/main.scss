@@ -3,24 +3,24 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    min-width: 320px;
-    background-color: #cad3df;
-    font-family: sans-serif;
+  margin: 0;
+  min-width: 320px;
+  background-color: #cad3df;
+  font-family: sans-serif;
 }
 
 button,
 input,
 select,
 textarea {
-    color: inherit;
-    font: inherit;
+  color: inherit;
+  font: inherit;
 }
 
 .visually-hidden {
-    @include visually-hidden;
+  @include visually-hidden;
 }

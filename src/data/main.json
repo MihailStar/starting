@@ -1,12 +1,12 @@
 {
-    "list": [
-        "test item",
-        "test item"
-    ],
-    "pages": {
-        "index": {
-            "headTitle": "test page",
-            "pageTitle": "test page"
-        }
+  "list": [
+    "test item",
+    "test item"
+  ],
+  "pages": {
+    "index": {
+      "headTitle": "test page",
+      "pageTitle": "test page"
     }
+  }
 }
