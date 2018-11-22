@@ -18,6 +18,14 @@
     "semi": [
       "error",
       "always"
+    ],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireParamDescription": false,
+        "requireReturn": false,
+        "requireReturnDescription": false
+      }
     ]
   }
 }

@@ -18,9 +18,7 @@ gulp.task('style', () => {
     .src(configuration.path.input.style)
     .pipe(wait(100))
     .pipe(gulpIf(configuration.isDevelopment, sourcemaps.init()))
-    .pipe(sass({
-      outputStyle: 'expanded'
-    }).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulpIf(configuration.isDevelopment,
       postcss([
         atImport()
