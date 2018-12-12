@@ -1,80 +1,93 @@
-const directory = {
-  input: 'src',
-  output: 'dist'
-};
+import imagemin from 'gulp-imagemin';
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-const path = {
-  input: {
-    data: `./${directory.input}/data/main.json`,
-    font: `./${directory.input}/font/**/*.*`,
-    html: `./${directory.input}/*.html`,
-    image: {
-      base64: `./${directory.input}/image/base64/**/*.*`,
-      main: [
-        `./${directory.input}/image/**/*.*`,
-        `!./${directory.input}/image/base64/**/*.*`,
-        `!./${directory.input}/image/sprite/**/*.*`
-      ],
-      sprite: {
-        raster: `./${directory.input}/image/sprite/**/*.png`,
-        vector: `./${directory.input}/image/sprite/**/*.svg`
-      }
-    },
-    script: {
-      library: `./${directory.input}/script/library/**/*.js`,
-      main: `./${directory.input}/script/main.js`
-    },
-    style: `./${directory.input}/style/main.scss`
+const directory = {
+  src: 'src',
+  dest: 'dist'
+};
+
+const paths = {
+  fonts: {
+    src: `./${directory.src}/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
+    dest: `./${directory.dest}/fonts`,
+    get watch() {
+      return this.src;
+    }
   },
-  output: {
-    font: `./${directory.output}/font`,
-    html: `./${directory.output}`,
-    image: {
-      base64: `./${directory.output}/image/base64`,
-      main: `./${directory.output}/image`,
-      sprite: {
-        raster: `./${directory.output}/image/sprite`,
-        vector: `./${directory.output}/image/sprite`
-      },
-    },
-    script: {
-      library: `./${directory.output}/script`,
-      main: `./${directory.output}/script`
-    },
-    style: `./${directory.output}/style`
+  images: {
+    src: [
+      `./${directory.src}/images/**/*.{gif,jpg,png,svg,webp}`,
+      `!./${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
+      `!./${directory.src}/images/sprite/**/*.svg`
+    ],
+    dest: `./${directory.dest}/images`,
+    get watch() {
+      return this.src;
+    }
   },
-  watch: {
-    data: `./${directory.input}/data/data.json`,
-    font: `./${directory.input}/font/**/*.*`,
-    html: `./${directory.input}/**/*.html`,
-    image: {
-      base64: `./${directory.input}/image/base64/**/*.*`,
-      main: [
-        `./${directory.input}/image/**/*.*`,
-        `!./${directory.input}/image/base64/**/*.*`,
-        `!./${directory.input}/image/sprite/**/*.*`
-      ],
-      sprite: {
-        raster: `./${directory.input}/image/sprite/**/*.png`,
-        vector: `./${directory.input}/image/sprite/**/*.svg`
-      }
-    },
-    script: {
-      library: `./${directory.input}/script/library/**/*.js`,
-      main: [
-        `./${directory.input}/script/**/*.js`,
-        `!./${directory.input}/script/library/**/*.js`
-      ]
-    },
-    style: `./${directory.input}/style/**/*.scss`
+  imageToBase64: {
+    src: `./${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
+    dest: `./${directory.dest}/images/base64`,
+    get watch() {
+      return this.src;
+    }
+  },
+  scriptLibraries: {
+    src: `./${directory.src}/scripts/libraries/**/*.js`,
+    dest: `./${directory.dest}/scripts`,
+    get watch() {
+      return this.src;
+    }
+  },
+  scripts: {
+    src: `./${directory.src}/scripts/main.js`,
+    dest: `./${directory.dest}/scripts`,
+    watch: [
+      `./${directory.src}/scripts/**/*.js`,
+      `!./${directory.src}/scripts/libraries/**/*.js`
+    ]
+  },
+  styles: {
+    src: `./${directory.src}/styles/main.{sass,scss}`,
+    dest: `./${directory.dest}/styles`,
+    watch: `./${directory.src}/styles/**/*.{sass,scss}`
+  },
+  templates: {
+    src: `./${directory.src}/*.pug`,
+    dest: `./${directory.dest}`,
+    watch: `./${directory.src}/**/*.pug`
+  },
+  sprite: {
+    src: `./${directory.src}/images/sprite/**/*.svg`,
+    dest: `./${directory.dest}/images/sprite`,
+    get watch() {
+      return this.src;
+    }
   }
 };
 
-const port = 3000;
+const imageminConfig = {
+  imagemin: [
+    imagemin.gifsicle({
+      interlaced: true
+    }),
+    imagemin.jpegtran({
+      progressive: true
+    }),
+    imagemin.optipng({
+      optimizationLevel: 5
+    }),
+    imagemin.svgo({
+      plugins: [{
+          cleanupIDs: false
+        },
+        {
+          removeViewBox: false
+        }
+      ]
+    })
+  ]
+};
 
-module.exports.directory = directory;
-module.exports.isDevelopment = isDevelopment;
-module.exports.path = path;
-module.exports.port = port;
+export {isDevelopment, directory, paths, imageminConfig};

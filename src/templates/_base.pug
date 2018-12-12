@@ -1,0 +1,16 @@
+include ./_mixins.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='format-detection' content='telephone=no')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(href='./styles/main.min.css' rel='stylesheet')
+    block head
+    title= title || 'starting - стартовый шаблон для верстки'
+  body(class= bodyClass)
+    block body
+    script(src='./scripts/libraries.min.js' defer)
+    script(src='./scripts/main.min.js' defer)
