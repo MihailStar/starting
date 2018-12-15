@@ -1,10 +1,8 @@
 import {directory} from '../configuration.js';
 import del from 'del';
 
-function clear() {
+function clean() {
   return del(directory.dest);
 }
 
-clear.displayName = 'clear';
-
-export default clear;
+export default clean;

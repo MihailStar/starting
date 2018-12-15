@@ -1,30 +1,30 @@
 import {paths} from '../configuration.js';
-import {serverReload} from './server.js';
-import fonts from './fonts.js';
+import {reloadServer} from './server.js';
+import compileFonts from './fonts.js';
+import compileImages from './images.js';
+import compileScriptLibraries from './libraries.js';
+import compileScripts from './scripts.js';
+import compileStyles from './styles.js';
+import compileTemplates from './templates.js';
+import convertImageToBase64 from './base64.js';
+import generateSprite from './sprite.js';
 import gulp from 'gulp';
-import images from './images.js';
-import imageToBase64 from './imageToBase64.js';
-import scriptLibraries from './scriptLibraries.js';
-import scripts from './scripts.js';
-import sprite from './sprite.js';
-import styles from './styles.js';
-import templates from './templates.js';
 
 function watch() {
   const watchFor = {
-    fonts: [fonts, serverReload],
-    images: [images, serverReload],
-    imageToBase64: [imageToBase64],
-    scriptLibraries: [scriptLibraries, serverReload],
-    scripts: [scripts, serverReload],
-    sprite: [sprite],
-    styles: [styles],
-    templates: [templates, serverReload]
+    base64: [convertImageToBase64],
+    fonts: [compileFonts, reloadServer],
+    images: [compileImages, reloadServer],
+    libraries: [compileScriptLibraries, reloadServer],
+    scripts: [compileScripts, reloadServer],
+    sprite: [generateSprite],
+    styles: [compileStyles],
+    templates: [compileTemplates, reloadServer]
   };
-  Object.keys(watchFor).forEach((taskName) => {
+  Object.keys(watchFor).forEach((path) => {
     gulp.watch(
-      paths[taskName].watch,
-      gulp.series(...watchFor[taskName])
+      paths[path].watch,
+      gulp.series(...watchFor[path])
     );
   });
 }

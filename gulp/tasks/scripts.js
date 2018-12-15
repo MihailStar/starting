@@ -10,6 +10,4 @@ function compileScripts() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-compileScripts.displayName = 'compile scripts';
-
 export default compileScripts;

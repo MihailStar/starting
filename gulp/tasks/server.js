@@ -3,7 +3,7 @@ import browserSync from 'browser-sync';
 
 const server = browserSync.create('server');
 
-function serverInitialization(done) {
+function initializeServer(done) {
   server.init({
     logPrefix: 'browser-sync',
     notify: false,
@@ -17,14 +17,10 @@ function serverInitialization(done) {
   done();
 }
 
-serverInitialization.displayName = 'server initialization';
-
-function serverReload(done) {
+function reloadServer(done) {
   server.reload();
   done();
 }
 
-serverReload.displayName = 'server reload';
-
-export {serverInitialization, serverReload};
+export {initializeServer, reloadServer};
 export default server;

@@ -2,6 +2,7 @@ import {paths, imageminConfig} from '../configuration.js';
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
+import size from 'gulp-size';
 import svgstore from 'gulp-svgstore';
 
 function generateSprite() {
@@ -11,9 +12,10 @@ function generateSprite() {
     }))
     .pipe(imagemin(imageminConfig))
     .pipe(svgstore())
+    .pipe(size({
+      title: 'sprite size'
+    }))
     .pipe(gulp.dest(paths.sprite.dest));
 }
-
-generateSprite.displayName = 'generate sprite';
 
 export default generateSprite;

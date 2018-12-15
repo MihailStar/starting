@@ -10,6 +10,7 @@ import postcssImport from 'postcss-import';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import server from './server.js';
+import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import wait from 'gulp-wait';
 
@@ -44,10 +45,11 @@ function compileStyles() {
       extname: '.css'
     }))
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+    .pipe(gulpIf(!isDevelopment, size({
+      title: 'styles size'
+    })))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(gulpIf(isDevelopment, server.stream()));
 }
-
-compileStyles.displayName = 'compile styles';
 
 export default compileStyles;

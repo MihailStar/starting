@@ -1,8 +1,10 @@
 extends ./templates/_base.pug
 
-block head
-  - const pageTitle = 'starting - стартовый шаблон для верстки'
+block variables
+  - const pageTitle = 'Стартовый шаблон для верстки'
   - const bodyClass = 'body body_index'
+
+block head
 
 block body
   h1= pageTitle
