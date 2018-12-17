@@ -13,7 +13,7 @@ function generateSprite() {
     .pipe(imagemin(imageminConfig))
     .pipe(svgstore())
     .pipe(size({
-      title: 'sprite size'
+      title: 'generated sprite size'
     }))
     .pipe(gulp.dest(paths.sprite.dest));
 }

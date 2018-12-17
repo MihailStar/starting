@@ -8,7 +8,7 @@ function compileFonts() {
   return gulp.src(paths.fonts.src)
     .pipe(newer(paths.fonts.dest))
     .pipe(gulpIf(!isDevelopment, size({
-      title: 'fonts size'
+      title: 'size of compiled fonts'
     })))
     .pipe(gulp.dest(paths.fonts.dest));
 }
