@@ -91,27 +91,23 @@ const paths = {
   }
 };
 
-const imageminConfig = {
-  imagemin: [
-    imagemin.gifsicle({
-      interlaced: true
-    }),
-    imagemin.jpegtran({
-      progressive: true
-    }),
-    imagemin.optipng({
-      optimizationLevel: 5
-    }),
-    imagemin.svgo({
-      plugins: [{
-          cleanupIDs: false
-        },
-        {
-          removeViewBox: false
-        }
-      ]
-    })
-  ]
-};
+const imageminConfig = [
+  imagemin.gifsicle({
+    interlaced: true
+  }),
+  imagemin.jpegtran({
+    progressive: true
+  }),
+  imagemin.optipng({
+    optimizationLevel: 5
+  }),
+  imagemin.svgo({
+    plugins: [
+      {
+        removeViewBox: false
+      }
+    ]
+  })
+];
 
 export {isDevelopment, directory, paths, imageminConfig};
