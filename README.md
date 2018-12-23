@@ -5,7 +5,7 @@ Gulp + HTML(~~Nunjucks~~, Pug) + CSS(Sass, SCSS) + JavaScript(Babel, Webpack)
 - `git clone https://github.com/MihailStar/starting.git --depth 1 new-project` - клонировать репозиторий
 - `git remote rm origin` - удалить ссылку на origin репозиторий
 - `git remote add origin https://github.com/MihailStar/new-repository.git` - добавить ссылку на origin репозиторий
-- `git remote -v` - смотреть ссылки на удаленные репозитории
+- `git remote -v` - сверить ссылки на удаленные репозитории
 
 * `npm i` - установить зависимости
 * `npm run dev` - development сборка, с BrowserSync'ом и Watch'ером

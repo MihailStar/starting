@@ -3,10 +3,10 @@ import concat from 'gulp-concat';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import size from 'gulp-size';
+import terser from 'terser';
 import uglifyComposer from 'gulp-uglify/composer';
-import uglifyEs from 'uglify-es';
 
-const uglify = uglifyComposer(uglifyEs, console.warn);
+const uglify = uglifyComposer(terser, console.warn);
 
 function compileScriptLibraries() {
   return gulp.src(paths.libraries.src)

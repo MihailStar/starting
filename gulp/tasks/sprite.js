@@ -7,10 +7,10 @@ import svgstore from 'gulp-svgstore';
 
 function generateSprite() {
   return gulp.src(paths.sprite.src)
+    .pipe(imagemin(imageminConfig))
     .pipe(rename({
       prefix: 'icon-'
     }))
-    .pipe(imagemin(imageminConfig))
     .pipe(svgstore())
     .pipe(size({
       title: 'generated sprite size'

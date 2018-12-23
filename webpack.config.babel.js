@@ -1,4 +1,5 @@
 import {isDevelopment} from './gulp/configuration.js';
+import TerserPlugin from 'terser-webpack-plugin';
 
 const development = {
   mode: 'development',
@@ -19,6 +20,19 @@ const production = {
           loader: 'babel-loader'
         }
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        exclude: /(dist|node_modules)/,
+        test: /\.js$/,
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        }
+      })
     ]
   },
   output: {
