@@ -6,7 +6,6 @@
   "element-case": "lower",
   "eof-newline": false,
   "exclude": [
-    ".git/**",
     "dist/**",
     "node_modules/**"
   ],

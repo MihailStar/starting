@@ -1,4 +1,5 @@
-body(class=bodyClass)
+body.no-js(class=bodyClass)
+  script document.body.classList.remove('no-js');
   block body
   script(src='./scripts/libraries.min.js' defer)
   script(src='./scripts/main.min.js' defer)

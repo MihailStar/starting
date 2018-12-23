@@ -6,6 +6,11 @@
   }
 }
 
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
 @mixin text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;

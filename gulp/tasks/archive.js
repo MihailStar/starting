@@ -7,7 +7,7 @@ import zip from 'gulp-zip';
 
 function archiveFiles() {
   return gulp.src(paths.compress.src)
-    .pipe(zip(`${+new Date()}.zip`))
+    .pipe(zip(`${new Date().toISOString().replace(/:/g, '-')}.zip`))
     .pipe(size({
       title: 'archived file size'
     }))

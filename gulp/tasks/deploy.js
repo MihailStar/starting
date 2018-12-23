@@ -6,7 +6,9 @@ import gulp from 'gulp';
 
 function deploy() {
   return gulp.src(paths.deploy.src)
-    .pipe(ghPages());
+  .pipe(ghPages({
+    message: `${new Date().toISOString().replace(/:/g, '-')}`
+  }));
 }
 
 export default gulp.series(

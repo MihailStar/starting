@@ -2,7 +2,7 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
     "@babel/register": "^7.0.0",
     "autoprefixer": "^9.4.3",
     "babel-loader": "^8.0.4",
@@ -27,7 +27,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-svgstore": "^7.0.0",
+    "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.1",
     "gulp-wait": "0.0.2",
     "gulp-zip": "^4.2.0",
@@ -38,20 +38,20 @@
     "pug-lint": "^2.5.0",
     "stylelint": "^9.9.0",
     "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-scss": "^3.4.1",
+    "stylelint-scss": "^3.4.3",
     "uglify-es": "^3.3.9",
-    "webpack": "^4.27.1",
+    "webpack": "^4.28.2",
     "webpack-stream": "^5.2.1"
   },
   "license": "WTFPL",
   "name": "starting",
   "private": true,
   "scripts": {
-    "archive": "npx gulp archiveFiles",
-    "base64": "npx gulp convertImageToBase64",
-    "deploy": "npx gulp deploy",
+    "archive": "cross-env NODE_ENV=production npx gulp archiveFiles",
+    "base64": "cross-env NODE_ENV=production npx gulp convertImageToBase64",
+    "deploy": "cross-env NODE_ENV=production npx gulp deploy",
     "dev": "cross-env NODE_ENV=development npx gulp default",
     "prod": "cross-env NODE_ENV=production npx gulp default",
-    "sprite": "npx gulp generateSprite"
+    "sprite": "cross-env NODE_ENV=production npx gulp generateSprite"
   }
 }
