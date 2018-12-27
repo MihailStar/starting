@@ -13,7 +13,7 @@ function compileScriptLibraries() {
     .pipe(concat('libraries.min.js'))
     .pipe(gulpIf(!isDevelopment, uglify()))
     .pipe(gulpIf(!isDevelopment, size({
-      title: 'size of compiled script libraries'
+      title: 'compileScriptLibraries size'
     })))
     .pipe(gulp.dest(paths.libraries.dest));
 }

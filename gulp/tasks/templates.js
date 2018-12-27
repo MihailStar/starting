@@ -12,7 +12,7 @@ function compileTemplates() {
     .pipe(gulpIf(!isDevelopment, replace('DOCTYPE', 'doctype')))
     .pipe(gulpIf(!isDevelopment, htmlBeautify()))
     .pipe(gulpIf(!isDevelopment, size({
-      title: 'size of compiled templates'
+      title: 'compileTemplates size'
     })))
     .pipe(gulp.dest(paths.templates.dest));
 }

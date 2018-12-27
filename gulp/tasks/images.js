@@ -10,7 +10,7 @@ function compileImages() {
     .pipe(newer(paths.images.dest))
     .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig)))
     .pipe(gulpIf(!isDevelopment, size({
-      title: 'size of compiled images'
+      title: 'compileImages size'
     })))
     .pipe(gulp.dest(paths.images.dest));
 }

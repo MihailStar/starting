@@ -6,6 +6,12 @@
   }
 }
 
+@mixin hyphens {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;

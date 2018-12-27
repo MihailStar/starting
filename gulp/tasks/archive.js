@@ -9,7 +9,7 @@ function archiveFiles() {
   return gulp.src(paths.compress.src)
     .pipe(zip(`${new Date().toISOString().replace(/:/g, '-')}.zip`))
     .pipe(size({
-      title: 'archived file size'
+      title: 'archiveFiles size'
     }))
     .pipe(gulp.dest(paths.compress.dest));
 }

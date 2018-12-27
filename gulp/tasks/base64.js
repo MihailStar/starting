@@ -9,7 +9,7 @@ function convertImageToBase64() {
     .pipe(imagemin(imageminConfig))
     .pipe(imageDataURI())
     .pipe(size({
-      title: 'converted image size'
+      title: 'convertImageToBase64 size'
     }))
     .pipe(gulp.dest(paths.base64.dest));
 }

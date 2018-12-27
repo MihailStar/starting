@@ -46,7 +46,7 @@ function compileStyles() {
     }))
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(gulpIf(!isDevelopment, size({
-      title: 'size of compiled styles'
+      title: 'compileStyles size'
     })))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(gulpIf(isDevelopment, server.stream()));
