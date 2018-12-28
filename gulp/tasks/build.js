@@ -6,7 +6,7 @@ import compileStyles from './styles.js';
 import compileTemplates from './templates.js';
 import gulp from 'gulp';
 
-const build = gulp.parallel(
+export default gulp.parallel(
   compileFonts,
   compileImages,
   compileScriptLibraries,
@@ -14,5 +14,3 @@ const build = gulp.parallel(
   compileStyles,
   compileTemplates
 );
-
-export default build;
