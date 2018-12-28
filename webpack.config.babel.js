@@ -40,4 +40,4 @@ const production = {
   }
 };
 
-export default isDevelopment ? development : production;
+export default (isDevelopment ? development : production);

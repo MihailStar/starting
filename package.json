@@ -40,7 +40,7 @@
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-scss": "^3.4.4",
     "terser": "^3.13.1",
-    "terser-webpack-plugin": "^1.2.0",
+    "terser-webpack-plugin": "^1.2.1",
     "webpack": "^4.28.2",
     "webpack-stream": "^5.2.1"
   },
