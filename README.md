@@ -1,6 +1,6 @@
 # Стартовый шаблон для верстки
 
-Gulp + HTML(~~Nunjucks~~, Pug) + CSS(Sass, SCSS) + JavaScript(Babel, Webpack)
+Gulp + HTML(~~Nunjucks~~, Pug) + CSS(~~Sass~~, SCSS) + JavaScript(Babel, Webpack)
 
 - `git clone https://github.com/MihailStar/starting.git --depth 1 new-project` - клонировать репозиторий
 - `git remote rm origin` - удалить ссылку на origin репозиторий

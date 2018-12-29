@@ -73,11 +73,11 @@ const paths = {
     }
   },
   styles: {
-    src: `${directory.src}/styles/main.{sass,scss}`,
+    src: `${directory.src}/styles/main.scss`,
     dest: `${directory.dest}/styles`,
     watch: [
-      `${directory.src}/styles/**/*.{sass,scss}`,
-      `${directory.src}/blocks/**/*.{sass,scss}`
+      `${directory.src}/styles/**/*.scss`,
+      `${directory.src}/blocks/**/*.scss`
     ]
   },
   templates: {
