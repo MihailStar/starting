@@ -1,4 +1,4 @@
-import {paths, isDevelopment} from '../configuration.js';
+import { paths, isDevelopment } from '../configuration.js';
 import autoprefixer from 'autoprefixer';
 import cssMqpacker from 'css-mqpacker';
 import gulp from 'gulp';
@@ -17,7 +17,8 @@ import wait from 'gulp-wait';
 sass.compiler = nodeSass;
 
 function compileStyles() {
-  return gulp.src(paths.styles.src)
+  return gulp
+    .src(paths.styles.src)
     .pipe(wait(100))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
     .pipe(sass().on('error', sass.logError))

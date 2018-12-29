@@ -1,4 +1,4 @@
-import {isDevelopment} from './gulp/configuration.js';
+import { isDevelopment } from './gulp/configuration.js';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const development = {

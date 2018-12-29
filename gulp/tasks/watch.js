@@ -1,5 +1,5 @@
-import {paths} from '../configuration.js';
-import {reloadServer} from './server.js';
+import { paths } from '../configuration.js';
+import { reloadServer } from './server.js';
 import compileFonts from './fonts.js';
 import compileImages from './images.js';
 import compileScriptLibraries from './libraries.js';
@@ -22,10 +22,7 @@ function watch() {
     templates: [compileTemplates, reloadServer]
   };
   Object.keys(watchFor).forEach((path) => {
-    gulp.watch(
-      paths[path].watch,
-      gulp.series(...watchFor[path])
-    );
+    gulp.watch(paths[path].watch, gulp.series(...watchFor[path]));
   });
 }
 

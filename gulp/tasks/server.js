@@ -1,4 +1,4 @@
-import {directory} from '../configuration.js';
+import { directory } from '../configuration.js';
 import browserSync from 'browser-sync';
 
 const server = browserSync.create('server');
@@ -22,5 +22,5 @@ function reloadServer(done) {
   done();
 }
 
-export {initializeServer, reloadServer};
+export { initializeServer, reloadServer };
 export default server;

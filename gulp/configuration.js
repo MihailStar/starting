@@ -40,7 +40,7 @@ const paths = {
   },
   images: {
     src: [
-      `${directory.src}/images/**/*.{gif,jpg,png,svg,webp}`,
+      `${directory.src}/images/**/*.{gif,ico,jpg,png,svg,webp}`,
       `!${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
       `!${directory.src}/images/sprite/**/*.svg`
     ],
@@ -110,4 +110,4 @@ const imageminConfig = [
   })
 ];
 
-export {isDevelopment, directory, paths, imageminConfig};
+export { isDevelopment, directory, paths, imageminConfig };

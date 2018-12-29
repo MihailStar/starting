@@ -1,11 +1,12 @@
-import {paths, isDevelopment} from '../configuration.js';
+import { paths, isDevelopment } from '../configuration.js';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
 
 function compileFonts() {
-  return gulp.src(paths.fonts.src)
+  return gulp
+    .src(paths.fonts.src)
     .pipe(newer(paths.fonts.dest))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileFonts size'

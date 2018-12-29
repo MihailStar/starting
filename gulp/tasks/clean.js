@@ -1,4 +1,4 @@
-import {directory} from '../configuration.js';
+import { directory } from '../configuration.js';
 import del from 'del';
 
 function clean() {
