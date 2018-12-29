@@ -8,20 +8,20 @@ const directory = {
 };
 
 const paths = {
-  base64: {
-    src: `${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
-    dest: `${directory.dest}/images/base64`,
-    get watch() {
-      return this.src;
-    }
-  },
-  compress: {
+  archive: {
     src: [
       `${directory.dest}/**/*`,
       `!${directory.dest}/**/*.zip`
     ],
     dest: directory.dest,
     watch: ''
+  },
+  base64: {
+    src: `${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
+    dest: `${directory.dest}/images/base64`,
+    get watch() {
+      return this.src;
+    }
   },
   deploy: {
     src: [
