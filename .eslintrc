@@ -4,28 +4,10 @@
     "jquery": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb-base",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "root": true,
-  "rules": {
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "valid-jsdoc": [
-      "error",
-      {
-        "requireParamDescription": false,
-        "requireReturn": false,
-        "requireReturnDescription": false
-      }
-    ]
-  }
+  "root": true
 }
