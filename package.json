@@ -23,6 +23,7 @@
     "gulp-prettier": "^2.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.4",
@@ -40,7 +41,7 @@
     "stylelint-scss": "^3.4.4",
     "terser": "^3.13.1",
     "terser-webpack-plugin": "^1.2.1",
-    "webpack": "^4.28.2",
+    "webpack": "^4.28.3",
     "webpack-stream": "^5.2.1"
   },
   "license": "WTFPL",
