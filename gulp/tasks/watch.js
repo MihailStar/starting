@@ -1,14 +1,15 @@
-import { paths } from '../configuration.js';
-import { reloadServer } from './server.js';
-import compileFonts from './fonts.js';
-import compileImages from './images.js';
-import compileScriptLibraries from './libraries.js';
-import compileScripts from './scripts.js';
-import compileStyles from './styles.js';
-import compileTemplates from './templates.js';
-import convertImageToBase64 from './base64.js';
-import generateSprite from './sprite.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
+import { paths } from '../configuration';
+import { reloadServer } from './server';
+import compileFonts from './fonts';
+import compileImages from './images';
+import compileScriptLibraries from './libraries';
+import compileScripts from './scripts';
+import compileStyles from './styles';
+import compileTemplates from './templates';
+import convertImageToBase64 from './base64';
+import generateSprite from './sprite';
 
 function watch() {
   const watchFor = {
@@ -19,7 +20,7 @@ function watch() {
     scripts: [compileScripts, reloadServer],
     sprite: [generateSprite],
     styles: [compileStyles],
-    templates: [compileTemplates, reloadServer]
+    templates: [compileTemplates, reloadServer],
   };
   Object.keys(watchFor).forEach((path) => {
     gulp.watch(paths[path].watch, gulp.series(...watchFor[path]));

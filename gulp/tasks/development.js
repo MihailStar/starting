@@ -1,11 +1,15 @@
-import { initializeServer } from './server.js';
-import build from './build.js';
-import clean from './clean.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
-import watch from './watch.js';
+import { initializeServer } from './server';
+import build from './build';
+import clean from './clean';
+import watch from './watch';
 
 export default gulp.series(
   clean,
   build,
-  gulp.parallel(initializeServer, watch)
+  gulp.parallel(
+    initializeServer,
+    watch,
+  ),
 );

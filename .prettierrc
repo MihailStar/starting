@@ -1,6 +1,6 @@
 {
   "arrowParens": "always",
   "endOfLine": "lf",
-  "jsxSingleQuote": true,
-  "singleQuote": true
+  "singleQuote": true,
+  "trailingComma": "all"
 }

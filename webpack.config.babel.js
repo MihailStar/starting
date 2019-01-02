@@ -1,12 +1,12 @@
-import { isDevelopment } from './gulp/configuration.js';
 import TerserPlugin from 'terser-webpack-plugin';
+import { isDevelopment } from './gulp/configuration';
 
 const development = {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   output: {
-    filename: 'main.min.js'
-  }
+    filename: 'main.min.js',
+  },
 };
 
 const production = {
@@ -17,10 +17,10 @@ const production = {
         exclude: /(dist|node_modules)/,
         test: /\.js$/,
         use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
   optimization: {
     minimizer: [
@@ -29,15 +29,15 @@ const production = {
         test: /\.js$/,
         terserOptions: {
           output: {
-            comments: false
-          }
-        }
-      })
-    ]
+            comments: false,
+          },
+        },
+      }),
+    ],
   },
   output: {
-    filename: 'main.min.js'
-  }
+    filename: 'main.min.js',
+  },
 };
 
 export default (isDevelopment ? development : production);

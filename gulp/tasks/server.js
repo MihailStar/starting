@@ -1,5 +1,6 @@
-import { directory } from '../configuration.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import browserSync from 'browser-sync';
+import { directory } from '../configuration';
 
 const server = browserSync.create('server');
 
@@ -12,7 +13,7 @@ function initializeServer(done) {
     port: 3000,
     reloadOnRestart: true,
     server: directory.dest,
-    ui: false
+    ui: false,
   });
   done();
 }

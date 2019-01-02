@@ -1,10 +1,11 @@
-import compileFonts from './fonts.js';
-import compileImages from './images.js';
-import compileScriptLibraries from './libraries.js';
-import compileScripts from './scripts.js';
-import compileStyles from './styles.js';
-import compileTemplates from './templates.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
+import compileFonts from './fonts';
+import compileImages from './images';
+import compileScriptLibraries from './libraries';
+import compileScripts from './scripts';
+import compileStyles from './styles';
+import compileTemplates from './templates';
 
 export default gulp.parallel(
   compileFonts,
@@ -12,5 +13,5 @@ export default gulp.parallel(
   compileScriptLibraries,
   compileScripts,
   compileStyles,
-  compileTemplates
+  compileTemplates,
 );

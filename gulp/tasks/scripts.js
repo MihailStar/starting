@@ -1,8 +1,9 @@
-import { paths } from '../configuration.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import webpack from 'webpack';
-import webpackConfig from '../../webpack.config.babel.js';
 import webpackStream from 'webpack-stream';
+import { paths } from '../configuration';
+import webpackConfig from '../../webpack.config.babel';
 
 function compileScripts() {
   return gulp

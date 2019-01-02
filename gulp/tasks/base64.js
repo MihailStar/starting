@@ -1,8 +1,9 @@
-import { paths, imageminConfig } from '../configuration.js';
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import imageDataURI from 'gulp-image-data-uri';
 import imagemin from 'gulp-imagemin';
 import size from 'gulp-size';
+import { paths, imageminConfig } from '../configuration';
 
 function convertImageToBase64() {
   return gulp
@@ -10,7 +11,7 @@ function convertImageToBase64() {
     .pipe(imagemin(imageminConfig))
     .pipe(imageDataURI())
     .pipe(size({
-      title: 'convertImageToBase64 size'
+      title: 'convertImageToBase64',
     }))
     .pipe(gulp.dest(paths.base64.dest));
 }

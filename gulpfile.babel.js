@@ -1,10 +1,11 @@
-import { isDevelopment } from './gulp/configuration.js';
-import archiveFiles from './gulp/tasks/archive.js';
-import convertImageToBase64 from './gulp/tasks/base64.js';
-import deploy from './gulp/tasks/deploy.js';
-import development from './gulp/tasks/development.js';
-import generateSprite from './gulp/tasks/sprite.js';
-import production from './gulp/tasks/production.js';
+import { isDevelopment } from './gulp/configuration';
+import archiveFiles from './gulp/tasks/archive';
+import convertImageToBase64 from './gulp/tasks/base64';
+import deploy from './gulp/tasks/deploy';
+import development from './gulp/tasks/development';
+import generateSprite from './gulp/tasks/sprite';
+import production from './gulp/tasks/production';
 
+// eslint-disable-next-line object-curly-newline
 export { archiveFiles, convertImageToBase64, deploy, generateSprite };
 export default (isDevelopment ? development : production);
