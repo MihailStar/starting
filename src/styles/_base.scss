@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #cad3df;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+h1 {
+  text-align: center;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

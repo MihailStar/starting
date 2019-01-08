@@ -1,2 +1,3 @@
-// eslint-disable-next-line no-console
-console.info('Стартовый шаблон для верстки');
+import info from './_info';
+
+info('Стартовый шаблон для верстки');
