@@ -8,14 +8,14 @@ import size from 'gulp-size';
 import { paths, isDevelopment } from '../configuration';
 
 function compileTemplates() {
-  // prettier magic comments
-  const regExp = /\n* *<!-- *display: *(?:block|inline) *-->/g;
+  const prettierMagicCommentsRegExp = /\n* *<!-- *display: *(?:block|inline) *-->/g;
 
   return gulp
     .src(paths.templates.src)
     .pipe(pug())
     .pipe(gulpIf(!isDevelopment, prettier()))
-    .pipe(gulpIf(!isDevelopment, replace(regExp, '')))
+    .pipe(gulpIf(!isDevelopment, replace(prettierMagicCommentsRegExp, '')))
+    .pipe(gulpIf(!isDevelopment, replace(/\n$/, '')))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileTemplates',
     })))
