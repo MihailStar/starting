@@ -10,7 +10,6 @@ function initializeServer(done) {
     notify: false,
     online: false,
     open: false,
-    port: 3000,
     reloadOnRestart: true,
     server: directory.dest,
     ui: false,

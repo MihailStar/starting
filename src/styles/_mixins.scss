@@ -65,10 +65,10 @@
   white-space: nowrap;
 }
 
-@function ps-to-em($ps-size) {
-  @return $ps-size / 1000 * 1em;
+@function ps-letter-spacing-to-em($size) {
+  @return $size / 1000 * 1em;
 }
 
-@function px-to-rem($px-size, $rem-base: 16) {
-  @return $px-size / $rem-base * 1rem;
+@function px-to-rem($size, $rem-base: 16) {
+  @return $size / $rem-base * 1rem;
 }
