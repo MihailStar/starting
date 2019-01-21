@@ -6,6 +6,5 @@ import development from './gulp/tasks/development';
 import generateSprite from './gulp/tasks/sprite';
 import production from './gulp/tasks/production';
 
-// eslint-disable-next-line object-curly-newline
 export { archiveFiles, convertImageToBase64, deploy, generateSprite };
 export default (isDevelopment ? development : production);
