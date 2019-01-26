@@ -111,5 +111,4 @@ const imageminConfig = [
   }),
 ];
 
-// eslint-disable-next-line object-curly-newline
 export { isDevelopment, directory, paths, imageminConfig };

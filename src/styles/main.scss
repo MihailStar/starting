@@ -1,5 +1,7 @@
+@import '../../node_modules/fast-grid/fast-grid';
 @import '../../node_modules/include-media/dist/_include-media';
-@import './_variables';
+@import './_colors';
 @import './_mixins';
 @import './_fonts';
 @import './_base';
+@import './_grid';

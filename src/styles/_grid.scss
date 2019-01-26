@@ -1,0 +1,49 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+$container: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
+
+$grid: map-merge(
+  $grid,
+  (
+    breakpoints: $breakpoints,
+  )
+);
+
+.grid {
+  @include grid-container(sm);
+
+  @include grid-breakpoint(sm) {
+    max-width: map-get($container, sm);
+  }
+
+  @include grid-breakpoint(md) {
+    max-width: map-get($container, md);
+  }
+
+  @include grid-breakpoint(lg) {
+    max-width: map-get($container, lg);
+  }
+
+  @include grid-breakpoint(xl) {
+    max-width: map-get($container, xl);
+  }
+
+  &__row {
+    @include grid-row();
+  }
+
+  &__column {
+    @include grid-col(12 6 4 3);
+  }
+}

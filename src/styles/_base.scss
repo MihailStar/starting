@@ -10,11 +10,15 @@ html {
 }
 
 body {
+  $font-size: 16px;
   margin: 0;
   min-width: 320px;
   background-color: map-get($colors, background);
-  font-size: 16px;
+  color: map-get($colors, text);
+  font-weight: 400;
+  font-size: $font-size;
   font-family: sans-serif;
+  line-height: (24px / $font-size);
 }
 
 button,
@@ -26,7 +30,33 @@ textarea {
 }
 
 h1 {
+  $font-size: 68px;
+  margin-top: (24px / $font-size * 1em);
+  margin-bottom: (48px / $font-size * 1em);
   text-align: center;
+  font-weight: 700;
+  font-size: $font-size - 20;
+  line-height: (72px / $font-size);
+
+  @include media('>=xs', '<sm') {
+    font-size: $font-size - 16;
+  }
+
+  @include media('>=sm', '<md') {
+    font-size: $font-size - 12;
+  }
+
+  @include media('>=md', '<lg') {
+    font-size: $font-size - 8;
+  }
+
+  @include media('>=lg', '<xl') {
+    font-size: $font-size - 4;
+  }
+
+  @include media('>=xl') {
+    font-size: $font-size;
+  }
 }
 
 .visually-hidden {
