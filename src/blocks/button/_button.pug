@@ -1,0 +1,7 @@
+mixin button(name)
+  if attributes.href
+    a.button&attributes(attributes)
+      span= name
+  else
+    button.button&attributes(attributes)
+      span= name

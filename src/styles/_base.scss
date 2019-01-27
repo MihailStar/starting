@@ -33,8 +33,11 @@ h1 {
   $font-size: 68px;
   margin-top: (24px / $font-size * 1em);
   margin-bottom: (48px / $font-size * 1em);
+  color: map-get($colors, title);
   text-align: center;
-  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 400;
   font-size: $font-size - 16;
   line-height: (72px / $font-size);
 

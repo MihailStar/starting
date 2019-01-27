@@ -1,0 +1,52 @@
+.button {
+  $background-color: #0082d5;
+  $font-size: 16px;
+  $transition-duration: 200ms;
+  display: inline-block;
+  padding: (16px / $font-size * 1em) (24px / $font-size * 1em);
+  min-width: (160px / $font-size * 1em);
+  border: none;
+  border-radius: 4px;
+  background-color: $background-color;
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0);
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: $font-size;
+  font-family: inherit;
+  line-height: (24px / $font-size);
+  cursor: pointer;
+  transition: background-color $transition-duration,
+    box-shadow $transition-duration;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: lighten($background-color, 5%);
+  }
+
+  &:active {
+    background-color: darken($background-color, 5%);
+    box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.4);
+    user-select: none;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+
+    &:focus,
+    &:hover {
+      background-color: $background-color;
+    }
+
+    &:active {
+      background-color: $background-color;
+      box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0);
+    }
+  }
+}
