@@ -5,11 +5,16 @@ import { paths } from '../configuration';
 import build from './build';
 import clean from './clean';
 
+const fileName = `${new Date()
+  .toISOString()
+  .replace(/[T:]/g, '-')
+  .slice(0, -5)}`;
+
 function deploy() {
   return gulp
     .src(paths.deploy.src)
     .pipe(ghPages({
-      message: `${new Date().toISOString().replace(/:/g, '-')}`,
+      message: fileName,
     }));
 }
 

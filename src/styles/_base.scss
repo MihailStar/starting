@@ -35,22 +35,18 @@ h1 {
   margin-bottom: (48px / $font-size * 1em);
   text-align: center;
   font-weight: 700;
-  font-size: $font-size - 20;
+  font-size: $font-size - 16;
   line-height: (72px / $font-size);
 
-  @include media('>=xs', '<sm') {
-    font-size: $font-size - 16;
-  }
-
-  @include media('>=sm', '<md') {
+  @include media('>=sm') {
     font-size: $font-size - 12;
   }
 
-  @include media('>=md', '<lg') {
+  @include media('>=md') {
     font-size: $font-size - 8;
   }
 
-  @include media('>=lg', '<xl') {
+  @include media('>=lg') {
     font-size: $font-size - 4;
   }
 
