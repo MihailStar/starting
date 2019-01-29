@@ -1,3 +1,7 @@
+//- @example
+//- +button('example')(href='javascript:void(0);')
+//- +button('example')(type='button')
+
 mixin button(name)
   if attributes.href
     a.button&attributes(attributes)

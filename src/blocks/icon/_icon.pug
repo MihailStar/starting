@@ -1,9 +1,10 @@
-mixin icon(name, width='24', height='24')
+//- @example
+//- +icon('example')(width='24' height='24')
+
+mixin icon(name)
   svg(
     class=`icon-${name}`
     aria-hidden='true'
     focusable='false'
-    width=width
-    height=height
-  )
+  )&attributes(attributes)
     use(xlink:href=`#icon-${name}`)/
