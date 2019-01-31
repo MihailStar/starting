@@ -6,12 +6,6 @@
   }
 }
 
-@mixin hyphens {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
@@ -68,10 +62,8 @@
   white-space: nowrap;
 }
 
-@function ps-letter-spacing-to-em($size) {
-  @return $size / 1000 * 1em;
-}
-
-@function px-to-rem($size, $rem-base: 16) {
-  @return $size / $rem-base * 1rem;
+@mixin word-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
