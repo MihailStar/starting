@@ -54,7 +54,7 @@
   "name": "starting",
   "private": true,
   "scripts": {
-    "archive": "cross-env NODE_ENV=production npx gulp archiveFiles",
+    "archive": "cross-env NODE_ENV=production npx gulp archive",
     "base64": "cross-env NODE_ENV=production npx gulp convertImageToBase64",
     "deploy": "cross-env NODE_ENV=production npx gulp deploy",
     "dev": "cross-env NODE_ENV=development npx gulp default",

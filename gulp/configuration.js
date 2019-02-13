@@ -10,10 +10,7 @@ const directory = {
 
 const paths = {
   archive: {
-    src: [
-      `${directory.dest}/**/*`,
-      `!${directory.dest}/**/*.zip`,
-    ],
+    src: `${directory.dest}/**/*.*`,
     dest: directory.dest,
     watch: '',
   },
@@ -25,10 +22,7 @@ const paths = {
     },
   },
   deploy: {
-    src: [
-      `${directory.dest}/**/*`,
-      `!${directory.dest}/**/*.zip`,
-    ],
+    src: `${directory.dest}/**/*.*`,
     dest: '',
     watch: '',
   },

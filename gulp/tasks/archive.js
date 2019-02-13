@@ -16,12 +16,12 @@ const fileName = `${projectName ? `${projectName}-` : ''}${new Date()
   .replace(/[T:]/g, '-')
   .slice(0, -5)}.zip`;
 
-function archiveFiles() {
+function archive() {
   return gulp
     .src(paths.archive.src)
     .pipe(zip(fileName))
     .pipe(size({
-      title: 'archiveFiles',
+      title: 'archive',
     }))
     .pipe(gulp.dest(paths.archive.dest));
 }
@@ -29,5 +29,5 @@ function archiveFiles() {
 export default gulp.series(
   clean,
   build,
-  archiveFiles,
+  archive,
 );
