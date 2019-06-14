@@ -8,13 +8,13 @@ import size from 'gulp-size';
 import { paths, isDevelopment } from '../configuration';
 
 function compileTemplates() {
-  const prettierMagicCommentsRegExp = /\n* *<!-- *display: *(?:block|inline) *-->/g;
+  const prettierMagicComments = /\n* *<!-- *display: *(?:block|inline) *-->/g;
 
   return gulp
     .src(paths.templates.src)
     .pipe(pug())
     .pipe(gulpIf(!isDevelopment, prettier()))
-    .pipe(gulpIf(!isDevelopment, replace(prettierMagicCommentsRegExp, '')))
+    .pipe(gulpIf(!isDevelopment, replace(prettierMagicComments, '')))
     .pipe(gulpIf(!isDevelopment, replace(/\n$/, '')))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileTemplates',
