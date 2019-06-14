@@ -4,6 +4,13 @@ HTML(~~Nunjucks~~ Pug), CSS(~~Sass~~ SCSS, PostCSS), JavaScript(Webpack, Babel)
 
 ```bash
 git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонировать репозиторий
+git remote rm origin # удалить ссылку на origin репозиторий
+git remote add origin https://github.com/MihailStar/new-repository.git # добавить ссылку на origin репозиторий
+git remote -v # сверить ссылки на удаленные репозитории
+
+# либо
+
+git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонировать репозиторий
 cd new-project # перейти в папку проекта
 rm -rf .git # удалить основу репозитория
 git init # создать основу репозитория
@@ -17,6 +24,9 @@ npm i # установить зависимости
 
 ```bash
 npm run dev # development сборка, с BrowserSync'ом и Watch'ером
+
+# либо
+
 npm run prod # production сборка, без BrowserSync'а и Watch'ера
 ```
 
