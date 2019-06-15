@@ -15,10 +15,7 @@ body {
   min-width: 320px;
   background-color: map-get($colors, background);
   color: map-get($colors, text);
-  font-weight: 400;
-  font-size: $font-size;
-  font-family: sans-serif;
-  line-height: (24px / $font-size);
+  font: #{$font-size} / (24px / $font-size) sans-serif;
 }
 
 button,
