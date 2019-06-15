@@ -15,7 +15,6 @@ function compileTemplates() {
     .pipe(pug())
     .pipe(gulpIf(!isDevelopment, prettier()))
     .pipe(gulpIf(!isDevelopment, replace(prettierMagicComments, '')))
-    .pipe(gulpIf(!isDevelopment, replace(/\n$/, '')))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileTemplates',
     })))

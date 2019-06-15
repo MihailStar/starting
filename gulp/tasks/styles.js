@@ -7,6 +7,7 @@ import nodeSass from 'node-sass';
 import postcss from 'gulp-postcss';
 import postcssCsso from 'postcss-csso';
 import postcssImport from 'postcss-import';
+import prettier from 'gulp-prettier';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import size from 'gulp-size';
@@ -52,7 +53,13 @@ function compileStyles() {
       title: 'compileStyles',
     })))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(gulpIf(isDevelopment, server.stream()));
+    .pipe(gulpIf(isDevelopment, server.stream()))
+    .pipe(gulpIf(!isDevelopment, prettier()))
+    .pipe(gulpIf(!isDevelopment, rename({
+      basename: 'main',
+      extname: '.css',
+    })))
+    .pipe(gulpIf(!isDevelopment, gulp.dest(paths.styles.dest)));
 }
 
 export default compileStyles;
