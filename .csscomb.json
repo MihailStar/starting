@@ -9,7 +9,7 @@
     "dist/**",
     "node_modules/**"
   ],
-  "leading-zero": false,
+  "leading-zero": true,
   "lines-between-rulesets": 1,
   "quotes": "single",
   "remove-empty-rulesets": false,
