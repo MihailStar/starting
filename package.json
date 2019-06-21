@@ -1,5 +1,7 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "svg4everybody": "^2.1.9"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
@@ -58,7 +60,6 @@
     "base64": "cross-env NODE_ENV=production npx gulp convertImageToBase64",
     "deploy": "cross-env NODE_ENV=production npx gulp deploy",
     "dev": "cross-env NODE_ENV=development npx gulp default",
-    "prod": "cross-env NODE_ENV=production npx gulp default",
-    "sprite": "cross-env NODE_ENV=production npx gulp generateSprite"
+    "prod": "cross-env NODE_ENV=production npx gulp default"
   }
 }

@@ -1,3 +1,1 @@
-import info from './_info';
-
-info('Стартовый шаблон для верстки');
+import '../blocks/icon/_icon';

@@ -18,7 +18,7 @@ function watch() {
     images: [compileImages, reloadServer],
     libraries: [compileScriptLibraries, reloadServer],
     scripts: [compileScripts, reloadServer],
-    sprite: [generateSprite],
+    sprite: [generateSprite, reloadServer],
     styles: [compileStyles],
     templates: [compileTemplates, reloadServer],
   };

@@ -34,5 +34,4 @@ npm run prod # production сборка, без BrowserSync'а и Watch'ера
 npm run base64 # конвертировать изображения в Base64
 npm run archive # архивировать production сборку ZIP'ом
 npm run deploy # развернуть production сборку на Github Pages
-npm run sprite # генерировать спрайт из SVG изображений
 ```
