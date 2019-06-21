@@ -2,8 +2,8 @@
 //- +icon('example')(width='24' height='24')
 
 mixin icon(name)
-  svg(
-    class=`icon-${name}`
+  svg.icon(
+    class=`icon_${name}`
     aria-hidden='true'
     focusable='false'
   )&attributes(attributes)
