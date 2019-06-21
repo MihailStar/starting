@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import imagemin from 'gulp-imagemin';
 
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+const isDevelopment =
+  !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 const directory = {
   src: './src',
@@ -105,4 +106,15 @@ const imageminConfig = [
   }),
 ];
 
-export { isDevelopment, directory, paths, imageminConfig };
+const isProductionMinimized = {
+  styles: true,
+  templates: true,
+};
+
+export {
+  isDevelopment,
+  directory,
+  paths,
+  imageminConfig,
+  isProductionMinimized,
+};

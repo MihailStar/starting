@@ -5,16 +5,20 @@ import prettier from 'gulp-prettier';
 import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-import { paths, isDevelopment } from '../configuration';
+import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 
 function compileTemplates() {
-  const prettierMagicComments = /\n* *<!-- *display: *(?:block|inline) *-->/g;
-
   return gulp
     .src(paths.templates.src)
     .pipe(pug())
-    .pipe(gulpIf(!isDevelopment, prettier()))
-    .pipe(gulpIf(!isDevelopment, replace(prettierMagicComments, '')))
+    .pipe(gulpIf(
+      !isDevelopment && !isProductionMinimized.templates,
+      prettier(),
+    ))
+    .pipe(gulpIf(
+      !isDevelopment,
+      replace(/\n* *<!-- *display: *(?:block|inline) *-->/g, ''),
+    ))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileTemplates',
     })))

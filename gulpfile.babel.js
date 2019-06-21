@@ -7,4 +7,4 @@ import generateSprite from './gulp/tasks/sprite';
 import production from './gulp/tasks/production';
 
 export { archive, convertImageToBase64, deploy, generateSprite };
-export default (isDevelopment ? development : production);
+export default isDevelopment ? development : production;

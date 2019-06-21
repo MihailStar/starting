@@ -13,7 +13,7 @@ const uglify = uglifyComposer(terser, console.warn);
 function compileScriptLibraries() {
   return gulp
     .src(paths.libraries.src)
-    .pipe(concat('libraries.min.js'))
+    .pipe(concat('libraries.js'))
     .pipe(gulpIf(!isDevelopment, uglify()))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileScriptLibraries',

@@ -5,7 +5,7 @@ const development = {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   output: {
-    filename: 'main.min.js',
+    filename: 'main.js',
   },
 };
 
@@ -36,8 +36,8 @@ const production = {
     ],
   },
   output: {
-    filename: 'main.min.js',
+    filename: 'main.js',
   },
 };
 
-export default (isDevelopment ? development : production);
+export default isDevelopment ? development : production;
