@@ -279,6 +279,7 @@
       "hyphens",
       "letter-spacing",
       "font",
+      "font-display",
       "font-weight",
       "font-style",
       "font-variant",
