@@ -1,4 +1,4 @@
-@mixin clearfix {
+@mixin clearfix() {
   &::after {
     display: block;
     clear: both;
@@ -11,7 +11,7 @@
   height: $height;
 }
 
-@mixin text-truncate {
+@mixin text-truncate() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -49,11 +49,11 @@
   }
 }
 
-@mixin visually-hidden {
+@mixin visually-hidden() {
   position: absolute;
   overflow: hidden;
-  clip-path: inset(100%);
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
   margin: -1px;
   padding: 0;
   width: 1px;
@@ -62,7 +62,7 @@
   white-space: nowrap;
 }
 
-@mixin word-wrap {
+@mixin word-wrap() {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
