@@ -269,6 +269,7 @@
       "word-spacing",
       "-ms-word-wrap",
       "word-wrap",
+      "overflow-wrap",
       "-ms-word-break",
       "word-break",
       "-moz-tab-size",
