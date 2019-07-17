@@ -1,8 +1,12 @@
-//- @example
-//- +button('example')(href='javascript:void(0);')
-//- +button('example')(type='button')
+//-
+  @param {Object} options
+  @param {string} options.name
 
-mixin button(name)
+  @example
+  +button({ name: example })(href='javascript:void(0);')
+  +button({ name: example })(type='button')
+
+mixin button({ name })
   if attributes.href
     a.button&attributes(attributes)
       span= name

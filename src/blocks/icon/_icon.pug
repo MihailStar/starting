@@ -1,9 +1,13 @@
-//- @example
-//- +icon('example')(width='24' height='24')
+//-
+  @param {Object} options
+  @param {string} options.name
 
-mixin icon(name)
+  @example
+  +icon({ name: 'example' })(width='24' height='24')
+
+mixin icon({ name })
   svg.icon(
-    class=`icon_${name}`
+    class=`icon icon_${name}`
     aria-hidden='true'
     focusable='false'
   )&attributes(attributes)
