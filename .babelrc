@@ -1,9 +1,4 @@
 {
-  "ignore": [
-    "dist/**",
-    "node_modules/**"
-  ],
-  "presets": [
-    "@babel/preset-env"
-  ]
+  "ignore": ["dist/**", "node_modules/**"],
+  "presets": ["@babel/preset-env"]
 }

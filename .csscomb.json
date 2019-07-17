@@ -5,10 +5,7 @@
   "color-shorthand": true,
   "element-case": "lower",
   "eof-newline": true,
-  "exclude": [
-    "dist/**",
-    "node_modules/**"
-  ],
+  "exclude": ["dist/**", "node_modules/**"],
   "leading-zero": true,
   "lines-between-rulesets": 1,
   "quotes": "single",
