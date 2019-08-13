@@ -1,1 +1,1 @@
-import '../blocks/icon/_icon';
+import './_imports';
