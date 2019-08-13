@@ -19,7 +19,6 @@
     "eslint-plugin-import": "^2.18.2",
     "fast-grid": "^0.2.5",
     "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^3.0.0",
     "gulp-image-data-uri": "^1.2.2",
@@ -34,7 +33,6 @@
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2",
     "gulp-wait": "0.0.2",
     "gulp-zip": "^5.0.0",
     "htmlhint": "^0.11.0",
@@ -47,7 +45,6 @@
     "stylelint": "^10.1.0",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-scss": "^3.9.3",
-    "terser": "^4.1.4",
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.39.2",
     "webpack-stream": "^5.2.1"

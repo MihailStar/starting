@@ -45,13 +45,6 @@ const paths = {
       return this.src;
     },
   },
-  libraries: {
-    src: `${directory.src}/scripts/libraries/**/*.js`,
-    dest: `${directory.dest}/scripts`,
-    get watch() {
-      return this.src;
-    },
-  },
   scripts: {
     src: `${directory.src}/scripts/main.js`,
     dest: `${directory.dest}/scripts`,

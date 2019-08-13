@@ -4,7 +4,6 @@ import { paths } from '../configuration';
 import { reloadServer } from './server';
 import compileFonts from './fonts';
 import compileImages from './images';
-import compileScriptLibraries from './libraries';
 import compileScripts from './scripts';
 import compileStyles from './styles';
 import compileTemplates from './templates';
@@ -16,7 +15,6 @@ function watch() {
     base64: [convertImageToBase64],
     fonts: [compileFonts, reloadServer],
     images: [compileImages, reloadServer],
-    libraries: [compileScriptLibraries, reloadServer],
     scripts: [compileScripts, reloadServer],
     sprite: [generateSprite, reloadServer],
     styles: [compileStyles],
