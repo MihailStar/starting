@@ -35,26 +35,26 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: 400;
-  font-size: $font-size - 16;
+  font-size: ($font-size - 16);
   line-height: (72px / $font-size);
 
   @include media('>=sm') {
-    font-size: $font-size - 12;
+    font-size: ($font-size - 12);
   }
 
   @include media('>=md') {
-    font-size: $font-size - 8;
+    font-size: ($font-size - 8);
   }
 
   @include media('>=lg') {
-    font-size: $font-size - 4;
+    font-size: ($font-size - 4);
   }
 
   @include media('>=xl') {
-    font-size: $font-size;
+    font-size: ($font-size);
   }
 }
 
 .visually-hidden {
-  @include visually-hidden;
+  @include visually-hidden();
 }
