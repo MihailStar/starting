@@ -1,13 +1,20 @@
 //-
   @param {Object} options
   @param {string} options.name
+  @param {Array} [options.modifiers]
 
   @example
-  +icon({ name: 'example' })(width='24' height='24')
+  +icon({ name: 'example', modifiers: ['example'] })(width='24' height='24')
 
-mixin icon({ name })
-  svg.icon(
-    class=`icon icon_${name}`
+mixin icon({ name, modifiers })
+  -
+    const mainClass = 'icon'
+    const classesModifiers = modifiers
+      ? modifiers.map((modifier) => `${mainClass}__${modifier}`)
+      : [`${mainClass}__${name}`]
+
+  svg(
+    class=[mainClass, ...classesModifiers]
     aria-hidden='true'
     focusable='false'
   )&attributes(attributes)
