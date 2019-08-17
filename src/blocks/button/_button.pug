@@ -16,12 +16,12 @@ mixin button({ name, modifiers, href })
       : []
 
   if href || attributes.href
-    a.button(
+    a(
       class=[mainClass, ...classesModifiers] href=href
     )&attributes(attributes)
       span= name
   else
-    button.button(
+    button(
       class=[mainClass, ...classesModifiers]
     )&attributes(attributes)
       span= name
