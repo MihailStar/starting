@@ -11,6 +11,7 @@ html {
 
 body {
   $font-size: 16px;
+
   margin: 0;
   min-width: 320px;
   background-color: map-get($colors, background);
@@ -28,6 +29,7 @@ textarea {
 
 h1 {
   $font-size: 68px;
+
   margin-top: (24px / $font-size * 1em);
   margin-bottom: (48px / $font-size * 1em);
   color: map-get($colors, title);
