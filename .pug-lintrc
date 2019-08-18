@@ -1,11 +1,11 @@
 {
-  "disallowAttributeConcatenation": true,
+  "disallowAttributeConcatenation": "aggressive",
   "disallowAttributeInterpolation": true,
   "disallowBlockExpansion": true,
   "disallowDuplicateAttributes": true,
   "disallowLegacyMixinCall": true,
   "disallowMultipleLineBreaks": true,
-  "disallowStringConcatenation": true,
+  "disallowStringConcatenation": "aggressive",
   "disallowStringInterpolation": true,
   "disallowTagInterpolation": true,
   "disallowTrailingSpaces": true,
@@ -22,6 +22,10 @@
   ],
   "requireStrictEqualityOperators": true,
   "validateAttributeQuoteMarks": "'",
+  "validateAttributeSeparator": {
+    "multiLineSeparator": "\n  ",
+    "separator": " "
+  },
   "validateDivTags": true,
   "validateExtensions": true,
   "validateIndentation": 2,
