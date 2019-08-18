@@ -35,3 +35,11 @@ npm run base64 # конвертировать изображения в Base64
 npm run archive # архивировать production сборку ZIP'ом
 npm run deploy # развернуть production сборку на Github Pages
 ```
+
+```bash
+npm run puglint # проверить наличие ошибок в .pug файлах
+npm run scsslint # проверить наличие ошибок в .scss файлах
+npm run jslint # проверить наличие ошибок в .js файлах
+npm run lint # проверить наличие ошибок в .pug, .scss, .js файлах
+npm run prettier # проверить форматирование .scss, .js, .json файлов согласно Prettier
+```
