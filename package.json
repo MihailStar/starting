@@ -35,7 +35,9 @@
     "gulp-svgstore": "^7.0.1",
     "gulp-wait": "0.0.2",
     "gulp-zip": "^5.0.0",
+    "husky": "^3.0.4",
     "include-media": "^1.4.9",
+    "lint-staged": "^9.2.3",
     "node-sass": "^4.12.0",
     "postcss-csso": "^3.0.0",
     "postcss-import": "^12.0.1",
@@ -47,6 +49,11 @@
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.39.2",
     "webpack-stream": "^5.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "license": "WTFPL",
   "name": "starting",
