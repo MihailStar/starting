@@ -38,5 +38,5 @@ npm run lint # проверяет наличие ошибок в .pug, .scss, .j
 npm run lintjs # проверяет наличие ошибок в .js файлах
 npm run lintpug # проверяет наличие ошибок в .pug файлах
 npm run lintscss # проверяет наличие ошибок в .scss файлах
-npm run prettier # проверяет форматирование .scss, .js, .json файлов согласно Prettier
+npm run prettier # проверяет форматирование .js, .scss файлов согласно Prettier
 ```

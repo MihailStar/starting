@@ -60,7 +60,7 @@
     "lintjs": "eslint \"./src\"",
     "lintpug": "pug-lint \"./src\"",
     "lintscss": "stylelint \"./src/**/*.scss\"",
-    "prettier": "prettier --check \"./src/**/*.{scss,js,json}\"",
+    "prettier": "prettier --check \"./src/**/*.{js,scss}\"",
     "prod": "cross-env NODE_ENV=production gulp default"
   }
 }
