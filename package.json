@@ -56,11 +56,11 @@
     "base64": "cross-env NODE_ENV=production npx gulp convertImageToBase64",
     "deploy": "cross-env NODE_ENV=production npx gulp deploy",
     "dev": "cross-env NODE_ENV=development npx gulp default",
-    "jslint": "npx eslint ./src",
-    "lint": "npm run puglint && npm run scsslint && npm run jslint",
+    "lint": "npm run lintpug && npm run lintscss && npm run lintjs",
+    "lintjs": "npx eslint ./src",
+    "lintpug": "npx pug-lint ./src",
+    "lintscss": "npx stylelint ./src/**/*.scss",
     "prettier": "npx prettier --check ./src/**/*.{scss,js,json}",
-    "prod": "cross-env NODE_ENV=production npx gulp default",
-    "puglint": "npx pug-lint ./src",
-    "scsslint": "npx stylelint ./src/**/*.scss"
+    "prod": "cross-env NODE_ENV=production npx gulp default"
   }
 }
