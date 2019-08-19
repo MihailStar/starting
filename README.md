@@ -3,43 +3,40 @@
 HTML(~~Nunjucks~~ Pug), CSS(~~Sass~~ SCSS, PostCSS), JavaScript(Webpack, Babel)
 
 ```bash
-git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонировать репозиторий
-git remote rm origin # удалить ссылку на origin репозиторий
-git remote add origin https://github.com/MihailStar/new-repository.git # добавить ссылку на origin репозиторий
-git remote -v # сверить ссылки на удаленные репозитории
+git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонирует репозиторий
+git remote rm origin # удаляет ссылку на origin репозиторий
+git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
+git remote -v # показывает ссылки на удаленные репозитории
 
 # либо
 
-git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонировать репозиторий
-cd new-project # перейти в папку проекта
-rm -rf .git # удалить основу репозитория
-git init # создать основу репозитория
-git remote add origin https://github.com/MihailStar/new-repository.git # добавить ссылку на origin репозиторий
-git remote -v # сверить ссылки на удаленные репозитории
+git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонирует репозиторий
+cd new-project # переходит в папку проекта
+rm -rf .git # удаляет основу репозитория
+git init # создает основу репозитория
+git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
+git remote -v # показывает ссылки на удаленные репозитории
 ```
 
 ```bash
-npm i # установить зависимости
+npm i # установливает зависимости
 ```
 
 ```bash
-npm run dev # development сборка, с BrowserSync'ом и Watch'ером
+npm run dev # стартует development сборку, с BrowserSync'ом и Watch'ером
 
 # либо
 
-npm run prod # production сборка, без BrowserSync'а и Watch'ера
+npm run prod # стартует production сборку, без BrowserSync'а и Watch'ера
 ```
 
 ```bash
-npm run base64 # конвертировать изображения в Base64
-npm run archive # архивировать production сборку ZIP'ом
-npm run deploy # развернуть production сборку на Github Pages
-```
-
-```bash
-npm run puglint # проверить наличие ошибок в .pug файлах
-npm run scsslint # проверить наличие ошибок в .scss файлах
-npm run jslint # проверить наличие ошибок в .js файлах
-npm run lint # проверить наличие ошибок в .pug, .scss, .js файлах
-npm run prettier # проверить форматирование .scss, .js, .json файлов согласно Prettier
+npm run archive # архивирует production сборку ZIP'ом
+npm run base64 # конвертирует изображения в Base64
+npm run deploy # разворачивает production сборку на Github Pages
+npm run lint # проверяет наличие ошибок в .pug, .scss, .js файлах
+npm run lintjs # проверяет наличие ошибок в .js файлах
+npm run lintpug # проверяет наличие ошибок в .pug файлах
+npm run lintscss # проверяет наличие ошибок в .scss файлах
+npm run prettier # проверяет форматирование .scss, .js, .json файлов согласно Prettier
 ```
