@@ -35,8 +35,8 @@ npm run archive # архивирует production сборку ZIP'ом
 npm run base64 # конвертирует изображения в Base64
 npm run deploy # разворачивает production сборку на Github Pages
 npm run lint # проверяет наличие ошибок в .pug, .scss, .js файлах
-npm run lintjs # проверяет наличие ошибок в .js файлах
-npm run lintpug # проверяет наличие ошибок в .pug файлах
-npm run lintscss # проверяет наличие ошибок в .scss файлах
+npm run lint:js # проверяет наличие ошибок в .js файлах
+npm run lint:pug # проверяет наличие ошибок в .pug файлах
+npm run lint:scss # проверяет наличие ошибок в .scss файлах
 npm run prettier # проверяет форматирование .js, .scss файлов согласно Prettier
 ```
