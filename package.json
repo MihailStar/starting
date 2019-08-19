@@ -57,10 +57,10 @@
     "deploy": "cross-env NODE_ENV=production gulp deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lintpug && npm run lintscss && npm run lintjs",
-    "lintjs": "eslint ./src",
-    "lintpug": "pug-lint ./src",
-    "lintscss": "stylelint ./src/**/*.scss",
-    "prettier": "prettier --check ./src/**/*.{scss,js,json}",
+    "lintjs": "eslint \"./src\"",
+    "lintpug": "pug-lint \"./src\"",
+    "lintscss": "stylelint \"./src/**/*.scss\"",
+    "prettier": "prettier --check \"./src/**/*.{scss,js,json}\"",
     "prod": "cross-env NODE_ENV=production gulp default"
   }
 }
