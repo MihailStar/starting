@@ -19,7 +19,7 @@ git remote -v # показывает ссылки на удаленные реп
 ```
 
 ```bash
-npm i # установливает зависимости
+npm i # устанавливает зависимости
 ```
 
 ```bash
@@ -38,5 +38,5 @@ npm run lint # проверяет наличие ошибок в .pug, .scss, .j
 npm run lint:js # проверяет наличие ошибок в .js файлах
 npm run lint:pug # проверяет наличие ошибок в .pug файлах
 npm run lint:scss # проверяет наличие ошибок в .scss файлах
-npm run prettier # проверяет форматирование .js, .scss файлов согласно Prettier
+npm run prettier # проверяет форматирование .scss, .js файлов согласно Prettier
 ```
