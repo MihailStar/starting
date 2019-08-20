@@ -1,1 +1,1 @@
-import './_import-blocks';
+import './_imported-blocks';
