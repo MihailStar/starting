@@ -1,4 +1,4 @@
 {
-  "ignore": ["dist/**", "node_modules/**"],
+  "ignore": [".git/**, dist/**", "node_modules/**"],
   "presets": ["@babel/preset-env"]
 }
