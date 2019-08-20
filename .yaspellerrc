@@ -1,0 +1,6 @@
+{
+  "dictionary": [],
+  "excludeFiles": [".git/**", "dist/**", "node_modules/**"],
+  "fileExtensions": [".js", ".pug", ".sсss"],
+  "lang": "ru"
+}

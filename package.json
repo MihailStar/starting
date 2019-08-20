@@ -48,7 +48,8 @@
     "stylelint-scss": "^3.9.4",
     "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.39.2",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "yaspeller": "^6.0.0"
   },
   "husky": {
     "hooks": {
@@ -68,6 +69,7 @@
     "lint:pug": "pug-lint \"./src\"",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "prettier": "prettier --check \"./src/**/*.{js,scss}\"",
-    "prod": "cross-env NODE_ENV=production gulp default"
+    "prod": "cross-env NODE_ENV=production gulp default",
+    "speller": "yaspeller \"./src\""
   }
 }
