@@ -70,6 +70,7 @@
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "prettier": "prettier --check \"./src/**/*.{js,scss}\"",
     "prod": "cross-env NODE_ENV=production gulp default",
-    "speller": "yaspeller \"./src\""
+    "speller": "yaspeller \"./src\"",
+    "sprite": "cross-env NODE_ENV=production gulp generateSprite"
   }
 }
