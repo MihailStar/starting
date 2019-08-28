@@ -63,10 +63,10 @@ npm run sprite # собирает векторный спрайт
 ├ src/ # исходные файлы
 │ ├ blocks/ # блоки
 │ │ └ block/ # блок example
-│ │   ├ block.js # скрипты блока example
-│ │   ├ block.pug # разметка блока example
-│ │   ├ block.scss # стили блока example
-│ │   └ block.svg # изображение блока example
+│ │   ├ example.js # скрипты блока example
+│ │   ├ example.pug # разметка блока example
+│ │   ├ example.scss # стили блока example
+│ │   └ example.svg # изображение блока example
 │ ├ fonts/ # шрифты
 │ ├ images/ # изображения
 │ │ ├ base64/ # изображения для конвертации в Base64
