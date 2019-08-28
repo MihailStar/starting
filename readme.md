@@ -6,7 +6,7 @@ HTML(~~Nunjucks~~ Pug), CSS(~~Sass~~ SCSS, PostCSS), JavaScript(Webpack, Babel)
 git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонирует репозиторий
 git remote rm origin # удаляет ссылку на origin репозиторий
 git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
-git remote -v # показывает ссылки на удаленные репозитории
+git remote -v # отображает ссылки на удаленные репозитории
 
 # либо
 
@@ -15,7 +15,7 @@ cd new-project # переходит в папку проекта
 rm -rf .git # удаляет основу репозитория
 git init # создает основу репозитория
 git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
-git remote -v # показывает ссылки на удаленные репозитории
+git remote -v # отображает ссылки на удаленные репозитории
 
 npm i # устанавливает зависимости
 ```
@@ -98,9 +98,9 @@ npm run sprite # собирает векторный спрайт
 ├ .eslintrc
 ├ .gitattributes
 ├ .gitignore
-├ .htmlhintrc # конфигурация плагина HTMLHint
+├ .htmlhintrc # конфигурация Visual Studio Code плагина HTMLHint
 ├ .lintstagedrc
-├ .postcss-sorting.json # конфигурация плагина Post​CSS Sorting
+├ .postcss-sorting.json # конфигурация Visual Studio Code плагина Post​CSS Sorting
 ├ .prettierignore
 ├ .prettierrc
 ├ .pug-lintrc
