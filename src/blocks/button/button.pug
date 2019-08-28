@@ -1,0 +1,19 @@
+//-
+ * @param {string} title
+ * @param {Array} [modifiers]
+ * @example +button('Example', ['example'])(href='javascript:void(0);')
+ * @example +button('Example', ['example'])(type='button')
+
+mixin button(title, modifiers)
+  -
+    const mainClass = 'button'
+    const classesModifiers = modifiers
+      ? modifiers.map((modifier) => `${mainClass}_${modifier}`)
+      : []
+
+  if attributes.href
+    a(class=[mainClass, ...classesModifiers])&attributes(attributes)
+      span= title
+  else
+    button(class=[mainClass, ...classesModifiers])&attributes(attributes)
+      span= title
