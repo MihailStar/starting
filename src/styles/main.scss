@@ -1,10 +1,10 @@
 @import '../../node_modules/fast-grid/_fast-grid';
 @import '../../node_modules/include-media/dist/_include-media';
 
-@import './_variables';
-@import './_mixins';
-@import './_fonts';
-@import './_base';
-@import './_grid';
+@import './variables';
+@import './mixins';
+@import './fonts';
+@import './base';
+@import './grid';
 
 @import './imported-blocks';
