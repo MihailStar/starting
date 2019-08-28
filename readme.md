@@ -62,10 +62,11 @@ npm run sprite # собирает векторный спрайт
 │ └ configuration.js
 ├ src/ # исходные файлы
 │ ├ blocks/ # блоки
-│ │ └ example/ # блок example
-│ │   ├ example.js # скрипты блока example
-│ │   ├ example.pug # разметка блока example
-│ │   └ example.scss # стили блока example
+│ │ └ block/ # блок example
+│ │   ├ block.js # скрипты блока example
+│ │   ├ block.pug # разметка блока example
+│ │   ├ block.scss # стили блока example
+│ │   └ block.svg # изображение блока example
 │ ├ fonts/ # шрифты
 │ ├ images/ # изображения
 │ │ ├ base64/ # изображения для конвертации в Base64
@@ -73,11 +74,9 @@ npm run sprite # собирает векторный спрайт
 │ │ ├ sprite/ # изображения для сборки векторного спрайта
 │ │ └ favicon.png # значок страницы
 │ ├ scripts/ # скрипты
-│ │ ├ libraries/ # библиотеки скриптов
 │ │ ├ imported-blocks.js # скрипты подключаемых блоков
 │ │ └ main.js # точка входа сборки скриптов
 │ ├ styles/ # стили
-│ │ ├ libraries/ # библиотеки стилей
 │ │ ├ base.scss # базовые стили
 │ │ ├ fonts.scss # шрифты
 │ │ ├ grid.scss # сетка
