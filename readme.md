@@ -74,21 +74,21 @@ npm run sprite # собирает векторный спрайт
 │ │ ├ sprite/ # изображения для сборки векторного спрайта
 │ │ └ favicon.png # значок страницы
 │ ├ scripts/ # скрипты
-│ │ ├ imported-blocks.js # скрипты подключаемых блоков
+│ │ ├ imported-blocks.js # скрипты импортируемых блоков
 │ │ └ main.js # точка входа сборки скриптов
 │ ├ styles/ # стили
 │ │ ├ base.scss # базовые стили
 │ │ ├ fonts.scss # шрифты
 │ │ ├ grid.scss # сетка
-│ │ ├ imported-blocks.scss # стили подключаемых блоков
+│ │ ├ imported-blocks.scss # стили импортируемых блоков
 │ │ ├ main.scss # точка входа сборки стилей
 │ │ ├ mixins.scss # миксины
 │ │ └ variables.scss # переменные
-│ ├ templates/ # разметка
+│ ├ templates/ # шаблоны
 │ │ ├ base.pug # базовый шаблон
 │ │ ├ body.pug # body базового шаблона
 │ │ ├ head.pug # head базового шаблона
-│ │ └ imported-blocks.pug # разметка подключаемых блоков
+│ │ └ imported-blocks.pug # шаблоны импортируемых блоков
 │ └ index.pug # разметка страницы
 ├ .babelrc
 ├ .browserslistrc
