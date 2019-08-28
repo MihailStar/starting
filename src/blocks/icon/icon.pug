@@ -1,7 +1,8 @@
 //-
  * @param {string} name
  * @param {Array} [modifiers]
- * @example +icon('Example', ['example'])(width='24' height='24')
+ * @example +icon('example')(width='24' height='24')
+ * @example +icon('example', ['example'])(width='24' height='24')
 
 mixin icon(name, modifiers)
   -
@@ -11,8 +12,8 @@ mixin icon(name, modifiers)
       : []
 
   svg(
-    class=[mainClass, `${mainClass}_${name.toLowerCase()}`, ...classesModifiers]
+    class=[mainClass, `${mainClass}_${name}`, ...classesModifiers]
     aria-hidden='true'
     focusable='false'
   )&attributes(attributes)
-    use(xlink:href=`./images/sprite/sprite.svg#icon-${name.toLowerCase()}`)/
+    use(xlink:href=`./images/sprite/sprite.svg#icon-${name}`)/
