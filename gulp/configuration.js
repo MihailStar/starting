@@ -39,6 +39,7 @@ const paths = {
       `${directory.src}/images/**/*.{gif,ico,jpg,png,svg,webp}`,
       `!${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
       `!${directory.src}/images/sprite/**/*.svg`,
+      `${directory.src}/blocks/**/*.{gif,ico,jpg,png,svg,webp}`,
     ],
     dest: `${directory.dest}/images`,
     get watch() {
