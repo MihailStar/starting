@@ -1,0 +1,18 @@
+//-
+ * @param {string} name
+ * @param {Array} [modifiers]
+ * @example +icon('Example', ['example'])(width='24' height='24')
+
+mixin icon(name, modifiers)
+  -
+    const mainClass = 'icon'
+    const classesModifiers = modifiers
+      ? modifiers.map((modifier) => `${mainClass}_${modifier}`)
+      : []
+
+  svg(
+    class=[mainClass, `${mainClass}_${name.toLowerCase()}`, ...classesModifiers]
+    aria-hidden='true'
+    focusable='false'
+  )&attributes(attributes)
+    use(xlink:href=`./images/sprite/sprite.svg#icon-${name.toLowerCase()}`)/
