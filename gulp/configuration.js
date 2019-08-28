@@ -51,7 +51,6 @@ const paths = {
     watch: [
       `${directory.src}/scripts/**/*.js`,
       `${directory.src}/blocks/**/*.js`,
-      `!${directory.src}/scripts/libraries/**/*.js`,
     ],
   },
   sprite: {
