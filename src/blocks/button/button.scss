@@ -1,5 +1,5 @@
 .button {
-  $background-color: #0077dd;
+  $background-color: map-get($colors, accent);
   $font-size: 16px;
   $transition-duration: 200ms;
 
