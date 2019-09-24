@@ -3,9 +3,9 @@
     "svg4everybody": "^2.1.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
@@ -37,19 +37,19 @@
     "gulp-zip": "^5.0.0",
     "husky": "^3.0.5",
     "include-media": "^1.4.9",
-    "lint-staged": "^9.2.5",
+    "lint-staged": "^9.3.0",
     "node-sass": "^4.12.0",
     "postcss-csso": "^3.0.0",
     "postcss-import": "^12.0.1",
     "prettier": "^1.18.2",
     "pug-lint": "^2.6.0",
     "stylelint": "^11.0.0",
-    "stylelint-config-recommended-scss": "^3.3.0",
-    "stylelint-scss": "^3.11.0",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.11.1",
     "terser-webpack-plugin": "^2.1.0",
     "webpack": "^4.40.2",
     "webpack-stream": "^5.2.1",
-    "yaspeller": "^6.0.0"
+    "yaspeller": "^6.0.1"
   },
   "husky": {
     "hooks": {
