@@ -19,12 +19,23 @@ body {
   font: #{$font-size} / (24px / $font-size) sans-serif;
 }
 
+// for IE11
+main {
+  display: block;
+}
+
 button,
 input,
 select,
 textarea {
   color: inherit;
   font: inherit;
+}
+
+button,
+img,
+video {
+  vertical-align: middle;
 }
 
 h1 {
