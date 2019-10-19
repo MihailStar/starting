@@ -3,7 +3,7 @@ import { isDevelopment } from './gulp/configuration';
 
 const development = {
   mode: 'development',
-  devtool: 'cheap-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'main.js',
   },
