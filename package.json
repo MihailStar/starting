@@ -17,6 +17,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsdoc": "^17.1.1",
     "fast-grid": "^0.2.5",
     "gulp": "^4.0.2",
     "gulp-gh-pages": "^0.5.4",
