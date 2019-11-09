@@ -9,5 +9,15 @@
     "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "root": true
+  "root": true,
+  "rules": {
+    "quotes": ["error", "single"],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireParamDescription": false,
+        "requireReturnDescription": false
+      }
+    ]
+  }
 }
