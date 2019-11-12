@@ -39,5 +39,12 @@
     "jsdoc/require-returns-type": 1,
     "jsdoc/valid-types": 1,
     "quotes": ["error", "single"]
+  },
+  "settings": {
+    "jsdoc": {
+      "preferredTypes": {
+        "object": "Object"
+      }
+    }
   }
 }
