@@ -7,10 +7,14 @@ import replace from 'gulp-replace';
 import size from 'gulp-size';
 import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 
+const pugbem = require('../gulp-pugbem');
+
 function compileTemplates() {
   return gulp
     .src(paths.templates.src)
-    .pipe(pug())
+    .pipe(pug({
+      plugins: [pugbem],
+    }))
     .pipe(gulpIf(
       !isDevelopment && !isProductionMinimized.templates,
       prettier(),
