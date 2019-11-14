@@ -3,6 +3,6 @@ include ./imported-blocks.pug
 block variables
 
 doctype html
-html(lang=documentLanguage || '')
+html(lang=documentLanguage || void 0)
   include ./head.pug
   include ./body.pug
