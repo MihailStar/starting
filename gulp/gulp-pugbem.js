@@ -1,37 +1,30 @@
-/*
-  author: Legostaev Vadim (legostaev.vadim@mail.ru)
-  license: ISC
-*/
-
-let reg_block = /^[a-zA-Z]/,
-  reg_elem = /^\_/,
-  reg_mod = /^\-/,
-  repl_elem = /^\_\_?/,
-  repl_mod = /^\-\-?/;
+/* eslint-disable */
+// author: Legostaev Vadim (legostaev.vadim@mail.ru)
+// license: ISC
 
 function pugbem(tokens) {
-  'use strict';
+  let {
+    blockRegExp = /^[a-z]/,
 
-  let tag_line,
-    tag_column,
-    class_line,
-    class_column,
-    block_line,
-    blocks = [],
-    element_line,
-    element_val,
-    modifier_line,
-    prefix_block,
-    separator_elem = this.e || '__',
-    separator_mod = this.m || '--';
+    elementRegExp = /^__/,
+    elementSeparator = '__',
 
-  if (this.b === true) prefix_block = 'b-';
-  else if (this.b) prefix_block = this.b;
+    modifierRegExp = /^_(?=[^_])/,
+    modifierSeparator = '_',
+  } = this;
 
-  if (prefix_block) reg_block = new RegExp(`^${prefix_block}`);
+  let tagLine;
+  let tagColumn;
+  let classLine;
+  let classColumn;
+  let blockLine;
+  let blocks = [];
+  let elementLine;
+  let elementValue;
+  let modifierLine;
 
   Object.defineProperty(blocks, 'last', {
-    get: function() {
+    get() {
       if (!this.length) return false;
       return this[this.length - 1];
     },
@@ -39,17 +32,17 @@ function pugbem(tokens) {
 
   tokens.forEach((token) => {
     if (token.type === 'tag') {
-      tag_line = token.loc.start.line;
-      tag_column = token.loc.start.column;
+      tagLine = token.loc.start.line;
+      tagColumn = token.loc.start.column;
     } else if (token.type === 'class') {
-      class_line = token.loc.start.line;
+      classLine = token.loc.start.line;
 
-      if (class_line === tag_line) class_column = tag_column;
-      else class_column = token.loc.start.column;
+      if (classLine === tagLine) classColumn = tagColumn;
+      else classColumn = token.loc.start.column;
 
-      if (class_line !== blocks.last.line) {
+      if (classLine !== blocks.last.line) {
         blocks.forEach((elem, i, arr) => {
-          if (class_column <= elem.column) {
+          if (classColumn <= elem.column) {
             arr.length = i;
             return;
           }
@@ -57,31 +50,31 @@ function pugbem(tokens) {
       }
 
       // ----------- if Block -----------
-      if (token.val.match(reg_block)) {
-        if (class_line === block_line) return;
-        if (class_line === element_line) return;
-        if (class_line === modifier_line) return;
+      if (token.val.match(blockRegExp)) {
+        if (
+          classLine === blockLine ||
+          classLine === elementLine ||
+          classLine === modifierLine
+        )
+          return;
 
-        if (prefix_block) token.val = token.val.replace(reg_block, '');
-
-        block_line = class_line;
-        blocks.push({ line: block_line, column: class_column, val: token.val });
+        blockLine = classLine;
+        blocks.push({ line: blockLine, column: classColumn, val: token.val });
       }
 
       // ----------- if Element -----------
-      else if (token.val.match(reg_elem)) {
-        if (!blocks.length) return;
-        if (class_line === element_line) return;
+      else if (token.val.match(elementRegExp)) {
+        if (!blocks.length || classLine === elementLine) return;
 
-        element_line = class_line;
+        elementLine = classLine;
 
         // ----------- the mix -----------
-        if (element_line === blocks.last.line) {
+        if (elementLine === blocks.last.line) {
           for (const iter of [...blocks].reverse()) {
-            if (element_line !== iter.line) {
+            if (elementLine !== iter.line) {
               token.val = token.val.replace(
-                repl_elem,
-                iter.val + separator_elem,
+                elementRegExp,
+                iter.val + elementSeparator,
               );
               break;
             }
@@ -91,27 +84,30 @@ function pugbem(tokens) {
         // ----------- the element -----------
         else {
           token.val = token.val.replace(
-            repl_elem,
-            blocks.last.val + separator_elem,
+            elementRegExp,
+            blocks.last.val + elementSeparator,
           );
         }
 
-        element_val = token.val;
+        elementValue = token.val;
       }
 
       // ----------- if Modifier -----------
-      else if (token.val.match(reg_mod)) {
+      else if (token.val.match(modifierRegExp)) {
         if (!blocks.length) return;
 
-        modifier_line = class_line;
+        modifierLine = classLine;
 
-        if (class_line === element_line) {
-          if (blocks.length === 1 && element_line === blocks.last.line) return;
-          token.val = token.val.replace(repl_mod, element_val + separator_mod);
-        } else if (class_line === blocks.last.line) {
+        if (classLine === elementLine) {
+          if (blocks.length === 1 && elementLine === blocks.last.line) return;
           token.val = token.val.replace(
-            repl_mod,
-            blocks.last.val + separator_mod,
+            modifierRegExp,
+            elementValue + modifierSeparator,
+          );
+        } else if (classLine === blocks.last.line) {
+          token.val = token.val.replace(
+            modifierRegExp,
+            blocks.last.val + modifierSeparator,
           );
         }
       }
@@ -121,6 +117,6 @@ function pugbem(tokens) {
   return tokens;
 }
 
-module.exports = {
+export default {
   postLex: pugbem,
 };
