@@ -3,7 +3,8 @@
   "rules": {
     "color-hex-length": "long",
     "declaration-property-value-blacklist": {
-      "/^border/": ["none"]
+      "/^border/": ["none"],
+      "/^outline/": ["none"],
     },
     "length-zero-no-unit": true
   }
