@@ -1,5 +1,5 @@
 {
-  "*.js": ["eslint", "yaspeller", "prettier --check"],
-  "*.pug": ["pug-lint", "yaspeller"],
-  "*.scss": ["stylelint", "yaspeller", "prettier --check"]
+  "*.js": ["eslint"],
+  "*.pug": ["pug-lint"],
+  "*.scss": ["stylelint"]
 }
