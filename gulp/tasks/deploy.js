@@ -5,7 +5,7 @@ import { paths } from '../configuration';
 import build from './build';
 import clean from './clean';
 
-const commitName = `${new Date()
+const commitName = `deploy: ${new Date()
   .toISOString()
   .replace(/[T:]/g, '-')
   .slice(0, -5)}`;
