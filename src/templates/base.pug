@@ -1,8 +1,22 @@
+include ./utilities.pug
 include ./imported-blocks.pug
 
 block variables
 
 doctype html
 html(lang=documentLanguage || void 0)
-  include ./head.pug
-  include ./body.pug
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='description' content=pageDescription || '')
+    meta(name='keywords' content=pageKeywords || '')
+    meta(name='format-detection' content='telephone=no')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    block head
+    link(href='./styles/main.css' rel='stylesheet')
+    title= pageTitle || ''
+
+  body.no-js(class=bodyClasses)
+    script document.body.classList.remove('no-js');
+    block body
+    script(src='./scripts/main.js' defer)
