@@ -1,22 +1,22 @@
-//-
-  @param {string} title
-  @param {Array<string>} [modifiers]
-  @example +button('Example')(href='javascript:void(0);')
-  @example +button('Example', ['example'])(href='javascript:void(0);')
-  @example +button('Example')(type='button')
-  @example +button('Example', ['example'])(type='button')
+//- @param {string} title
+//- @param {Array<string>} [modifiers]
+//- @example +button('Example')(href='javascript:void(0);')
+//- @example +button('Example', ['example'])(href='javascript:void(0);')
+//- @example +button('Example')(type='button')
+//- @example +button('Example', ['example'])(type='button')
 
-mixin button(title, modifiers)
+mixin button(title, modifiers = [])
 
   -
     const mainClass = 'button';
-    const classesModifiers = modifiers
-      ? modifiers.map((modifier) => `${mainClass}_${modifier}`)
-      : [];
+    const classes = [
+      mainClass,
+      ...modifiers.map((modifier) => `${mainClass}_${modifier}`),
+    ];
 
   if attributes.href
-    a(class=[mainClass, ...classesModifiers])&attributes(attributes)
+    a(class=classes)&attributes(attributes)
       span= title
   else
-    button(class=[mainClass, ...classesModifiers])&attributes(attributes)
+    button(class=classes)&attributes(attributes)
       span= title
