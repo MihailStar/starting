@@ -1,9 +1,4 @@
-$colors: (
-  text-dark: #333333,
-  text-light: #cccccc,
-  background: #ffffff,
-  accent: #0077dd,
-);
+$base-unit: 4px;
 
 $breakpoints: (
   xs: 0,
@@ -18,4 +13,11 @@ $containers: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
+);
+
+$colors: (
+  text-dark: #333333,
+  text-light: #cccccc,
+  background: #ffffff,
+  accent: #0077dd,
 );
