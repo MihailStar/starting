@@ -10,16 +10,17 @@ html {
 }
 
 body {
-  $font-size: 16px;
+  $font-size: ($base-unit * 4);
 
   margin: 0;
   min-width: 320px;
   background-color: map-get($colors, background);
   color: map-get($colors, text);
-  font: #{$font-size} / (24px / $font-size) sans-serif;
+  font-size: $font-size;
+  font-family: sans-serif;
+  line-height: (($base-unit * 6) / $font-size);
 }
 
-// for IE11
 main {
   display: block;
 }
@@ -39,28 +40,28 @@ video {
 }
 
 h1 {
-  $font-size: 68px;
+  $font-size: ($base-unit * 17);
 
-  margin-top: (24px / $font-size * 1em);
-  margin-bottom: (48px / $font-size * 1em);
+  margin-top: (($base-unit * 6) / $font-size * 1em);
+  margin-bottom: (($base-unit * 12) / $font-size * 1em);
   color: map-get($colors, text-dark);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: 400;
-  font-size: ($font-size - 16);
-  line-height: (72px / $font-size);
+  font-size: ($font-size - ($base-unit * 4));
+  line-height: (($base-unit * 18) / $font-size);
 
   @include media('>=sm') {
-    font-size: ($font-size - 12);
+    font-size: ($font-size - ($base-unit * 3));
   }
 
   @include media('>=md') {
-    font-size: ($font-size - 8);
+    font-size: ($font-size - ($base-unit * 2));
   }
 
   @include media('>=lg') {
-    font-size: ($font-size - 4);
+    font-size: ($font-size - ($base-unit * 1));
   }
 
   @include media('>=xl') {
