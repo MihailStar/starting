@@ -59,6 +59,7 @@ npm run sprite # собирает векторный спрайт
 │ │ ├ styles.js
 │ │ ├ templates.js
 │ │ └ watch.js
+│ ├ gulp-pugbem.js
 │ └ configuration.js
 ├ src/ # исходные файлы
 │ ├ blocks/ # блоки
@@ -71,24 +72,23 @@ npm run sprite # собирает векторный спрайт
 │ ├ images/ # изображения
 │ │ ├ base64/ # изображения для конвертации в Base64
 │ │ ├ content/ # контентные изображения
-│ │ ├ sprite/ # изображения для сборки векторного спрайта
-│ │ └ favicon.png # значок страницы
+│ │ └ sprite/ # изображения для сборки векторного спрайта
 │ ├ scripts/ # скрипты
 │ │ ├ imported-blocks.js # скрипты импортируемых блоков
-│ │ └ main.js # точка входа сборки скриптов
+│ │ ├ main.js # точка входа сборки скриптов
+│ │ └ utilities.js # утилиты
 │ ├ styles/ # стили
 │ │ ├ base.scss # базовые стили
 │ │ ├ fonts.scss # шрифты
 │ │ ├ grid.scss # сетка
 │ │ ├ imported-blocks.scss # стили импортируемых блоков
 │ │ ├ main.scss # точка входа сборки стилей
-│ │ ├ mixins.scss # миксины
+│ │ ├ utilities.scss # утилиты
 │ │ └ variables.scss # переменные
 │ ├ templates/ # шаблоны
 │ │ ├ base.pug # базовый шаблон
-│ │ ├ body.pug # body базового шаблона
-│ │ ├ head.pug # head базового шаблона
-│ │ └ imported-blocks.pug # шаблоны импортируемых блоков
+│ │ ├ imported-blocks.pug # шаблоны импортируемых блоков
+│ │ └ utilities.pug # утилиты
 │ └ index.pug # разметка страницы
 ├ .babelrc
 ├ .browserslistrc
