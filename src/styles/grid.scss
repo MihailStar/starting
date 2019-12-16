@@ -9,19 +9,19 @@ $grid: map-merge(
   @include grid-container(sm);
 
   @include grid-breakpoint(sm) {
-    max-width: map-get($container, sm);
+    max-width: map-get($containers, sm);
   }
 
   @include grid-breakpoint(md) {
-    max-width: map-get($container, md);
+    max-width: map-get($containers, md);
   }
 
   @include grid-breakpoint(lg) {
-    max-width: map-get($container, lg);
+    max-width: map-get($containers, lg);
   }
 
   @include grid-breakpoint(xl) {
-    max-width: map-get($container, xl);
+    max-width: map-get($containers, xl);
   }
 
   &__row {
