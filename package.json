@@ -6,6 +6,7 @@
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
+    "@prettier/plugin-pug": "^1.1.1",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
@@ -69,7 +70,7 @@
     "lint:js": "eslint \"./src\"",
     "lint:pug": "pug-lint \"./src\"",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
-    "prettier": "prettier --check \"./src/**/*.{js,scss}\"",
+    "prettier": "prettier --check \"./src/**/*.{js,pug,scss}\"",
     "prod": "cross-env NODE_ENV=production gulp default",
     "speller": "yaspeller \"./src\"",
     "sprite": "cross-env NODE_ENV=production gulp generateSprite"

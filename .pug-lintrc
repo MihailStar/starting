@@ -23,8 +23,8 @@
   "requireStrictEqualityOperators": true,
   "validateAttributeQuoteMarks": "'",
   "validateAttributeSeparator": {
-    "multiLineSeparator": "\n  ",
-    "separator": " "
+    "multiLineSeparator": ",\n  ",
+    "separator": ", "
   },
   "validateDivTags": true,
   "validateExtensions": true,
