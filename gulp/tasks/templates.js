@@ -5,7 +5,6 @@ import prettier from 'gulp-prettier';
 import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-import pugbem from '../gulp-pugbem';
 import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 
 function compileTemplates() {
