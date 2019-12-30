@@ -59,7 +59,6 @@ npm run sprite # собирает векторный спрайт
 │ │ ├ styles.js
 │ │ ├ templates.js
 │ │ └ watch.js
-│ ├ gulp-pugbem.js
 │ └ configuration.js
 ├ src/ # исходные файлы
 │ ├ blocks/ # блоки

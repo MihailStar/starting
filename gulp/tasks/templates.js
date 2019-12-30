@@ -11,9 +11,7 @@ import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 function compileTemplates() {
   return gulp
     .src(paths.templates.src)
-    .pipe(pug({
-      plugins: [pugbem],
-    }))
+    .pipe(pug())
     .pipe(gulpIf(
       !isDevelopment && !isProductionMinimized.templates,
       prettier(),
