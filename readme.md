@@ -7,6 +7,7 @@ git clone https://github.com/MihailStar/starting.git --depth 1 new-project # к�
 git remote rm origin # удаляет ссылку на origin репозиторий
 git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
 git remote -v # отображает ссылки на удаленные репозитории
+npm i # устанавливает зависимости
 
 # либо
 
@@ -16,7 +17,6 @@ rm -rf .git # удаляет основу репозитория
 git init # создает основу репозитория
 git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
 git remote -v # отображает ссылки на удаленные репозитории
-
 npm i # устанавливает зависимости
 ```
 
@@ -62,7 +62,7 @@ npm run sprite # собирает векторный спрайт
 │ └ configuration.js
 ├ src/ # исходные файлы
 │ ├ blocks/ # блоки
-│ │ └ block/ # блок example
+│ │ └ example/ # блок example
 │ │   ├ example.js # скрипты блока example
 │ │   ├ example.pug # разметка блока example
 │ │   ├ example.scss # стили блока example
@@ -97,6 +97,7 @@ npm run sprite # собирает векторный спрайт
 ├ .gitattributes
 ├ .gitignore
 ├ .htmlhintrc # конфигурация Visual Studio Code плагина HTMLHint
+├ .huskyrc
 ├ .lintstagedrc
 ├ .postcss-sorting.json # конфигурация Visual Studio Code плагина Post​CSS Sorting
 ├ .prettierignore
