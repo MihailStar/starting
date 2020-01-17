@@ -4,7 +4,7 @@
     "color-hex-length": "long",
     "declaration-property-value-blacklist": {
       "/^border/": ["none"],
-      "/^outline/": ["none"],
+      "/^outline/": ["none"]
     },
     "length-zero-no-unit": true
   }

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import imagemin from 'gulp-imagemin';
+import imageminWebp from 'imagemin-webp';
 
 const isDevelopment =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -81,27 +82,16 @@ const paths = {
 };
 
 const imageminConfig = [
-  imagemin.gifsicle({
-    interlaced: true,
-  }),
-  imagemin.jpegtran({
-    progressive: true,
-  }),
-  imagemin.optipng({
-    optimizationLevel: 5,
-  }),
-  imagemin.svgo({
-    plugins: [
-      {
-        removeViewBox: false,
-      },
-    ],
-  }),
+  imagemin.gifsicle({ interlaced: true }),
+  imagemin.mozjpeg({ quality: 80 }),
+  imagemin.optipng(),
+  imagemin.svgo({ plugins: [{ removeViewBox: false }] }),
+  imageminWebp({ quality: 80 }),
 ];
 
 const isProductionMinimized = {
-  styles: true,
-  templates: true,
+  styles: false,
+  templates: false,
 };
 
 export {

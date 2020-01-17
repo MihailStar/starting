@@ -1,6 +1,7 @@
 {
   "arrowParens": "always",
   "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "ignore",
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "es5"
 }
