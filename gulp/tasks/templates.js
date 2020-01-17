@@ -17,7 +17,7 @@ function compileTemplates() {
     ))
     .pipe(gulpIf(
       !isDevelopment,
-      replace(/\n* *<!-- *display: *(?:block|inline) *-->/g, ''),
+      replace(/\s*<!-- *prettier-ignore *-->/g, ''),
     ))
     .pipe(gulpIf(!isDevelopment, size({
       title: 'compileTemplates',
