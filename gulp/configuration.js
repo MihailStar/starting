@@ -82,11 +82,23 @@ const paths = {
 };
 
 const imageminConfig = [
-  imagemin.gifsicle({ interlaced: true }),
-  imagemin.mozjpeg({ quality: 80 }),
+  imagemin.gifsicle({
+    interlaced: true,
+  }),
+  imagemin.mozjpeg({
+    quality: 80,
+  }),
   imagemin.optipng(),
-  imagemin.svgo({ plugins: [{ removeViewBox: false }] }),
-  imageminWebp({ quality: 80 }),
+  imagemin.svgo({
+    plugins: [
+      {
+        removeViewBox: false,
+      },
+    ],
+  }),
+  imageminWebp({
+    quality: 80,
+  }),
 ];
 
 const isProductionMinimized = {
