@@ -1,5 +1,12 @@
 $base-unit: 4px;
 
+$color-accent: #2962ff;
+$color-body: #f7f7f7;
+$color-line: #d7d7d7;
+$color-link: $color-accent;
+$color-text-dark: #575757;
+$color-text-light: #ffffff;
+
 $breakpoints: (
   xs: 0,
   sm: 576px,
@@ -15,9 +22,16 @@ $containers: (
   xl: 1140px,
 );
 
-$colors: (
-  text-dark: #333333,
-  text-light: #cccccc,
-  background: #ffffff,
-  accent: #0077dd,
+$grid: map-merge(
+  $grid,
+  (
+    box-sizing: border-box,
+    breakpoints: $breakpoints,
+    columns: 12,
+    container: 15px,
+    gap: 15px,
+    mode: flex,
+  )
 );
+
+$transition-duration: 200ms;
