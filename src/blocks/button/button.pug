@@ -1,20 +1,18 @@
-//- @param {string} title
-//- @param {Array<string>} [modifiers]
+//- @param {string} text
+//- @example +button('Example')(href='javascript:void(0);', target='_blank')
 //- @example +button('Example')(href='javascript:void(0);')
-//- @example +button('Example', ['example'])(href='javascript:void(0);')
 //- @example +button('Example')(type='button')
-//- @example +button('Example', ['example'])(type='button')
-mixin button(title, modifiers = [])
-  -
-    const mainClass = 'button';
-    const classes = [
-      mainClass,
-      ...modifiers.map((modifier) => `${mainClass}_${modifier}`),
-    ];
-
+mixin button(text)
   if attributes.href
-    a(class=classes)&attributes(attributes)
-      span= title
+    if attributes.target === '_blank'
+      a.button(rel='noopener noreferrer')&attributes(attributes)
+        span= text
+        block
+    else
+      a.button&attributes(attributes)
+        span= text
+        block
   else
-    button(class=classes)&attributes(attributes)
-      span= title
+    button.button&attributes(attributes)
+      span= text
+      block

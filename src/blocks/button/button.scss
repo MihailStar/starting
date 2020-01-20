@@ -1,60 +1,86 @@
 .button {
   $font-size: ($base-unit * 4);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   box-sizing: border-box;
-  padding: (($base-unit * 4) / $font-size * 1em)
-    (($base-unit * 6) / $font-size * 1em);
-  min-width: (($base-unit * 40) / $font-size * 1em);
+  padding-top: (($base-unit * 2) / $font-size * 1em);
+  padding-right: (($base-unit * 4) / $font-size * 1em);
+  padding-bottom: (($base-unit * 2) / $font-size * 1em);
+  padding-left: (($base-unit * 4) / $font-size * 1em);
   border: 0;
   border-radius: ($base-unit * 1);
-  background-color: $color-accent;
-  box-shadow: inset 0 2px 0 0 rgba(#000000, 0);
-  color: $color-text-light;
+  background-color: $color-body;
+  box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
+  color: $color-text-dark;
   vertical-align: middle;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: 400;
+  font-style: normal;
   font-size: $font-size;
   font-family: inherit;
   line-height: (($base-unit * 6) / $font-size * 1em);
   cursor: pointer;
-  transition: background-color $transition-duration,
-    box-shadow $transition-duration;
+  transition: $transition-duration;
 
   &:focus,
   &:hover {
     outline: 0;
-    background-color: lighten($color-accent, 5%);
+    background-color: darken($color-body, 5%);
+    box-shadow: inset 0 0 0 1px darken($color-line, 5%),
+      inset 0 2px 4px 0 rgba(#000000, 0);
+    color: darken($color-text-dark, 5%);
   }
 
   &:active {
-    background-color: darken($color-accent, 5%);
-    box-shadow: inset 0 2px 0 0 rgba(#000000, 0.4);
+    background-color: darken($color-body, 10%);
+    box-shadow: inset 0 0 0 1px darken($color-line, 10%),
+      inset 0 2px 4px 0 rgba(#000000, 0.2);
+    color: darken($color-text-dark, 10%);
     user-select: none;
   }
 
-  &:disabled,
-  &_disabled {
-    opacity: 0.4;
+  &[disabled],
+  &[tabindex='-1'] {
+    opacity: 0.5;
     cursor: default;
     pointer-events: none;
+    user-select: none;
+  }
 
-    &:focus,
-    &:hover {
-      background-color: $color-accent;
-    }
-
-    &:active {
-      background-color: $color-accent;
-      box-shadow: inset 0 2px 0 0 rgba(#000000, 0);
-    }
+  &[hidden] {
+    display: none;
   }
 
   & *,
   & *::before,
   & *::after {
     box-sizing: inherit;
+  }
+
+  &_accent {
+    background-color: $color-accent;
+    box-shadow: inset 0 0 0 1px $color-accent,
+      inset 0 2px 4px 0 rgba(#000000, 0);
+    color: $color-text-light;
+
+    &:focus,
+    &:hover {
+      outline: 0;
+      background-color: darken($color-accent, 5%);
+      box-shadow: inset 0 0 0 1px darken($color-accent, 5%),
+        inset 0 2px 4px 0 rgba(#000000, 0);
+      color: darken($color-text-light, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-accent, 10%);
+      box-shadow: inset 0 0 0 1px darken($color-accent, 10%),
+        inset 0 2px 4px 0 rgba(#000000, 0.2);
+      color: darken($color-text-light, 10%);
+      user-select: none;
+    }
   }
 }
