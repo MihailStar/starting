@@ -29,6 +29,7 @@ npm run prod # стартует production сборку, без BrowserSync'а �
 ```
 
 ```bash
+node createBlock example # создает папку блока example, с example.js, example.pug, example.scss файлами
 npm run archive # архивирует production сборку ZIP'ом
 npm run base64 # конвертирует изображения в Base64
 npm run deploy # разворачивает production сборку на Github Pages
@@ -106,6 +107,7 @@ npm run sprite # собирает векторный спрайт
 ├ .stylelintignore
 ├ .stylelintrc
 ├ .yaspellerrc
+├ createBlock.js
 ├ gulpfile.babel.js
 ├ package.json
 ├ readme.md
