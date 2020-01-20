@@ -1,4 +1,4 @@
-@mixin clearfix() {
+@mixin clearfix {
   &::after {
     display: block;
     clear: both;
@@ -6,12 +6,32 @@
   }
 }
 
-@mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
+@mixin image-fluid {
+  max-width: 100%;
+  height: auto;
 }
 
-@mixin text-truncate() {
+@mixin text-fade($line-height, $number-of-lines, $background-color) {
+  position: relative;
+  overflow: hidden;
+  height: ($line-height * $number-of-lines);
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: $line-height;
+    background: linear-gradient(
+      to right,
+      rgba($background-color, 0) 0,
+      rgba($background-color, 1) 50%
+    );
+    content: '';
+  }
+}
+
+@mixin text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -49,7 +69,7 @@
   }
 }
 
-@mixin visually-hidden() {
+@mixin visually-hidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
@@ -62,7 +82,7 @@
   white-space: nowrap;
 }
 
-@mixin word-wrap() {
+@mixin word-wrap {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
