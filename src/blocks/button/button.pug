@@ -1,18 +1,17 @@
-//- @param {string} text
-//- @example +button('Example')(href='javascript:void(0);', target='_blank')
+//- @param {string} title
 //- @example +button('Example')(href='javascript:void(0);')
 //- @example +button('Example')(type='button')
-mixin button(text)
+mixin button(title)
   if attributes.href
     if attributes.target === '_blank'
       a.button(rel='noopener noreferrer')&attributes(attributes)
-        span= text
+        span= title
         block
     else
       a.button&attributes(attributes)
-        span= text
+        span= title
         block
   else
     button.button&attributes(attributes)
-      span= text
+      span= title
       block
