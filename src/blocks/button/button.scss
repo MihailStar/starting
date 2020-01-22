@@ -53,12 +53,6 @@
     display: none;
   }
 
-  & *,
-  & *::before,
-  & *::after {
-    box-sizing: inherit;
-  }
-
   &_accent {
     background-color: $color-accent;
     box-shadow: inset 0 0 0 1px $color-accent,
@@ -81,5 +75,11 @@
       color: darken($color-text-light, 10%);
       user-select: none;
     }
+  }
+
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: inherit;
   }
 }
