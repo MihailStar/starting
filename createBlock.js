@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 
@@ -70,5 +71,5 @@ Promise.resolve()
     return createFiles(directoryPath);
   })
   .catch((error) => {
-    throw error;
+    console.error(error);
   });
