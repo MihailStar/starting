@@ -1,6 +1,10 @@
 .icon {
+  display: inline-block;
   flex-shrink: 0;
   box-sizing: border-box;
+  vertical-align: middle;
+  transition: $transition-duration;
+  fill: currentColor;
 
   & *,
   & *::before,

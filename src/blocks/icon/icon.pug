@@ -1,6 +1,4 @@
 //- @param {string} name
-//- @example +icon('Example')(width='24', height='24')
-//- @example +icon('example')(width='24', height='24')
 mixin icon(name)
   svg.icon(class=`icon_${name.toLowerCase()}`, aria-hidden='true', focusable='false')&attributes(attributes)
     use(xlink:href=`./images/sprite/sprite.svg#icon-${name.toLowerCase()}`)/
