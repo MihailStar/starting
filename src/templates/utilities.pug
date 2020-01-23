@@ -4,17 +4,17 @@
    * @param {number} max
    * @returns {number}
    */
-  const getRandomInt = (min, max) => {
+  function getRandomInt(min, max) {
     const randomInt = Math.floor(Math.random() * (max - min)) + min;
 
     return randomInt;
-  };
+  }
 
   /**
    * @param {number} [length]
    * @returns {string}
    */
-  const getRandomId = (length = 20) => {
+  function getRandomId(length = 20) {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyz';
     const randomId = Array.from(
       { length },
@@ -22,13 +22,13 @@
     ).join('');
 
     return randomId;
-  };
+  }
 
   /**
    * @param {number} [length]
    * @returns {string}
    */
-  const getRandomDoubleId = (length = 20) => {
+  function getRandomDoubleId(length = 20) {
     /**
      * @param {number} characters
      * @yields {string}
@@ -47,4 +47,4 @@
     }
 
     return getRandomDoubleId.generator.next().value;
-  };
+  }
