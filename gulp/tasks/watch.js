@@ -20,9 +20,9 @@ function watch() {
     styles: [compileStyles],
     templates: [compileTemplates, reloadServer],
   };
-  Object.keys(watchFor).forEach((path) => {
-    gulp.watch(paths[path].watch, gulp.series(...watchFor[path]));
-  });
+  Object.keys(watchFor).forEach((path) =>
+    gulp.watch(paths[path].watch, gulp.series(...watchFor[path]))
+  );
 }
 
 export default watch;
