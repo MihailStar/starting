@@ -1,17 +1,19 @@
 .select {
+  $font-size: ($base-unit * 4);
   position: relative;
+  display: inline-block;
   box-sizing: border-box;
+  width: 100%;
+  vertical-align: middle;
+  font-size: $font-size;
 
   &__element {
-    $font-size: ($base-unit * 4);
-    display: inline-block;
-    box-sizing: border-box;
     padding-top: (($base-unit * 2) / $font-size * 1em);
-    padding-right: (($base-unit * 10) / $font-size * 1em);
+    padding-right: (($base-unit * 11) / $font-size * 1em);
     padding-bottom: (($base-unit * 2) / $font-size * 1em);
     padding-left: (($base-unit * 4) / $font-size * 1em);
-    max-width: 100%;
     width: 100%;
+    height: (($base-unit * 10) / $font-size * 1em);
     border: 0;
     border-radius: ($base-unit * 1);
     background-color: $color-body;
@@ -20,7 +22,7 @@
     vertical-align: middle;
     font-weight: 400;
     font-style: normal;
-    font-size: $font-size;
+    font-size: inherit;
     font-family: inherit;
     line-height: (($base-unit * 6) / $font-size * 1em);
     cursor: pointer;
@@ -33,12 +35,14 @@
       display: none;
     }
 
-    &:focus,
-    &:hover {
+    &:focus {
       outline: 0;
+    }
+
+    &:not([disabled]):focus,
+    &:not([disabled]):hover {
       background-color: darken($color-body, 5%);
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%),
-        inset 0 2px 4px 0 rgba(#000000, 0);
+      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
       color: darken($color-text-dark, 5%);
     }
 
@@ -56,17 +60,22 @@
 
   &__icon {
     position: absolute;
-    top: ($base-unit * 2);
-    right: ($base-unit * 2);
+    top: 50%;
+    right: (($base-unit * 2.5) / $font-size * 1em);
+    width: (($base-unit * 6) / $font-size * 1em);
+    height: (($base-unit * 6) / $font-size * 1em);
     color: $color-text-dark;
-
-    .select__element:focus ~ &,
-    .select__element:hover ~ & {
-      color: darken($color-text-dark, 5%);
-    }
+    font-size: inherit;
+    transform: translateY(-50%);
+    fill: currentColor;
 
     .select__element[disabled] ~ & {
       opacity: 0.5;
+    }
+
+    .select__element:not([disabled]):focus ~ &,
+    .select__element:not([disabled]):hover ~ & {
+      color: darken($color-text-dark, 5%);
     }
   }
 
