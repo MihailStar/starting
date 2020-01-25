@@ -11,4 +11,148 @@ block variables
 block head
 
 block body
-  h1= pageTitle
+  style.
+    body {
+      padding-top: 8px;
+      padding-right: 8px;
+      padding-bottom: 8px;
+      padding-left: 8px;
+      background-color: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding-top: 8px;
+      padding-right: 8px;
+      padding-bottom: 8px;
+      padding-left: 8px;
+      width: 50%;
+      border-top: 1px dashed #d7d7d7;
+      border-bottom: 1px dashed #d7d7d7;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    td:first-child {
+      text-align: right;
+      font-family: monospace;
+    }
+
+    td:last-child {
+      text-align: left;
+      font-family: sans-serif;
+    }
+
+  table
+    tr
+      td.
+        +button('Example')(type='button')
+      td
+        +button('Example')(type='button')
+    tr
+      td.
+        +button('Example')(type='button', disabled)
+      td
+        +button('Example')(type='button', disabled)
+
+    tr
+      td.
+        +button('Example').button_accent(type='button')
+      td
+        +button('Example').button_accent(type='button')
+    tr
+      td.
+        +button('Example').button_accent(type='button', disabled)
+      td
+        +button('Example').button_accent(type='button', disabled)
+
+    tr
+      td.
+        +button('Example')(href='javascript:void(0);')
+      td
+        +button('Example')(href='javascript:void(0);')
+    tr
+      td.
+        +button('Example')(href='javascript:void(0);', tabindex='-1')
+      td
+        +button('Example')(href='javascript:void(0);', tabindex='-1')
+
+    tr
+      td.
+        +button('Example').button_accent(href='javascript:void(0);')
+      td
+        +button('Example').button_accent(href='javascript:void(0);')
+    tr
+      td.
+        +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
+      td
+        +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
+
+    tr
+      td.
+        +checkbox()(checked)
+      td
+        +checkbox(checked)
+    tr
+      td.
+        +checkbox()(checked, disabled)
+      td
+        +checkbox(checked, disabled)
+
+    tr
+      td.
+        +icon('example')(width='40', height='40')
+      td
+        +icon('check')(width='40', height='40')
+
+    tr
+      td.
+        +input()(placeholder='example', required)
+      td
+        +input()(placeholder='example', required)
+    tr
+      td.
+        +input()(placeholder='example', required, disabled)
+      td
+        +input()(placeholder='example', required, disabled)
+
+    tr
+      td.
+        +radio()(checked)
+      td
+        +radio()(checked)
+    tr
+      td.
+        +radio()(checked, disabled)
+      td
+        +radio()(checked, disabled)
+
+    tr
+      td.
+        +select
+          option(value='example', selected) Example
+      td
+        +select
+          option(value='example', selected) Example
+    tr
+      td.
+        +select()(disabled)
+          option(value='example', selected) Example
+      td
+        +select()(disabled)
+          option(value='example', selected) Example
+
+    tr
+      td.
+        +textarea()(placeholder='example', required)
+      td
+        +textarea()(placeholder='example', required)
+    tr
+      td.
+        +textarea()(placeholder='example', required, disabled)
+      td
+        +textarea()(placeholder='example', required, disabled)
