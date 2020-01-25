@@ -22,6 +22,12 @@ block body
       padding-bottom: 8px;
       padding-left: 8px;
       background-color: #ffffff;
+      color: #575757;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14px;
+      font-family: sans-serif;
+      line-height: 20px;
     }
 
     table {
@@ -38,9 +44,6 @@ block body
       border-top: 1px dashed #d7d7d7;
       border-bottom: 1px dashed #d7d7d7;
       vertical-align: top;
-      font-size: 14px;
-      font-family: sans-serif;
-      line-height: 20px;
     }
 
     td:first-child {
@@ -90,11 +93,21 @@ block body
     tr
       td
         pre.
+          +checkbox()(disabled)
           +checkbox()(checked, disabled)
       td
+        +checkbox
         +checkbox()(checked)
       td
+        +checkbox()(disabled)
         +checkbox()(checked, disabled)
+
+    tr
+      td
+        pre.
+          +icon('example')(width='40', height='40')
+      td(colspan='2')
+        +icon('check')(width='40', height='40')
 
     tr
       td
@@ -108,25 +121,28 @@ block body
     tr
       td
         pre.
-          +radio()(checked, disabled)
+          +radio()(name=getRandomDoubleId(), disabled)
+          +radio()(name=getRandomDoubleId(), checked, disabled)
       td
-        +radio()(checked)
+        +radio()(name=getRandomDoubleId())
+        +radio()(name=getRandomDoubleId(), checked)
       td
-        +radio()(checked, disabled)
+        +radio()(name=getRandomDoubleId(), disabled)
+        +radio()(name=getRandomDoubleId(), checked, disabled)
 
     tr
       td
         pre.
           +select()(disabled)
-            option(value, selected, disabled) Select...
+            option(value, selected, disabled) Select
             option(value='example') Example
       td
         +select
-          option(value, selected, disabled) Select...
+          option(value, selected, disabled) Select
           option(value='example') Example
       td
         +select()(disabled)
-          option(value, selected, disabled) Select...
+          option(value, selected, disabled) Select
           option(value='example') Example
 
     tr
