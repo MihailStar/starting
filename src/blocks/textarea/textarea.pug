@@ -1,3 +1,4 @@
-mixin textarea
-  .textarea&attributes(attributes)
-    block
+//- @param {string} [placeholder]
+mixin textarea(placeholder)
+  .textarea
+    textarea.textarea__element(placeholder=placeholder)&attributes(attributes)
