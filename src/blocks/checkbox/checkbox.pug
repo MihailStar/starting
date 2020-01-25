@@ -1,3 +1,4 @@
 mixin checkbox
-  .checkbox&attributes(attributes)
-    block
+  .checkbox
+    input.checkbox__element(type='checkbox')&attributes(attributes)
+    +icon('check').checkbox__icon(width='24', height='24')
