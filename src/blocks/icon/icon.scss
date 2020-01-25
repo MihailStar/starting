@@ -4,6 +4,7 @@
   box-sizing: border-box;
   vertical-align: middle;
   transition: $transition-duration;
+  pointer-events: none;
   fill: currentColor;
 
   & *,
