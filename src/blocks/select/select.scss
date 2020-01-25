@@ -65,12 +65,12 @@
     font-size: inherit;
     transform: translateY(-50%);
 
-    .select__element[disabled] ~ & {
+    .select__element[disabled] + & {
       opacity: 0.5;
     }
 
-    .select__element:focus ~ &,
-    .select__element:not([disabled]):hover ~ & {
+    .select__element:focus + &,
+    .select__element:not([disabled]):hover + & {
       color: darken($color-text-dark, 5%);
     }
   }
