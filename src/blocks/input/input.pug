@@ -1,3 +1,4 @@
-mixin input
-  .input&attributes(attributes)
-    block
+//- @param {string} [placeholder]
+mixin input(placeholder)
+  .input
+    input.input__element(type='text', placeholder=placeholder)&attributes(attributes)
