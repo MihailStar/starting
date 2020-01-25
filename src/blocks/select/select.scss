@@ -4,6 +4,7 @@
   display: inline-block;
   box-sizing: border-box;
   width: 100%;
+  height: (($base-unit * 10) / $font-size * 1em);
   vertical-align: middle;
   font-size: $font-size;
 
@@ -13,7 +14,7 @@
     padding-bottom: (($base-unit * 2) / $font-size * 1em);
     padding-left: (($base-unit * 4) / $font-size * 1em);
     width: 100%;
-    height: (($base-unit * 10) / $font-size * 1em);
+    height: 100%;
     border: 0;
     border-radius: ($base-unit * 1);
     background-color: $color-body;
