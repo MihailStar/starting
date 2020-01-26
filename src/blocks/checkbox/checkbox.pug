@@ -1,4 +1,5 @@
-mixin checkbox
+//- @param {string} [label]
+mixin checkbox(label)
   .checkbox
-    input.checkbox__element(type='checkbox')&attributes(attributes)
+    input.checkbox__element(type='checkbox', aria-label=label)&attributes(attributes)
     +icon('check').checkbox__icon(width='24', height='24')
