@@ -1,4 +1,5 @@
-mixin switch
+//- @param {string} [label]
+mixin switch(label)
   .switch
-    input.switch__element(type='checkbox')&attributes(attributes)
+    input.switch__element(type='checkbox', aria-label=label)&attributes(attributes)
     +icon('checkbox-blank-circle-outline').switch__icon(width='24', height='24')

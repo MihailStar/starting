@@ -51,6 +51,8 @@
     }
 
     &[disabled] {
+      background-color: $color-body;
+      box-shadow: inset 0 0 0 1px $color-line;
       opacity: 0.5;
       cursor: default;
       pointer-events: none;
@@ -82,16 +84,7 @@
     }
 
     .switch__element[disabled] + & {
-      opacity: 0.5;
-    }
-
-    .switch__element:focus:checked + &,
-    .switch__element:hover:checked + & {
-      color: darken($color-text-light, 5%);
-    }
-
-    .switch__element:focus[disabled] + &,
-    .switch__element:hover[disabled] + & {
+      color: $color-text-dark;
       opacity: 0.5;
     }
   }
