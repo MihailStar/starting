@@ -8,6 +8,18 @@
   vertical-align: middle;
   font-size: $font-size;
 
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: (($base-unit * 6) / $font-size * 1em);
+    height: (($base-unit * 6) / $font-size * 1em);
+    color: $color-text-dark;
+    font-size: inherit;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
   &__element {
     flex-shrink: 0;
     margin-top: 0;
@@ -37,6 +49,20 @@
       outline: 0;
       background-color: darken($color-body, 5%);
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
+
+      & + .checkbox__icon {
+        color: darken($color-text-dark, 5%);
+      }
+    }
+
+    &:checked {
+      & + .checkbox__icon {
+        opacity: 1;
+      }
+
+      &[disabled] + .checkbox__icon {
+        opacity: 0.5;
+      }
     }
 
     &[disabled] {
@@ -48,31 +74,6 @@
 
     &[hidden] {
       display: none;
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: (($base-unit * 6) / $font-size * 1em);
-    height: (($base-unit * 6) / $font-size * 1em);
-    color: $color-text-dark;
-    font-size: inherit;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-50%);
-
-    .checkbox__element:focus + &,
-    .checkbox__element:hover + & {
-      color: darken($color-text-dark, 5%);
-    }
-
-    .checkbox__element:checked + & {
-      opacity: 1;
-    }
-
-    .checkbox__element:checked[disabled] + & {
-      opacity: 0.5;
     }
   }
 
