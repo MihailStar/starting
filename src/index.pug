@@ -148,6 +148,17 @@ block body
     tr
       td
         pre.
+          +switch()(disabled)
+      td
+        +switch
+        +switch()(checked)
+      td
+        +switch()(disabled)
+        +switch()(checked, disabled)
+
+    tr
+      td
+        pre.
           +textarea()(placeholder='Example', required, disabled)
       td
         +textarea()(placeholder='Example', required)
