@@ -26,6 +26,10 @@
   cursor: pointer;
   transition: $transition-duration;
 
+  &__title {
+    pointer-events: none;
+  }
+
   &:focus,
   &:hover {
     outline: 0;

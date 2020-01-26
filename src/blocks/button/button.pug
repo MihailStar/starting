@@ -3,13 +3,13 @@ mixin button(title)
   if attributes.href
     if attributes.target === '_blank'
       a.button(rel='noopener noreferrer')&attributes(attributes)
-        span= title
+        span.button__title= title
         block
     else
       a.button&attributes(attributes)
-        span= title
+        span.button__title= title
         block
   else
     button.button&attributes(attributes)
-      span= title
+      span.button__title= title
       block
