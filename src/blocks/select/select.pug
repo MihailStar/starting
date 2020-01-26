@@ -1,6 +1,6 @@
-//- @param {string} [title]
-mixin select(title)
+//- @param {string} [label]
+mixin select(label)
   .select
-    select.select__element(aria-label=title)&attributes(attributes)
+    select.select__element(aria-label=label)&attributes(attributes)
       block
     +icon('chevron-down').select__icon(width='24', height='24')

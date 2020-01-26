@@ -37,7 +37,7 @@
     }
 
     &:focus,
-    &:hover:not([disabled]) {
+    &:hover {
       outline: 0;
       background-color: darken($color-body, 5%);
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
@@ -66,13 +66,13 @@
     font-size: inherit;
     transform: translateY(-50%);
 
-    .select__element[disabled] + & {
-      opacity: 0.5;
+    .select__element:focus + &,
+    .select__element:hover + & {
+      color: darken($color-text-dark, 5%);
     }
 
-    .select__element:focus + &,
-    .select__element:hover:not([disabled]) + & {
-      color: darken($color-text-dark, 5%);
+    .select__element[disabled] + & {
+      opacity: 0.5;
     }
   }
 
