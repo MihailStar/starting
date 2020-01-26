@@ -3,31 +3,40 @@ extends ./templates/main.pug
 block variables
   -
     const documentLanguage = 'ru';
-    const bodyClasses = 'body body_index';
+    const bodyClasses = 'starting';
     const pageDescription = '';
     const pageKeywords = '';
     const pageTitle = 'Стартовый шаблон для верстки';
 
 block head
+  link(
+    href='https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap',
+    rel='stylesheet'
+  )
 
 block body
   style.
+    html {
+      font-size: 10px;
+      box-sizing: border-box;
+    }
+
     body {
       margin-top: 0;
       margin-right: 0;
       margin-bottom: 0;
       margin-left: 0;
-      padding-top: 8px;
-      padding-right: 8px;
-      padding-bottom: 8px;
-      padding-left: 8px;
+      padding-top: 0.8rem;
+      padding-right: 0.8rem;
+      padding-bottom: 0.8rem;
+      padding-left: 0.8rem;
       background-color: #ffffff;
       color: #575757;
       font-weight: 400;
       font-style: normal;
-      font-size: 14px;
-      font-family: sans-serif;
-      line-height: 20px;
+      font-size: 1.4rem;
+      font-family: 'Ubuntu', sans-serif;
+      line-height: 2rem;
     }
 
     table {
@@ -36,23 +45,20 @@ block body
     }
 
     td {
-      padding-top: 8px;
-      padding-right: 8px;
-      padding-bottom: 8px;
-      padding-left: 8px;
+      padding-top: 0.8rem;
+      padding-right: 0.8rem;
+      padding-bottom: 0.8rem;
+      padding-left: 0.8rem;
       width: 33.33333%;
       border-top: 1px dotted #d7d7d7;
       border-bottom: 1px dotted #d7d7d7;
       vertical-align: top;
     }
 
-    td:first-child {
-      font-family: monospace;
-    }
-
     pre {
       margin-top: 0;
       margin-bottom: 0;
+      font-family: 'Ubuntu Mono', monospace;
     }
 
   table
