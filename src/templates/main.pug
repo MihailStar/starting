@@ -1,4 +1,5 @@
 include ./utilities.pug
+
 include ../blocks/button/button.pug
 include ../blocks/checkbox/checkbox.pug
 include ../blocks/counter/counter.pug
@@ -29,6 +30,7 @@ html(lang=documentLanguage || void 0)
     title= pageTitle
 
   body.no-js(class=bodyClasses)
-    script document.body.classList.remove('no-js');
+    script.
+      document.body.className = document.body.className.replace('no-js', 'js');
     block body
     script(src='./scripts/main.js', defer)

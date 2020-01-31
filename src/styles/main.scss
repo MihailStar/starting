@@ -1,115 +1,73 @@
 @import '../../node_modules/fast-grid/_fast-grid';
 @import '../../node_modules/include-media/dist/_include-media';
+
 @import './variables';
 @import './utilities';
 
-html {
-  box-sizing: border-box;
-  font-size: 10px;
-}
+.starting {
+  @import '../blocks/button/button';
+  @import '../blocks/checkbox/checkbox';
+  @import '../blocks/counter/counter';
+  @import '../blocks/icon/icon';
+  @import '../blocks/input/input';
+  @import '../blocks/modal/modal';
+  @import '../blocks/radio/radio';
+  @import '../blocks/select/select';
+  @import '../blocks/switch/switch';
+  @import '../blocks/textarea/textarea';
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  $font-size: ($base-unit * 4);
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  background-color: $color-body;
-  color: $color-text-dark;
-  font-size: $font-size;
-  font-family: sans-serif;
-  line-height: ($base-unit * 6);
-}
-
-main {
-  display: block;
-}
-
-button,
-input,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-}
-
-button,
-img,
-video {
-  vertical-align: middle;
-}
-
-h1 {
-  $font-size: ($base-unit * 16);
-  margin-top: (($base-unit * 6) / $font-size * 1em);
-  margin-bottom: (($base-unit * 12) / $font-size * 1em);
-  color: $color-text-dark;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-weight: 400;
-  font-style: normal;
-  font-size: ($font-size - ($base-unit * 4));
-  line-height: (($base-unit * 24) / $font-size * 1em);
-  @include media('>=sm') {
-    font-size: ($font-size - ($base-unit * 3));
-  }
-  @include media('>=md') {
-    font-size: ($font-size - ($base-unit * 2));
-  }
-  @include media('>=lg') {
-    font-size: ($font-size - ($base-unit * 1));
-  }
-  @include media('>=xl') {
-    font-size: $font-size;
-  }
-}
-
-[hidden] {
-  display: none;
-}
-
-.visually-hidden {
-  @include visually-hidden();
-}
-
-.grid {
-  min-width: 320px;
-  @include grid-container(sm);
-  @include grid-breakpoint(sm) {
-    max-width: map-get($containers, sm);
-  }
-  @include grid-breakpoint(md) {
-    max-width: map-get($containers, md);
-  }
-  @include grid-breakpoint(lg) {
-    max-width: map-get($containers, lg);
-  }
-  @include grid-breakpoint(xl) {
-    max-width: map-get($containers, xl);
+  .title {
+    $font-size: ($base-unit * 16);
+    margin-top: (($base-unit * 6) / $font-size * 1em);
+    margin-bottom: (($base-unit * 12) / $font-size * 1em);
+    color: $color-text-dark;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: ($font-size - ($base-unit * 4));
+    line-height: (($base-unit * 24) / $font-size * 1em);
+    @include media('>=sm') {
+      font-size: ($font-size - ($base-unit * 3));
+    }
+    @include media('>=md') {
+      font-size: ($font-size - ($base-unit * 2));
+    }
+    @include media('>=lg') {
+      font-size: ($font-size - ($base-unit * 1));
+    }
+    @include media('>=xl') {
+      font-size: $font-size;
+    }
   }
 
-  &__row {
-    @include grid-row();
+  .grid {
+    min-width: 320px;
+    @include grid-container(sm);
+    @include grid-breakpoint(sm) {
+      max-width: map-get($containers, sm);
+    }
+    @include grid-breakpoint(md) {
+      max-width: map-get($containers, md);
+    }
+    @include grid-breakpoint(lg) {
+      max-width: map-get($containers, lg);
+    }
+    @include grid-breakpoint(xl) {
+      max-width: map-get($containers, xl);
+    }
+
+    &__row {
+      @include grid-row();
+    }
+
+    &__column {
+      @include grid-col(12 6 4 3);
+    }
   }
 
-  &__column {
-    @include grid-col(12 6 4 3);
+  .visually-hidden {
+    @include visually-hidden;
   }
 }
-
-@import '../blocks/button/button';
-@import '../blocks/checkbox/checkbox';
-@import '../blocks/counter/counter';
-@import '../blocks/icon/icon';
-@import '../blocks/input/input';
-@import '../blocks/radio/radio';
-@import '../blocks/select/select';
-@import '../blocks/switch/switch';
-@import '../blocks/textarea/textarea';
