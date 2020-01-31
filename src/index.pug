@@ -17,8 +17,8 @@ block head
 block body
   style.
     html {
-      font-size: 10px;
       box-sizing: border-box;
+      font-size: 10px;
     }
 
     body {
@@ -44,20 +44,22 @@ block body
       border-collapse: collapse;
     }
 
+    tr:not(:last-child) {
+      box-shadow: inset 0 -1px 0 0 #d7d7d7;
+    }
+
     td {
-      padding-top: 0.8rem;
+      padding-top: 1.6rem;
       padding-right: 0.8rem;
-      padding-bottom: 0.8rem;
+      padding-bottom: 1.6rem;
       padding-left: 0.8rem;
-      width: 33.33333%;
-      border-top: 1px dotted #d7d7d7;
-      border-bottom: 1px dotted #d7d7d7;
+      width: 50%;
       vertical-align: top;
     }
 
     pre {
       margin-top: 0;
-      margin-bottom: 0;
+      margin-bottom: 0.4rem;
       font-family: 'Ubuntu Mono', monospace;
     }
 
@@ -65,78 +67,95 @@ block body
     tr
       td
         pre.
-          +button('Example')(type='button', disabled)
-          +button('Example').button_accent(type='button', disabled)
-      td
+          +button('Example')(type='button')
+          +button('Example').button_accent(type='button')
         +button('Example')(type='button')
         +button('Example').button_accent(type='button')
       td
+        pre.
+          +button('Example')(type='button', disabled)
+          +button('Example').button_accent(type='button', disabled)
         +button('Example')(type='button', disabled)
         +button('Example').button_accent(type='button', disabled)
 
     tr
       td
         pre.
-          +button('Example')(href='javascript:void(0);', tabindex='-1')
-          +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
-      td
+          +button('Example')(href='javascript:void(0);')
+          +button('Example').button_accent(href='javascript:void(0);')
         +button('Example')(href='javascript:void(0);')
         +button('Example').button_accent(href='javascript:void(0);')
       td
+        pre.
+          +button('Example')(href='javascript:void(0);', tabindex='-1')
+          +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
         +button('Example')(href='javascript:void(0);', tabindex='-1')
         +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
 
     tr
       td
         pre.
-          +checkbox()(disabled)
-          +checkbox()(checked, disabled)
-      td
+          +checkbox
+          +checkbox()(checked)
         +checkbox
         +checkbox()(checked)
       td
+        pre.
+          +checkbox()(disabled)
+          +checkbox()(checked, disabled)
         +checkbox()(disabled)
         +checkbox()(checked, disabled)
 
     tr
-      td
+      td(colspan='2')
+        pre.
+          +counter
+        +counter
+
+    tr
+      td(colspan='2')
         pre.
           +icon('check')(width='40', height='40')
-      td(colspan='2')
         +icon('check')(width='40', height='40')
 
     tr
       td
         pre.
-          +input()(placeholder='Example', required, disabled)
-      td
+          +input()(placeholder='Example', required)
         +input()(placeholder='Example', required)
       td
+        pre.
+          +input()(placeholder='Example', required, disabled)
         +input()(placeholder='Example', required, disabled)
 
     tr
       td
         pre.
-          +radio()(name=getRandomDoubleId(), disabled)
-          +radio()(name=getRandomDoubleId(), checked, disabled)
-      td
+          +radio()(name=getRandomDoubleId())
+          +radio()(name=getRandomDoubleId(), checked)
         +radio()(name=getRandomDoubleId())
         +radio()(name=getRandomDoubleId(), checked)
       td
+        pre.
+          +radio()(name=getRandomDoubleId(), disabled)
+          +radio()(name=getRandomDoubleId(), checked, disabled)
         +radio()(name=getRandomDoubleId(), disabled)
         +radio()(name=getRandomDoubleId(), checked, disabled)
 
     tr
       td
         pre.
-          +select()(disabled)
+          +select
             option(value, selected, disabled) Select
             option(value='example') Example
-      td
         +select
           option(value, selected, disabled) Select
           option(value='example') Example
       td
+        pre.
+          +select()(disabled)
+            option(value, selected, disabled) Select
+            option(value='example') Example
         +select()(disabled)
           option(value, selected, disabled) Select
           option(value='example') Example
@@ -144,20 +163,23 @@ block body
     tr
       td
         pre.
-          +switch()(disabled)
-          +switch()(checked, disabled)
-      td
+          +switch
+          +switch()(checked)
         +switch
         +switch()(checked)
       td
+        pre.
+          +switch()(disabled)
+          +switch()(checked, disabled)
         +switch()(disabled)
         +switch()(checked, disabled)
 
     tr
       td
         pre.
-          +textarea()(placeholder='Example', required, disabled)
-      td
+          +textarea()(placeholder='Example', required)
         +textarea()(placeholder='Example', required)
       td
+        pre.
+          +textarea()(placeholder='Example', required, disabled)
         +textarea()(placeholder='Example', required, disabled)
