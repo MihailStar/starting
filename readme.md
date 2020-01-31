@@ -37,7 +37,7 @@ npm run lint # проверяет наличие ошибок в .js, .pug, .scs
 npm run lint:js # проверяет наличие ошибок в .js файлах
 npm run lint:pug # проверяет наличие ошибок в .pug файлах
 npm run lint:scss # проверяет наличие ошибок в .scss файлах
-npm run prettier # проверяет форматирование .js, .pug, .scss файлов согласно Prettier
+npm run prettier # проверяет форматирование .js, .pug, .scss, .svg файлов согласно Prettier и Prettier Plugins
 npm run speller # ищет опечатки в ru текстах
 npm run sprite # собирает векторный спрайт
 ```
@@ -83,7 +83,7 @@ npm run sprite # собирает векторный спрайт
 │ ├ templates/ # шаблоны
 │ │ ├ main.pug # базовый шаблон
 │ │ └ utilities.pug # утилиты
-│ ├ blocks.pug # разметка страницы blocks
+│ ├ example.pug # разметка страницы example
 │ └ index.pug # разметка страницы index
 ├ .babelrc
 ├ .browserslistrc
