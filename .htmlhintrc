@@ -1,6 +1,6 @@
 {
   "alt-require": true,
-  "attr-lowercase": ["viewBox"],
+  "attr-lowercase": ["gradientTransform", "gradientUnits", "viewBox"],
   "attr-no-duplication": true,
   "attr-unsafe-chars": true,
   "attr-value-double-quotes": true,
@@ -20,6 +20,6 @@
   "src-not-empty": true,
   "style-disabled": false,
   "tag-pair": true,
-  "tagname-lowercase": true,
+  "tagname-lowercase": ["radialGradient", "linearGradient"],
   "title-require": true
 }
