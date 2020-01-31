@@ -7,6 +7,18 @@ class MyEventEmitter {
   /**
    * @param {string} type
    * @param {Function} listener
+   * @returns {void}
+   */
+  one(type, listener) {
+    const off = this.on(type, (args) => {
+      listener(args);
+      off();
+    });
+  }
+
+  /**
+   * @param {string} type
+   * @param {Function} listener
    * @returns {Function}
    */
   on(type, listener) {
