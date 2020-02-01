@@ -1,6 +1,10 @@
 /* eslint-disable max-classes-per-file, class-methods-use-this, no-console */
 class MyEventEmitter {
   constructor() {
+    /**
+     * @private
+     * @type {Object<string, Function>}
+     */
     this.events = {};
   }
 
