@@ -1,3 +1,32 @@
-mixin counter
+//- @param {Object} [settings]
+//- @param {number} settings.value
+//- @param {number} settings.min
+//- @param {number} settings.max
+//- @param {number} settings.step
+mixin counter(settings = {})
+  - const { value = 0, min = 0, max = 99, step = 1 } = settings;
+
+  //- @param {string} title
+  //- @param {string} modifier
+  //- @param {string} icon
+  mixin counter-button(title, modifier, icon)
+    button(
+      class=`counter__button counter__button_${modifier}`,
+      aria-label=title,
+      type='button'
+    )
+      span.visually-hidden= title
+      +icon(icon).counter__icon(width='24', height='24')
+
   .counter&attributes(attributes)
-    block
+    +counter-button('Уменьшить', 'decrease', 'minus')
+    input.counter__input(
+      value=String(value),
+      min=String(min),
+      max=String(max),
+      step=String(step),
+      type='number',
+      tabindex='-1',
+      readonly
+    )
+    +counter-button('Увеличить', 'increase', 'plus')
