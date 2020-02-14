@@ -5,6 +5,7 @@
     "node": true
   },
   "extends": ["airbnb-base", "prettier"],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
@@ -38,7 +39,7 @@
     "jsdoc/require-returns-description": 0,
     "jsdoc/require-returns-type": 1,
     "jsdoc/valid-types": 1,
-    "quotes": ["error", "single"]
+    "quotes": [1, "single"]
   },
   "settings": {
     "jsdoc": {
