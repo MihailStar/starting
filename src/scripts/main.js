@@ -1,5 +1,3 @@
-import './utilities';
-
 import '../blocks/icon/icon';
 import Counter from '../blocks/counter/counter';
 import Modal from '../blocks/modal/modal';
