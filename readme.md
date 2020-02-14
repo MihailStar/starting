@@ -75,7 +75,8 @@ npm run sprite # собирает векторный спрайт
 │ │ └ sprite/ # изображения для сборки векторного спрайта
 │ ├ scripts/ # скрипты
 │ │ ├ main.js # точка входа сборки скриптов
-│ │ └ utilities.js # утилиты
+│ │ └ utilities/ # утилиты
+│ │   └ example.js # утилита example
 │ ├ styles/ # стили
 │ │ ├ main.scss # точка входа сборки стилей
 │ │ ├ utilities.scss # утилиты
