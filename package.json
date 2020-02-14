@@ -7,7 +7,7 @@
     "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.8.3",
-    "@prettier/plugin-pug": "^1.1.7",
+    "@prettier/plugin-pug": "^1.1.8",
     "@prettier/plugin-xml": "^0.7.2",
     "autoprefixer": "^9.7.4",
     "babel-eslint": "^10.0.3",
@@ -52,7 +52,7 @@
     "stylelint": "^13.2.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.14.2",
-    "terser-webpack-plugin": "^2.3.4",
+    "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.41.6",
     "webpack-stream": "^5.2.1",
     "yaspeller": "^6.0.2"
