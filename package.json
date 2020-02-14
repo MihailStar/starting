@@ -73,6 +73,7 @@
     "prettier": "prettier --check \"./src/**/*.{js,pug,scss,svg}\"",
     "prod": "cross-env NODE_ENV=production gulp default",
     "speller": "yaspeller \"./src\"",
-    "sprite": "cross-env NODE_ENV=production gulp generateSprite"
+    "sprite": "cross-env NODE_ENV=production gulp generateSprite",
+    "test": "babel-node \"./src/scripts/utilities/my-event-emitter.test.js\""
   }
 }
