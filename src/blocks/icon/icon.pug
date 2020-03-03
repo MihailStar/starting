@@ -1,4 +1,11 @@
 //- @param {string} name
 mixin icon(name)
-  svg.icon(class=`icon_${name.toLowerCase()}`, aria-hidden='true', focusable='false')&attributes(attributes)
-    use(xlink:href=`./images/sprite/sprite.svg#icon-${name.toLowerCase()}`)/
+  -
+    const iconName = name.toLowerCase();
+    const isInline = false;
+
+  svg.icon(class=`icon_${iconName}`, aria-hidden='true', focusable='false')&attributes(attributes)
+    if isInline
+      use(href=`#icon-${iconName}`)/
+    else
+      use(href=`./images/sprite/sprite.svg#icon-${iconName}`)/
