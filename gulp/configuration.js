@@ -23,11 +23,6 @@ const paths = {
       return this.src;
     },
   },
-  deploy: {
-    src: `${directory.dest}/**/*.*`,
-    dest: '',
-    watch: '',
-  },
   fonts: {
     src: `${directory.src}/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
     dest: `${directory.dest}/fonts`,
