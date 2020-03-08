@@ -23,6 +23,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsdoc": "^22.0.0",
     "fast-grid": "^0.2.5",
+    "flow-bin": "^0.120.1",
     "gulp": "^4.0.2",
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^3.0.0",
