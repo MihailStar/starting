@@ -40,6 +40,7 @@ npm run lint:scss # проверяет наличие ошибок в .scss фа
 npm run prettier # проверяет форматирование .js, .pug, .scss, .svg файлов согласно Prettier и Prettier Plugins
 npm run speller # ищет опечатки в ru текстах
 npm run sprite # собирает векторный спрайт
+npm run test # запускает тесты
 ```
 
 ```bash
@@ -49,7 +50,6 @@ npm run sprite # собирает векторный спрайт
 │ │ ├ base64.js
 │ │ ├ build.js
 │ │ ├ clean.js
-│ │ ├ deploy.js
 │ │ ├ development.js
 │ │ ├ fonts.js
 │ │ ├ images.js
@@ -91,6 +91,7 @@ npm run sprite # собирает векторный спрайт
 ├ .editorconfig
 ├ .eslintignore
 ├ .eslintrc
+├ .flowconfig
 ├ .gitattributes
 ├ .gitignore
 ├ .htmlhintrc # конфигурация Visual Studio Code плагина HTMLHint
