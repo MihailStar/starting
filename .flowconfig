@@ -1,15 +1,3 @@
-[declarations]
-
 [ignore]
-
-[include]
-
-[libs]
-
-[lints]
-
-[options]
-
-[untyped]
-
-[version]
+<PROJECT_ROOT>/dist
+<PROJECT_ROOT>/node_modules

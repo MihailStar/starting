@@ -1,4 +1,4 @@
-.cache/**
-.publish/**
-dist/**
-node_modules/**
+.cache
+.publish
+dist
+node_modules
