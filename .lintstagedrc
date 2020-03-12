@@ -1,5 +1,5 @@
 {
-  "*.js": ["eslint"],
-  "*.pug": ["pug-lint"],
-  "*.scss": ["stylelint"]
+  "*.js": "eslint",
+  "*.pug": "pug-lint",
+  "*.scss": "stylelint"
 }

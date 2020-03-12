@@ -29,13 +29,11 @@ function compileStyles() {
       isDevelopment,
       postcss([
         postcssImport(),
+        autoprefixer(),
       ]),
       postcss([
         postcssImport(),
-        autoprefixer({
-          cascade: false,
-          remove: false,
-        }),
+        autoprefixer(),
         cssMqpacker({
           sort: true,
         }),
