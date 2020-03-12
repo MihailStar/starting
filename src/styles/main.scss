@@ -5,16 +5,16 @@
 @import './utilities';
 
 .starting {
-  @import '../blocks/button/button';
-  @import '../blocks/checkbox/checkbox';
-  @import '../blocks/counter/counter';
-  @import '../blocks/icon/icon';
-  @import '../blocks/input/input';
-  @import '../blocks/modal/modal';
-  @import '../blocks/radio/radio';
-  @import '../blocks/select/select';
-  @import '../blocks/switch/switch';
-  @import '../blocks/textarea/textarea';
+  @import '../blocks/components/button/button';
+  @import '../blocks/components/checkbox/checkbox';
+  @import '../blocks/components/counter/counter';
+  @import '../blocks/components/icon/icon';
+  @import '../blocks/components/input/input';
+  @import '../blocks/components/modal/modal';
+  @import '../blocks/components/radio/radio';
+  @import '../blocks/components/select/select';
+  @import '../blocks/components/switch/switch';
+  @import '../blocks/components/textarea/textarea';
 
   .example {
     $font-size: ($base-unit * 16);

@@ -1,4 +1,4 @@
-import MyEventEmitter from '../../scripts/utilities/my-event-emitter';
+import MyEventEmitter from '../../../scripts/utilities/my-event-emitter';
 
 class Counter extends MyEventEmitter {
   /**

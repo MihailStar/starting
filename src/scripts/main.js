@@ -1,6 +1,6 @@
-import '../blocks/icon/icon';
-import Counter from '../blocks/counter/counter';
-import Modal from '../blocks/modal/modal';
+import '../blocks/components/icon/icon';
+import Counter from '../blocks/components/counter/counter';
+import Modal from '../blocks/components/modal/modal';
 
 if (window.NodeList !== undefined && NodeList.prototype.forEach === undefined) {
   NodeList.prototype.forEach = Array.prototype.forEach;
