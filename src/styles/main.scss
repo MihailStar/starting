@@ -1,5 +1,5 @@
-@import '../../node_modules/fast-grid/_fast-grid';
-@import '../../node_modules/include-media/dist/_include-media';
+@import '../../node_modules/fast-grid/fast-grid';
+@import '../../node_modules/include-media/dist/include-media';
 
 @import './variables';
 @import './utilities';
@@ -27,6 +27,8 @@
     font-weight: 400;
     font-style: normal;
     font-size: ($font-size - ($base-unit * 4));
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     line-height: (($base-unit * 24) / $font-size * 1em);
     @include media('>=sm') {
       font-size: ($font-size - ($base-unit * 3));
@@ -43,8 +45,8 @@
   }
 
   .grid {
-    min-width: 320px;
     @include grid-container(sm);
+    min-width: 320px;
     @include grid-breakpoint(sm) {
       max-width: map-get($containers, sm);
     }

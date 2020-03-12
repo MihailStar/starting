@@ -36,8 +36,6 @@
     font-size: inherit;
     cursor: pointer;
     transition: $transition-duration;
-    -moz-appearance: none;
-    -webkit-appearance: none;
     appearance: none;
 
     &::-ms-check {
@@ -50,13 +48,13 @@
       background-color: darken($color-body, 5%);
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
 
-      & + .checkbox__icon {
+      .checkbox__icon {
         color: darken($color-text-dark, 5%);
       }
     }
 
     &:checked {
-      & + .checkbox__icon {
+      .checkbox__icon {
         opacity: 1;
       }
 
@@ -77,9 +75,9 @@
     }
   }
 
-  & *,
-  & *::before,
-  & *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: inherit;
   }
 }
