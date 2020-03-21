@@ -46,7 +46,7 @@
       background-color: darken($color-body, 5%);
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
 
-      .switch__icon {
+      + .switch__icon {
         color: darken($color-text-dark, 5%);
       }
     }
@@ -55,7 +55,7 @@
       background-color: $color-accent;
       box-shadow: inset 0 0 0 1px $color-accent;
 
-      .switch__icon {
+      + .switch__icon {
         color: $color-text-light;
         transform: translateX((($base-unit * 10) / $font-size * 1em));
       }
@@ -68,15 +68,12 @@
     }
 
     &[disabled] {
-      background-color: $color-body;
-      box-shadow: inset 0 0 0 1px $color-line;
       opacity: 0.5;
       cursor: default;
       pointer-events: none;
       user-select: none;
 
-      .switch__icon {
-        color: $color-text-dark;
+      + .switch__icon {
         opacity: 0.5;
       }
     }

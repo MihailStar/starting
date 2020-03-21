@@ -48,13 +48,13 @@
       background-color: darken($color-body, 5%);
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
 
-      .radio__icon {
+      + .radio__icon {
         color: darken($color-text-dark, 5%);
       }
     }
 
     &:checked {
-      .radio__icon {
+      + .radio__icon {
         opacity: 1;
       }
 
