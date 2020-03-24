@@ -6,7 +6,6 @@
       "/^border/": ["none"],
       "/^outline/": ["none"]
     },
-    "length-zero-no-unit": true,
     "max-nesting-depth": 3,
     "order/properties-alphabetical-order": null,
     "selector-class-pattern": "^[0-9a-z-_]+$"
