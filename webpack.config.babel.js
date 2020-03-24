@@ -3,6 +3,17 @@ import { isDevelopment } from './gulp/configuration';
 
 const development = {
   mode: 'development',
+  module: {
+    rules: [
+      {
+        exclude: /(dist|node_modules)/,
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
   devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'main.js',
