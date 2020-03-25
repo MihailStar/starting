@@ -30,7 +30,7 @@ class MyCounter extends MyEventEmitter {
         step: number
       }}
      */
-    this.properties = {
+    this.props = {
       value: Number(this.elements.input.value),
       min: Number(this.elements.input.min),
       max: Number(this.elements.input.max),
@@ -53,7 +53,7 @@ class MyCounter extends MyEventEmitter {
    * @returns {number}
    */
   get value() {
-    return this.properties.value;
+    return this.props.value;
   }
 
   /**
@@ -63,17 +63,17 @@ class MyCounter extends MyEventEmitter {
   set value(value) {
     let normalizeValue = value;
 
-    if (value <= this.properties.min) {
-      normalizeValue = this.properties.min;
-    } else if (value >= this.properties.max) {
-      normalizeValue = this.properties.max;
+    if (value <= this.props.min) {
+      normalizeValue = this.props.min;
+    } else if (value >= this.props.max) {
+      normalizeValue = this.props.max;
     }
 
-    if (normalizeValue === this.properties.value) {
+    if (normalizeValue === this.props.value) {
       return;
     }
 
-    this.properties.value = normalizeValue;
+    this.props.value = normalizeValue;
     this.elements.input.value = String(normalizeValue);
     this.emit('event:change', { value: normalizeValue });
   }
@@ -82,28 +82,28 @@ class MyCounter extends MyEventEmitter {
    * @returns {boolean}
    */
   get isMin() {
-    return this.properties.value <= this.properties.min;
+    return this.props.value <= this.props.min;
   }
 
   /**
    * @returns {boolean}
    */
   get isMax() {
-    return this.properties.value >= this.properties.max;
+    return this.props.value >= this.props.max;
   }
 
   /**
    * @returns {void}
    */
   decrease() {
-    this.value -= this.properties.step;
+    this.value -= this.props.step;
   }
 
   /**
    * @returns {void}
    */
   increase() {
-    this.value += this.properties.step;
+    this.value += this.props.step;
   }
 }
 
