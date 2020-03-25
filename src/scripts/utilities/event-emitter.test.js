@@ -1,5 +1,5 @@
 import { strict as assert } from 'assert';
-import MyEventEmitter from './my-event-emitter';
+import MyEventEmitter from './event-emitter';
 
 const myEventEmitter = new MyEventEmitter();
 

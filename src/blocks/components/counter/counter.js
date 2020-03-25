@@ -1,6 +1,6 @@
-import MyEventEmitter from '../../../scripts/utilities/my-event-emitter';
+import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
-class Counter extends MyEventEmitter {
+class MyCounter extends MyEventEmitter {
   /**
    * @param {HTMLElement} element
    */
@@ -107,4 +107,4 @@ class Counter extends MyEventEmitter {
   }
 }
 
-export default Counter;
+export default MyCounter;
