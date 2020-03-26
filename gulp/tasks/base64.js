@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import imageDataURI from 'gulp-image-data-uri';
 import imagemin from 'gulp-imagemin';

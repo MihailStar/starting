@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import { paths } from '../configuration';
 import { reloadServer } from './server';

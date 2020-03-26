@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
