@@ -1,8 +1,20 @@
+// @flow
+/*::
+type Arguments = { [key: string]: * };
+type Listener = (args: Arguments) => void;
+*/
+
 class MyEventEmitter {
+  /*::
+  events: {
+    [event: string]: Listener[],
+  };
+  */
+
   constructor() {
     /**
      * @private
-     * @type {Object<string, Function>}
+     * @type {Object<string, Array<Function>>}
      */
     this.events = {};
   }
@@ -12,7 +24,7 @@ class MyEventEmitter {
    * @param {Function} listener
    * @returns {void}
    */
-  one(type, listener) {
+  one(type /*: string */, listener /*: Listener */) /*: void */ {
     const off = this.on(type, (args) => {
       listener(args);
       off();
@@ -24,7 +36,7 @@ class MyEventEmitter {
    * @param {Function} listener
    * @returns {Function}
    */
-  on(type, listener) {
+  on(type /*: string */, listener /*: Listener */) /*: () => void */ {
     this.events[type] = (this.events[type] !== undefined
       ? this.events[type]
       : []
@@ -38,7 +50,7 @@ class MyEventEmitter {
    * @param {Function} listener
    * @returns {void}
    */
-  off(type, listener) {
+  off(type /*: string */, listener /*: Listener */) /*: void */ {
     if (this.events[type] !== undefined) {
       this.events[type] = this.events[type].filter((func) => func !== listener);
     }
@@ -46,10 +58,10 @@ class MyEventEmitter {
 
   /**
    * @param {string} type
-   * @param {Object} args
+   * @param {Object<string, *>} args
    * @returns {void}
    */
-  emit(type, args) {
+  emit(type /*: string */, args /*: Arguments */) /*: void */ {
     if (this.events[type] !== undefined) {
       this.events[type].forEach((listener) => listener(args));
     }

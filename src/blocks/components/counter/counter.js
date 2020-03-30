@@ -12,7 +12,7 @@ class MyCounter extends MyEventEmitter {
      * @type {{
         decreaseButton: HTMLButtonElement,
         input: HTMLInputElement,
-        increaseButton: HTMLButtonElement
+        increaseButton: HTMLButtonElement,
       }}
      */
     this.elements = {
@@ -27,7 +27,7 @@ class MyCounter extends MyEventEmitter {
         value: number,
         min: number,
         max: number,
-        step: number
+        step: number,
       }}
      */
     this.props = {
