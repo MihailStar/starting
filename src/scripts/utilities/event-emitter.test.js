@@ -13,50 +13,50 @@ function logger(data) {
 
 let method = 'one';
 logger(null);
-myEventEmitter.one(`event ${method}`, logger);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.one(`event:${method}`, logger);
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(
   logger.data.type,
-  `event ${method}`,
+  `event:${method}`,
   `MyEventEmitter.${method} test failed`
 );
 logger(null);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
 
 method = 'on';
 logger(null);
-const off = myEventEmitter.on(`event ${method}`, logger);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+const off = myEventEmitter.on(`event:${method}`, logger);
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(
   logger.data.type,
-  `event ${method}`,
+  `event:${method}`,
   `MyEventEmitter.${method} test failed`
 );
 logger(null);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(
   logger.data.type,
-  `event ${method}`,
+  `event:${method}`,
   `MyEventEmitter.${method} test failed`
 );
 off();
 logger(null);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
 
 method = 'off';
 logger(null);
-myEventEmitter.on(`event ${method}`, logger);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.on(`event:${method}`, logger);
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(
   logger.data.type,
-  `event ${method}`,
+  `event:${method}`,
   `MyEventEmitter.${method} test failed`
 );
 logger(null);
-myEventEmitter.off(`event ${method}`, logger);
-myEventEmitter.emit(`event ${method}`, { type: `event ${method}` });
+myEventEmitter.off(`event:${method}`, logger);
+myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
 assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
 
 process.stdout.write('MyEventEmitter tests passed');
