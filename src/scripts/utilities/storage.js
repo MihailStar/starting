@@ -1,27 +1,22 @@
-/* eslint-disable no-console */
+// @flow strict
 class MyStorage {
+  /*:: getNamespace: () => string; */
+
   /**
    * @param {string} namespace
    */
-  constructor(namespace) {
-    this.getNamespace = function getNamespace() {
+  constructor(namespace /*: string */) {
+    this.getNamespace = () => {
       return namespace;
     };
-
-    if (!MyStorage.isAvailable) {
-      const error = 'localStorage is not available';
-
-      this.get = () => console.error(error);
-      this.set = () => console.error(error);
-    }
   }
 
   /**
    * @static
    * @returns {boolean}
    */
-  static get isAvailable() {
-    const identifier = String(Date.now());
+  static isAvailable() /*: boolean */ {
+    const identifier = Date.now().toString();
 
     try {
       localStorage.setItem(identifier, identifier);
@@ -34,27 +29,29 @@ class MyStorage {
   }
 
   /**
-   * @returns {any}
+   * @returns {Object<string, *> | null}
    */
-  get() {
+  get() /*: { [key: string]: mixed } | null */ {
     try {
-      return JSON.parse(localStorage.getItem(this.getNamespace()));
-    } catch (error) {
-      console.error(error);
+      const data = localStorage.getItem(this.getNamespace());
 
+      return typeof data === 'string' ? JSON.parse(data) : null;
+    } catch {
       return null;
     }
   }
 
   /**
-   * @param {any} data
-   * @returns {void}
+   * @param {Object<string, *>} data
+   * @returns {boolean}
    */
-  set(data) {
+  set(data /*: { [key: string]: mixed } */) /*: boolean */ {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
-    } catch (error) {
-      console.error(error);
+
+      return true;
+    } catch {
+      return false;
     }
   }
 }

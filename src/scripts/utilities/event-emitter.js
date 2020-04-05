@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 /*::
 type TArguments = { [key: string]: mixed };
 type TListener = (args: TArguments) => void;
