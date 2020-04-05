@@ -51,7 +51,7 @@
         "exceptAfterSingleLine": true
       }
     ],
-    "quotes": ["warn", "single"]
+    "quotes": ["error", "single"]
   },
   "settings": {
     "flowtype": {
