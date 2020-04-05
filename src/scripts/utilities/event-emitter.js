@@ -1,6 +1,6 @@
 // @flow
 /*::
-type TArguments = { [key: string]: * };
+type TArguments = { [key: string]: mixed };
 type TListener = (args: TArguments) => void;
 */
 
