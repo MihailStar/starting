@@ -4,7 +4,6 @@ import compileImages from './images';
 import compileScripts from './scripts';
 import compileStyles from './styles';
 import compileTemplates from './templates';
-import generateSprite from './sprite';
 
 export default gulp.parallel(
   compileFonts,
@@ -12,5 +11,4 @@ export default gulp.parallel(
   compileScripts,
   compileStyles,
   compileTemplates,
-  generateSprite,
 );
