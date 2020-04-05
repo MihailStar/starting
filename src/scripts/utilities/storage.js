@@ -28,7 +28,7 @@ class MyStorage {
       localStorage.removeItem(identifier);
 
       return true;
-    } catch (error) {
+    } catch {
       return false;
     }
   }
