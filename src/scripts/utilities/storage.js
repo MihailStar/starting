@@ -6,9 +6,7 @@ class MyStorage {
    * @param {string} namespace
    */
   constructor(namespace /*: string */) {
-    this.getNamespace = () => {
-      return namespace;
-    };
+    this.getNamespace = () => namespace;
   }
 
   /**

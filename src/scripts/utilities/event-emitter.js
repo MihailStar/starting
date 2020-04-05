@@ -63,7 +63,9 @@ class MyEventEmitter {
    */
   emit(type /*: string */, args /*: TArguments */) /*: void */ {
     if (this.events[type] !== undefined) {
-      this.events[type].forEach((listener) => listener(args));
+      this.events[type].forEach((listener) => {
+        listener(args);
+      });
     }
   }
 }
