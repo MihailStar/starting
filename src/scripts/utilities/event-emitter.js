@@ -1,7 +1,7 @@
 // @flow strict
 /*::
-type TArguments = { [key: string]: mixed };
-type TListener = (args: TArguments) => void;
+type TListenerArgs  = { [key: string]: mixed };
+type TListener = (args: TListenerArgs) => void;
 */
 
 class MyEventEmitter {
@@ -61,7 +61,7 @@ class MyEventEmitter {
    * @param {Object<string, *>} args
    * @returns {void}
    */
-  emit(type /*: string */, args /*: TArguments */) /*: void */ {
+  emit(type /*: string */, args /*: TListenerArgs */) /*: void */ {
     if (this.events[type] !== undefined) {
       this.events[type].forEach((listener) => {
         listener(args);

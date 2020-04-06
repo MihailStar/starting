@@ -4,29 +4,29 @@ import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
 class MyCounter extends MyEventEmitter {
   /*::
-  elements: {
+  elements: $Exact<{
     decreaseButton: HTMLButtonElement,
     input: HTMLInputElement,
     increaseButton: HTMLButtonElement,
-  };
+  }>;
 
-  props: {
+  props: $Exact<{
     value: number,
     min: number,
     max: number,
     step: number,
-  };
+  }>;
   */
 
   /**
-   * @param {HTMLElement} element
+   * @param {HTMLElement} container
    */
-  constructor(element /*: HTMLElement */) {
+  constructor(container /*: HTMLElement */) {
     super();
 
-    const decreaseButton = element.querySelector('.counter__button_decrease');
-    const input = element.querySelector('.counter__input');
-    const increaseButton = element.querySelector('.counter__button_increase');
+    const decreaseButton = container.querySelector('.counter__button_decrease');
+    const input = container.querySelector('.counter__input');
+    const increaseButton = container.querySelector('.counter__button_increase');
 
     if (
       !(decreaseButton instanceof HTMLButtonElement) ||
