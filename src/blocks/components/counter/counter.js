@@ -1,11 +1,43 @@
+// @flow strict
+/* flowlint unsafe-getters-setters:off */
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
 class MyCounter extends MyEventEmitter {
+  /*::
+  elements: {
+    decreaseButton: HTMLButtonElement,
+    input: HTMLInputElement,
+    increaseButton: HTMLButtonElement,
+  };
+
+  props: {
+    value: number,
+    min: number,
+    max: number,
+    step: number,
+  };
+  */
+
   /**
    * @param {HTMLElement} element
    */
-  constructor(element) {
+  constructor(element /*: HTMLElement */) {
     super();
+
+    const decreaseButton = element.querySelector('.counter__button_decrease');
+    const input = element.querySelector('.counter__input');
+    const increaseButton = element.querySelector('.counter__button_increase');
+
+    if (
+      !(decreaseButton instanceof HTMLButtonElement) ||
+      !(increaseButton instanceof HTMLButtonElement)
+    ) {
+      throw new Error('No button');
+    }
+
+    if (!(input instanceof HTMLInputElement)) {
+      throw new Error('No input');
+    }
 
     /**
      * @private
@@ -16,9 +48,9 @@ class MyCounter extends MyEventEmitter {
       }}
      */
     this.elements = {
-      decreaseButton: element.querySelector('.counter__button_decrease'),
-      input: element.querySelector('.counter__input'),
-      increaseButton: element.querySelector('.counter__button_increase'),
+      decreaseButton,
+      input,
+      increaseButton,
     };
 
     /**
@@ -52,7 +84,7 @@ class MyCounter extends MyEventEmitter {
   /**
    * @returns {number}
    */
-  get value() {
+  get value() /*: number */ {
     return this.props.value;
   }
 
@@ -60,7 +92,7 @@ class MyCounter extends MyEventEmitter {
    * @param {number} value
    * @returns {void}
    */
-  set value(value) {
+  set value(value /*: number */) /*: void */ {
     let normalizeValue = value;
 
     if (value <= this.props.min) {
@@ -81,28 +113,28 @@ class MyCounter extends MyEventEmitter {
   /**
    * @returns {boolean}
    */
-  get isMin() {
+  get isMin() /*: boolean */ {
     return this.props.value <= this.props.min;
   }
 
   /**
    * @returns {boolean}
    */
-  get isMax() {
+  get isMax() /*: boolean */ {
     return this.props.value >= this.props.max;
   }
 
   /**
    * @returns {void}
    */
-  decrease() {
+  decrease() /*: void */ {
     this.value -= this.props.step;
   }
 
   /**
    * @returns {void}
    */
-  increase() {
+  increase() /*: void */ {
     this.value += this.props.step;
   }
 }
