@@ -8,9 +8,9 @@
   padding-right: (($base-unit * 4) / $font-size * 1em);
   padding-bottom: (($base-unit * 2) / $font-size * 1em);
   padding-left: (($base-unit * 4) / $font-size * 1em);
-  min-width: ($base-unit * 30);
+  min-width: (($base-unit * 30) / $font-size * 1em);
   border: 0;
-  border-radius: ($base-unit * 1);
+  border-radius: (($base-unit * 1) / $font-size * 1em);
   background-color: $color-body;
   box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
   color: $color-text-dark;

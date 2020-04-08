@@ -66,11 +66,11 @@
     }
 
     &_decrease {
-      border-radius: ($base-unit * 1) 0 0 ($base-unit * 1);
+      border-radius: (($base-unit * 1) / $font-size * 1em) 0 0 (($base-unit * 1) / $font-size * 1em);
     }
 
     &_increase {
-      border-radius: 0 ($base-unit * 1) ($base-unit * 1) 0;
+      border-radius: 0 (($base-unit * 1) / $font-size * 1em) (($base-unit * 1) / $font-size * 1em) 0;
     }
   }
 
