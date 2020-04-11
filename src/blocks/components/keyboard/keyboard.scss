@@ -1,0 +1,74 @@
+.keyboard {
+  $font-size: ($base-unit * 4);
+  display: inline-block;
+  padding-top: (($base-unit * 0.5) / $font-size * 1em);
+  padding-right: (($base-unit * 0.5) / $font-size * 1em);
+  padding-bottom: (($base-unit * 0.5) / $font-size * 1em);
+  padding-left: (($base-unit * 0.5) / $font-size * 1em);
+  border-radius: (($base-unit * 1) / $font-size * 1em);
+  box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
+  font-size: $font-size;
+
+  &__row {
+    display: flex;
+    width: 100%;
+  }
+
+  &__button {
+    margin-top: (($base-unit * 0.5) / $font-size * 1em);
+    margin-right: (($base-unit * 0.5) / $font-size * 1em);
+    margin-bottom: (($base-unit * 0.5) / $font-size * 1em);
+    margin-left: (($base-unit * 0.5) / $font-size * 1em);
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    min-width: auto;
+    width: (($base-unit * 8) / $font-size * 1em);
+    height: (($base-unit * 8) / $font-size * 1em);
+    text-transform: none;
+    font-size: inherit;
+
+    &_backspace {
+      width: (($base-unit * 14) / $font-size * 1em);
+    }
+
+    &_caps-lock {
+      width: (($base-unit * 18) / $font-size * 1em);
+    }
+
+    &_delete {
+      width: (($base-unit * 9) / $font-size * 1em);
+    }
+
+    &_enter {
+      width: (($base-unit * 22) / $font-size * 1em);
+    }
+
+    &_language {
+      width: (($base-unit * 8) / $font-size * 1em);
+    }
+
+    &_shift-left {
+      width: (($base-unit * 23) / $font-size * 1em);
+    }
+
+    &_shift-right {
+      width: (($base-unit * 17) / $font-size * 1em);
+    }
+
+    &_tab {
+      width: (($base-unit * 13) / $font-size * 1em);
+    }
+
+    &_space {
+      width: (($base-unit * 50) / $font-size * 1em);
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}

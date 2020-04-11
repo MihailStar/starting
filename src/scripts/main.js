@@ -1,15 +1,28 @@
+// @flow strict
 import '../blocks/components/icon/icon';
-import Counter from '../blocks/components/counter/counter';
-import Modal from '../blocks/components/modal/modal';
+import MyCounter from '../blocks/components/counter/counter';
+import MyModal from '../blocks/components/modal/modal';
+import MyKeyboard from '../blocks/components/keyboard/keyboard';
+import { Language } from '../blocks/components/keyboard/scheme';
 
-if (window.NodeList !== undefined && NodeList.prototype.forEach === undefined) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
+const counterContainer = document.querySelector('.starting .counter');
+const modalContainer = document.querySelector('.starting .modal');
+const keyboardContainer = document.querySelector('.starting .keyboard');
+
+if (
+  counterContainer === null ||
+  modalContainer === null ||
+  keyboardContainer === null
+) {
+  throw new Error('No container');
 }
 
-document
-  .querySelectorAll('.starting .counter')
-  .forEach((element) => new Counter(element));
+const myCounter = new MyCounter(counterContainer);
+const myModal = new MyModal(modalContainer);
+const myKeyboard = new MyKeyboard(keyboardContainer, {
+  language: Language.RU,
+});
 
-document
-  .querySelectorAll('.starting .modal')
-  .forEach((element) => new Modal(element));
+window.myCounter = myCounter;
+window.myModal = myModal;
+window.myKeyboard = myKeyboard;
