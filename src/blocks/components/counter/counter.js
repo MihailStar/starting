@@ -28,7 +28,6 @@ class MyCounter extends MyEventEmitter {
     const input = container.querySelector('.counter__input');
     const increaseButton = container.querySelector('.counter__button_increase');
 
-    /*::
     if (
       !(decreaseButton instanceof HTMLButtonElement) ||
       !(increaseButton instanceof HTMLButtonElement)
@@ -39,7 +38,6 @@ class MyCounter extends MyEventEmitter {
     if (!(input instanceof HTMLInputElement)) {
       throw new Error('No input');
     }
-    */
 
     /**
      * @private
