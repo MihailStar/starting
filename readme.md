@@ -40,5 +40,4 @@ npm run lint:scss # проверяет наличие ошибок в .scss фа
 npm run prettier # проверяет форматирование .js, .pug, .scss, .svg файлов согласно Prettier и Prettier Plugins
 npm run speller # ищет опечатки в ru текстах
 npm run sprite # собирает векторный спрайт
-npm t # запускает тесты
 ```
