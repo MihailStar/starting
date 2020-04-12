@@ -1,10 +1,11 @@
+// npx babel-node './src/scripts/utilities/event-emitter.test'
 import { strict as assert } from 'assert';
 import MyEventEmitter from './event-emitter';
 
 const myEventEmitter = new MyEventEmitter();
 
 /**
- * @param {?Object} data
+ * @param {Object<string, string>} data
  * @returns {void}
  */
 function logger(data) {
@@ -12,51 +13,51 @@ function logger(data) {
 }
 
 let method = 'one';
-logger(null);
+logger({});
 myEventEmitter.one(`event:${method}`, logger);
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(
-  logger.data.type,
-  `event:${method}`,
+assert.deepEqual(
+  logger.data,
+  { type: `event:${method}` },
   `MyEventEmitter.${method} test failed`
 );
-logger(null);
+logger({});
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
+assert.deepEqual(logger.data, {}, `MyEventEmitter.${method} test failed`);
 
 method = 'on';
-logger(null);
+logger({});
 const off = myEventEmitter.on(`event:${method}`, logger);
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(
-  logger.data.type,
-  `event:${method}`,
+assert.deepEqual(
+  logger.data,
+  { type: `event:${method}` },
   `MyEventEmitter.${method} test failed`
 );
-logger(null);
+logger({});
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(
-  logger.data.type,
-  `event:${method}`,
+assert.deepEqual(
+  logger.data,
+  { type: `event:${method}` },
   `MyEventEmitter.${method} test failed`
 );
 off();
-logger(null);
+logger({});
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
+assert.deepEqual(logger.data, {}, `MyEventEmitter.${method} test failed`);
 
 method = 'off';
-logger(null);
+logger({});
 myEventEmitter.on(`event:${method}`, logger);
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(
-  logger.data.type,
-  `event:${method}`,
+assert.deepEqual(
+  logger.data,
+  { type: `event:${method}` },
   `MyEventEmitter.${method} test failed`
 );
-logger(null);
+logger({});
 myEventEmitter.off(`event:${method}`, logger);
 myEventEmitter.emit(`event:${method}`, { type: `event:${method}` });
-assert.equal(logger.data, null, `MyEventEmitter.${method} test failed`);
+assert.deepEqual(logger.data, {}, `MyEventEmitter.${method} test failed`);
 
 process.stdout.write('MyEventEmitter tests passed');
