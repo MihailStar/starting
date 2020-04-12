@@ -1,12 +1,12 @@
 // @flow strict
 /*:: import { type TModifier as TSchemeModifier } from './scheme'; */
 
-const createButton = (
+function createButton(
   options /*: $Exact<{
     char: string,
     modifiers?: TSchemeModifier[],
   }> */
-) /*: HTMLButtonElement */ => {
+) /*: HTMLButtonElement */ {
   const { char, modifiers = [] } = options;
   const classModifiers = modifiers
     .map((modifier /*: string */) => `keyboard__button_${modifier}`)
@@ -18,6 +18,6 @@ const createButton = (
   buttonElement.type = 'button';
 
   return buttonElement;
-};
+}
 
 export default createButton;
