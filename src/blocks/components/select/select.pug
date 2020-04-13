@@ -1,3 +1,11 @@
+//- @example
+  +select
+    option(value, selected, disabled) Select
+    option(value='example') Example
+//- @example
+  +select()(disabled)
+    option(value, selected, disabled) Select
+    option(value='example') Example
 //- @param {string} [label]
 mixin select(label)
   .select
