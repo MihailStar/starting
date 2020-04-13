@@ -10,7 +10,7 @@ block variables
 
 block head
   link(
-    href='https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap',
+    href='https://fonts.googleapis.com/css?family=Ubuntu&display=swap',
     rel='stylesheet'
   )
 
@@ -57,141 +57,110 @@ block body
       vertical-align: top;
     }
 
-    pre {
+    b {
+      display: block;
       margin-top: 0;
       margin-bottom: 0.4rem;
-      font-family: 'Ubuntu Mono', monospace;
+      min-height: 2rem;
+      font-weight: 400;
+      font-family: inherit;
     }
 
   table
     tr
       td
-        pre.
-          +button('Example')(type='button')
-          +button('Example').button_accent(type='button')
+        b button
         +button('Example')(type='button')
         +button('Example').button_accent(type='button')
       td
-        pre.
-          +button('Example')(type='button', disabled)
-          +button('Example').button_accent(type='button', disabled)
+        b
         +button('Example')(type='button', disabled)
         +button('Example').button_accent(type='button', disabled)
 
     tr
       td
-        pre.
-          +button('Example')(href='javascript:void(0);')
-          +button('Example').button_accent(href='javascript:void(0);')
+        b button
         +button('Example')(href='javascript:void(0);')
         +button('Example').button_accent(href='javascript:void(0);')
       td
-        pre.
-          +button('Example')(href='javascript:void(0);', tabindex='-1')
-          +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
+        b
         +button('Example')(href='javascript:void(0);', tabindex='-1')
         +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
 
     tr
       td
-        pre.
-          +checkbox
-          +checkbox()(checked)
+        b checkbox
         +checkbox
         +checkbox()(checked)
       td
-        pre.
-          +checkbox()(disabled)
-          +checkbox()(checked, disabled)
+        b
         +checkbox()(disabled)
         +checkbox()(checked, disabled)
 
     tr
       td(colspan='2')
-        pre.
-          +counter({ max: 10 })
+        b counter
         +counter({ max: 10 })
 
     tr
       td(colspan='2')
-        pre.
-          +icon('check')(width='40', height='40')
+        b icon
         +icon('check')(width='40', height='40')
 
     tr
       td
-        pre.
-          +input()(placeholder='Example', required)
+        b input
         +input()(placeholder='Example', required)
       td
-        pre.
-          +input()(placeholder='Example', required, disabled)
+        b
         +input()(placeholder='Example', required, disabled)
 
     tr
       td(colspan='2')
-        pre.
-          +keyboard
+        b keyboard
         +keyboard
 
     tr
       td(colspan='2')
-        pre.
-          +modal
+        b modal
         +modal
 
     tr
       td
-        pre.
-          +radio()(name=getRandomDoubleId())
-          +radio()(name=getRandomDoubleId(), checked)
+        b radio
         +radio()(name=getRandomDoubleId())
         +radio()(name=getRandomDoubleId(), checked)
       td
-        pre.
-          +radio()(name=getRandomDoubleId(), disabled)
-          +radio()(name=getRandomDoubleId(), checked, disabled)
+        b
         +radio()(name=getRandomDoubleId(), disabled)
         +radio()(name=getRandomDoubleId(), checked, disabled)
 
     tr
       td
-        pre.
-          +select
-            option(value, selected, disabled) Select
-            option(value='example') Example
+        b select
         +select
           option(value, selected, disabled) Select
           option(value='example') Example
       td
-        pre.
-          +select()(disabled)
-            option(value, selected, disabled) Select
-            option(value='example') Example
+        b
         +select()(disabled)
           option(value, selected, disabled) Select
           option(value='example') Example
 
     tr
       td
-        pre.
-          +switch
-          +switch()(checked)
+        b switch
         +switch
         +switch()(checked)
       td
-        pre.
-          +switch()(disabled)
-          +switch()(checked, disabled)
+        b
         +switch()(disabled)
         +switch()(checked, disabled)
 
     tr
       td
-        pre.
-          +textarea()(placeholder='Example', required)
+        b textarea
         +textarea()(placeholder='Example', required)
       td
-        pre.
-          +textarea()(placeholder='Example', required, disabled)
+        b
         +textarea()(placeholder='Example', required, disabled)
