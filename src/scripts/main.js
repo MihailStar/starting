@@ -20,7 +20,7 @@ if (
 const myCounter = new MyCounter(counterContainer);
 const myModal = new MyModal(modalContainer);
 const myKeyboard = new MyKeyboard(keyboardContainer, {
-  language: Language.RU,
+  language: Language.EN,
 });
 
 window.myCounter = myCounter;
