@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import fs from 'fs';
 import gulp from 'gulp';
 import size from 'gulp-size';

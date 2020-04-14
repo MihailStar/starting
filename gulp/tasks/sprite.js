@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';

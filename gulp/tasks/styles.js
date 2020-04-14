@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import autoprefixer from 'autoprefixer';
 import cssMqpacker from 'css-mqpacker';
 import gulp from 'gulp';

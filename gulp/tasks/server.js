@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import browserSync from 'browser-sync';
 import { directory } from '../configuration';
 

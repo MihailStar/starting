@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import imagemin from 'gulp-imagemin';
 import imageminWebp from 'imagemin-webp';
 

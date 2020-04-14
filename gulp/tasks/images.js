@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import imagemin from 'gulp-imagemin';
