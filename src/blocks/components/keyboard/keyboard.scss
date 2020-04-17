@@ -6,7 +6,7 @@
   padding-bottom: (($base-unit * 0.5) / $font-size * 1em);
   padding-left: (($base-unit * 0.5) / $font-size * 1em);
   border-radius: (($base-unit * 1) / $font-size * 1em);
-  box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
+  box-shadow: inset 0 0 0 1px $color-line;
   font-size: $font-size;
 
   &__row {
