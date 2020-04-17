@@ -14,14 +14,14 @@ class MyEventEmitter {
   constructor() {
     /**
      * @private
-     * @type {Object<string, Array<Function>>}
+     * @type {Object<string, Array<(args: Object<string, *>) => void>>}
      */
     this.events = {};
   }
 
   /**
    * @param {string} type
-   * @param {Function} listener
+   * @param {(args: Object<string, *>) => void} listener
    * @returns {void}
    */
   one(type /*: string */, listener /*: TListener */) /*: void */ {
@@ -33,7 +33,7 @@ class MyEventEmitter {
 
   /**
    * @param {string} type
-   * @param {Function} listener
+   * @param {(args: Object<string, *>) => void} listener
    * @returns {Function}
    */
   on(type /*: string */, listener /*: TListener */) /*: () => void */ {
@@ -47,7 +47,7 @@ class MyEventEmitter {
 
   /**
    * @param {string} type
-   * @param {Function} listener
+   * @param {(args: Object<string, *>) => void} listener
    * @returns {void}
    */
   off(type /*: string */, listener /*: TListener */) /*: void */ {
