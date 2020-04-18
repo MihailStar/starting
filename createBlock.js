@@ -8,7 +8,7 @@ const [, , blockName] = process.argv;
 const filesData = {
   js: '',
   pug: `mixin ${blockName}\n  .${blockName}&attributes(attributes)\n    block\n`,
-  scss: `.${blockName} {\n  box-sizing: border-box;\n\n  *,\n  *::before,\n  *::after {\n    box-sizing: inherit;\n  }\n}\n`,
+  scss: `.${blockName} {\n  @include border-box;\n}\n`,
 };
 
 /**
