@@ -46,7 +46,7 @@
     "husky": "^4.2.5",
     "imagemin-webp": "^5.1.0",
     "include-media": "^1.4.9",
-    "lint-staged": "^10.1.4",
+    "lint-staged": "^10.1.5",
     "node-sass": "^4.13.1",
     "postcss-csso": "^4.0.0",
     "postcss-import": "^12.0.1",
