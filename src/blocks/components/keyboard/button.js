@@ -14,7 +14,7 @@ function createButton(
   const buttonElement = document.createElement('button');
 
   buttonElement.textContent = char;
-  buttonElement.className = `button keyboard__button ${classModifiers}`.trim();
+  buttonElement.className = `keyboard__button ${classModifiers}`.trim();
   buttonElement.type = 'button';
 
   return buttonElement;

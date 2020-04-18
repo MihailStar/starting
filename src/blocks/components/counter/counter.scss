@@ -1,8 +1,8 @@
 /* stylelint-disable property-no-vendor-prefix */
 .counter {
   $font-size: ($base-unit * 4);
+  @include border-box;
   display: inline-flex;
-  box-sizing: border-box;
   width: (($base-unit * 30) / $font-size * 1em);
   height: (($base-unit * 10) / $font-size * 1em);
   vertical-align: middle;
@@ -20,61 +20,45 @@
   }
 
   &__button {
+    @extend %button;
     position: relative;
     z-index: 1;
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+    min-width: auto;
     width: (100% / 3);
     height: 100%;
-    border: 0;
-    background-color: $color-body;
-    box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
+    text-transform: none;
     font-size: inherit;
-    cursor: pointer;
-    transition: $transition-duration;
 
     &:focus,
     &:hover {
-      outline: 0;
-      background-color: darken($color-body, 5%);
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%),
-        inset 0 2px 4px 0 rgba(#000000, 0);
-
-      .counter__icon {
+      + .counter__icon {
         color: darken($color-text-dark, 5%);
       }
     }
 
     &:active {
-      background-color: darken($color-body, 10%);
-      box-shadow: inset 0 0 0 1px darken($color-line, 10%),
-        inset 0 2px 4px 0 rgba(#000000, 0.2);
-      user-select: none;
-
-      .counter__icon {
+      + .counter__icon {
         color: darken($color-text-dark, 10%);
       }
     }
 
-    &[disabled] {
-      opacity: 0.5;
-      cursor: default;
-      pointer-events: none;
-      user-select: none;
-    }
-
     &_decrease {
-      border-radius: (($base-unit * 1) / $font-size * 1em) 0 0 (($base-unit * 1) / $font-size * 1em);
+      border-radius: (($base-unit * 1) / $font-size * 1em) 0 0
+        (($base-unit * 1) / $font-size * 1em);
     }
 
     &_increase {
-      border-radius: 0 (($base-unit * 1) / $font-size * 1em) (($base-unit * 1) / $font-size * 1em) 0;
+      border-radius: 0 (($base-unit * 1) / $font-size * 1em)
+        (($base-unit * 1) / $font-size * 1em) 0;
     }
   }
 
   &__input {
+    @extend %input__element;
     margin-right: -1px;
     margin-left: -1px;
     padding-top: 0;
@@ -83,19 +67,8 @@
     padding-left: 0;
     width: (100% / 3);
     width: calc(100% / 3 + 2px);
-    height: 100%;
-    border: 0;
     border-radius: 0;
-    background-color: $color-body;
-    box-shadow: inset 0 0 0 1px $color-line;
-    color: $color-text-dark;
     text-align: center;
-    font-weight: 400;
-    font-style: normal;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: (($base-unit * 6) / $font-size * 1em);
-    transition: $transition-duration;
     appearance: textfield;
 
     &::-webkit-inner-spin-button,
@@ -104,22 +77,9 @@
     }
 
     &:focus {
-      outline: 0;
-      background-color: darken($color-body, 5%);
-      color: darken($color-text-dark, 5%);
+      background-color: $color-body;
+      box-shadow: inset 0 0 0 1px $color-line;
+      color: $color-text-dark;
     }
-
-    &[disabled] {
-      opacity: 0.5;
-      cursor: default;
-      pointer-events: none;
-      user-select: none;
-    }
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

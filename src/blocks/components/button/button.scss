@@ -1,9 +1,10 @@
-.button {
+.button,
+%button {
   $font-size: ($base-unit * 4);
+  @include border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
   padding-top: (($base-unit * 2) / $font-size * 1em);
   padding-right: (($base-unit * 4) / $font-size * 1em);
   padding-bottom: (($base-unit * 2) / $font-size * 1em);
@@ -80,11 +81,5 @@
       color: darken($color-text-light, 10%);
       user-select: none;
     }
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

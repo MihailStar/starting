@@ -1,17 +1,12 @@
-@import '../input/input';
-
 .textarea {
   $font-size: ($base-unit * 4);
+  @extend %input;
+  @include border-box;
   height: (($base-unit * 30) / $font-size * 1em);
 
   &__element {
+    @extend %input__element;
     overflow: auto;
     resize: vertical;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

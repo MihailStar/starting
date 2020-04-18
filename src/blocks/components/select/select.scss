@@ -1,8 +1,8 @@
 .select {
   $font-size: ($base-unit * 4);
+  @include border-box;
   position: relative;
   display: inline-block;
-  box-sizing: border-box;
   width: 100%;
   height: (($base-unit * 10) / $font-size * 1em);
   vertical-align: middle;
@@ -52,7 +52,7 @@
       box-shadow: inset 0 0 0 1px darken($color-line, 5%);
       color: darken($color-text-dark, 5%);
 
-      .select__icon {
+      + .select__icon {
         color: darken($color-text-dark, 5%);
       }
     }
@@ -63,7 +63,7 @@
       pointer-events: none;
       user-select: none;
 
-      .select__icon {
+      + .select__icon {
         opacity: 0.5;
       }
     }
@@ -71,11 +71,5 @@
     &[hidden] {
       display: none;
     }
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

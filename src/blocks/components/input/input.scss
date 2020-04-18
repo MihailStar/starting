@@ -1,7 +1,8 @@
-.input {
+.input,
+%input {
   $font-size: ($base-unit * 4);
+  @include border-box;
   display: inline-block;
-  box-sizing: border-box;
   width: 100%;
   height: (($base-unit * 10) / $font-size * 1em);
   vertical-align: middle;
@@ -59,11 +60,5 @@
     &[hidden] {
       display: none;
     }
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

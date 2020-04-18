@@ -1,8 +1,8 @@
 .radio {
   $font-size: ($base-unit * 4);
+  @include border-box;
   position: relative;
   display: inline-block;
-  box-sizing: border-box;
   width: (($base-unit * 10) / $font-size * 1em);
   height: (($base-unit * 10) / $font-size * 1em);
   vertical-align: middle;
@@ -73,11 +73,5 @@
     &[hidden] {
       display: none;
     }
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
   }
 }

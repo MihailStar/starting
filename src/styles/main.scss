@@ -7,18 +7,20 @@
 .starting {
   @import '../blocks/components/button/button';
   @import '../blocks/components/checkbox/checkbox';
-  @import '../blocks/components/counter/counter';
   @import '../blocks/components/icon/icon';
   @import '../blocks/components/input/input';
-  @import '../blocks/components/keyboard/keyboard';
-  @import '../blocks/components/modal/modal';
   @import '../blocks/components/radio/radio';
   @import '../blocks/components/select/select';
   @import '../blocks/components/switch/switch';
+
+  @import '../blocks/components/counter/counter';
+  @import '../blocks/components/keyboard/keyboard';
+  @import '../blocks/components/modal/modal';
   @import '../blocks/components/textarea/textarea';
 
   .example {
     $font-size: ($base-unit * 16);
+    @include border-box;
     margin-top: (($base-unit * 6) / $font-size * 1em);
     margin-bottom: (($base-unit * 12) / $font-size * 1em);
     color: $color-text-dark;

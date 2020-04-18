@@ -1,15 +1,9 @@
 .icon {
+  @include border-box;
   display: inline-block;
   flex-shrink: 0;
-  box-sizing: border-box;
   vertical-align: middle;
   transition: $transition-duration;
   pointer-events: none;
   fill: currentColor;
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
 }

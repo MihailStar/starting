@@ -1,5 +1,4 @@
 // @flow strict
-// prettier-ignore
 export const Language = /*:: Object.freeze( */ {
   EN: 'en',
   RU: 'ru',

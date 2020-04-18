@@ -11,7 +11,7 @@ import scheme, {
   type TModifier as TSchemeModifier,
 } from './scheme';
 
-const CLASS_ACTIVITY = 'button_accent';
+const CLASS_ACTIVITY = 'keyboard__button_accent';
 
 type TButtonProps = $Exact<{
   char: string,
