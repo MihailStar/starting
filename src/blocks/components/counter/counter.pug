@@ -1,9 +1,9 @@
 //- @example +counter({ max: 10 })
 //- @param {Object} [settings]
-//- @param {number} settings.value
-//- @param {number} settings.min
-//- @param {number} settings.max
-//- @param {number} settings.step
+//- @param {number} [settings.value]
+//- @param {number} [settings.min]
+//- @param {number} [settings.max]
+//- @param {number} [settings.step]
 mixin counter(settings = {})
   - const { value = 0, min = 0, max = 99, step = 1 } = settings;
 
@@ -22,11 +22,11 @@ mixin counter(settings = {})
   .counter&attributes(attributes)
     +counter-button('Уменьшить', 'decrease', 'minus')
     input.counter__input(
+      type='number',
       value=String(value),
       min=String(min),
       max=String(max),
       step=String(step),
-      type='number',
       tabindex='-1',
       readonly
     )

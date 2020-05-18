@@ -130,6 +130,11 @@ block body
         +radio()(name=getRandomDoubleId(), checked, disabled)
 
     tr
+      td(colspan='2')
+        b rating
+        +rating({ checked: 0 })
+
+    tr
       td
         b select
         +select
