@@ -18,9 +18,6 @@ class MyCounter extends MyEventEmitter {
   }>;
   */
 
-  /**
-   * @param {HTMLElement} container
-   */
   constructor(container /*: HTMLElement */) {
     super();
 
@@ -39,29 +36,14 @@ class MyCounter extends MyEventEmitter {
       throw new Error('No input');
     }
 
-    /**
-     * @private
-     * @type {{
-        decreaseButton: HTMLButtonElement,
-        input: HTMLInputElement,
-        increaseButton: HTMLButtonElement,
-      }}
-     */
+    /** @private */
     this.elements = {
       decreaseButton,
       input,
       increaseButton,
     };
 
-    /**
-     * @private
-     * @type {{
-        value: number,
-        min: number,
-        max: number,
-        step: number,
-      }}
-     */
+    /** @private */
     this.props = {
       value: Number(this.elements.input.value),
       min: Number(this.elements.input.min),
@@ -81,17 +63,10 @@ class MyCounter extends MyEventEmitter {
     });
   }
 
-  /**
-   * @returns {number}
-   */
   get value() /*: number */ {
     return this.props.value;
   }
 
-  /**
-   * @param {number} value
-   * @returns {void}
-   */
   set value(value /*: number */) /*: void */ {
     let normalizeValue = value;
 
@@ -110,30 +85,18 @@ class MyCounter extends MyEventEmitter {
     this.emit('event:change', { value: normalizeValue });
   }
 
-  /**
-   * @returns {boolean}
-   */
   get isMin() /*: boolean */ {
     return this.props.value <= this.props.min;
   }
 
-  /**
-   * @returns {boolean}
-   */
   get isMax() /*: boolean */ {
     return this.props.value >= this.props.max;
   }
 
-  /**
-   * @returns {void}
-   */
   decrease() /*: void */ {
     this.value -= this.props.step;
   }
 
-  /**
-   * @returns {void}
-   */
   increase() /*: void */ {
     this.value += this.props.step;
   }

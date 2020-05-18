@@ -2,17 +2,10 @@
 class MyStorage {
   /*:: getNamespace: () => string; */
 
-  /**
-   * @param {string} namespace
-   */
   constructor(namespace /*: string */) {
     this.getNamespace = () => namespace;
   }
 
-  /**
-   * @static
-   * @returns {boolean}
-   */
   static isAvailable() /*: boolean */ {
     const identifier = Date.now().toString();
 
@@ -26,9 +19,6 @@ class MyStorage {
     }
   }
 
-  /**
-   * @returns {Object<string, *> | null}
-   */
   get() /*: { [key: string]: mixed } | null */ {
     try {
       const data = localStorage.getItem(this.getNamespace());
@@ -39,10 +29,6 @@ class MyStorage {
     }
   }
 
-  /**
-   * @param {Object<string, *>} data
-   * @returns {boolean}
-   */
   set(data /*: { [key: string]: mixed } */) /*: boolean */ {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
