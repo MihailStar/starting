@@ -175,7 +175,7 @@ class MyKeyboard extends MyEventEmitter {
 
     /*::
     if (schemeIndex === undefined) {
-      throw new Error('No index');
+      throw new Error('No schemeIndex');
     }
     */
 

@@ -11,13 +11,9 @@ const filesData = {
   scss: `.${blockName} {\n  @include border-box;\n}\n`,
 };
 
-/**
- * @param {string} directoryPath
- * @returns {Promise}
- */
-function createDirectory(directoryPath) {
+function createDirectory(directoryPath /*: string */) /*: Promise<string> */ {
   return new Promise((onSuccess, onError) => {
-    fs.mkdir(directoryPath, (error) => {
+    fs.mkdir(directoryPath, (error /*: ?Error */) => {
       if (error) {
         onError(error);
       } else {
@@ -27,14 +23,12 @@ function createDirectory(directoryPath) {
   });
 }
 
-/**
- * @param {string} filePath
- * @param {string} fileData
- * @returns {Promise}
- */
-function createFile(filePath, fileData) {
+function createFile(
+  filePath /*: string */,
+  fileData /*: string */
+) /*: Promise<string> */ {
   return new Promise((onSuccess, onError) => {
-    fs.writeFile(filePath, fileData, 'utf8', (error) => {
+    fs.writeFile(filePath, fileData, 'utf8', (error /*: ?Error */) => {
       if (error) {
         onError(error);
       } else {
@@ -44,18 +38,16 @@ function createFile(filePath, fileData) {
   });
 }
 
-/**
- * @param {string} directoryPath
- * @returns {Promise}
- */
-function createFiles(directoryPath) {
+function createFiles(
+  directoryPath /*: string */
+) /*: Promise<Array<string>> */ {
   const promises = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {
     promises.push(
       createFile(
         path.join(directoryPath, `${blockName}.${extension}`),
-        fileData
+        String(fileData)
       )
     );
   });
@@ -65,5 +57,5 @@ function createFiles(directoryPath) {
 
 Promise.resolve()
   .then(() => createDirectory(path.join(DIRECTORY, blockName)))
-  .then((directoryPath) => createFiles(directoryPath))
-  .catch((error) => console.error(error));
+  .then((directoryPath /*: string */) => createFiles(directoryPath))
+  .catch((error /*: Error */) => console.error(error));

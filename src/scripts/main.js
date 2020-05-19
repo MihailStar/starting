@@ -1,4 +1,5 @@
 // @flow strict
+/* eslint-disable no-new */
 import '../blocks/components/icon/icon';
 import MyCounter from '../blocks/components/counter/counter';
 import MyKeyboard from '../blocks/components/keyboard/keyboard';
@@ -20,14 +21,9 @@ if (
   throw new Error('No container');
 }
 
-const myCounter = new MyCounter(counterContainer);
-const myKeyboard = new MyKeyboard(keyboardContainer, {
+new MyCounter(counterContainer);
+new MyKeyboard(keyboardContainer, {
   language: Language.EN,
 });
-const myModal = new MyModal(modalContainer);
-const myRating = new MyRating(ratingContainer);
-
-window.myCounter = myCounter;
-window.myKeyboard = myKeyboard;
-window.myModal = myModal;
-window.myRating = myRating;
+new MyModal(modalContainer);
+new MyRating(ratingContainer);
