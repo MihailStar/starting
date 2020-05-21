@@ -1,5 +1,5 @@
 // @flow strict
-/* eslint-disable no-new */
+/* eslint-disable no-console */
 import '../blocks/components/icon/icon';
 import MyCounter from '../blocks/components/counter/counter';
 import MyKeyboard from '../blocks/components/keyboard/keyboard';
@@ -10,7 +10,7 @@ import { Language } from '../blocks/components/keyboard/scheme';
 const counterContainer = document.querySelector('.starting .counter');
 const keyboardContainer = document.querySelector('.starting .keyboard');
 const modalContainer = document.querySelector('.starting .modal');
-const ratingContainer = document.querySelector('.starting .keyboard');
+const ratingContainer = document.querySelector('.starting .rating');
 
 if (
   counterContainer === null ||
@@ -21,9 +21,9 @@ if (
   throw new Error('No container');
 }
 
-new MyCounter(counterContainer);
+new MyCounter(counterContainer).on('event:change', (o) => console.log(o));
 new MyKeyboard(keyboardContainer, {
   language: Language.EN,
-});
-new MyModal(modalContainer);
-new MyRating(ratingContainer);
+}).on('event:change', (o) => console.log(o));
+new MyModal(modalContainer).on('event:change', (o) => console.log(o));
+new MyRating(ratingContainer).on('event:change', (o) => console.log(o));
