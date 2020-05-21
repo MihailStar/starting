@@ -123,7 +123,7 @@ class MyKeyboard extends MyEventEmitter {
 
       const { char, code, key } = this.getButtonProps(buttonElement);
 
-      this.emit('event:click', {
+      this.emit('event:change', {
         char,
         code,
         key,
@@ -142,7 +142,7 @@ class MyKeyboard extends MyEventEmitter {
     const bind = () /*: void */ => {
       container.addEventListener(
         'click',
-        (event /*: MouseEvent */) => {
+        (event /*: Event */) => {
           const { target } = event;
 
           if (target instanceof HTMLButtonElement) {
