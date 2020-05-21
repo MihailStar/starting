@@ -5,11 +5,40 @@
     return randomInt;
   }
 
-  function getRandomId(length /*: number */ = 20) /*: string */ {
-    const chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+  function getRandomId(
+    options /*:: ?: $Exact<{
+      length?: number,
+      uppercase?: boolean,
+      lowercase?: boolean,
+      numbers?: boolean,
+      symbols?: boolean,
+    }> */
+  ) /*: string */ {
+    const defaultOptions = {
+      length: 20,
+      uppercase: false,
+      lowercase: true,
+      numbers: true,
+      symbols: false,
+    };
+    const currentOptions =
+      options === void 0 ? defaultOptions : { ...defaultOptions, ...options };
+
+    const defaultChars = {
+      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      lowercase: 'abcdefghijklmnopqrstuvwxyz',
+      numbers: '0123456789',
+      symbols: '!@#$%^&*',
+    };
+    const currentChars = Object.keys(defaultChars).reduce(
+      (acc /*: string */, key /*: $Keys<typeof defaultChars> */) =>
+        acc + (currentOptions[key] ? defaultChars[key] : ''),
+      ''
+    );
+
     const randomId = Array.from(
-      { length },
-      () => chars[getRandomInt(0, chars.length - 1)]
+      { length: currentOptions.length },
+      () => currentChars[getRandomInt(0, currentChars.length - 1)]
     ).join('');
 
     return randomId;
@@ -27,7 +56,7 @@
       }
     }
 
-    if (getRandomDoubleId.generator === undefined) {
+    if (getRandomDoubleId.generator === void 0) {
       getRandomDoubleId.generator = generator(length);
     }
 
