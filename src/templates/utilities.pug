@@ -22,7 +22,9 @@
       symbols: false,
     };
     const currentOptions =
-      options === void 0 ? defaultOptions : { ...defaultOptions, ...options };
+      options === void 0
+        ? defaultOptions
+        : Object.assign({}, defaultOptions, options);
 
     const defaultChars = {
       uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
