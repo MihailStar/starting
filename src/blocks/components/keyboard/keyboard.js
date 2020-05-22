@@ -19,15 +19,15 @@ const CLASS_ACTIVITY = 'keyboard__button_accent';
 type TButtonProps = $Exact<{
   char: string,
   code: string,
-  controlKeys: TSchemeControlKey[],
+  controlKeys: Array<TSchemeControlKey>,
   key: string,
-  modifiers: TSchemeModifier[],
+  modifiers: Array<TSchemeModifier>,
 }>;
 */
 
 class MyKeyboard extends MyEventEmitter {
   /*::
-  elements: HTMLButtonElement[];
+  elements: Array<HTMLButtonElement>;
   props: $Exact<{
     currentLanguage: TSchemeLanguage,
     isAltPressed: boolean,
@@ -211,7 +211,7 @@ class MyKeyboard extends MyEventEmitter {
 
   getButtonsOnControlKey(
     key /*: TSchemeControlKey */
-  ) /*: HTMLButtonElement[] */ {
+  ) /*: Array<HTMLButtonElement> */ {
     return this.elements.filter((buttonElement) => {
       const { controlKeys } = this.getButtonProps(buttonElement);
 

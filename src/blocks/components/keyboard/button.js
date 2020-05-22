@@ -4,7 +4,7 @@
 function createButton(
   options /*: $Exact<{
     char: string,
-    modifiers?: TSchemeModifier[],
+    modifiers?: Array<TSchemeModifier>,
   }> */
 ) /*: HTMLButtonElement */ {
   const { char, modifiers = [] } = options;

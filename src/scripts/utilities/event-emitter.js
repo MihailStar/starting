@@ -7,7 +7,7 @@ type TListener = (args: TListenerArgs) => void;
 class MyEventEmitter {
   /*::
   events: {
-    [event: string]: TListener[],
+    [event: string]: Array<TListener>,
   };
   */
 

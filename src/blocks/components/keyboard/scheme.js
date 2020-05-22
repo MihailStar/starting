@@ -38,14 +38,14 @@ export type TControlKey = $Values<typeof ControlKey>;
 
 type TButton = $Exact<{
   chars: [string] | [string, string],
-  controlKeys?: TControlKey[],
+  controlKeys?: Array<TControlKey>,
   keys: [string] | [string, string],
-  modifiers?: TModifier[],
+  modifiers?: Array<TModifier>,
 }>;
 */
 
 const scheme /*: {
-  [language: TLanguage]: TButton[][],
+  [language: TLanguage]: Array<Array<TButton>>,
 } */ = {
   [Language.EN]: [
     [

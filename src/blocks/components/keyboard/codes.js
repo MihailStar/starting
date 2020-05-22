@@ -1,5 +1,5 @@
 // @flow strict
-const codes /*: string[][] */ = [
+const codes /*: Array<Array<string>> */ = [
   [
     'Escape',
     'Backquote',
