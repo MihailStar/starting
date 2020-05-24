@@ -4,7 +4,7 @@ import MyEventEmitter from './event-emitter';
 
 const myEventEmitter = new MyEventEmitter();
 
-function logger(data /*: { [key: string]: string } */) /*: void */ {
+function logger(data) {
   logger.data = data;
 }
 
