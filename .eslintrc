@@ -6,16 +6,16 @@
   },
   "extends": [
     "airbnb-base",
-    "plugin:flowtype/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
-    "prettier/flowtype"
+    "prettier/@typescript-eslint"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["flowtype", "jsdoc"],
+  "plugins": ["@typescript-eslint", "jsdoc"],
   "root": true,
   "rules": {
     "jsdoc/check-alignment": "warn",
@@ -54,9 +54,6 @@
     "quotes": ["error", "single"]
   },
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    },
     "jsdoc": {
       "preferredTypes": {
         "object": "Object"

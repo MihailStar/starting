@@ -33,10 +33,10 @@ npm run archive # архивирует production сборку ZIP'ом
 npm run base64 # конвертирует изображения в Base64
 npm run block example # создает папку блока example, с example.js, example.pug, example.scss файлами
 npm run deploy # разворачивает production сборку на Github Pages
-npm run lint # проверяет наличие ошибок в .js, .pug, .scss файлах
-npm run lint:js # проверяет наличие ошибок в .js файлах
-npm run lint:pug # проверяет наличие ошибок в .pug файлах
-npm run lint:scss # проверяет наличие ошибок в .scss файлах
+npm run lint # проверяет наличие ошибок в скриптах, стилях, шаблонах
+npm run lint:scripts # проверяет наличие ошибок в скриптах
+npm run lint:styles # проверяет наличие ошибок в стилях
+npm run lint:templates # проверяет наличие ошибок в шаблонах
 npm run prettier # проверяет форматирование .js, .pug, .scss, .svg файлов согласно Prettier и Prettier Plugins
 npm run speller # ищет опечатки в ru текстах
 npm run sprite # собирает векторный спрайт
