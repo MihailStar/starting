@@ -45,13 +45,13 @@
     "jsdoc/require-returns-type": "warn",
     "jsdoc/valid-types": "warn",
     "lines-between-class-members": [
-      "error",
+      "warn",
       "always",
       {
         "exceptAfterSingleLine": true
       }
     ],
-    "quotes": ["error", "single"]
+    "quotes": ["warn", "single"]
   },
   "settings": {
     "jsdoc": {
