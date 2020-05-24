@@ -7,7 +7,7 @@ const development = {
     rules: [
       {
         exclude: /(dist|node_modules)/,
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         use: {
           loader: 'babel-loader',
         },
@@ -26,7 +26,7 @@ const production = {
     rules: [
       {
         exclude: /(dist|node_modules)/,
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         use: {
           loader: 'babel-loader',
         },
@@ -37,7 +37,7 @@ const production = {
     minimizer: [
       new TerserPlugin({
         exclude: /(dist|node_modules)/,
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         terserOptions: {
           output: {
             comments: false,
