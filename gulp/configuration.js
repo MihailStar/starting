@@ -43,11 +43,11 @@ const paths = {
     },
   },
   scripts: {
-    src: `${directory.src}/scripts/main.js`,
+    src: `${directory.src}/scripts/main.{js,ts}`,
     dest: `${directory.dest}/scripts`,
     watch: [
-      `${directory.src}/scripts/**/*.js`,
-      `${directory.src}/blocks/**/*.js`,
+      `${directory.src}/scripts/**/*.{js,ts}`,
+      `${directory.src}/blocks/**/*.{js,ts}`,
     ],
   },
   sprite: {
