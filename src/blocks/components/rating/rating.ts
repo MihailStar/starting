@@ -1,13 +1,10 @@
-// @flow strict
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
 class MyRating extends MyEventEmitter {
-  constructor(container /*: HTMLElement */) {
+  constructor(container: HTMLElement) {
     super();
 
-    container.addEventListener('click', (event /*: Event */) => {
-      const { target } = event;
-
+    container.addEventListener('click', ({ target }) => {
       if (target instanceof HTMLInputElement) {
         this.emit('event:change', { value: parseInt(target.value, 10) });
       }

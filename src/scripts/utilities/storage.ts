@@ -1,12 +1,11 @@
-// @flow strict
 class MyStorage {
-  /*:: getNamespace: () => string; */
+  public getNamespace: () => string;
 
-  constructor(namespace /*: string */) {
+  constructor(namespace: string) {
     this.getNamespace = () => namespace;
   }
 
-  static isAvailable() /*: boolean */ {
+  static isAvailable(): boolean {
     const identifier = Date.now().toString();
 
     try {
@@ -19,7 +18,7 @@ class MyStorage {
     }
   }
 
-  get() /*: { [key: string]: mixed } | null */ {
+  get(): { [key: string]: unknown } | null {
     try {
       const data = localStorage.getItem(this.getNamespace());
 
@@ -29,7 +28,7 @@ class MyStorage {
     }
   }
 
-  set(data /*: { [key: string]: mixed } */) /*: boolean */ {
+  set(data: { [key: string]: unknown }): boolean {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
 

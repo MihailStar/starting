@@ -1,4 +1,3 @@
-// @flow strict
 /* eslint-disable no-console */
 import '../blocks/components/icon/icon';
 import MyCounter from '../blocks/components/counter/counter';
@@ -13,10 +12,10 @@ const modalContainer = document.querySelector('.starting .modal');
 const ratingContainer = document.querySelector('.starting .rating');
 
 if (
-  counterContainer === null ||
-  keyboardContainer === null ||
-  modalContainer === null ||
-  ratingContainer === null
+  !(counterContainer instanceof HTMLElement) ||
+  !(keyboardContainer instanceof HTMLElement) ||
+  !(modalContainer instanceof HTMLElement) ||
+  !(ratingContainer instanceof HTMLElement)
 ) {
   throw new Error('No container');
 }

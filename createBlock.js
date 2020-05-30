@@ -13,7 +13,7 @@ const filesData = {
 
 function createDirectory(directoryPath /*: string */) /*: Promise<string> */ {
   return new Promise((onSuccess, onError) => {
-    fs.mkdir(directoryPath, (error /*: ?Error */) => {
+    fs.mkdir(directoryPath, (error /*: Error | null */) => {
       if (error) {
         onError(error);
       } else {
@@ -28,7 +28,7 @@ function createFile(
   fileData /*: string */
 ) /*: Promise<string> */ {
   return new Promise((onSuccess, onError) => {
-    fs.writeFile(filePath, fileData, 'utf8', (error /*: ?Error */) => {
+    fs.writeFile(filePath, fileData, 'utf8', (error /*: Error | null */) => {
       if (error) {
         onError(error);
       } else {
@@ -41,7 +41,7 @@ function createFile(
 function createFiles(
   directoryPath /*: string */
 ) /*: Promise<Array<string>> */ {
-  const promises = [];
+  const promises /*: Array<Promise<string>> */ = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {
     promises.push(

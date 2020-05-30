@@ -1,29 +1,23 @@
-// @flow strict
-/*::
-type TListenerArgs  = { [key: string]: mixed };
-type TListener = (args: TListenerArgs) => void;
-*/
+type ListenerArgs = { [key: string]: unknown };
+type Listener = (args: ListenerArgs) => void;
 
 class MyEventEmitter {
-  /*::
-  events: {
-    [event: string]: Array<TListener>,
+  private events: {
+    [event: string]: Array<Listener>;
   };
-  */
 
   constructor() {
-    /** @private */
     this.events = {};
   }
 
-  one(type /*: string */, listener /*: TListener */) /*: void */ {
+  one(type: string, listener: Listener): void {
     const off = this.on(type, (args) => {
       listener(args);
       off();
     });
   }
 
-  on(type /*: string */, listener /*: TListener */) /*: () => void */ {
+  on(type: string, listener: Listener): () => void {
     this.events[type] = (this.events[type] !== undefined
       ? this.events[type]
       : []
@@ -32,13 +26,13 @@ class MyEventEmitter {
     return () => this.off(type, listener);
   }
 
-  off(type /*: string */, listener /*: TListener */) /*: void */ {
+  off(type: string, listener: Listener): void {
     if (this.events[type] !== undefined) {
       this.events[type] = this.events[type].filter((func) => func !== listener);
     }
   }
 
-  emit(type /*: string */, args /*: TListenerArgs */) /*: void */ {
+  emit(type: string, args: ListenerArgs): void {
     if (this.events[type] !== undefined) {
       this.events[type].forEach((listener) => {
         listener(args);

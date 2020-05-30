@@ -1,24 +1,20 @@
-// @flow strict
-/* flowlint unsafe-getters-setters:off */
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
 class MyCounter extends MyEventEmitter {
-  /*::
-  elements: $Exact<{
-    decreaseButton: HTMLButtonElement,
-    input: HTMLInputElement,
-    increaseButton: HTMLButtonElement,
-  }>;
+  private elements: {
+    decreaseButton: HTMLButtonElement;
+    input: HTMLInputElement;
+    increaseButton: HTMLButtonElement;
+  };
 
-  props: $Exact<{
-    value: number,
-    min: number,
-    max: number,
-    step: number,
-  }>;
-  */
+  private props: {
+    value: number;
+    min: number;
+    max: number;
+    step: number;
+  };
 
-  constructor(container /*: HTMLElement */) {
+  constructor(container: HTMLElement) {
     super();
 
     const decreaseButton = container.querySelector('.counter__button_decrease');
@@ -36,14 +32,12 @@ class MyCounter extends MyEventEmitter {
       throw new Error('No input');
     }
 
-    /** @private */
     this.elements = {
       decreaseButton,
       input,
       increaseButton,
     };
 
-    /** @private */
     this.props = {
       value: Number(this.elements.input.value),
       min: Number(this.elements.input.min),
@@ -63,11 +57,11 @@ class MyCounter extends MyEventEmitter {
     });
   }
 
-  get value() /*: number */ {
+  get value(): number {
     return this.props.value;
   }
 
-  set value(value /*: number */) /*: void */ {
+  set value(value: number) {
     let normalizeValue = value;
 
     if (value <= this.props.min) {
@@ -85,19 +79,19 @@ class MyCounter extends MyEventEmitter {
     this.emit('event:change', { value: normalizeValue });
   }
 
-  get isMin() /*: boolean */ {
+  get isMin(): boolean {
     return this.props.value <= this.props.min;
   }
 
-  get isMax() /*: boolean */ {
+  get isMax(): boolean {
     return this.props.value >= this.props.max;
   }
 
-  decrease() /*: void */ {
+  decrease(): void {
     this.value -= this.props.step;
   }
 
-  increase() /*: void */ {
+  increase(): void {
     this.value += this.props.step;
   }
 }

@@ -1,52 +1,45 @@
-// @flow strict
-export const Language = /*:: Object.freeze( */ {
-  EN: 'en',
-  RU: 'ru',
-}/*:: ) */;
+enum Language {
+  EN = 'en',
+  RU = 'ru',
+}
 
-const Modifier = /*:: Object.freeze( */ {
-  ALT_LEFT: 'alt-left',
-  ALT_RIGHT: 'alt-right',
-  BACKSPACE: 'backspace',
-  CAPS_LOCK: 'caps-lock',
-  CONTROL_LEFT: 'control-left',
-  CONTROL_RIGHT: 'control-right',
-  DELETE: 'delete',
-  ENTER: 'enter',
-  LANGUAGE: 'language',
-  SHIFT_LEFT: 'shift-left',
-  SHIFT_RIGHT: 'shift-right',
-  SPACE: 'space',
-  TAB: 'tab',
-}/*:: ) */;
+enum ControlKey {
+  CAN_CAPS_LOCK = 'canCapsLock',
+  SWITCH_ALT = 'switchAlt',
+  SWITCH_CAPS_LOCK = 'switchCapsLock',
+  SWITCH_CONTROL = 'switchControl',
+  SWITCH_LANGUAGE = 'switchLanguage',
+  SWITCH_SHIFT = 'switchShift',
+}
 
-export const ControlKey = /*:: Object.freeze( */ {
-  CAN_CAPS_LOCK: 'canCapsLock',
-  SWITCH_ALT: 'switchAlt',
-  SWITCH_CAPS_LOCK: 'switchCapsLock',
-  SWITCH_CONTROL: 'switchControl',
-  SWITCH_LANGUAGE: 'switchLanguage',
-  SWITCH_SHIFT: 'switchShift',
-}/*:: ) */;
+enum Modifier {
+  ALT_LEFT = 'alt-left',
+  ALT_RIGHT = 'alt-right',
+  BACKSPACE = 'backspace',
+  CAPS_LOCK = 'caps-lock',
+  CONTROL_LEFT = 'control-left',
+  CONTROL_RIGHT = 'control-right',
+  DELETE = 'delete',
+  ENTER = 'enter',
+  LANGUAGE = 'language',
+  SHIFT_LEFT = 'shift-left',
+  SHIFT_RIGHT = 'shift-right',
+  SPACE = 'space',
+  TAB = 'tab',
+}
 
-/*::
-export type TLanguage = $Values<typeof Language>;
+type Button = {
+  chars: [string] | [string, string];
+  controlKeys?: Array<ControlKey>;
+  keys: [string] | [string, string];
+  modifiers?: Array<Modifier>;
+};
 
-export type TModifier = $Values<typeof Modifier>;
+type Scheme = {
+  [key in Language]: Array<Array<Button>>;
+};
 
-export type TControlKey = $Values<typeof ControlKey>;
-
-type TButton = $Exact<{
-  chars: [string] | [string, string],
-  controlKeys?: Array<TControlKey>,
-  keys: [string] | [string, string],
-  modifiers?: Array<TModifier>,
-}>;
-*/
-
-const scheme /*: {
-  [language: TLanguage]: Array<Array<TButton>>,
-} */ = {
+const scheme: Scheme = {
   [Language.EN]: [
     [
       { chars: ['⎋'], keys: ['Escape'] },
@@ -207,4 +200,5 @@ const scheme /*: {
   ],
 };
 
+export { Language, ControlKey, Modifier };
 export default scheme;

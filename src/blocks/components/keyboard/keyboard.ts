@@ -1,72 +1,55 @@
-// @flow strict
 /* eslint no-param-reassign: ["error", { "props": false }] */
 import codes from './codes';
 import createButton from './button';
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 import scheme, {
-  ControlKey,
-  Language,
-  /*::
-  type TControlKey as TSchemeControlKey,
-  type TLanguage as TSchemeLanguage,
-  type TModifier as TSchemeModifier,
-  */
+  Language as SchemeLanguage,
+  ControlKey as SchemeControlKey,
+  Modifier as SchemeModifier,
 } from './scheme';
 
 const CLASS_ACTIVITY = 'keyboard__button_accent';
 
-/*::
-type TButtonProps = $Exact<{
-  char: string,
-  code: string,
-  controlKeys: Array<TSchemeControlKey>,
-  key: string,
-  modifiers: Array<TSchemeModifier>,
-}>;
-*/
+type ButtonProps = {
+  char: string;
+  code: string;
+  controlKeys: Array<SchemeControlKey>;
+  key: string;
+  modifiers: Array<SchemeModifier>;
+};
 
 class MyKeyboard extends MyEventEmitter {
-  /*::
-  elements: Array<HTMLButtonElement>;
-  props: $Exact<{
-    currentLanguage: TSchemeLanguage,
-    isAltPressed: boolean,
-    isCapsLockPressed: boolean,
-    isControlPressed: boolean,
-    isShiftPressed: boolean,
-    schemeIndexes: WeakMap<HTMLButtonElement, [number, number]>,
-  }>;
-  */
+  private elements: Array<HTMLButtonElement>;
+  private props: {
+    currentLanguage: SchemeLanguage;
+    isAltPressed: boolean;
+    isCapsLockPressed: boolean;
+    isControlPressed: boolean;
+    isShiftPressed: boolean;
+    schemeIndexes: WeakMap<HTMLButtonElement, [number, number]>;
+  };
 
   constructor(
-    container /*: HTMLElement */,
-    options /*: $Exact<{
-      language: TSchemeLanguage,
-    }> */
+    container: HTMLElement,
+    options: {
+      language: SchemeLanguage;
+    }
   ) {
     super();
 
     const { language } = options;
 
-    Object.defineProperties(this, {
-      /** @private */
-      elements: {
-        value: [],
-      },
-      /** @private */
-      props: {
-        value: {
-          currentLanguage: language,
-          isAltPressed: false,
-          isCapsLockPressed: false,
-          isControlPressed: false,
-          isShiftPressed: false,
-          schemeIndexes: new WeakMap(),
-        },
-      },
-    });
+    this.elements = [];
+    this.props = {
+      currentLanguage: language,
+      isAltPressed: false,
+      isCapsLockPressed: false,
+      isControlPressed: false,
+      isShiftPressed: false,
+      schemeIndexes: new WeakMap(),
+    };
 
-    const initialize = () /*: void */ => {
+    const initialize = (): void => {
       const fragmentElement = document.createDocumentFragment();
 
       scheme[this.props.currentLanguage].forEach((rowScheme, rowIndex) => {
@@ -91,32 +74,30 @@ class MyKeyboard extends MyEventEmitter {
       container.appendChild(fragmentElement);
     };
 
-    const onButtonClick = (
-      buttonElement /*: HTMLButtonElement */
-    ) /*: void */ => {
+    const onButtonClick = (buttonElement: HTMLButtonElement): void => {
       const { controlKeys } = this.getButtonProps(buttonElement);
       let isResetControl = true;
 
-      if (controlKeys.indexOf(ControlKey.SWITCH_ALT) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.SWITCH_ALT) !== -1) {
         this.switchAlt();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(ControlKey.SWITCH_CAPS_LOCK) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.SWITCH_CAPS_LOCK) !== -1) {
         this.switchCapsLock();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(ControlKey.SWITCH_CONTROL) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.SWITCH_CONTROL) !== -1) {
         this.switchControl();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(ControlKey.SWITCH_LANGUAGE) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.SWITCH_LANGUAGE) !== -1) {
         this.switchLanguage();
       }
 
-      if (controlKeys.indexOf(ControlKey.SWITCH_SHIFT) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.SWITCH_SHIFT) !== -1) {
         this.switchShift();
         isResetControl = false;
       }
@@ -139,12 +120,10 @@ class MyKeyboard extends MyEventEmitter {
       }
     };
 
-    const bind = () /*: void */ => {
+    const bind = (): void => {
       container.addEventListener(
         'click',
-        (event /*: Event */) => {
-          const { target } = event;
-
+        ({ target }) => {
           if (target instanceof HTMLButtonElement) {
             onButtonClick(target);
           }
@@ -158,11 +137,11 @@ class MyKeyboard extends MyEventEmitter {
   }
 
   forEachButton(
-    callback /*: (
+    callback: (
       buttonElement: HTMLButtonElement,
-      buttonProps: TButtonProps
-    ) => void */
-  ) /*: void */ {
+      buttonProps: ButtonProps
+    ) => void
+  ): void {
     this.elements.forEach((buttonElement) => {
       const buttonProps = this.getButtonProps(buttonElement);
 
@@ -170,14 +149,12 @@ class MyKeyboard extends MyEventEmitter {
     });
   }
 
-  getButtonProps(buttonElement /*: HTMLButtonElement */) /*: TButtonProps */ {
+  getButtonProps(buttonElement: HTMLButtonElement): ButtonProps {
     const schemeIndex = this.props.schemeIndexes.get(buttonElement);
 
-    /*::
     if (schemeIndex === undefined) {
       throw new Error('No schemeIndex');
     }
-    */
 
     const [rowIndex, buttonIndex] = schemeIndex;
     const code = codes[rowIndex][buttonIndex];
@@ -185,12 +162,12 @@ class MyKeyboard extends MyEventEmitter {
       this.props.currentLanguage
     ][rowIndex][buttonIndex];
 
-    const getCurrentIndex = () /*: number */ => {
+    const getCurrentIndex = (): number => {
       if (chars.length === 1) {
         return 0;
       }
 
-      if (controlKeys.indexOf(ControlKey.CAN_CAPS_LOCK) !== -1) {
+      if (controlKeys.indexOf(SchemeControlKey.CAN_CAPS_LOCK) !== -1) {
         return (this.props.isCapsLockPressed && this.props.isShiftPressed) ||
           (!this.props.isCapsLockPressed && !this.props.isShiftPressed)
           ? 0
@@ -209,9 +186,7 @@ class MyKeyboard extends MyEventEmitter {
     };
   }
 
-  getButtonsOnControlKey(
-    key /*: TSchemeControlKey */
-  ) /*: Array<HTMLButtonElement> */ {
+  getButtonsOnControlKey(key: SchemeControlKey): Array<HTMLButtonElement> {
     return this.elements.filter((buttonElement) => {
       const { controlKeys } = this.getButtonProps(buttonElement);
 
@@ -223,7 +198,7 @@ class MyKeyboard extends MyEventEmitter {
     });
   }
 
-  rerenderButtonChars() /*: void */ {
+  rerenderButtonChars(): void {
     this.forEachButton((buttonElement, buttonProps) => {
       const { char } = buttonProps;
 
@@ -231,11 +206,9 @@ class MyKeyboard extends MyEventEmitter {
     });
   }
 
-  switchAlt(
-    position /*:: ?: boolean */ = !this.props.isAltPressed
-  ) /*: void */ {
+  switchAlt(position = !this.props.isAltPressed): void {
     this.props.isAltPressed = position;
-    this.getButtonsOnControlKey(ControlKey.SWITCH_ALT).forEach(
+    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_ALT).forEach(
       (buttonElement) => {
         if (this.props.isAltPressed) {
           buttonElement.classList.add(CLASS_ACTIVITY);
@@ -246,12 +219,10 @@ class MyKeyboard extends MyEventEmitter {
     );
   }
 
-  switchCapsLock(
-    position /*:: ?: boolean */ = !this.props.isCapsLockPressed
-  ) /*: void */ {
+  switchCapsLock(position = !this.props.isCapsLockPressed): void {
     this.props.isCapsLockPressed = position;
     this.rerenderButtonChars();
-    this.getButtonsOnControlKey(ControlKey.SWITCH_CAPS_LOCK).forEach(
+    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_CAPS_LOCK).forEach(
       (buttonElement) => {
         if (this.props.isCapsLockPressed) {
           buttonElement.classList.add(CLASS_ACTIVITY);
@@ -262,11 +233,9 @@ class MyKeyboard extends MyEventEmitter {
     );
   }
 
-  switchControl(
-    position /*:: ?: boolean */ = !this.props.isControlPressed
-  ) /*: void */ {
+  switchControl(position = !this.props.isControlPressed): void {
     this.props.isControlPressed = position;
-    this.getButtonsOnControlKey(ControlKey.SWITCH_CONTROL).forEach(
+    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_CONTROL).forEach(
       (buttonElement) => {
         if (this.props.isControlPressed) {
           buttonElement.classList.add(CLASS_ACTIVITY);
@@ -278,21 +247,18 @@ class MyKeyboard extends MyEventEmitter {
   }
 
   switchLanguage(
-    language /*:: ?: TSchemeLanguage */ = this.props.currentLanguage ===
-    Language.EN
-      ? Language.RU
-      : Language.EN
-  ) /*: void */ {
+    language: SchemeLanguage = this.props.currentLanguage === SchemeLanguage.EN
+      ? SchemeLanguage.RU
+      : SchemeLanguage.EN
+  ): void {
     this.props.currentLanguage = language;
     this.rerenderButtonChars();
   }
 
-  switchShift(
-    position /*:: ?: boolean */ = !this.props.isShiftPressed
-  ) /*: void */ {
+  switchShift(position = !this.props.isShiftPressed): void {
     this.props.isShiftPressed = position;
     this.rerenderButtonChars();
-    this.getButtonsOnControlKey(ControlKey.SWITCH_SHIFT).forEach(
+    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_SHIFT).forEach(
       (buttonElement) => {
         if (this.props.isShiftPressed) {
           buttonElement.classList.add(CLASS_ACTIVITY);

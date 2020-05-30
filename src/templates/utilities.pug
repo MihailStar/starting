@@ -6,13 +6,13 @@
   }
 
   function getRandomId(
-    options /*:: ?: $Exact<{
-      length?: number,
-      uppercase?: boolean,
-      lowercase?: boolean,
-      numbers?: boolean,
-      symbols?: boolean,
-    }> */
+    options /*: {
+      length?: number;
+      uppercase?: boolean;
+      lowercase?: boolean;
+      numbers?: boolean;
+      symbols?: boolean;
+    } */ = {}
   ) /*: string */ {
     const defaultOptions = {
       length: 20,
@@ -21,10 +21,8 @@
       numbers: true,
       symbols: false,
     };
-    const currentOptions =
-      options === void 0
-        ? defaultOptions
-        : Object.assign({}, defaultOptions, options);
+
+    const currentOptions = Object.assign({}, defaultOptions, options);
 
     const defaultChars = {
       uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -32,9 +30,17 @@
       numbers: '0123456789',
       symbols: '!@#$%^&*',
     };
+
+    /*
+    type defaultCharsKey = keyof typeof defaultChars;
+    */
+
     const currentChars = Object.keys(defaultChars).reduce(
-      (acc /*: string */, key /*: $Keys<typeof defaultChars> */) =>
-        acc + (currentOptions[key] ? defaultChars[key] : ''),
+      (acc, key) =>
+        acc +
+        (currentOptions[key /* as defaultCharsKey */]
+          ? defaultChars[key /* as defaultCharsKey */]
+          : ''),
       ''
     );
 
@@ -46,21 +52,32 @@
     return randomId;
   }
 
-  function getRandomDoubleId(length /*: number */ = 20) /*: string */ {
-    function* generator(
-      characters /*: number */
-    ) /*: Generator<string, void, void> */ {
+  function getRandomDoubleId(length = 20) /*: string */ {
+    function* generator(characters /*: number */) /*: Generator<string, void, void> */ {
       while (true) {
-        const randomId = getRandomId(characters);
+        const randomId = getRandomId({ length: characters });
 
         yield randomId;
         yield randomId;
       }
     }
 
-    if (getRandomDoubleId.generator === void 0) {
-      getRandomDoubleId.generator = generator(length);
+    /*
+    type RandomDoubleIdWithGenerator = typeof getRandomDoubleId & {
+      generator: Generator<string, void, void>;
+    };
+    */
+
+    if (
+      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator === void 0
+    ) {
+      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator = generator(
+        length
+      );
     }
 
-    return getRandomDoubleId.generator.next().value;
+    return (
+      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator
+        .next().value || ''
+    );
   }

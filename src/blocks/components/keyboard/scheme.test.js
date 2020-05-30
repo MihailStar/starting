@@ -1,4 +1,4 @@
-// npx babel-node './src/blocks/components/keyboard/scheme.test'
+// npx babel-node --extensions \".js,.ts\" --presets \"@babel/preset-typescript\" \"./src/blocks/components/keyboard/scheme.test\"
 import { strict as assert } from 'assert';
 import codes from './codes';
 import scheme, { Language } from './scheme';

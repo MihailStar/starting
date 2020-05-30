@@ -1,8 +1,10 @@
 import TerserPlugin from 'terser-webpack-plugin';
 import { isDevelopment } from './gulp/configuration';
 
-const development = {
-  mode: 'development',
+const configuration = {
+  resolve: {
+    extensions: ['.js', '.ts'],
+  },
   module: {
     rules: [
       {
@@ -14,25 +16,18 @@ const development = {
       },
     ],
   },
-  devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'main.js',
   },
 };
 
+const development = {
+  mode: 'development',
+  devtool: 'cheap-module-eval-source-map',
+};
+
 const production = {
   mode: 'production',
-  module: {
-    rules: [
-      {
-        exclude: /(dist|node_modules)/,
-        test: /\.(js|ts)$/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
-  },
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -46,9 +41,9 @@ const production = {
       }),
     ],
   },
-  output: {
-    filename: 'main.js',
-  },
 };
 
-export default isDevelopment ? development : production;
+export default {
+  ...configuration,
+  ...(isDevelopment ? development : production),
+};
