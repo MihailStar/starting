@@ -1,6 +1,6 @@
 # Стартовый шаблон для верстки
 
-HTML(~~Nunjucks~~ Pug), CSS(~~Sass~~ SCSS, PostCSS), JavaScript(~~Flow~~, TypeScript)
+HTML(~~Nunjucks~~ Pug), CSS(~~Sass~~ SCSS, PostCSS), JavaScript(~~Flow~~ TypeScript)
 
 ```bash
 git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонирует репозиторий
