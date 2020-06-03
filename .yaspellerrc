@@ -1,6 +1,6 @@
 {
   "dictionary": [],
   "excludeFiles": ["dist", "node_modules"],
-  "fileExtensions": [".js", ".pug", ".sсss"],
+  "fileExtensions": [".js", ".pug", ".sсss", ".ts"],
   "lang": "ru"
 }

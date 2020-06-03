@@ -1,4 +1,5 @@
 .cache
+.git
 .publish
 dist
 node_modules
