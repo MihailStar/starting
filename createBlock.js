@@ -6,9 +6,9 @@ const DIRECTORY = path.join(__dirname, './src/blocks');
 
 const [, , blockName] = process.argv;
 const filesData = {
-  ts: '',
   pug: `mixin ${blockName}\n  .${blockName}&attributes(attributes)\n    block\n`,
   scss: `.${blockName} {\n  @include border-box;\n}\n`,
+  ts: '',
 };
 
 function createDirectory(directoryPath /*: string */) /*: Promise<string> */ {

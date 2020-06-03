@@ -39,6 +39,7 @@ type Scheme = {
   [key in Language]: Array<Array<Button>>;
 };
 
+// prettier-ignore
 const scheme: Scheme = {
   [Language.EN]: [
     [
