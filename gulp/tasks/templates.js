@@ -5,7 +5,7 @@ import prettier from 'gulp-prettier';
 import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-import { paths, isDevelopment, isProductionMinimized } from '../configuration';
+import { paths, isDevelopment, isProductionMinimized } from '../configuration.js';
 
 function compileTemplates() {
   return gulp

@@ -19,14 +19,7 @@
   "plugins": ["@typescript-eslint", "jsdoc"],
   "root": true,
   "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "ts": "never"
-      }
-    ],
+    "import/extensions": "off",
     "jsdoc/check-alignment": "error",
     "jsdoc/check-examples": "error",
     "jsdoc/check-indentation": "error",

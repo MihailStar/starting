@@ -12,8 +12,8 @@ import sass from 'gulp-sass';
 import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import wait from 'gulp-wait';
-import { paths, isDevelopment, isProductionMinimized } from '../configuration';
-import server from './server';
+import { paths, isDevelopment, isProductionMinimized } from '../configuration.js';
+import server from './server.js';
 
 sass.compiler = nodeSass;
 

@@ -1,5 +1,5 @@
 import TerserPlugin from 'terser-webpack-plugin';
-import { isDevelopment } from './gulp/configuration';
+import { isDevelopment } from './gulp/configuration.js';
 
 const configuration = {
   resolve: {

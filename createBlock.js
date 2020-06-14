@@ -1,7 +1,10 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-underscore-dangle */
+import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const DIRECTORY = path.join(__dirname, './src/blocks');
 
 const [, , blockName] = process.argv;

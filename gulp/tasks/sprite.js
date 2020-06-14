@@ -4,7 +4,7 @@ import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
 import size from 'gulp-size';
 import svgstore from 'gulp-svgstore';
-import { paths, imageminConfig } from '../configuration';
+import { paths, imageminConfig } from '../configuration.js';
 
 function generateSprite() {
   return gulp
