@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import autoprefixer from 'autoprefixer';
 import cssMqpacker from 'css-mqpacker';
 import gulp from 'gulp';
@@ -12,8 +12,8 @@ import sass from 'gulp-sass';
 import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import wait from 'gulp-wait';
-import { paths, isDevelopment, isProductionMinimized } from '../configuration.js';
-import server from './server.js';
+import { paths, isDevelopment, isProductionMinimized } from '../configuration';
+import server from './server';
 
 sass.compiler = nodeSass;
 

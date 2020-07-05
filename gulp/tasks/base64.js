@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import imageDataURI from 'gulp-image-data-uri';
 import imagemin from 'gulp-imagemin';
 import size from 'gulp-size';
-import { paths, imageminConfig } from '../configuration.js';
+import { paths, imageminConfig } from '../configuration';
 
 function convertImageToBase64() {
   return gulp

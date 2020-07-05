@@ -1,6 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import browserSync from 'browser-sync';
-import { directory } from '../configuration.js';
+import { directory } from '../configuration';
 
 const server = browserSync.create('server');
 

@@ -1,10 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
 import size from 'gulp-size';
 import svgstore from 'gulp-svgstore';
-import { paths, imageminConfig } from '../configuration.js';
+import { paths, imageminConfig } from '../configuration';
 
 function generateSprite() {
   return gulp

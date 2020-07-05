@@ -7,6 +7,7 @@
     "@babel/node": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@babel/register": "^7.10.4",
     "@prettier/plugin-pug": "^1.4.4",
     "@prettier/plugin-xml": "^0.7.2",
     "@types/svg4everybody": "^2.1.1",
@@ -61,14 +62,14 @@
     "yaspeller": "^7.0.0"
   },
   "engines": {
-    "node": ">=13.0.0"
+    "node": ">=12.0.0"
   },
   "name": "starting",
   "private": true,
   "scripts": {
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
-    "block": "node \"./createBlock\"",
+    "block": "babel-node \"./createBlock\"",
     "deploy": "gh-pages --dist \"./dist\" --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
@@ -80,6 +81,5 @@
     "prod": "cross-env NODE_ENV=production gulp default",
     "speller": "yaspeller \"./src\"",
     "sprite": "cross-env NODE_ENV=production gulp generateSprite"
-  },
-  "type": "module"
+  }
 }

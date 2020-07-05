@@ -1,11 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import fs from 'fs';
 import gulp from 'gulp';
 import size from 'gulp-size';
 import zip from 'gulp-zip';
-import { paths } from '../configuration.js';
-import build from './build.js';
-import clean from './clean.js';
+import { paths } from '../configuration';
+import build from './build';
+import clean from './clean';
 
 const projectName = (fs
   .readFileSync('./package.json', 'utf-8')

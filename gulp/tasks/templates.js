@@ -1,11 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import prettier from 'gulp-prettier';
 import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-import { paths, isDevelopment, isProductionMinimized } from '../configuration.js';
+import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 
 function compileTemplates() {
   return gulp

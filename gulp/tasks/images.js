@@ -1,10 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import imagemin from 'gulp-imagemin';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
-import { paths, isDevelopment, imageminConfig } from '../configuration.js';
+import { paths, isDevelopment, imageminConfig } from '../configuration';
 
 function compileImages() {
   return gulp
