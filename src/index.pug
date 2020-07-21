@@ -107,9 +107,11 @@ block body
     tr
       td
         b input
+        +input()(placeholder='Example')
         +input()(placeholder='Example', required)
       td
         b
+        +input()(placeholder='Example', disabled)
         +input()(placeholder='Example', required, disabled)
 
     tr
@@ -162,7 +164,9 @@ block body
     tr
       td
         b textarea
+        +textarea()(placeholder='Example')
         +textarea()(placeholder='Example', required)
       td
         b
+        +textarea()(placeholder='Example', disabled)
         +textarea()(placeholder='Example', required, disabled)
