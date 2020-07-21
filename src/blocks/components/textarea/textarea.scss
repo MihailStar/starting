@@ -1,7 +1,7 @@
 .textarea {
   $font-size: ($base-unit * 4);
+  @extend %border-box;
   @extend %input;
-  @include border-box;
   height: (($base-unit * 30) / $font-size * 1em);
 
   &__element {

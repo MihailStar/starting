@@ -1,4 +1,4 @@
-@mixin clearfix {
+%clearfix {
   &::after {
     display: block;
     clear: both;
@@ -6,7 +6,7 @@
   }
 }
 
-@mixin border-box {
+%border-box {
   box-sizing: border-box;
 
   *,
@@ -16,7 +16,7 @@
   }
 }
 
-@mixin image-fluid {
+%image-fluid {
   max-width: 100%;
   height: auto;
 }
@@ -41,7 +41,7 @@
   }
 }
 
-@mixin text-truncate {
+%text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -79,7 +79,7 @@
   }
 }
 
-@mixin visually-hidden {
+%visually-hidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
@@ -92,7 +92,7 @@
   white-space: nowrap;
 }
 
-@mixin break-word {
+%break-word {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;

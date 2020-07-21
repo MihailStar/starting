@@ -1,6 +1,6 @@
 .checkbox {
   $font-size: ($base-unit * 4);
-  @include border-box;
+  @extend %border-box;
   position: relative;
   display: inline-block;
   width: (($base-unit * 10) / $font-size * 1em);

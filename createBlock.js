@@ -7,7 +7,7 @@ const DIRECTORY = path.join(__dirname, './src/blocks');
 const [, , blockName] = process.argv;
 const filesData = {
   pug: `mixin ${blockName}\n  .${blockName}&attributes(attributes)\n    block\n`,
-  scss: `.${blockName} {\n  @include border-box;\n}\n`,
+  scss: `.${blockName} {\n  @extend %border-box;\n}\n`,
   ts: '',
 };
 

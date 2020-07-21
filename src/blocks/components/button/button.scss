@@ -1,7 +1,7 @@
 .button,
 %button {
   $font-size: ($base-unit * 4);
-  @include border-box;
+  @extend %border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;

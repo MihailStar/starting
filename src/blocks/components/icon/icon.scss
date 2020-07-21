@@ -1,5 +1,5 @@
 .icon {
-  @include border-box;
+  @extend %border-box;
   display: inline-block;
   flex-shrink: 0;
   vertical-align: middle;

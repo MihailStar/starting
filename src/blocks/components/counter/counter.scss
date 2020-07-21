@@ -1,7 +1,7 @@
 /* stylelint-disable property-no-vendor-prefix */
 .counter {
   $font-size: ($base-unit * 4);
-  @include border-box;
+  @extend %border-box;
   display: inline-flex;
   width: (($base-unit * 30) / $font-size * 1em);
   height: (($base-unit * 10) / $font-size * 1em);

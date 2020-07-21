@@ -1,6 +1,6 @@
 .keyboard {
   $font-size: ($base-unit * 4);
-  @include border-box;
+  @extend %border-box;
   display: inline-block;
   padding-top: (($base-unit * 0.5) / $font-size * 1em);
   padding-right: (($base-unit * 0.5) / $font-size * 1em);

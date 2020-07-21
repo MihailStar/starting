@@ -1,7 +1,7 @@
 .rating {
   $font-size: ($base-unit * 4);
   $number-of: 10;
-  @include border-box;
+  @extend %border-box;
   position: relative;
   display: inline-block;
   margin-top: 0;
