@@ -3,7 +3,7 @@ import imagemin from 'gulp-imagemin';
 import imageminWebp from 'imagemin-webp';
 
 const isDevelopment =
-  !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+  process.env.NODE_ENV === undefined || process.env.NODE_ENV === 'development';
 
 const directory = {
   src: './src',
