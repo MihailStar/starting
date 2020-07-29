@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 import fs from 'fs';
 import gulp from 'gulp';
 import size from 'gulp-size';

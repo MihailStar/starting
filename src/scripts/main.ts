@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+
 import '../blocks/components/icon/icon';
 import MyCounter from '../blocks/components/counter/counter';
 import MyKeyboard from '../blocks/components/keyboard/keyboard';

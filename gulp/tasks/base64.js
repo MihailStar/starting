@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types, import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 import gulp from 'gulp';
 import imageDataURI from 'gulp-image-data-uri';
 import imagemin from 'gulp-imagemin';
