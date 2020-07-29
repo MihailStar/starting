@@ -5,6 +5,7 @@ import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import nodeSass from 'node-sass';
 import postcss from 'gulp-postcss';
+import postcss100vhFix from 'postcss-100vh-fix';
 import postcssCsso from 'postcss-csso';
 import postcssImport from 'postcss-import';
 import prettier from 'gulp-prettier';
@@ -29,10 +30,12 @@ function compileStyles() {
       isDevelopment,
       postcss([
         postcssImport(),
+        postcss100vhFix(),
         autoprefixer(),
       ]),
       postcss([
         postcssImport(),
+        postcss100vhFix(),
         autoprefixer(),
         cssMqpacker({
           sort: true,
