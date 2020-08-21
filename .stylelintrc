@@ -8,7 +8,7 @@
     },
     "max-nesting-depth": 3,
     "order/properties-alphabetical-order": null,
-    "scss/percent-placeholder-pattern": "^[a-z]+([0-9a-z-_]+[0-9a-z]+)?$",
-    "selector-class-pattern": "^[0-9a-z-_]+$"
+    "scss/percent-placeholder-pattern": "^[a-z]+(?:[0-9a-z-_]+[0-9a-z]+)?$",
+    "selector-class-pattern": "^[a-z]+(?:[0-9a-z-_]+[0-9a-z]+)?$"
   }
 }
