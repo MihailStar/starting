@@ -2,7 +2,7 @@
   "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
   "rules": {
     "color-hex-length": "long",
-    "declaration-property-value-blacklist": {
+    "declaration-property-value-disallowed-list": {
       "/^border/": ["none"],
       "/^outline/": ["none"]
     },
