@@ -5,6 +5,8 @@
 @import './utilities';
 
 .starting {
+  min-height: 100vh;
+
   @import '../blocks/components/button/button';
   @import '../blocks/components/checkbox/checkbox';
   @import '../blocks/components/icon/icon';
