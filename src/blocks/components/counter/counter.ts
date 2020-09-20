@@ -1,6 +1,6 @@
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
-class MyCounter extends MyEventEmitter {
+class Counter extends MyEventEmitter {
   private elements: {
     decreaseButton: HTMLButtonElement;
     input: HTMLInputElement;
@@ -96,4 +96,4 @@ class MyCounter extends MyEventEmitter {
   }
 }
 
-export default MyCounter;
+export default Counter;

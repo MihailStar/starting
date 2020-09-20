@@ -1,4 +1,4 @@
-class MyStorage {
+class Storage<Type> {
   public getNamespace: () => string;
 
   constructor(namespace: string) {
@@ -18,7 +18,7 @@ class MyStorage {
     }
   }
 
-  get(): { [key: string]: unknown } | null {
+  get(): Type | null {
     try {
       const data = localStorage.getItem(this.getNamespace());
 
@@ -28,7 +28,7 @@ class MyStorage {
     }
   }
 
-  set(data: { [key: string]: unknown }): boolean {
+  set(data: Type): boolean {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
 
@@ -39,4 +39,4 @@ class MyStorage {
   }
 }
 
-export default MyStorage;
+export default Storage;

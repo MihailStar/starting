@@ -1,6 +1,6 @@
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
-class MyRating extends MyEventEmitter {
+class Rating extends MyEventEmitter {
   constructor(container: HTMLElement) {
     super();
 
@@ -12,4 +12,4 @@ class MyRating extends MyEventEmitter {
   }
 }
 
-export default MyRating;
+export default Rating;

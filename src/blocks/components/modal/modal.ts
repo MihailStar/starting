@@ -1,9 +1,9 @@
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';
 
-class MyModal extends MyEventEmitter {
+class Modal extends MyEventEmitter {
   constructor(private container: HTMLElement) {
     super();
   }
 }
 
-export default MyModal;
+export default Modal;

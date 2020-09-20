@@ -1,7 +1,7 @@
 type ListenerArgs = { [key: string]: unknown };
 type Listener = (args: ListenerArgs) => void;
 
-class MyEventEmitter {
+class EventEmitter {
   private events: {
     [event: string]: Array<Listener>;
   };
@@ -41,4 +41,4 @@ class MyEventEmitter {
   }
 }
 
-export default MyEventEmitter;
+export default EventEmitter;

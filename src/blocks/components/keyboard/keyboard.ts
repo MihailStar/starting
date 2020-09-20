@@ -18,7 +18,7 @@ type ButtonProps = {
   modifiers: Array<SchemeModifier>;
 };
 
-class MyKeyboard extends MyEventEmitter {
+class Keyboard extends MyEventEmitter {
   private elements: Array<HTMLButtonElement>;
   private props: {
     currentLanguage: SchemeLanguage;
@@ -270,6 +270,6 @@ class MyKeyboard extends MyEventEmitter {
   }
 }
 
-Object.freeze(MyKeyboard.prototype);
+Object.freeze(Keyboard.prototype);
 
-export default MyKeyboard;
+export default Keyboard;
