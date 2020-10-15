@@ -61,7 +61,7 @@
     "yaspeller": "^7.0.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=13.0.0"
   },
   "name": "starting",
   "private": true,
