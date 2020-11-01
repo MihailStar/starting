@@ -1,4 +1,5 @@
 /* stylelint-disable property-no-vendor-prefix */
+
 .counter {
   $font-size: ($base-unit * 4);
   @extend %border-box;
