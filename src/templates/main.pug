@@ -18,23 +18,23 @@ include ../blocks/components/textarea/textarea.pug
 block variables
 
 doctype html
-html(lang=documentLanguage || void 0)
+html(lang=documentLanguage)
   head
-    meta(charset='utf-8')
-    meta(name='description', content=pageDescription)
-    meta(name='keywords', content=pageKeywords)
-    meta(name='format-detection', content='email=no')
-    meta(name='format-detection', content='telephone=no')
+    meta(charset="utf-8")
+    meta(name="description", content=pageDescription)
+    meta(name="keywords", content=pageKeywords)
+    meta(name="format-detection", content="email=no")
+    meta(name="format-detection", content="telephone=no")
     meta(
-      name='viewport',
-      content='width=device-width, initial-scale=1, shrink-to-fit=no'
+      name="viewport",
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     )
     block head
-    link(href='./styles/main.css', rel='stylesheet')
+    link(href="./styles/main.css", rel="stylesheet")
     title= pageTitle
 
   body.no-js(class=bodyClasses)
     script.
-      document.body.className = document.body.className.replace('no-js', 'js');
+      document.body.className = document.body.className.replace("no-js", "js");
     block body
-    script(src='./scripts/main.js', defer)
+    script(src="./scripts/main.js", defer)

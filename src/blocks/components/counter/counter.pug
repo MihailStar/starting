@@ -14,20 +14,20 @@ mixin counter(settings = {})
     button(
       class=`counter__button counter__button_${modifier}`,
       aria-label=title,
-      type='button'
+      type="button"
     )
       span.visually-hidden= title
-      +icon(icon).counter__icon(width='24', height='24')
+      +icon(icon).counter__icon(width="24", height="24")
 
   .counter&attributes(attributes)
-    +counter-button('Уменьшить', 'decrease', 'minus')
+    +counter-button("Уменьшить", "decrease", "minus")
     input.counter__input(
-      type='number',
+      type="number",
       value=String(value),
       min=String(min),
       max=String(max),
       step=String(step),
-      tabindex='-1',
+      tabindex="-1",
       readonly
     )
-    +counter-button('Увеличить', 'increase', 'plus')
+    +counter-button("Увеличить", "increase", "plus")

@@ -1,14 +1,14 @@
 //- @example
   +select
     option(value, selected, disabled) Select
-    option(value='example') Example
+    option(value="example") Example
 //- @example
   +select()(disabled)
     option(value, selected, disabled) Select
-    option(value='example') Example
+    option(value="example") Example
 //- @param {string} [label]
 mixin select(label)
   .select
     select.select__element(aria-label=label)&attributes(attributes)
       block
-    +icon('chevron-down').select__icon(width='24', height='24')
+    +icon("chevron-down").select__icon(width="24", height="24")

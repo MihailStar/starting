@@ -10,11 +10,9 @@ block variables
 
 block head
   link(
-    href='https://fonts.googleapis.com/css?family=Ubuntu&display=swap',
-    rel='stylesheet'
+    href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap",
+    rel="stylesheet"
   )
-
-block body
   style.
     html {
       box-sizing: border-box;
@@ -66,23 +64,24 @@ block body
       font-family: inherit;
     }
 
+block body
   table
     tr
       td
         b button
-        +button('Example')(type='button')
-        +button('Example').button_accent(type='button')
-        +button('Example')(href='javascript:void(0);')
-        +button('Example').button_accent(href='javascript:void(0);')
+        +button('Example')(type="button")
+        +button('Example').button_accent(type="button")
+        +button('Example')(href="javascript:void(0);")
+        +button('Example').button_accent(href="javascript:void(0);")
       td
         b
-        +button('Example')(href='javascript:void(0);', tabindex='-1')
+        +button('Example')(href="javascript:void(0);", tabindex="-1")
         +button('Example').button_accent(
-          href='javascript:void(0);',
-          tabindex='-1'
+          href="javascript:void(0);",
+          tabindex="-1"
         )
-        +button('Example')(type='button', disabled)
-        +button('Example').button_accent(type='button', disabled)
+        +button('Example')(type="button", disabled)
+        +button('Example').button_accent(type="button", disabled)
 
     tr
       td
@@ -95,32 +94,32 @@ block body
         +checkbox()(checked, disabled)
 
     tr
-      td(colspan='2')
+      td(colspan="2")
         b counter
         +counter({ max: 10 })
 
     tr
-      td(colspan='2')
+      td(colspan="2")
         b icon
-        +icon('check')(width='40', height='40')
+        +icon('check')(width="40", height="40")
 
     tr
       td
         b input
-        +input()(placeholder='Example')
-        +input()(placeholder='Example', required)
+        +input()(placeholder="Example")
+        +input()(placeholder="Example", required)
       td
         b
-        +input()(placeholder='Example', disabled)
-        +input()(placeholder='Example', required, disabled)
+        +input()(placeholder="Example", disabled)
+        +input()(placeholder="Example", required, disabled)
 
     tr
-      td(colspan='2')
+      td(colspan="2")
         b keyboard
         +keyboard
 
     tr
-      td(colspan='2')
+      td(colspan="2")
         b modal
         +modal
 
@@ -135,7 +134,7 @@ block body
         +radio()(name=getRandomDoubleId(), checked, disabled)
 
     tr
-      td(colspan='2')
+      td(colspan="2")
         b rating
         +rating({ checked: 0 })
 
@@ -144,12 +143,12 @@ block body
         b select
         +select
           option(value, selected, disabled) Select
-          option(value='example') Example
+          option(value="example") Example
       td
         b
         +select()(disabled)
           option(value, selected, disabled) Select
-          option(value='example') Example
+          option(value="example") Example
 
     tr
       td
@@ -164,9 +163,9 @@ block body
     tr
       td
         b textarea
-        +textarea()(placeholder='Example')
-        +textarea()(placeholder='Example', required)
+        +textarea()(placeholder="Example")
+        +textarea()(placeholder="Example", required)
       td
         b
-        +textarea()(placeholder='Example', disabled)
-        +textarea()(placeholder='Example', required, disabled)
+        +textarea()(placeholder="Example", disabled)
+        +textarea()(placeholder="Example", required, disabled)

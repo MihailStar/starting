@@ -12,7 +12,7 @@ mixin rating(settings = {})
   fieldset.rating(aria-label=label)&attributes(attributes)
     each index in Array.from({ length: numberOf }, (_, i) => i + 1)
       input.rating__element(
-        type='radio',
+        type="radio",
         name=name,
         value=String(index),
         aria-label=String(index),
