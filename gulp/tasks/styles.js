@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import autoprefixer from 'autoprefixer';
-import cssMqpacker from 'css-mqpacker';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import nodeSass from 'node-sass';
@@ -39,9 +38,6 @@ function compileStyles() {
         postcssImport(),
         postcss100vhFix(),
         autoprefixer(),
-        cssMqpacker({
-          sort: true,
-        }),
         postcssCsso({
           comments: false,
         }),

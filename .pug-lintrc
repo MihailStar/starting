@@ -21,7 +21,7 @@
     }
   ],
   "requireStrictEqualityOperators": true,
-  "validateAttributeQuoteMarks": "'",
+  "validateAttributeQuoteMarks": "\"",
   "validateAttributeSeparator": {
     "multiLineSeparator": ",\n  ",
     "separator": ", "
