@@ -6,9 +6,9 @@
   padding-right: (($base-unit * 0.5) / $font-size * 1em);
   padding-bottom: (($base-unit * 0.5) / $font-size * 1em);
   padding-left: (($base-unit * 0.5) / $font-size * 1em);
+  font-size: $font-size;
   border-radius: (($base-unit * 1) / $font-size * 1em);
   box-shadow: inset 0 0 0 1px $color-line;
-  font-size: $font-size;
 
   &__row {
     display: flex;
@@ -17,17 +17,17 @@
 
   &__button {
     @extend %button;
-    margin-top: (($base-unit * 0.5) / $font-size * 1em);
-    margin-right: (($base-unit * 0.5) / $font-size * 1em);
-    margin-bottom: (($base-unit * 0.5) / $font-size * 1em);
-    margin-left: (($base-unit * 0.5) / $font-size * 1em);
+    width: (($base-unit * 8) / $font-size * 1em);
+    min-width: auto;
+    height: (($base-unit * 8) / $font-size * 1em);
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    min-width: auto;
-    width: (($base-unit * 8) / $font-size * 1em);
-    height: (($base-unit * 8) / $font-size * 1em);
+    margin-top: (($base-unit * 0.5) / $font-size * 1em);
+    margin-right: (($base-unit * 0.5) / $font-size * 1em);
+    margin-bottom: (($base-unit * 0.5) / $font-size * 1em);
+    margin-left: (($base-unit * 0.5) / $font-size * 1em);
     text-transform: none;
 
     &_accent {

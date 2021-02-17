@@ -5,8 +5,8 @@
   display: inline-block;
   width: 100%;
   height: (($base-unit * 10) / $font-size * 1em);
-  vertical-align: middle;
   font-size: $font-size;
+  vertical-align: middle;
 
   &__icon {
     position: absolute;
@@ -14,30 +14,30 @@
     right: (($base-unit * 2.5) / $font-size * 1em);
     width: (($base-unit * 6) / $font-size * 1em);
     height: (($base-unit * 6) / $font-size * 1em);
-    color: $color-text-dark;
     font-size: inherit;
+    color: $color-text-dark;
     transform: translateY(-50%);
   }
 
   &__element {
+    width: 100%;
+    height: 100%;
     padding-top: (($base-unit * 2) / $font-size * 1em);
     padding-right: (($base-unit * 11) / $font-size * 1em);
     padding-bottom: (($base-unit * 2) / $font-size * 1em);
     padding-left: (($base-unit * 4) / $font-size * 1em);
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: (($base-unit * 1) / $font-size * 1em);
-    background-color: $color-body;
-    box-shadow: inset 0 0 0 1px $color-line;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 400;
+    line-height: (($base-unit * 6) / $font-size * 1em);
     color: $color-text-dark;
     vertical-align: middle;
-    font-weight: 400;
-    font-style: normal;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: (($base-unit * 6) / $font-size * 1em);
     cursor: pointer;
+    background-color: $color-body;
+    border: 0;
+    border-radius: (($base-unit * 1) / $font-size * 1em);
+    box-shadow: inset 0 0 0 1px $color-line;
     transition: $transition-duration;
     appearance: none;
 
@@ -47,10 +47,10 @@
 
     &:focus,
     &:hover {
-      outline: 0;
-      background-color: darken($color-body, 5%);
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
       color: darken($color-text-dark, 5%);
+      background-color: darken($color-body, 5%);
+      outline: 0;
+      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
 
       + .select__icon {
         color: darken($color-text-dark, 5%);
@@ -58,10 +58,10 @@
     }
 
     &[disabled] {
-      opacity: 0.5;
-      cursor: default;
       pointer-events: none;
+      cursor: default;
       user-select: none;
+      opacity: 0.5;
 
       + .select__icon {
         opacity: 0.5;

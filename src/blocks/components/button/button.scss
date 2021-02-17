@@ -5,26 +5,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: (($base-unit * 30) / $font-size * 1em);
   padding-top: (($base-unit * 2) / $font-size * 1em);
   padding-right: (($base-unit * 4) / $font-size * 1em);
   padding-bottom: (($base-unit * 2) / $font-size * 1em);
   padding-left: (($base-unit * 4) / $font-size * 1em);
-  min-width: (($base-unit * 30) / $font-size * 1em);
-  border: 0;
-  border-radius: (($base-unit * 1) / $font-size * 1em);
-  background-color: $color-body;
-  box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
+  font-family: inherit;
+  font-size: $font-size;
+  font-style: normal;
+  font-weight: 400;
+  line-height: (($base-unit * 6) / $font-size * 1em);
   color: $color-text-dark;
-  vertical-align: middle;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  font-weight: 400;
-  font-style: normal;
-  font-size: $font-size;
-  font-family: inherit;
-  line-height: (($base-unit * 6) / $font-size * 1em);
+  vertical-align: middle;
   cursor: pointer;
+  background-color: $color-body;
+  border: 0;
+  border-radius: (($base-unit * 1) / $font-size * 1em);
+  box-shadow: inset 0 0 0 1px $color-line, inset 0 2px 4px 0 rgba(#000000, 0);
   transition: $transition-duration;
 
   &__text {
@@ -33,27 +34,27 @@
 
   &:focus,
   &:hover {
-    outline: 0;
+    color: darken($color-text-dark, 5%);
     background-color: darken($color-body, 5%);
+    outline: 0;
     box-shadow: inset 0 0 0 1px darken($color-line, 5%),
       inset 0 2px 4px 0 rgba(#000000, 0);
-    color: darken($color-text-dark, 5%);
   }
 
   &:active {
+    color: darken($color-text-dark, 10%);
+    user-select: none;
     background-color: darken($color-body, 10%);
     box-shadow: inset 0 0 0 1px darken($color-line, 10%),
       inset 0 2px 4px 0 rgba(#000000, 0.2);
-    color: darken($color-text-dark, 10%);
-    user-select: none;
   }
 
   &[disabled],
   &[tabindex='-1'] {
-    opacity: 0.5;
-    cursor: default;
     pointer-events: none;
+    cursor: default;
     user-select: none;
+    opacity: 0.5;
   }
 
   &[hidden] {
@@ -61,25 +62,29 @@
   }
 
   &_accent {
+    color: $color-text-light;
     background-color: $color-accent;
     box-shadow: inset 0 0 0 1px $color-accent,
       inset 0 2px 4px 0 rgba(#000000, 0);
-    color: $color-text-light;
 
     &:focus,
     &:hover {
+      color: darken($color-text-light, 5%);
       background-color: darken($color-accent, 5%);
       box-shadow: inset 0 0 0 1px darken($color-accent, 5%),
         inset 0 2px 4px 0 rgba(#000000, 0);
-      color: darken($color-text-light, 5%);
     }
 
     &:active {
+      color: darken($color-text-light, 10%);
+      user-select: none;
       background-color: darken($color-accent, 10%);
       box-shadow: inset 0 0 0 1px darken($color-accent, 10%),
         inset 0 2px 4px 0 rgba(#000000, 0.2);
-      color: darken($color-text-light, 10%);
-      user-select: none;
     }
+  }
+
+  &_full-width {
+    width: 100%;
   }
 }

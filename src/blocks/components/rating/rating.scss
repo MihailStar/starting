@@ -4,26 +4,26 @@
   @extend %border-box;
   position: relative;
   display: inline-block;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
+  width: (($base-unit * 10) * $number-of / $font-size * 1em);
+  height: (($base-unit * 10) / $font-size * 1em);
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
-  width: (($base-unit * 10) * $number-of / $font-size * 1em);
-  height: (($base-unit * 10) / $font-size * 1em);
-  border: 0;
-  border-radius: (($base-unit * 1) / $font-size * 1em);
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  font-size: $font-size;
+  vertical-align: middle;
   background-color: $color-body;
   background-image: url('../images/star-outline.svg');
+  background-repeat: repeat-x;
   background-size: (($base-unit * 10) / $font-size * 1em)
     (($base-unit * 10) / $font-size * 1em);
-  background-repeat: repeat-x;
+  border: 0;
+  border-radius: (($base-unit * 1) / $font-size * 1em);
   box-shadow: inset 0 0 0 1px $color-line;
-  vertical-align: middle;
-  font-size: $font-size;
 
   &:focus-within,
   &:hover {
@@ -36,19 +36,19 @@
     top: 0;
     left: 0;
     flex-shrink: 0;
+    width: (($base-unit * 10) / $font-size * 1em);
+    height: (($base-unit * 10) / $font-size * 1em);
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
-    width: (($base-unit * 10) / $font-size * 1em);
-    height: (($base-unit * 10) / $font-size * 1em);
-    border: 0;
+    font-size: inherit;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
     background-size: (($base-unit * 10) / $font-size * 1em)
       (($base-unit * 10) / $font-size * 1em);
-    background-repeat: repeat-x;
-    vertical-align: middle;
-    font-size: inherit;
-    cursor: pointer;
+    border: 0;
     transition: $transition-duration;
     appearance: none;
 
