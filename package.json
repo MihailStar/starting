@@ -7,7 +7,7 @@
     "@babel/preset-typescript": "^7.12.16",
     "@babel/register": "^7.12.13",
     "@prettier/plugin-pug": "^1.13.3",
-    "@prettier/plugin-xml": "^0.12.0",
+    "@prettier/plugin-xml": "^0.13.0",
     "@tsconfig/recommended": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
@@ -62,7 +62,7 @@
     "yaspeller": "^7.0.0"
   },
   "engines": {
-    "node": ">=13.0.0"
+    "node": ">=14.0.0"
   },
   "name": "starting",
   "private": true,
