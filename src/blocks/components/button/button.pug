@@ -6,18 +6,15 @@
 //- @example +button("Example").button_accent(type="button", disabled)
 //- @example +button("Example")(href="javascript:void(0);", tabindex="-1")
 //- @example +button("Example").button_accent(href="javascript:void(0);", tabindex="-1")
-//- @param {string} title
-mixin button(title)
+//- @param {string} text
+mixin button(text)
   if attributes.href
-    if attributes.target === "_blank"
-      a.button(rel="noopener noreferrer")&attributes(attributes)
-        span.button__title= title
-        block
-    else
-      a.button&attributes(attributes)
-        span.button__title= title
+    a.button(
+      rel=attributes.target === '_blank' ? 'noopener noreferrer' : undefined
+    )&attributes(attributes)
+      span.button__text= text
         block
   else
     button.button&attributes(attributes)
-      span.button__title= title
+      span.button__text= text
       block

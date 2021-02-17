@@ -18,11 +18,13 @@ include ../blocks/components/textarea/textarea.pug
 block variables
 
 doctype html
-html(lang=documentLanguage)
+html(lang=typeof documentLanguage === 'string' ? documentLanguage : 'ru')
   head
     meta(charset="utf-8")
-    meta(name="description", content=pageDescription)
-    meta(name="keywords", content=pageKeywords)
+    if typeof pageDescription === 'string'
+      meta(name="description", content=pageDescription)
+    if typeof pageKeywords === 'string'
+      meta(name="keywords", content=pageKeywords)
     meta(name="format-detection", content="email=no")
     meta(name="format-detection", content="telephone=no")
     meta(
