@@ -23,7 +23,7 @@ const configuration = {
 
 const development = {
   mode: 'development',
-  devtool: 'eval',
+  devtool: 'eval-cheap-module-source-map',
 };
 
 const production = {
