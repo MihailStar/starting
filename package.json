@@ -1,12 +1,12 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
-    "@babel/preset-typescript": "^7.12.16",
+    "@babel/core": "^7.12.17",
+    "@babel/node": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-typescript": "^7.12.17",
     "@babel/register": "^7.12.13",
-    "@prettier/plugin-pug": "^1.13.3",
+    "@prettier/plugin-pug": "^1.13.4",
     "@prettier/plugin-xml": "^0.13.0",
     "@tsconfig/recommended": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
@@ -58,7 +58,7 @@
     "stylelint-config-sass-guidelines": "^8.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "typescript": "^4.1.5",
-    "webpack": "^5.22.0",
+    "webpack": "^5.23.0",
     "webpack-stream": "^6.1.2",
     "yaspeller": "^7.0.0"
   },
