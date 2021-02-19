@@ -1,4 +1,5 @@
 /* eslint no-param-reassign: ["error", { "props": false }] */
+
 import codes from './codes';
 import createButton from './button';
 import MyEventEmitter from '../../../scripts/utilities/event-emitter';

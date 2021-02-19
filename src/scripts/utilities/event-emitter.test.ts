@@ -1,12 +1,17 @@
-// npx babel-node --extensions .js,.ts --presets @babel/preset-typescript \"./src/scripts/utilities/event-emitter.test\"
+// npx babel-node --extensions .ts --presets @babel/preset-typescript \"./src/scripts/utilities/event-emitter.test\"
 import { strict as assert } from 'assert';
 import MyEventEmitter from './event-emitter';
 
 const myEventEmitter = new MyEventEmitter();
 
-function logger(data) {
-  logger.data = data;
+interface Logger {
+  (data: Record<string, unknown>): void;
+  data?: Parameters<Logger>[0];
 }
+
+const logger: Logger = (data) => {
+  logger.data = data;
+};
 
 let method = 'one';
 logger({});
