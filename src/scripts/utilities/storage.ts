@@ -1,5 +1,5 @@
 class Storage<Type> {
-  public getNamespace: () => string;
+  getNamespace: () => string;
 
   constructor(namespace: string) {
     this.getNamespace = () => namespace;

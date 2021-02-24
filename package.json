@@ -70,17 +70,17 @@
   "scripts": {
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
-    "block": "babel-node \"./createBlock\"",
-    "deploy": "gh-pages --dist \"./dist\" --message deploy",
+    "block": "babel-node --extensions .ts --presets @babel/preset-typescript ./createBlock",
+    "deploy": "gh-pages --dist ./dist --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
-    "lint:scripts": "eslint \"./src\" --ext .js,.ts",
-    "lint:styles": "stylelint \"./src/**/*.scss\"",
-    "lint:templates": "pug-lint \"./src\"",
+    "lint:scripts": "eslint --ext .js,.ts ./src",
+    "lint:styles": "stylelint ./src/**/*.scss",
+    "lint:templates": "pug-lint ./src",
     "predeploy": "npm run prod",
-    "prettier": "prettier \"./src/**/*.{js,pug,scss,svg,ts}\" --check",
+    "prettier": "prettier --check ./src/**/*.{js,pug,scss,svg,ts}",
     "prod": "cross-env NODE_ENV=production gulp default",
-    "speller": "yaspeller \"./src\"",
+    "speller": "yaspeller ./src",
     "sprite": "cross-env NODE_ENV=production gulp generateSprite"
   }
 }

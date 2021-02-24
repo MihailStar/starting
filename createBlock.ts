@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import fs from 'fs';
 import path from 'path';
 
@@ -12,9 +10,9 @@ const filesData = {
   ts: '',
 };
 
-function createDirectory(directoryPath /*: string */) /*: Promise<string> */ {
+function createDirectory(directoryPath: string): Promise<string> {
   return new Promise((onSuccess, onError) => {
-    fs.mkdir(directoryPath, (error /*: Error | null */) => {
+    fs.mkdir(directoryPath, (error: Error | null) => {
       if (error) {
         onError(error);
       } else {
@@ -24,12 +22,9 @@ function createDirectory(directoryPath /*: string */) /*: Promise<string> */ {
   });
 }
 
-function createFile(
-  filePath /*: string */,
-  fileData /*: string */
-) /*: Promise<string> */ {
+function createFile(filePath: string, fileData: string): Promise<string> {
   return new Promise((onSuccess, onError) => {
-    fs.writeFile(filePath, fileData, 'utf8', (error /*: Error | null */) => {
+    fs.writeFile(filePath, fileData, 'utf8', (error: Error | null) => {
       if (error) {
         onError(error);
       } else {
@@ -39,10 +34,8 @@ function createFile(
   });
 }
 
-function createFiles(
-  directoryPath /*: string */
-) /*: Promise<Array<string>> */ {
-  const promises /*: Array<Promise<string>> */ = [];
+function createFiles(directoryPath: string): Promise<Array<string>> {
+  const promises: Array<Promise<string>> = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {
     promises.push(
@@ -58,5 +51,5 @@ function createFiles(
 
 Promise.resolve()
   .then(() => createDirectory(path.join(DIRECTORY, blockName)))
-  .then((directoryPath /*: string */) => createFiles(directoryPath))
-  .catch((error /*: Error */) => console.error(error));
+  .then((directoryPath: string) => createFiles(directoryPath))
+  .catch((error: Error) => process.stdout.write(error.toString()));
