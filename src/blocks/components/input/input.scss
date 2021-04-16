@@ -31,6 +31,7 @@
     &::placeholder {
       color: lighten($color-text-dark, 15%);
       text-overflow: ellipsis;
+      transition: $transition-duration;
     }
 
     &:focus {

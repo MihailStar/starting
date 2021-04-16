@@ -1,5 +1,5 @@
 {
   "exclude": ["dist", "node_modules"],
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["src/scripts", "src/blocks"]
+  "include": ["src/scripts", "src/blocks/**/*.ts"]
 }

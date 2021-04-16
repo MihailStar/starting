@@ -22,7 +22,7 @@ class Storage<Type> {
     try {
       const data = localStorage.getItem(this.getNamespace());
 
-      return typeof data === 'string' ? JSON.parse(data) : null;
+      return typeof data === 'string' ? (JSON.parse(data) as Type) : null;
     } catch {
       return null;
     }

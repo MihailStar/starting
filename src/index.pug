@@ -77,18 +77,21 @@ block body
           href="javascript:void(0);",
           tabindex="-1"
         )
-        +button("Example")(type="button", disabled)
-        +button("Example").button_accent(type="button", disabled)
+        +button("Example")(type="button", disabled="disabled")
+        +button("Example").button_accent(
+          type="button",
+          disabled="disabled"
+        )
 
     tr
       td
         b checkbox
         +checkbox
-        +checkbox()(checked)
+        +checkbox(checked="checked")
       td
         b
-        +checkbox()(disabled)
-        +checkbox()(checked, disabled)
+        +checkbox(disabled="disabled")
+        +checkbox(checked="checked", disabled="disabled")
 
     tr
       td(colspan="2")
@@ -103,12 +106,16 @@ block body
     tr
       td
         b input
-        +input()(placeholder="Example")
-        +input()(placeholder="Example", required)
+        +input(placeholder="Example")
+        +input(placeholder="Example", required="required")
       td
         b
-        +input()(placeholder="Example", disabled)
-        +input()(placeholder="Example", required, disabled)
+        +input(placeholder="Example", disabled="disabled")
+        +input(
+          placeholder="Example",
+          required="required",
+          disabled="disabled"
+        )
 
     tr
       td(colspan="2")
@@ -123,12 +130,16 @@ block body
     tr
       td
         b radio
-        +radio()(name=getRandomDoubleId())
-        +radio()(name=getRandomDoubleId(), checked)
+        +radio(name=getRandomDoubleId())
+        +radio(name=getRandomDoubleId(), checked="checked")
       td
         b
-        +radio()(name=getRandomDoubleId(), disabled)
-        +radio()(name=getRandomDoubleId(), checked, disabled)
+        +radio(name=getRandomDoubleId(), disabled="disabled")
+        +radio(
+          name=getRandomDoubleId(),
+          checked="checked",
+          disabled="disabled"
+        )
 
     tr
       td(colspan="2")
@@ -143,7 +154,7 @@ block body
           option(value="example") Example
       td
         b
-        +select()(disabled)
+        +select(disabled="disabled")
           option(value, selected, disabled) Select
           option(value="example") Example
 
@@ -151,18 +162,22 @@ block body
       td
         b switch
         +switch
-        +switch()(checked)
+        +switch(checked="checked")
       td
         b
-        +switch()(disabled)
-        +switch()(checked, disabled)
+        +switch(disabled="disabled")
+        +switch(checked="checked", disabled="disabled")
 
     tr
       td
         b textarea
-        +textarea()(placeholder="Example")
-        +textarea()(placeholder="Example", required)
+        +textarea(placeholder="Example")
+        +textarea(placeholder="Example", required="required")
       td
         b
-        +textarea()(placeholder="Example", disabled)
-        +textarea()(placeholder="Example", required, disabled)
+        +textarea(placeholder="Example", disabled="disabled")
+        +textarea(
+          placeholder="Example",
+          required="required",
+          disabled="disabled"
+        )
