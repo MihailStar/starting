@@ -10,14 +10,14 @@ import postcss100vhFix from 'postcss-100vh-fix';
 import postcssCsso from 'postcss-csso';
 import postcssImport from 'postcss-import';
 import prettier from 'gulp-prettier';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
 import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import wait from 'gulp-wait';
 import { paths, isDevelopment, isProductionMinimized } from '../configuration';
 import server from './server';
 
-sass.compiler = nodeSass;
+const sass = gulpSass(nodeSass);
 
 function compileStyles() {
   return gulp
