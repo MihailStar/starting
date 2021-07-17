@@ -1,0 +1,5 @@
+{
+  "*.pug": "pug-lint",
+  "*.{css,scss}": "stylelint",
+  "*.{js,ts}": "eslint --ext .js,.ts"
+}
