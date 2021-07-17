@@ -1,7 +1,9 @@
 // npx babel-node --extensions .ts --presets @babel/preset-typescript ./src/blocks/components/keyboard/scheme.test
+
 import { strict as assert } from 'assert';
-import codes from './codes';
-import scheme, { Language } from './scheme';
+
+import { Language, scheme } from './scheme';
+import { codes } from './codes';
 
 Object.keys(Language).forEach((key) => {
   assert.deepEqual(

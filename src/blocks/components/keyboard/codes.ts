@@ -78,4 +78,4 @@ const codes: Array<Array<string>> = [
   ],
 ];
 
-export default codes;
+export { codes };

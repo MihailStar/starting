@@ -11,8 +11,8 @@ mixin counter(settings = {})
   //- @param {string} modifier
   //- @param {string} icon
   mixin counter-button(title, modifier, icon)
-    button(
-      class=`counter__button counter__button_${modifier}`,
+    button.counter__button(
+      class=`counter__button_${modifier}`,
       aria-label=title,
       type="button"
     )

@@ -39,4 +39,4 @@ class Storage<Type> {
   }
 }
 
-export default Storage;
+export { Storage };

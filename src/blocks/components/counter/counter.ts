@@ -1,4 +1,4 @@
-import MyEventEmitter from '../../../scripts/utilities/event-emitter';
+import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 
 class Counter extends MyEventEmitter {
   private elements: {
@@ -96,4 +96,4 @@ class Counter extends MyEventEmitter {
   }
 }
 
-export default Counter;
+export { Counter };

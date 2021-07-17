@@ -1,4 +1,4 @@
-import MyEventEmitter from '../../../scripts/utilities/event-emitter';
+import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 
 class Rating extends MyEventEmitter {
   constructor(container: HTMLElement) {
@@ -12,4 +12,4 @@ class Rating extends MyEventEmitter {
   }
 }
 
-export default Rating;
+export { Rating };

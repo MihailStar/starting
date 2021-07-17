@@ -17,4 +17,4 @@ function createButton(options: {
   return buttonElement;
 }
 
-export default createButton;
+export { createButton };

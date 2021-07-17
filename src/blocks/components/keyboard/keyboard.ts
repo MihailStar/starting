@@ -1,13 +1,15 @@
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
-import codes from './codes';
-import createButton from './button';
-import MyEventEmitter from '../../../scripts/utilities/event-emitter';
-import scheme, {
-  Language as SchemeLanguage,
+import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
+import {
   ControlKey as SchemeControlKey,
   Modifier as SchemeModifier,
+  Language as SchemeLanguage,
+  ButtonDescription as SchemeButtonDescription,
+  scheme,
 } from './scheme';
+import { createButton } from './button';
+import { codes } from './codes';
 
 const CLASS_ACTIVITY = 'keyboard__button_accent';
 
@@ -158,10 +160,15 @@ class Keyboard extends MyEventEmitter {
     }
 
     const [rowIndex, buttonIndex] = schemeIndex;
-    const code = codes[rowIndex][buttonIndex];
-    const { chars, keys, controlKeys = [], modifiers = [] } = scheme[
-      this.props.currentLanguage
-    ][rowIndex][buttonIndex];
+    const code = (codes[rowIndex] as string[])[buttonIndex] as string;
+    const {
+      chars,
+      keys,
+      controlKeys = [],
+      modifiers = [],
+    } = (
+      scheme[this.props.currentLanguage][rowIndex] as SchemeButtonDescription[]
+    )[buttonIndex] as SchemeButtonDescription;
 
     const getCurrentIndex = (): number => {
       if (chars.length === 1) {
@@ -179,10 +186,10 @@ class Keyboard extends MyEventEmitter {
     };
 
     return {
-      char: chars[getCurrentIndex()],
+      char: chars[getCurrentIndex()] as string,
       code,
       controlKeys,
-      key: keys[getCurrentIndex()],
+      key: keys[getCurrentIndex()] as string,
       modifiers,
     };
   }
@@ -273,4 +280,4 @@ class Keyboard extends MyEventEmitter {
 
 Object.freeze(Keyboard.prototype);
 
-export default Keyboard;
+export { Keyboard };

@@ -22,4 +22,4 @@ function makePlural(number: number, titles: [string, string, string]): string {
   return titles[1];
 }
 
-export default makePlural;
+export { makePlural };

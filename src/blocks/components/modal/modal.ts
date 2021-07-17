@@ -1,4 +1,4 @@
-import MyEventEmitter from '../../../scripts/utilities/event-emitter';
+import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 
 class Modal extends MyEventEmitter {
   constructor(private container: HTMLElement) {
@@ -6,4 +6,4 @@ class Modal extends MyEventEmitter {
   }
 }
 
-export default Modal;
+export { Modal };

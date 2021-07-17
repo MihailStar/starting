@@ -28,7 +28,7 @@ enum Modifier {
   TAB = 'tab',
 }
 
-type Button = {
+type ButtonDescription = {
   chars: [string] | [string, string];
   controlKeys?: Array<ControlKey>;
   keys: [string] | [string, string];
@@ -36,7 +36,7 @@ type Button = {
 };
 
 type Scheme = {
-  [key in Language]: Array<Array<Button>>;
+  [key in Language]: Array<Array<ButtonDescription>>;
 };
 
 // prettier-ignore
@@ -201,5 +201,4 @@ const scheme: Scheme = {
   ],
 };
 
-export { Language, ControlKey, Modifier };
-export default scheme;
+export { Language, ControlKey, Modifier, ButtonDescription, scheme };
