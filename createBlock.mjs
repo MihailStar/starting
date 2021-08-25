@@ -33,7 +33,7 @@ function createDirectory(directoryPath) {
 /**
  * @param {string} filePath
  * @param {string} fileData
- * @returns Promise<string>
+ * @returns {Promise<string>}
  */
 function createFile(filePath, fileData) {
   return new Promise((onSuccess, onError) => {
@@ -49,7 +49,7 @@ function createFile(filePath, fileData) {
 
 /**
  * @param {string} directoryPath
- * @returns Promise<Array<string>>
+ * @returns {Promise<Array<string>>}
  */
 function createFiles(directoryPath) {
   /**
