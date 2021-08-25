@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import imagemin from 'gulp-imagemin';
 import imageminWebp from 'imagemin-webp';
@@ -78,7 +77,7 @@ const paths = {
   },
 };
 
-const imageminConfig = [
+const imageminConfiguration = [
   imagemin.gifsicle({
     interlaced: true,
   }),
@@ -107,6 +106,6 @@ export {
   isDevelopment,
   directory,
   paths,
-  imageminConfig,
+  imageminConfiguration,
   isProductionMinimized,
 };

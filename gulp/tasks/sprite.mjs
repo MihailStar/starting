@@ -1,0 +1,29 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import rename from 'gulp-rename';
+import svgstore from 'gulp-svgstore';
+import size from 'gulp-size';
+
+import { paths, imageminConfiguration } from '../configuration.mjs';
+
+function generateSprite() {
+  return gulp
+    .src(paths.sprite.src)
+    .pipe(imagemin(imageminConfiguration))
+    .pipe(
+      rename({
+        prefix: 'icon-',
+      })
+    )
+    .pipe(svgstore())
+    .pipe(
+      size({
+        title: 'generateSprite',
+      })
+    )
+    .pipe(gulp.dest(paths.sprite.dest));
+}
+
+export { generateSprite };

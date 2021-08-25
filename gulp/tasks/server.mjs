@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import browserSync from 'browser-sync';
-import { directory } from '../configuration';
+
+import { directory } from '../configuration.mjs';
 
 const server = browserSync.create('server');
 
@@ -24,5 +24,4 @@ function reloadServer(done) {
   done();
 }
 
-export { initializeServer, reloadServer };
-export default server;
+export { server, initializeServer, reloadServer };

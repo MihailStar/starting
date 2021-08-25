@@ -1,7 +1,10 @@
-import TerserPlugin from 'terser-webpack-plugin';
-import { isDevelopment } from './gulp/configuration';
+/* eslint-disable import/no-extraneous-dependencies */
 
-const configuration = {
+import TerserPlugin from 'terser-webpack-plugin';
+
+import { isDevelopment } from './gulp/configuration.mjs';
+
+const defaultConfiguration = {
   resolve: {
     extensions: ['.js', '.ts'],
   },
@@ -21,12 +24,12 @@ const configuration = {
   },
 };
 
-const development = {
+const developmentConfiguration = {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
 };
 
-const production = {
+const productionConfiguration = {
   mode: 'production',
   optimization: {
     minimizer: [
@@ -43,7 +46,10 @@ const production = {
   },
 };
 
-export default {
-  ...configuration,
-  ...(isDevelopment ? development : production),
+const configuration = {
+  ...defaultConfiguration,
+  ...(isDevelopment ? developmentConfiguration : productionConfiguration),
 };
+
+export { configuration as webpackConfiguration };
+export default configuration;

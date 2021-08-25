@@ -1,7 +1,11 @@
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs';
-import path from 'path';
 
-const DIRECTORY = path.join(__dirname, './src/blocks');
+const DIRECTORY = path.join(
+  dirname(fileURLToPath(import.meta.url)),
+  './src/blocks'
+);
 
 const [, , blockName] = process.argv;
 const filesData = {
@@ -10,9 +14,9 @@ const filesData = {
   ts: '',
 };
 
-function createDirectory(directoryPath: string): Promise<string> {
+function createDirectory(directoryPath) {
   return new Promise((onSuccess, onError) => {
-    fs.mkdir(directoryPath, (error: Error | null) => {
+    fs.mkdir(directoryPath, (error) => {
       if (error) {
         onError(error);
       } else {
@@ -22,9 +26,9 @@ function createDirectory(directoryPath: string): Promise<string> {
   });
 }
 
-function createFile(filePath: string, fileData: string): Promise<string> {
+function createFile(filePath, fileData) {
   return new Promise((onSuccess, onError) => {
-    fs.writeFile(filePath, fileData, 'utf8', (error: Error | null) => {
+    fs.writeFile(filePath, fileData, 'utf8', (error) => {
       if (error) {
         onError(error);
       } else {
@@ -34,8 +38,8 @@ function createFile(filePath: string, fileData: string): Promise<string> {
   });
 }
 
-function createFiles(directoryPath: string): Promise<Array<string>> {
-  const promises: Array<Promise<string>> = [];
+function createFiles(directoryPath) {
+  const promises = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {
     promises.push(
@@ -51,5 +55,5 @@ function createFiles(directoryPath: string): Promise<Array<string>> {
 
 Promise.resolve()
   .then(() => createDirectory(path.join(DIRECTORY, blockName)))
-  .then((directoryPath: string) => createFiles(directoryPath))
-  .catch((error: Error) => process.stdout.write(error.toString()));
+  .then((directoryPath) => createFiles(directoryPath))
+  .catch((error) => process.stdout.write(String(error)));

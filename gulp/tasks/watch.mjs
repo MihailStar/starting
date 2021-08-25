@@ -1,16 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import gulp from 'gulp';
-import { paths } from '../configuration';
-import { reloadServer } from './server';
-import compileFonts from './fonts';
-import compileImages from './images';
-import compileScripts from './scripts';
-import compileStyles from './styles';
-import compileTemplates from './templates';
-import convertImageToBase64 from './base64';
-import generateSprite from './sprite';
+
+import { convertImageToBase64 } from './base64.mjs';
+import { compileFonts } from './fonts.mjs';
+import { reloadServer } from './server.mjs';
+import { compileImages } from './images.mjs';
+import { compileScripts } from './scripts.mjs';
+import { generateSprite } from './sprite.mjs';
+import { compileStyles } from './styles.mjs';
+import { compileTemplates } from './templates.mjs';
+import { paths } from '../configuration.mjs';
 
 function watch() {
   const watchFor = {
@@ -27,4 +27,4 @@ function watch() {
   );
 }
 
-export default watch;
+export { watch };
