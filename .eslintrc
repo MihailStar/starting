@@ -11,6 +11,15 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "jsdoc/no-types": "error"
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
@@ -19,6 +28,7 @@
   "plugins": ["@typescript-eslint", "jsdoc"],
   "root": true,
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-shadow": "error",
     "import/extensions": [
       "error",
@@ -42,12 +52,17 @@
     "jsdoc/check-tag-names": "error",
     "jsdoc/check-types": "error",
     "jsdoc/check-values": "error",
-    "jsdoc/no-types": "error",
     "lines-between-class-members": [
       "error",
       "always",
       {
         "exceptAfterSingleLine": true
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
       }
     ],
     "no-shadow": "off",
