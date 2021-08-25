@@ -1,5 +1,3 @@
-/* eslint no-param-reassign: ["error", { "props": false }] */
-
 import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 import {
   ControlKey as SchemeControlKey,

@@ -14,6 +14,10 @@ const filesData = {
   ts: '',
 };
 
+/**
+ * @param {string} directoryPath
+ * @returns {Promise<string>}
+ */
 function createDirectory(directoryPath) {
   return new Promise((onSuccess, onError) => {
     fs.mkdir(directoryPath, (error) => {
@@ -26,6 +30,11 @@ function createDirectory(directoryPath) {
   });
 }
 
+/**
+ * @param {string} filePath
+ * @param {string} fileData
+ * @returns Promise<string>
+ */
 function createFile(filePath, fileData) {
   return new Promise((onSuccess, onError) => {
     fs.writeFile(filePath, fileData, 'utf8', (error) => {
@@ -38,7 +47,14 @@ function createFile(filePath, fileData) {
   });
 }
 
+/**
+ * @param {string} directoryPath
+ * @returns Promise<Array<string>>
+ */
 function createFiles(directoryPath) {
+  /**
+   * @type {Array<Promise<string>>}
+   */
   const promises = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {
