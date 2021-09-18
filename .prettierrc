@@ -1,5 +1,5 @@
 {
   "htmlWhitespaceSensitivity": "ignore",
-  "pugSingleQuote": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "xmlWhitespaceSensitivity": "ignore"
 }
