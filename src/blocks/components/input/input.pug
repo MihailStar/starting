@@ -1,8 +1,8 @@
-//- @example +input()(placeholder="Example")
-//- @example +input()(placeholder="Example", required)
-//- @example +input()(placeholder="Example", disabled)
-//- @example +input()(placeholder="Example", required, disabled)
+//- @example +input()(placeholder='Example')
+//- @example +input()(placeholder='Example', required)
+//- @example +input()(placeholder='Example', disabled)
+//- @example +input()(placeholder='Example', required, disabled)
 //- @param {string} [label]
 mixin input(label)
   .input
-    input.input__element(type="text", aria-label=label)&attributes(attributes)
+    input.input__element(type='text', aria-label=label)&attributes(attributes)

@@ -1,11 +1,11 @@
-//- @example +icon("example")(width="40", height="40")
+//- @example +icon('example')(width='40', height='40')
 //- @param {string} name
 mixin icon(name)
   -
     const iconName = name.toLowerCase();
     const isInline = false;
 
-  svg.icon(class=`icon_${iconName}`, aria-hidden="true", focusable="false")&attributes(attributes)
+  svg.icon(class=`icon_${iconName}`, aria-hidden='true', focusable='false')&attributes(attributes)
     if isInline
       use(href=`#icon-${iconName}`)/
     else

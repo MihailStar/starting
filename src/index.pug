@@ -6,9 +6,11 @@ block variables
     const pageTitle = 'Стартовый шаблон для верстки';
 
 block head
+  link(rel='preconnect', href='https://fonts.googleapis.com')
+  link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
   link(
-    href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap",
-    rel="stylesheet"
+    rel='stylesheet',
+    href='https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
   )
   style.
     html {
@@ -30,7 +32,7 @@ block head
       font-weight: 400;
       font-style: normal;
       font-size: 1.4rem;
-      font-family: 'Ubuntu', sans-serif;
+      font-family: Ubuntu, sans-serif;
       line-height: 2rem;
     }
 
@@ -66,64 +68,64 @@ block body
     tr
       td
         b button
-        +button("Example")(type="button")
-        +button("Example").button_accent(type="button")
-        +button("Example")(href="javascript:void(0);")
-        +button("Example").button_accent(href="javascript:void(0);")
+        +button('Example')(type='button')
+        +button('Example').button_accent(type='button')
+        +button('Example')(href='javascript:void(0);')
+        +button('Example').button_accent(href='javascript:void(0);')
       td
         b
-        +button("Example")(href="javascript:void(0);", tabindex="-1")
-        +button("Example").button_accent(
-          href="javascript:void(0);",
-          tabindex="-1"
+        +button('Example')(href='javascript:void(0);', tabindex='-1')
+        +button('Example').button_accent(
+          href='javascript:void(0);',
+          tabindex='-1'
         )
-        +button("Example")(type="button", disabled="disabled")
-        +button("Example").button_accent(
-          type="button",
-          disabled="disabled"
+        +button('Example')(type='button', disabled='disabled')
+        +button('Example').button_accent(
+          type='button',
+          disabled='disabled'
         )
 
     tr
       td
         b checkbox
         +checkbox
-        +checkbox(checked="checked")
+        +checkbox(checked='checked')
       td
         b
-        +checkbox(disabled="disabled")
-        +checkbox(checked="checked", disabled="disabled")
+        +checkbox(disabled='disabled')
+        +checkbox(checked='checked', disabled='disabled')
 
     tr
-      td(colspan="2")
+      td(colspan='2')
         b counter
         +counter({ max: 10 })
 
     tr
-      td(colspan="2")
+      td(colspan='2')
         b icon
-        +icon("check")(width="40", height="40")
+        +icon('check')(width='40', height='40')
 
     tr
       td
         b input
-        +input(placeholder="Example")
-        +input(placeholder="Example", required="required")
+        +input(placeholder='Example')
+        +input(placeholder='Example', required='required')
       td
         b
-        +input(placeholder="Example", disabled="disabled")
+        +input(placeholder='Example', disabled='disabled')
         +input(
-          placeholder="Example",
-          required="required",
-          disabled="disabled"
+          placeholder='Example',
+          required='required',
+          disabled='disabled'
         )
 
     tr
-      td(colspan="2")
+      td(colspan='2')
         b keyboard
         +keyboard
 
     tr
-      td(colspan="2")
+      td(colspan='2')
         b modal
         +modal
 
@@ -131,18 +133,18 @@ block body
       td
         b radio
         +radio(name=getRandomDoubleId())
-        +radio(name=getRandomDoubleId(), checked="checked")
+        +radio(name=getRandomDoubleId(), checked='checked')
       td
         b
-        +radio(name=getRandomDoubleId(), disabled="disabled")
+        +radio(name=getRandomDoubleId(), disabled='disabled')
         +radio(
           name=getRandomDoubleId(),
-          checked="checked",
-          disabled="disabled"
+          checked='checked',
+          disabled='disabled'
         )
 
     tr
-      td(colspan="2")
+      td(colspan='2')
         b rating
         +rating({ checked: 0 })
 
@@ -151,33 +153,33 @@ block body
         b select
         +select
           option(value, selected, disabled) Select
-          option(value="example") Example
+          option(value='example') Example
       td
         b
-        +select(disabled="disabled")
+        +select(disabled='disabled')
           option(value, selected, disabled) Select
-          option(value="example") Example
+          option(value='example') Example
 
     tr
       td
         b switch
         +switch
-        +switch(checked="checked")
+        +switch(checked='checked')
       td
         b
-        +switch(disabled="disabled")
-        +switch(checked="checked", disabled="disabled")
+        +switch(disabled='disabled')
+        +switch(checked='checked', disabled='disabled')
 
     tr
       td
         b textarea
-        +textarea(placeholder="Example")
-        +textarea(placeholder="Example", required="required")
+        +textarea(placeholder='Example')
+        +textarea(placeholder='Example', required='required')
       td
         b
-        +textarea(placeholder="Example", disabled="disabled")
+        +textarea(placeholder='Example', disabled='disabled')
         +textarea(
-          placeholder="Example",
-          required="required",
-          disabled="disabled"
+          placeholder='Example',
+          required='required',
+          disabled='disabled'
         )
