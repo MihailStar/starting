@@ -20,6 +20,7 @@ block variables
 doctype html
 html.no-js(lang=typeof documentLanguage === 'string' ? documentLanguage : 'ru')
   head
+    title= pageTitle
     meta(charset='utf-8')
     if typeof pageDescription === 'string'
       meta(name='description', content=pageDescription)
@@ -30,7 +31,6 @@ html.no-js(lang=typeof documentLanguage === 'string' ? documentLanguage : 'ru')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     block head
     link(href='./styles/main.css', rel='stylesheet')
-    title= pageTitle
 
   body(class=bodyClasses)
     script(type='module').
