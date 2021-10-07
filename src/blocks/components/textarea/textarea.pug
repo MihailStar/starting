@@ -2,7 +2,6 @@
 //- @example +textarea(placeholder='Example', required='required')
 //- @example +textarea(placeholder='Example', disabled='disabled')
 //- @example +textarea(placeholder='Example', required='required', disabled='disabled')
-//- @param {string} [label]
-mixin textarea(label)
+mixin textarea
   .textarea
-    textarea.textarea__element(aria-label=label)&attributes(attributes)
+    textarea.textarea__element&attributes(attributes)

@@ -2,7 +2,6 @@
 //- @example +input(placeholder='Example', required='required')
 //- @example +input(placeholder='Example', disabled='disabled')
 //- @example +input(placeholder='Example', required='required', disabled='disabled')
-//- @param {string} [label]
-mixin input(label)
+mixin input
   .input
-    input.input__element(type='text', aria-label=label)&attributes(attributes)
+    input.input__element(type='text')&attributes(attributes)

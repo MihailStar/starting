@@ -2,8 +2,7 @@
 //- @example +checkbox(checked='checked')
 //- @example +checkbox(disabled='disabled')
 //- @example +checkbox(checked='checked', disabled='disabled')
-//- @param {string} [label]
-mixin checkbox(label)
+mixin checkbox
   .checkbox
-    input.checkbox__element(type='checkbox', aria-label=label)&attributes(attributes)
+    input.checkbox__element(type='checkbox')&attributes(attributes)
     +icon('check').checkbox__icon(width='24', height='24')

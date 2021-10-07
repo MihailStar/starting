@@ -2,10 +2,9 @@
 //- @example +switch(checked='checked')
 //- @example +switch(disabled='disabled')
 //- @example +switch(checked='checked', disabled='disabled')
-//- @param {string} [label]
-mixin switch(label)
+mixin switch
   .switch
-    input.switch__element(type='checkbox', aria-label=label)&attributes(attributes)
+    input.switch__element(type='checkbox')&attributes(attributes)
     +icon('checkbox-blank-circle-outline').switch__icon(
       width='32',
       height='32'
