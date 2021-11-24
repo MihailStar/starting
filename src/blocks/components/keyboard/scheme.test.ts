@@ -1,5 +1,3 @@
-// npx babel-node --extensions .ts --presets @babel/preset-typescript ./src/blocks/components/keyboard/scheme.test
-
 import { strict as assert } from 'assert';
 
 import { Language, scheme } from './scheme';

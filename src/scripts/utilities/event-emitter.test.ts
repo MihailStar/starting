@@ -1,5 +1,3 @@
-// npx babel-node --extensions .ts --presets @babel/preset-typescript ./src/scripts/utilities/event-emitter.test
-
 import { strict as assert } from 'assert';
 
 import { EventEmitter as MyEventEmitter } from './event-emitter';
