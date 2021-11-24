@@ -1,6 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import imagemin from 'gulp-imagemin';
+import {
+  gifsicle as imageminGifsicle,
+  mozjpeg as imageminMozjpeg,
+  optipng as imageminOptipng,
+  svgo as imageminSvgo,
+} from 'gulp-imagemin';
 import imageminWebp from 'imagemin-webp';
 
 const isDevelopment =
@@ -78,16 +83,16 @@ const paths = {
 };
 
 const imageminConfiguration = [
-  imagemin.gifsicle({
+  imageminGifsicle({
     interlaced: true,
   }),
-  imagemin.mozjpeg({
+  imageminMozjpeg({
     quality: 80,
   }),
-  imagemin.optipng({
+  imageminOptipng({
     optimizationLevel: 5,
   }),
-  imagemin.svgo({
+  imageminSvgo({
     plugins: [
       {
         name: 'removeViewBox',
