@@ -25,7 +25,7 @@ npm run dev # стартует development сборку, с BrowserSync'ом и 
 
 # либо
 
-npm run prod # стартует production сборку, без BrowserSync'а и Watch'ера
+npm run build # стартует production сборку, без BrowserSync'а и Watch'ера
 ```
 
 ```bash
