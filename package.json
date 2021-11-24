@@ -69,7 +69,7 @@
   "scripts": {
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
-    "block": "node ./createBlock.mjs",
+    "block": "node ./create-block.mjs",
     "deploy": "gh-pages --dist ./dist --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
