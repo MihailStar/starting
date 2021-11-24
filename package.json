@@ -70,6 +70,7 @@
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
     "block": "node ./create-block.mjs",
+    "build": "cross-env NODE_ENV=production gulp default",
     "deploy": "gh-pages --dist ./dist --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
@@ -79,7 +80,6 @@
     "predeploy": "npm run prod",
     "prepare": "husky install",
     "prettier": "prettier --check ./src/**/*.{css,js,pug,scss,ts}",
-    "prod": "cross-env NODE_ENV=production gulp default",
     "speller": "yaspeller ./src",
     "sprite": "cross-env NODE_ENV=production gulp generateSprite"
   }
