@@ -1,19 +1,11 @@
 -
-  function getRandomInt(min /*: number */, max /*: number */) /*: number */ {
+  function getRandomInt(min, max) {
     const randomInt = Math.floor(min + Math.random() * (max + 1 - min));
 
     return randomInt;
   }
 
-  function getRandomId(
-    options /*: {
-      length?: number;
-      uppercase?: boolean;
-      lowercase?: boolean;
-      numbers?: boolean;
-      symbols?: boolean;
-    } */ = {}
-  ) /*: string */ {
+  function getRandomId(options = {}) {
     const defaultOptions = {
       length: 20,
       uppercase: false,
@@ -31,16 +23,8 @@
       symbols: '!@#$%^&*',
     };
 
-    /*
-    type defaultCharsKey = keyof typeof defaultChars;
-    */
-
     const currentChars = Object.keys(defaultChars).reduce(
-      (acc, key) =>
-        acc +
-        (currentOptions[key /* as defaultCharsKey */]
-          ? defaultChars[key /* as defaultCharsKey */]
-          : ''),
+      (acc, key) => acc + (currentOptions[key] ? defaultChars[key] : ''),
       ''
     );
 
@@ -52,8 +36,8 @@
     return randomId;
   }
 
-  function getRandomDoubleId(length = 20) /*: string */ {
-    function* generator(characters /*: number */) /*: Generator<string, void, void> */ {
+  function getRandomDoubleId(length = 20) {
+    function* generator(characters) {
       while (true) {
         const randomId = getRandomId({ length: characters });
 
@@ -62,22 +46,9 @@
       }
     }
 
-    /*
-    type RandomDoubleIdWithGenerator = typeof getRandomDoubleId & {
-      generator: Generator<string, void, void>;
-    };
-    */
-
-    if (
-      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator === void 0
-    ) {
-      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator = generator(
-        length
-      );
+    if (getRandomDoubleId.generator === void 0) {
+      getRandomDoubleId.generator = generator(length);
     }
 
-    return (
-      getRandomDoubleId /* as RandomDoubleIdWithGenerator */.generator
-        .next().value || ''
-    );
+    return getRandomDoubleId.generator.next().value;
   }
