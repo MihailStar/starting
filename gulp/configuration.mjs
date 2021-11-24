@@ -84,11 +84,14 @@ const imageminConfiguration = [
   imagemin.mozjpeg({
     quality: 80,
   }),
-  imagemin.optipng(),
+  imagemin.optipng({
+    optimizationLevel: 5,
+  }),
   imagemin.svgo({
     plugins: [
       {
-        removeViewBox: false,
+        name: 'removeViewBox',
+        active: false,
       },
     ],
   }),
