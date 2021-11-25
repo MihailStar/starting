@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulpSass from 'gulp-sass';
-import nodeSass from 'node-sass';
+import dartSass from 'sass';
 import gulp from 'gulp';
 import wait from 'gulp-wait';
 import gulpIf from 'gulp-if';
@@ -20,18 +20,14 @@ import {
 } from '../configuration.mjs';
 import { server } from './server.mjs';
 
-const sass = gulpSass(nodeSass);
+const sass = gulpSass(dartSass);
 
 function compileStyles() {
   return gulp
     .src(paths.styles.src)
     .pipe(wait(100))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-    .pipe(
-      sass({
-        outputStyle: 'compressed',
-      }).on('error', sass.logError)
-    )
+    .pipe(sass().on('error', sass.logError))
     .pipe(
       gulpIf(
         isDevelopment,
