@@ -1,11 +1,11 @@
 //- @example +radio(name=getRandomDoubleId())
-//- @example +radio(name=getRandomDoubleId(), checked='checked')
-//- @example +radio(name=getRandomDoubleId(), disabled='disabled')
-//- @example +radio(name=getRandomDoubleId(), checked='checked', disabled='disabled')
+//- @example +radio(name=getRandomDoubleId(), checked="checked")
+//- @example +radio(name=getRandomDoubleId(), disabled="disabled")
+//- @example +radio(name=getRandomDoubleId(), checked="checked", disabled="disabled")
 mixin radio
   .radio
-    input.radio__element(type='radio')&attributes(attributes)
-    +icon('checkbox-blank-circle-outline').radio__icon(
-      width='24',
-      height='24'
+    input.radio__element(type="radio")&attributes(attributes)
+    +icon("checkbox-blank-circle-outline").radio__icon(
+      width="24",
+      height="24"
     )

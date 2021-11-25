@@ -1,12 +1,12 @@
-//- @example +button('Example')(type='button')
-//- @example +button('Example').button_accent(type='button')
-//- @example +button('Example')(href='javascript:void(0);')
-//- @example +button('Example').button_accent(href='javascript:void(0);')
-//- @example +button('Example')(type='button', disabled='disabled')
-//- @example +button('Example').button_accent(type='button', disabled='disabled')
-//- @example +button('Example')(href='javascript:void(0);', tabindex='-1')
-//- @example +button('Example').button_accent(href='javascript:void(0);', tabindex='-1')
 //- @param {string} text
+//- @example +button("Example")(type="button")
+//- @example +button("Example").button_accent(type="button")
+//- @example +button("Example")(href="javascript:void(0);")
+//- @example +button("Example").button_accent(href="javascript:void(0);")
+//- @example +button("Example")(type="button", disabled="disabled")
+//- @example +button("Example").button_accent(type="button", disabled="disabled")
+//- @example +button("Example")(href="javascript:void(0);", tabindex="-1")
+//- @example +button("Example").button_accent(href="javascript:void(0);", tabindex="-1")
 mixin button(text)
   if attributes.href
     a.button(

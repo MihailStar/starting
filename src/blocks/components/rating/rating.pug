@@ -1,8 +1,8 @@
-//- @example +rating({ checked: 3 })
 //- @param {Object} [settings]
 //- @param {string} [settings.label]
 //- @param {string} [settings.name]
 //- @param {number} [settings.checked]
+//- @example +rating({ checked: 3 })
 mixin rating(settings = {})
   -
     const numberOf = 10;
@@ -12,7 +12,7 @@ mixin rating(settings = {})
   fieldset.rating(aria-label=label)&attributes(attributes)
     each index in Array.from({ length: numberOf }, (_, i) => i + 1)
       input.rating__element(
-        type='radio',
+        type="radio",
         name=name,
         value=String(index),
         aria-label=String(index),
