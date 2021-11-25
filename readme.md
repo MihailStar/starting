@@ -42,4 +42,5 @@ npm run prettier # проверяет форматирование .css, .js, .p
 npm run speller # ищет опечатки в ru текстах
 npm run sprite # собирает векторный спрайт
 ```
+
 2016 - 2021
