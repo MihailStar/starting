@@ -1,5 +1,4 @@
 import { strict as assert } from 'assert';
-
 import { Language, scheme } from './scheme';
 import { codes } from './codes';
 

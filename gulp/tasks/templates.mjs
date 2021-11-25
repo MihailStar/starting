@@ -6,7 +6,6 @@ import gulpIf from 'gulp-if';
 import prettier from 'gulp-prettier';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-
 import {
   paths,
   isDevelopment,

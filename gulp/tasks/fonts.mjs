@@ -4,7 +4,6 @@ import gulp from 'gulp';
 import newer from 'gulp-newer';
 import gulpIf from 'gulp-if';
 import size from 'gulp-size';
-
 import { paths, isDevelopment } from '../configuration.mjs';
 
 function compileFonts() {

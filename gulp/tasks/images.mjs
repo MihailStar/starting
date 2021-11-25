@@ -5,7 +5,6 @@ import newer from 'gulp-newer';
 import gulpIf from 'gulp-if';
 import imagemin from 'gulp-imagemin';
 import size from 'gulp-size';
-
 import {
   paths,
   isDevelopment,

@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import TerserPlugin from 'terser-webpack-plugin';
-
 import { isDevelopment } from './gulp/configuration.mjs';
 
 const defaultConfiguration = {

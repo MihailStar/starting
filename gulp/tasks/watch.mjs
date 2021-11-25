@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-
 import { convertImageToBase64 } from './base64.mjs';
 import { compileFonts } from './fonts.mjs';
 import { reloadServer } from './server.mjs';

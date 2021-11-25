@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-
 import { compileFonts } from './fonts.mjs';
 import { compileImages } from './images.mjs';
 import { compileScripts } from './scripts.mjs';

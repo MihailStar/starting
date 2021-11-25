@@ -5,7 +5,6 @@ import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
 import svgstore from 'gulp-svgstore';
 import size from 'gulp-size';
-
 import { paths, imageminConfiguration } from '../configuration.mjs';
 
 function generateSprite() {

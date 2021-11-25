@@ -13,7 +13,6 @@ import autoprefixer from 'autoprefixer';
 import postcssCsso from 'postcss-csso';
 import prettier from 'gulp-prettier';
 import size from 'gulp-size';
-
 import {
   paths,
   isDevelopment,

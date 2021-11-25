@@ -3,7 +3,6 @@
 import gulp from 'gulp';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
-
 import { paths } from '../configuration.mjs';
 import { webpackConfiguration } from '../../webpack.config.mjs';
 
