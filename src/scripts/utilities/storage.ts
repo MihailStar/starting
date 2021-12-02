@@ -1,4 +1,4 @@
-class Storage<Type> {
+class Storage<T> {
   private getNamespace: () => string;
 
   constructor(namespace: string) {
@@ -18,17 +18,17 @@ class Storage<Type> {
     }
   }
 
-  get(): Type | null {
+  get(): T | null {
     try {
       const data = localStorage.getItem(this.getNamespace());
 
-      return typeof data === 'string' ? (JSON.parse(data) as Type) : null;
+      return typeof data === 'string' ? (JSON.parse(data) as T) : null;
     } catch {
       return null;
     }
   }
 
-  set(data: Type): boolean {
+  set(data: T): boolean {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
 

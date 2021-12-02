@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
 
 /**
- * @example makePlural(3,5, ['яблоко', 'яблока', 'яблок']); // -> 'яблока'
  * @tutorial https://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html
+ * @example makePlural(3,5, ['яблоко', 'яблока', 'яблок']); // -> 'яблока'
  */
 function makePlural(number: number, titles: [string, string, string]): string {
   const num = Math.abs(number);
