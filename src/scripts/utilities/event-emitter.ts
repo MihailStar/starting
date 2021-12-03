@@ -1,10 +1,8 @@
-type ListenerArgs = { [key: string]: unknown };
+type ListenerArgs = Record<string, unknown>;
 type Listener = (args: ListenerArgs) => void;
 
 class EventEmitter {
-  private events: {
-    [event: string]: Array<Listener>;
-  };
+  private readonly events: Record<string, Array<Listener>>;
 
   constructor() {
     this.events = {};
