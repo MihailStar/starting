@@ -1,5 +1,5 @@
-type ListenerProps = { [prop: string]: unknown };
-type Listener = (obj: ListenerProps) => void;
+type ListenerArg = { [prop: string]: unknown };
+type Listener = (obj: ListenerArg) => void;
 
 class EventEmitter {
   private readonly events: { [event: string]: Array<Listener> };
@@ -27,7 +27,7 @@ class EventEmitter {
     );
   }
 
-  emit(type: string, obj: ListenerProps): void {
+  emit(type: string, obj: ListenerArg): void {
     (this.events[type] ?? []).forEach((listener) => {
       listener(obj);
     });
