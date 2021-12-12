@@ -6,6 +6,7 @@
   $font-size: ($base-unit * 4);
   @extend %border-box;
   display: inline-flex;
+  flex-shrink: 0;
   width: (($base-unit * 30) / $font-size * 1em);
   height: (($base-unit * 10) / $font-size * 1em);
   font-size: $font-size;

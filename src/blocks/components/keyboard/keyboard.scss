@@ -2,6 +2,7 @@
   $font-size: ($base-unit * 4);
   @extend %border-box;
   display: inline-block;
+  flex-shrink: 0;
   padding-top: (($base-unit * 0.5) / $font-size * 1em);
   padding-right: (($base-unit * 0.5) / $font-size * 1em);
   padding-bottom: (($base-unit * 0.5) / $font-size * 1em);
