@@ -1,8 +1,8 @@
-type ListenerArgs = Record<string, unknown>;
-type Listener = (args: ListenerArgs) => void;
+type ListenerProps = { [prop: string]: unknown };
+type Listener = (obj: ListenerProps) => void;
 
 class EventEmitter {
-  private readonly events: Record<string, Array<Listener>>;
+  private readonly events: { [event: string]: Array<Listener> };
 
   constructor() {
     this.events = {};
@@ -27,9 +27,9 @@ class EventEmitter {
     );
   }
 
-  emit(type: string, args: ListenerArgs): void {
+  emit(type: string, obj: ListenerProps): void {
     (this.events[type] ?? []).forEach((listener) => {
-      listener(args);
+      listener(obj);
     });
   }
 }

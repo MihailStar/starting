@@ -4,7 +4,7 @@ import { EventEmitter as MyEventEmitter } from './event-emitter';
 const myEventEmitter = new MyEventEmitter();
 
 interface Logger {
-  (data: Record<string, unknown>): void;
+  (data: { [key: string]: unknown }): void;
   data?: Parameters<Logger>[0];
 }
 

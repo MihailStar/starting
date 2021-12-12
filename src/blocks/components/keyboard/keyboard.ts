@@ -158,14 +158,16 @@ class Keyboard extends MyEventEmitter {
     }
 
     const [rowIndex, buttonIndex] = schemeIndex;
-    const code = (codes[rowIndex] as string[])[buttonIndex] as string;
+    const code = (codes[rowIndex] as Array<string>)[buttonIndex] as string;
     const {
       chars,
       keys,
       controlKeys = [],
       modifiers = [],
     } = (
-      scheme[this.props.currentLanguage][rowIndex] as SchemeButtonDescription[]
+      scheme[this.props.currentLanguage][
+        rowIndex
+      ] as Array<SchemeButtonDescription>
     )[buttonIndex] as SchemeButtonDescription;
 
     const getCurrentIndex = (): number => {
