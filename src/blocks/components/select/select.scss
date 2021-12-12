@@ -1,3 +1,5 @@
+@use '../icon/icon';
+
 .select {
   $font-size: ($base-unit * 4);
   @extend %border-box;

@@ -4,6 +4,7 @@
   @extend %border-box;
   position: relative;
   display: inline-block;
+  flex-shrink: 0;
   width: (($base-unit * 10) * $number-of / $font-size * 1em);
   height: (($base-unit * 10) / $font-size * 1em);
   padding-top: 0;
@@ -35,7 +36,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    flex-shrink: 0;
     width: (($base-unit * 10) / $font-size * 1em);
     height: (($base-unit * 10) / $font-size * 1em);
     margin-top: 0;

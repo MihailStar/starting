@@ -1,10 +1,6 @@
+include ./get-random-int.pug
+
 -
-  function getRandomInt(min, max) {
-    const randomInt = Math.floor(min + Math.random() * (max + 1 - min));
-
-    return randomInt;
-  }
-
   function getRandomId(options = {}) {
     const defaultOptions = {
       length: 20,
@@ -34,21 +30,4 @@
     ).join('');
 
     return randomId;
-  }
-
-  function getRandomDoubleId(length = 20) {
-    function* generator(characters) {
-      while (true) {
-        const randomId = getRandomId({ length: characters });
-
-        yield randomId;
-        yield randomId;
-      }
-    }
-
-    if (getRandomDoubleId.generator === void 0) {
-      getRandomDoubleId.generator = generator(length);
-    }
-
-    return getRandomDoubleId.generator.next().value;
   }

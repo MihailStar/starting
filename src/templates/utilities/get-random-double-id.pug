@@ -1,0 +1,19 @@
+include ./get-random-id.pug
+
+-
+  function getRandomDoubleId(length = 20) {
+    function* generator(characters) {
+      while (true) {
+        const randomId = getRandomId({ length: characters });
+
+        yield randomId;
+        yield randomId;
+      }
+    }
+
+    if (getRandomDoubleId.generator === void 0) {
+      getRandomDoubleId.generator = generator(length);
+    }
+
+    return getRandomDoubleId.generator.next().value;
+  }
