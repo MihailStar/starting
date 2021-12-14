@@ -17,7 +17,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es2015",
+    "target": "ES2015",
     "useUnknownInCatchVariables": true
   },
   "exclude": ["dist", "node_modules", "src/**/*.test.ts"],
