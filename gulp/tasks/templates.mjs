@@ -1,15 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import pug from 'gulp-pug';
 import gulpIf from 'gulp-if';
 import prettier from 'gulp-prettier';
+import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
 import {
-  paths,
   isDevelopment,
   isProductionMinimized,
+  paths,
 } from '../configuration.mjs';
 
 function compileTemplates() {

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
 import { paths } from '../configuration.mjs';
 import { webpackConfiguration } from '../../webpack.config.mjs';
 

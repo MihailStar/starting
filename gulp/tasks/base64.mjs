@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import imagemin from 'gulp-imagemin';
 import imageDataURI from 'gulp-image-data-uri';
+import imagemin from 'gulp-imagemin';
 import size from 'gulp-size';
 import { paths, imageminConfiguration } from '../configuration.mjs';
 

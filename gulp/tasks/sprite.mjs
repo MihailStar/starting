@@ -3,8 +3,8 @@
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
-import svgstore from 'gulp-svgstore';
 import size from 'gulp-size';
+import svgstore from 'gulp-svgstore';
 import { paths, imageminConfiguration } from '../configuration.mjs';
 
 function generateSprite() {

@@ -2,11 +2,11 @@
 
 import fs from 'fs';
 import gulp from 'gulp';
-import zip from 'gulp-zip';
 import size from 'gulp-size';
-import { paths } from '../configuration.mjs';
-import { clear } from './clear.mjs';
+import zip from 'gulp-zip';
 import { build } from './build.mjs';
+import { clear } from './clear.mjs';
+import { paths } from '../configuration.mjs';
 
 const projectName = (fs
   .readFileSync('./package.json', 'utf-8')

@@ -1,13 +1,13 @@
-import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 import {
-  ControlKey as SchemeControlKey,
-  Modifier as SchemeModifier,
-  Language as SchemeLanguage,
   ButtonDescription as SchemeButtonDescription,
+  ControlKey as SchemeControlKey,
+  Language as SchemeLanguage,
+  Modifier as SchemeModifier,
   scheme,
 } from './scheme';
-import { createButton } from './button';
 import { codes } from './codes';
+import { createButton } from './button';
+import { EventEmitter as MyEventEmitter } from '../../../scripts/utilities/event-emitter';
 
 const CLASS_ACTIVITY = 'keyboard__button_accent';
 

@@ -1,22 +1,22 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import gulpSass from 'gulp-sass';
+import autoprefixer from 'autoprefixer';
 import dartSass from 'sass';
 import gulp from 'gulp';
-import wait from 'gulp-wait';
 import gulpIf from 'gulp-if';
-import sourcemaps from 'gulp-sourcemaps';
+import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
-import postcssImport from 'postcss-import';
 import postcss100vhFix from 'postcss-100vh-fix';
-import autoprefixer from 'autoprefixer';
 import postcssCsso from 'postcss-csso';
+import postcssImport from 'postcss-import';
 import prettier from 'gulp-prettier';
 import size from 'gulp-size';
+import sourcemaps from 'gulp-sourcemaps';
+import wait from 'gulp-wait';
 import {
-  paths,
   isDevelopment,
   isProductionMinimized,
+  paths,
 } from '../configuration.mjs';
 import { server } from './server.mjs';
 
