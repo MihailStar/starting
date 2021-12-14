@@ -9,6 +9,7 @@ import postcss from 'gulp-postcss';
 import postcss100vhFix from 'postcss-100vh-fix';
 import postcssCsso from 'postcss-csso';
 import postcssImport from 'postcss-import';
+import postcssMediaMinmax from 'postcss-media-minmax';
 import prettier from 'gulp-prettier';
 import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
@@ -31,10 +32,16 @@ function compileStyles() {
     .pipe(
       gulpIf(
         isDevelopment,
-        postcss([postcssImport(), postcss100vhFix(), autoprefixer()]),
         postcss([
           postcssImport(),
           postcss100vhFix(),
+          postcssMediaMinmax(),
+          autoprefixer(),
+        ]),
+        postcss([
+          postcssImport(),
+          postcss100vhFix(),
+          postcssMediaMinmax(),
           autoprefixer(),
           postcssCsso({
             comments: false,
