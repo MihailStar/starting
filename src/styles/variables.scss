@@ -1,4 +1,7 @@
-$base-unit: 4px;
+@function base-units($number-of-base-units) {
+  $base-unit: 4px;
+  @return $base-unit * $number-of-base-units;
+}
 
 $color-accent: #2196f3;
 $color-body: #f7f7f7;
@@ -7,31 +10,22 @@ $color-link: $color-accent;
 $color-text-dark: #575757;
 $color-text-light: #ffffff;
 
-$breakpoints: (
-  xs: 0,
+$transition-duration: 200ms;
+
+$grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
+  xxl: 1400px,
 );
 
-$containers: (
+$grid-containers: (
   sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
+  xxl: 1320px,
 );
 
-$grid: map-merge(
-  $grid,
-  (
-    box-sizing: border-box,
-    breakpoints: $breakpoints,
-    columns: 12,
-    container: 15px,
-    gap: 15px,
-    mode: flex,
-  )
-);
-
-$transition-duration: 200ms;
+$grid-gap: 15px;

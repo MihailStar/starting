@@ -1,0 +1,19 @@
+@mixin text-fade($line-height, $number-of-lines, $background-color) {
+  position: relative;
+  height: $line-height * $number-of-lines;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: $line-height;
+    content: '';
+    background: linear-gradient(
+      to right,
+      rgba($background-color, 0) 0,
+      rgba($background-color, 1) 50%
+    );
+  }
+}

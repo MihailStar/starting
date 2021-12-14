@@ -1,15 +1,19 @@
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
+@use '../button/button';
+
 .keyboard {
-  $font-size: ($base-unit * 4);
-  @extend %border-box;
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
   display: inline-block;
-  flex-shrink: 0;
-  padding-top: (($base-unit * 0.5) / $font-size * 1em);
-  padding-right: (($base-unit * 0.5) / $font-size * 1em);
-  padding-bottom: (($base-unit * 0.5) / $font-size * 1em);
-  padding-left: (($base-unit * 0.5) / $font-size * 1em);
+  padding-top: math.div(variables.base-units(0.5), $font-size) * 1em;
+  padding-right: math.div(variables.base-units(0.5), $font-size) * 1em;
+  padding-bottom: math.div(variables.base-units(0.5), $font-size) * 1em;
+  padding-left: math.div(variables.base-units(0.5), $font-size) * 1em;
   font-size: $font-size;
-  border-radius: (($base-unit * 1) / $font-size * 1em);
-  box-shadow: inset 0 0 0 1px $color-line;
+  border-radius: math.div(variables.base-units(1), $font-size) * 1em;
+  box-shadow: inset 0 0 0 1px variables.$color-line;
 
   &__row {
     display: flex;
@@ -18,17 +22,17 @@
 
   &__button {
     @extend %button;
-    width: (($base-unit * 8) / $font-size * 1em);
+    width: math.div(variables.base-units(8), $font-size) * 1em;
     min-width: auto;
-    height: (($base-unit * 8) / $font-size * 1em);
+    height: math.div(variables.base-units(8), $font-size) * 1em;
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: (($base-unit * 0.5) / $font-size * 1em);
-    margin-right: (($base-unit * 0.5) / $font-size * 1em);
-    margin-bottom: (($base-unit * 0.5) / $font-size * 1em);
-    margin-left: (($base-unit * 0.5) / $font-size * 1em);
+    margin-top: math.div(variables.base-units(0.5), $font-size) * 1em;
+    margin-right: math.div(variables.base-units(0.5), $font-size) * 1em;
+    margin-bottom: math.div(variables.base-units(0.5), $font-size) * 1em;
+    margin-left: math.div(variables.base-units(0.5), $font-size) * 1em;
     text-transform: none;
 
     &_accent {
@@ -36,39 +40,39 @@
     }
 
     &_backspace {
-      width: (($base-unit * 14) / $font-size * 1em);
+      width: math.div(variables.base-units(14), $font-size) * 1em;
     }
 
     &_caps-lock {
-      width: (($base-unit * 18) / $font-size * 1em);
+      width: math.div(variables.base-units(18), $font-size) * 1em;
     }
 
     &_delete {
-      width: (($base-unit * 9) / $font-size * 1em);
+      width: math.div(variables.base-units(9), $font-size) * 1em;
     }
 
     &_enter {
-      width: (($base-unit * 22) / $font-size * 1em);
+      width: math.div(variables.base-units(22), $font-size) * 1em;
     }
 
     &_language {
-      width: (($base-unit * 8) / $font-size * 1em);
+      width: math.div(variables.base-units(8), $font-size) * 1em;
     }
 
     &_shift-left {
-      width: (($base-unit * 23) / $font-size * 1em);
+      width: math.div(variables.base-units(23), $font-size) * 1em;
     }
 
     &_shift-right {
-      width: (($base-unit * 17) / $font-size * 1em);
+      width: math.div(variables.base-units(17), $font-size) * 1em;
     }
 
     &_tab {
-      width: (($base-unit * 13) / $font-size * 1em);
+      width: math.div(variables.base-units(13), $font-size) * 1em;
     }
 
     &_space {
-      width: (($base-unit * 50) / $font-size * 1em);
+      width: math.div(variables.base-units(50), $font-size) * 1em;
     }
   }
 }

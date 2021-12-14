@@ -1,0 +1,33 @@
+@use 'sass:math';
+
+@mixin triangle($direction, $width, $height, $background-color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  @if ($direction == t) {
+    border-color: transparent transparent $background-color transparent;
+    border-width: 0 math.div($width, 2) $height math.div($width, 2);
+  } @else if ($direction == r) {
+    border-color: transparent transparent transparent $background-color;
+    border-width: math.div($height, 2) 0 math.div($height, 2) $width;
+  } @else if ($direction == b) {
+    border-color: $background-color transparent transparent transparent;
+    border-width: $height math.div($width, 2) 0 math.div($width, 2);
+  } @else if ($direction == l) {
+    border-color: transparent $background-color transparent transparent;
+    border-width: math.div($height, 2) $width math.div($height, 2) 0;
+  } @else if ($direction == tr) {
+    border-color: transparent $background-color transparent transparent;
+    border-width: 0 $width $height 0;
+  } @else if ($direction == tl) {
+    border-color: $background-color transparent transparent transparent;
+    border-width: $height $width 0 0;
+  } @else if ($direction == br) {
+    border-color: transparent transparent $background-color transparent;
+    border-width: 0 0 $height $width;
+  } @else if ($direction == bl) {
+    border-color: transparent transparent transparent $background-color;
+    border-width: $width 0 0 $height;
+  }
+}

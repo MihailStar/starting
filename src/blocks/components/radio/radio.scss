@@ -1,13 +1,17 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
 @use '../icon/icon';
 
 .radio {
-  $font-size: ($base-unit * 4);
-  @extend %border-box;
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
-  width: (($base-unit * 10) / $font-size * 1em);
-  height: (($base-unit * 10) / $font-size * 1em);
+  width: math.div(variables.base-units(10), $font-size) * 1em;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
   font-size: $font-size;
   vertical-align: middle;
 
@@ -15,10 +19,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: (($base-unit * 6) / $font-size * 1em);
-    height: (($base-unit * 6) / $font-size * 1em);
+    width: math.div(variables.base-units(6), $font-size) * 1em;
+    height: math.div(variables.base-units(6), $font-size) * 1em;
     font-size: inherit;
-    color: $color-text-dark;
+    color: variables.$color-text-dark;
     opacity: 0;
     transform: translateX(-50%) translateY(-50%);
   }
@@ -33,11 +37,11 @@
     font-size: inherit;
     vertical-align: middle;
     cursor: pointer;
-    background-color: $color-body;
+    background-color: variables.$color-body;
     border: 0;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px $color-line;
-    transition: $transition-duration;
+    box-shadow: inset 0 0 0 1px variables.$color-line;
+    transition: variables.$transition-duration;
     appearance: none;
 
     &::-ms-check {
@@ -46,12 +50,13 @@
 
     &:focus,
     &:hover {
-      background-color: darken($color-body, 5%);
+      background-color: color.scale(variables.$color-body, $lightness: -5%);
       outline: 0;
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
+      box-shadow: inset 0 0 0 1px
+        color.scale(variables.$color-line, $lightness: -5%);
 
       + .radio__icon {
-        color: darken($color-text-dark, 5%);
+        color: color.scale(variables.$color-text-dark, $lightness: -5%);
       }
     }
 

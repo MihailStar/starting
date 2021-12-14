@@ -1,46 +1,49 @@
-@use '../icon/icon';
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
 
 .select {
-  $font-size: ($base-unit * 4);
-  @extend %border-box;
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
   position: relative;
   display: inline-block;
   width: 100%;
-  height: (($base-unit * 10) / $font-size * 1em);
+  height: math.div(variables.base-units(10), $font-size) * 1em;
   font-size: $font-size;
   vertical-align: middle;
 
   &__icon {
     position: absolute;
     top: 50%;
-    right: (($base-unit * 2.5) / $font-size * 1em);
-    width: (($base-unit * 6) / $font-size * 1em);
-    height: (($base-unit * 6) / $font-size * 1em);
+    right: math.div(variables.base-units(2.5), $font-size) * 1em;
+    width: math.div(variables.base-units(6), $font-size) * 1em;
+    height: math.div(variables.base-units(6), $font-size) * 1em;
     font-size: inherit;
-    color: $color-text-dark;
+    color: variables.$color-text-dark;
     transform: translateY(-50%);
   }
 
   &__element {
     width: 100%;
     height: 100%;
-    padding-top: (($base-unit * 2) / $font-size * 1em);
-    padding-right: (($base-unit * 11) / $font-size * 1em);
-    padding-bottom: (($base-unit * 2) / $font-size * 1em);
-    padding-left: (($base-unit * 4) / $font-size * 1em);
+    padding-top: math.div(variables.base-units(2), $font-size) * 1em;
+    padding-right: math.div(variables.base-units(11), $font-size) * 1em;
+    padding-bottom: math.div(variables.base-units(2), $font-size) * 1em;
+    padding-left: math.div(variables.base-units(4), $font-size) * 1em;
     font-family: inherit;
     font-size: inherit;
     font-style: normal;
     font-weight: 400;
-    line-height: (($base-unit * 6) / $font-size * 1em);
-    color: $color-text-dark;
+    line-height: math.div(variables.base-units(6), $font-size) * 1em;
+    color: variables.$color-text-dark;
     vertical-align: middle;
     cursor: pointer;
-    background-color: $color-body;
+    background-color: variables.$color-body;
     border: 0;
-    border-radius: (($base-unit * 1) / $font-size * 1em);
-    box-shadow: inset 0 0 0 1px $color-line;
-    transition: $transition-duration;
+    border-radius: math.div(variables.base-units(1), $font-size) * 1em;
+    box-shadow: inset 0 0 0 1px variables.$color-line;
+    transition: variables.$transition-duration;
     appearance: none;
 
     &::-ms-expand {
@@ -49,13 +52,14 @@
 
     &:focus,
     &:hover {
-      color: darken($color-text-dark, 5%);
-      background-color: darken($color-body, 5%);
+      color: color.scale(variables.$color-text-dark, $lightness: -5%);
+      background-color: color.scale(variables.$color-body, $lightness: -5%);
       outline: 0;
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
+      box-shadow: inset 0 0 0 1px
+        color.scale(variables.$color-line, $lightness: -5%);
 
       + .select__icon {
-        color: darken($color-text-dark, 5%);
+        color: color.scale(variables.$color-text-dark, $lightness: -5%);
       }
     }
 

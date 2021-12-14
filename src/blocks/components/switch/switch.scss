@@ -1,24 +1,28 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
 @use '../icon/icon';
 
 .switch {
-  $font-size: ($base-unit * 4);
-  @extend %border-box;
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
-  width: (($base-unit * 20) / $font-size * 1em);
-  height: (($base-unit * 10) / $font-size * 1em);
+  width: math.div(variables.base-units(20), $font-size) * 1em;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
   font-size: $font-size;
   vertical-align: middle;
 
   &__icon {
     position: absolute;
-    top: (($base-unit * 1) / $font-size * 1em);
-    left: (($base-unit * 1) / $font-size * 1em);
-    width: (($base-unit * 8) / $font-size * 1em);
-    height: (($base-unit * 8) / $font-size * 1em);
+    top: math.div(variables.base-units(1), $font-size) * 1em;
+    left: math.div(variables.base-units(1), $font-size) * 1em;
+    width: math.div(variables.base-units(8), $font-size) * 1em;
+    height: math.div(variables.base-units(8), $font-size) * 1em;
     font-size: inherit;
-    color: $color-text-dark;
+    color: variables.$color-text-dark;
   }
 
   &__element {
@@ -31,11 +35,11 @@
     font-size: inherit;
     vertical-align: middle;
     cursor: pointer;
-    background-color: $color-body;
+    background-color: variables.$color-body;
     border: 0;
-    border-radius: (($base-unit * 5) / $font-size * 1em);
-    box-shadow: inset 0 0 0 1px $color-line;
-    transition: $transition-duration;
+    border-radius: math.div(variables.base-units(5), $font-size) * 1em;
+    box-shadow: inset 0 0 0 1px variables.$color-line;
+    transition: variables.$transition-duration;
     appearance: none;
 
     &::-ms-check {
@@ -44,29 +48,33 @@
 
     &:focus,
     &:hover {
-      background-color: darken($color-body, 5%);
+      background-color: color.scale(variables.$color-body, $lightness: -5%);
       outline: 0;
-      box-shadow: inset 0 0 0 1px darken($color-line, 5%);
+      box-shadow: inset 0 0 0 1px
+        color.scale(variables.$color-line, $lightness: -5%);
 
       + .switch__icon {
-        color: darken($color-text-dark, 5%);
+        color: color.scale(variables.$color-text-dark, $lightness: -5%);
       }
     }
 
     &:checked {
-      background-color: $color-accent;
-      box-shadow: inset 0 0 0 1px $color-accent;
+      background-color: variables.$color-accent;
+      box-shadow: inset 0 0 0 1px variables.$color-accent;
 
       + .switch__icon {
-        color: $color-text-light;
-        transform: translateX((($base-unit * 10) / $font-size * 1em));
+        color: variables.$color-text-light;
+        transform: translateX(
+          math.div(variables.base-units(10), $font-size) * 1em
+        );
       }
     }
 
     &:focus:checked,
     &:hover:checked {
-      background-color: darken($color-accent, 5%);
-      box-shadow: inset 0 0 0 1px darken($color-accent, 5%);
+      background-color: color.scale(variables.$color-accent, $lightness: -5%);
+      box-shadow: inset 0 0 0 1px
+        color.scale(variables.$color-accent, $lightness: -5%);
     }
 
     &[disabled] {

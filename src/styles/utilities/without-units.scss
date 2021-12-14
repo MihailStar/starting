@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+@function without-units($with-units) {
+  @return math.div($with-units, ($with-units * 0 + 1));
+}

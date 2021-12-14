@@ -1,12 +1,17 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
+
 .rating {
-  $font-size: ($base-unit * 4);
+  $font-size: variables.base-units(4);
   $number-of: 10;
-  @extend %border-box;
+  @extend %box-sizing-border-box;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
-  width: (($base-unit * 10) * $number-of / $font-size * 1em);
-  height: (($base-unit * 10) / $font-size * 1em);
+  width: math.div(variables.base-units(10) * $number-of, $font-size) * 1em;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -17,27 +22,28 @@
   margin-left: 0;
   font-size: $font-size;
   vertical-align: middle;
-  background-color: $color-body;
+  background-color: variables.$color-body;
   background-image: url('../images/star-outline.svg');
   background-repeat: repeat-x;
-  background-size: (($base-unit * 10) / $font-size * 1em)
-    (($base-unit * 10) / $font-size * 1em);
+  background-size: math.div(variables.base-units(10), $font-size) * 1em
+    math.div(variables.base-units(10), $font-size) * 1em;
   border: 0;
-  border-radius: (($base-unit * 1) / $font-size * 1em);
-  box-shadow: inset 0 0 0 1px $color-line;
+  border-radius: math.div(variables.base-units(1), $font-size) * 1em;
+  box-shadow: inset 0 0 0 1px variables.$color-line;
 
   &:focus-within,
   &:hover {
-    background-color: darken($color-body, 5%);
-    box-shadow: inset 0 0 0 1px darken($color-line, 5%);
+    background-color: color.scale(variables.$color-body, $lightness: -5%);
+    box-shadow: inset 0 0 0 1px
+      color.scale(variables.$color-line, $lightness: -5%);
   }
 
   &__element {
     position: absolute;
     top: 0;
     left: 0;
-    width: (($base-unit * 10) / $font-size * 1em);
-    height: (($base-unit * 10) / $font-size * 1em);
+    width: math.div(variables.base-units(10), $font-size) * 1em;
+    height: math.div(variables.base-units(10), $font-size) * 1em;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -46,16 +52,16 @@
     vertical-align: middle;
     cursor: pointer;
     background-repeat: repeat-x;
-    background-size: (($base-unit * 10) / $font-size * 1em)
-      (($base-unit * 10) / $font-size * 1em);
+    background-size: math.div(variables.base-units(10), $font-size) * 1em
+      math.div(variables.base-units(10), $font-size) * 1em;
     border: 0;
-    transition: $transition-duration;
+    transition: variables.$transition-duration;
     appearance: none;
 
     @for $index from 1 through $number-of {
       &:nth-of-type(#{$index}) {
-        z-index: ($number-of - $index + 1);
-        width: (($base-unit * 10) * $index / $font-size * 1em);
+        z-index: $number-of - $index + 1;
+        width: math.div(variables.base-units(10) * $index, $font-size) * 1em;
       }
     }
 

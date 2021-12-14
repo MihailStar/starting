@@ -9,8 +9,16 @@ const DIRECTORY = path.join(
 
 const [, , blockName] = process.argv;
 const filesData = {
-  pug: `mixin ${blockName}\n  .${blockName}&attributes(attributes)\n    block\n`,
-  scss: `.${blockName} {\n  @extend %border-box;\n}\n`,
+  pug: `mixin ${blockName}
+  .${blockName}&attributes(attributes)
+    block
+`,
+  scss: `@use '../../styles/utilities/box-sizing-border-box';
+
+.${blockName} {
+  @extend %box-sizing-border-box;
+}
+`,
   ts: '',
 };
 

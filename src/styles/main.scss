@@ -1,82 +1,26 @@
-/* stylelint-disable no-invalid-position-at-import-rule */
-
-@import '../../node_modules/fast-grid/fast-grid';
-@import '../../node_modules/include-media/dist/include-media';
-
-@import './variables';
-@import './utilities';
+@use '../blocks/components/button/button';
+@use '../blocks/components/checkbox/checkbox';
+@use '../blocks/components/counter/counter';
+@use '../blocks/components/icon/icon';
+@use '../blocks/components/input/input';
+@use '../blocks/components/keyboard/keyboard';
+@use '../blocks/components/modal/modal';
+@use '../blocks/components/radio/radio';
+@use '../blocks/components/rating/rating';
+@use '../blocks/components/select/select';
+@use '../blocks/components/switch/switch';
+@use '../blocks/components/textarea/textarea';
+@use './utilities/visually-hidden';
 
 .starting {
   min-height: 100vh;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  font-family: system-ui, sans-serif;
+}
 
-  @import '../blocks/components/button/button';
-  @import '../blocks/components/checkbox/checkbox';
-  @import '../blocks/components/icon/icon';
-  @import '../blocks/components/input/input';
-  @import '../blocks/components/radio/radio';
-  @import '../blocks/components/rating/rating';
-  @import '../blocks/components/select/select';
-  @import '../blocks/components/switch/switch';
-
-  @import '../blocks/components/counter/counter';
-  @import '../blocks/components/keyboard/keyboard';
-  @import '../blocks/components/modal/modal';
-  @import '../blocks/components/textarea/textarea';
-
-  .example {
-    $font-size: ($base-unit * 16);
-    @extend %border-box;
-    margin-top: (($base-unit * 6) / $font-size * 1em);
-    margin-bottom: (($base-unit * 12) / $font-size * 1em);
-    font-family: system-ui, sans-serif;
-    font-size: ($font-size - ($base-unit * 4));
-    font-style: normal;
-    font-weight: 400;
-    line-height: (($base-unit * 24) / $font-size * 1em);
-    color: $color-text-dark;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    @include media('>=sm') {
-      font-size: ($font-size - ($base-unit * 3));
-    }
-    @include media('>=md') {
-      font-size: ($font-size - ($base-unit * 2));
-    }
-    @include media('>=lg') {
-      font-size: ($font-size - ($base-unit * 1));
-    }
-    @include media('>=xl') {
-      font-size: $font-size;
-    }
-  }
-
-  .grid {
-    @include grid-container(sm);
-    min-width: 320px;
-    @include grid-breakpoint(sm) {
-      max-width: map-get($containers, sm);
-    }
-    @include grid-breakpoint(md) {
-      max-width: map-get($containers, md);
-    }
-    @include grid-breakpoint(lg) {
-      max-width: map-get($containers, lg);
-    }
-    @include grid-breakpoint(xl) {
-      max-width: map-get($containers, xl);
-    }
-
-    &__row {
-      @include grid-row();
-    }
-
-    &__column {
-      @include grid-col(12 6 4 3);
-    }
-  }
-
-  .visually-hidden {
-    @extend %visually-hidden;
-  }
+.visually-hidden {
+  @extend %visually-hidden;
 }

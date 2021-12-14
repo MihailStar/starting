@@ -1,9 +1,12 @@
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
+
 .icon {
-  @extend %border-box;
+  @extend %box-sizing-border-box;
   display: inline-block;
   flex-shrink: 0;
   vertical-align: middle;
   pointer-events: none;
   fill: currentColor;
-  transition: $transition-duration;
+  transition: variables.$transition-duration;
 }

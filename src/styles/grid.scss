@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use './utilities/box-sizing-border-box.scss';
+@use './variables';
+
+.grid {
+  @extend %box-sizing-border-box;
+  width: 100%;
+  padding-right: variables.$grid-gap;
+  padding-left: variables.$grid-gap;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $key, $breakpoint in variables.$grid-breakpoints {
+    @media (min-width: #{$breakpoint}) {
+      max-width: map.get(variables.$grid-containers, $key);
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -#{variables.$grid-gap};
+    margin-left: -#{variables.$grid-gap};
+  }
+
+  &__column {
+    flex-grow: 1;
+    width: 100%;
+    padding-right: variables.$grid-gap;
+    padding-left: variables.$grid-gap;
+  }
+}

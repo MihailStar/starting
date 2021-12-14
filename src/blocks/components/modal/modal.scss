@@ -1,3 +1,5 @@
+@use '../../../styles/utilities/box-sizing-border-box';
+
 .modal {
-  @extend %border-box;
+  @extend %box-sizing-border-box;
 }

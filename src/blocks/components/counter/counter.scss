@@ -1,14 +1,19 @@
 /* stylelint-disable property-no-vendor-prefix */
 
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../styles/utilities/box-sizing-border-box';
+@use '../../../styles/variables';
+@use '../button/button';
 @use '../icon/icon';
+@use '../input/input';
 
 .counter {
-  $font-size: ($base-unit * 4);
-  @extend %border-box;
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
   display: inline-flex;
-  flex-shrink: 0;
-  width: (($base-unit * 30) / $font-size * 1em);
-  height: (($base-unit * 10) / $font-size * 1em);
+  width: math.div(variables.base-units(30), $font-size) * 1em;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
   font-size: $font-size;
   vertical-align: middle;
 
@@ -16,10 +21,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: (($base-unit * 6) / $font-size * 1em);
-    height: (($base-unit * 6) / $font-size * 1em);
+    width: math.div(variables.base-units(6), $font-size) * 1em;
+    height: math.div(variables.base-units(6), $font-size) * 1em;
     font-size: inherit;
-    color: $color-text-dark;
+    color: variables.$color-text-dark;
     transform: translateX(-50%) translateY(-50%);
   }
 
@@ -27,7 +32,7 @@
     @extend %button;
     position: relative;
     z-index: 1;
-    width: (100% / 3);
+    width: math.div(100%, 3);
     min-width: auto;
     height: 100%;
     padding-top: 0;
@@ -40,31 +45,31 @@
     &:focus,
     &:hover {
       + .counter__icon {
-        color: darken($color-text-dark, 5%);
+        color: color.scale(variables.$color-text-dark, $lightness: -5%);
       }
     }
 
     &:active {
       + .counter__icon {
-        color: darken($color-text-dark, 10%);
+        color: color.scale(variables.$color-text-dark, $lightness: -10%);
       }
     }
 
     &_decrease {
-      border-radius: (($base-unit * 1) / $font-size * 1em) 0 0
-        (($base-unit * 1) / $font-size * 1em);
+      border-radius: math.div(variables.base-units(1), $font-size) * 1em 0 0
+        math.div(variables.base-units(1), $font-size) * 1em;
     }
 
     &_increase {
-      border-radius: 0 (($base-unit * 1) / $font-size * 1em)
-        (($base-unit * 1) / $font-size * 1em) 0;
+      border-radius: 0 math.div(variables.base-units(1), $font-size) * 1em
+        math.div(variables.base-units(1), $font-size) * 1em 0;
     }
   }
 
   &__input {
     @extend %input__element;
-    width: (100% / 3);
-    width: calc(100% / 3 + 2px);
+    width: math.div(100%, 3);
+    width: calc(1px + 100% / 3 + 1px);
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -81,9 +86,9 @@
     }
 
     &:focus {
-      color: $color-text-dark;
-      background-color: $color-body;
-      box-shadow: inset 0 0 0 1px $color-line;
+      color: variables.$color-text-dark;
+      background-color: variables.$color-body;
+      box-shadow: inset 0 0 0 1px variables.$color-line;
     }
   }
 }
