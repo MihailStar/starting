@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use './utilities/box-sizing-border-box.scss';
+@use './utilities/box-sizing-border-box';
 @use './variables';
 
 .grid {
@@ -11,7 +11,7 @@
   margin-left: auto;
 
   @each $key, $breakpoint in variables.$grid-breakpoints {
-    @media (min-width: #{$breakpoint}) {
+    @media (min-width: $breakpoint) {
       max-width: map.get(variables.$grid-containers, $key);
     }
   }
