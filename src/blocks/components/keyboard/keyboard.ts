@@ -1,5 +1,4 @@
 import {
-  ButtonDescription as SchemeButtonDescription,
   ControlKey as SchemeControlKey,
   Language as SchemeLanguage,
   Modifier as SchemeModifier,
@@ -158,17 +157,13 @@ class Keyboard extends MyEventEmitter {
     }
 
     const [rowIndex, buttonIndex] = schemeIndex;
-    const code = (codes[rowIndex] as Array<string>)[buttonIndex] as string;
+    const code = codes[rowIndex][buttonIndex];
     const {
       chars,
       keys,
       controlKeys = [],
       modifiers = [],
-    } = (
-      scheme[this.props.currentLanguage][
-        rowIndex
-      ] as Array<SchemeButtonDescription>
-    )[buttonIndex] as SchemeButtonDescription;
+    } = scheme[this.props.currentLanguage][rowIndex][buttonIndex];
 
     const getCurrentIndex = (): number => {
       if (chars.length === 1) {
@@ -186,10 +181,10 @@ class Keyboard extends MyEventEmitter {
     };
 
     return {
-      char: chars[getCurrentIndex()] as string,
+      char: chars[getCurrentIndex()],
       code,
       controlKeys,
-      key: keys[getCurrentIndex()] as string,
+      key: keys[getCurrentIndex()],
       modifiers,
     };
   }
