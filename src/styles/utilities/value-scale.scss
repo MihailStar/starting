@@ -1,0 +1,26 @@
+@use 'sass:list';
+@use './variables';
+
+$_default-breakpoints: (0);
+
+@each $_key, $breakpoint in variables.$grid-breakpoints {
+  $_default-breakpoints: list.append($_default-breakpoints, $breakpoint);
+}
+
+@mixin up($property, $min-value, $step, $breakpoints: $_default-breakpoints) {
+  $index: 0;
+
+  @each $breakpoint in $breakpoints {
+    @media (min-width: $breakpoint) {
+      #{$property}: $min-value + $step * $index;
+    }
+
+    $index: $index + 1;
+  }
+}
+
+@mixin down($property, $max-value, $step, $breakpoints: $_default-breakpoints) {
+  $min-value: $max-value - $step * (list.length($breakpoints) - 1);
+
+  @include up($property, $min-value, $step, $breakpoints);
+}
