@@ -5,10 +5,11 @@
   },
   "extends": [
     "eslint:recommended",
-    "airbnb-base",
     "plugin:import/recommended",
+    "airbnb-base",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier"
   ],
   "overrides": [
@@ -23,6 +24,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
+    "project": ["./tsconfig.eslint.json"],
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "jsdoc"],
