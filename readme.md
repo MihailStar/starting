@@ -31,7 +31,7 @@ npm run build # стартует production сборку, без BrowserSync'а 
 ```bash
 npm run archive # архивирует production сборку ZIP'ом
 npm run base64 # конвертирует изображения в Base64
-npm run block new-block # создает папку блока new-block, с new-block.pug, new-block.scss, new-block.ts файлами
+npm run component new-block # создает папку компонента new-block, с new-block.pug, new-block.scss, new-block.ts файлами
 npm run clear # удаляет папку сборки
 npm run deploy # разворачивает production сборку на Github Pages
 npm run lint # проверяет наличие ошибок в скриптах, стилях, шаблонах

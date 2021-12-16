@@ -1,15 +1,15 @@
-@use '../blocks/components/button/button';
-@use '../blocks/components/checkbox/checkbox';
-@use '../blocks/components/counter/counter';
-@use '../blocks/components/icon/icon';
-@use '../blocks/components/input/input';
-@use '../blocks/components/keyboard/keyboard';
-@use '../blocks/components/modal/modal';
-@use '../blocks/components/radio/radio';
-@use '../blocks/components/rating/rating';
-@use '../blocks/components/select/select';
-@use '../blocks/components/switch/switch';
-@use '../blocks/components/textarea/textarea';
+@use '../components/button/button';
+@use '../components/checkbox/checkbox';
+@use '../components/counter/counter';
+@use '../components/icon/icon';
+@use '../components/input/input';
+@use '../components/keyboard/keyboard';
+@use '../components/modal/modal';
+@use '../components/radio/radio';
+@use '../components/rating/rating';
+@use '../components/select/select';
+@use '../components/switch/switch';
+@use '../components/textarea/textarea';
 @use './utilities/visually-hidden';
 
 .starting {

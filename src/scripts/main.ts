@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 
-import { Counter as MyCounter } from '../blocks/components/counter/counter';
-import { Keyboard as MyKeyboard } from '../blocks/components/keyboard/keyboard';
-import { Language } from '../blocks/components/keyboard/scheme';
-import { Modal as MyModal } from '../blocks/components/modal/modal';
-import { Rating as MyRating } from '../blocks/components/rating/rating';
+import { Counter as MyCounter } from '../components/counter/counter';
+import { Keyboard as MyKeyboard } from '../components/keyboard/keyboard';
+import { Language } from '../components/keyboard/scheme';
+import { Modal as MyModal } from '../components/modal/modal';
+import { Rating as MyRating } from '../components/rating/rating';
 
 const counterContainer = document.querySelector('.starting .counter');
 const keyboardContainer = document.querySelector('.starting .keyboard');

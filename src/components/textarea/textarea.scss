@@ -1,0 +1,17 @@
+@use 'sass:math';
+@use '../../styles/utilities/box-sizing-border-box';
+@use '../../styles/variables';
+@use '../input/input';
+
+.textarea {
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
+  @extend %input;
+  height: math.div(variables.base-units(30), $font-size) * 1em;
+
+  &__element {
+    @extend %input__element;
+    overflow: auto;
+    resize: vertical;
+  }
+}

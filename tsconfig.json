@@ -20,7 +20,12 @@
     "target": "ES2015",
     "useUnknownInCatchVariables": true
   },
-  "exclude": ["dist", "node_modules", "src/**/*.test.ts"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/components/**/*.test.ts",
+    "src/scripts/**/*.test.ts"
+  ],
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["src/scripts", "src/blocks/**/*.ts"]
+  "include": ["src/components/**/*", "src/scripts/**/*"]
 }

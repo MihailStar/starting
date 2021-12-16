@@ -72,7 +72,7 @@
   "scripts": {
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
-    "block": "node ./create-block.mjs",
+    "component": "node ./create-component.mjs",
     "build": "cross-env NODE_ENV=production gulp default",
     "clear": "rm --force --recursive ./dist",
     "deploy": "gh-pages --dist ./dist --message deploy",

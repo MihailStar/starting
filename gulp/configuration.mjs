@@ -41,7 +41,7 @@ const paths = {
       `${directory.src}/images/**/*.{gif,ico,jpg,png,svg,webp}`,
       `!${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
       `!${directory.src}/images/sprite/**/*.svg`,
-      `${directory.src}/blocks/**/*.{gif,ico,jpg,png,svg,webp}`,
+      `${directory.src}/components/**/*.{gif,ico,jpg,png,svg,webp}`,
     ],
     dest: `${directory.dest}/images`,
     get watch() {
@@ -53,7 +53,7 @@ const paths = {
     dest: `${directory.dest}/scripts`,
     watch: [
       `${directory.src}/scripts/**/*.{js,ts}`,
-      `${directory.src}/blocks/**/*.{js,ts}`,
+      `${directory.src}/components/**/*.{js,ts}`,
     ],
   },
   sprite: {
@@ -68,7 +68,7 @@ const paths = {
     dest: `${directory.dest}/styles`,
     watch: [
       `${directory.src}/styles/**/*.scss`,
-      `${directory.src}/blocks/**/*.scss`,
+      `${directory.src}/components/**/*.scss`,
     ],
   },
   templates: {
@@ -77,7 +77,7 @@ const paths = {
     watch: [
       `${directory.src}/*.pug`,
       `${directory.src}/templates/**/*.pug`,
-      `${directory.src}/blocks/**/*.pug`,
+      `${directory.src}/components/**/*.pug`,
     ],
   },
 };

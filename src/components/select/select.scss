@@ -1,0 +1,81 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../../styles/utilities/box-sizing-border-box';
+@use '../../styles/variables';
+
+.select {
+  $font-size: variables.base-units(4);
+  @extend %box-sizing-border-box;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
+  font-size: $font-size;
+  vertical-align: middle;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: math.div(variables.base-units(2.5), $font-size) * 1em;
+    width: math.div(variables.base-units(6), $font-size) * 1em;
+    height: math.div(variables.base-units(6), $font-size) * 1em;
+    font-size: inherit;
+    color: variables.$color-text-dark;
+    transform: translateY(-50%);
+  }
+
+  &__element {
+    width: 100%;
+    height: 100%;
+    padding-top: math.div(variables.base-units(2), $font-size) * 1em;
+    padding-right: math.div(variables.base-units(11), $font-size) * 1em;
+    padding-bottom: math.div(variables.base-units(2), $font-size) * 1em;
+    padding-left: math.div(variables.base-units(4), $font-size) * 1em;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 400;
+    line-height: math.div(variables.base-units(6), $font-size) * 1em;
+    color: variables.$color-text-dark;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: variables.$color-body;
+    border: 0;
+    border-radius: math.div(variables.base-units(1), $font-size) * 1em;
+    box-shadow: inset 0 0 0 1px variables.$color-line;
+    transition: variables.$transition-duration;
+    appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus,
+    &:hover {
+      color: color.scale(variables.$color-text-dark, $lightness: -5%);
+      background-color: color.scale(variables.$color-body, $lightness: -5%);
+      outline: 0;
+      box-shadow: inset 0 0 0 1px
+        color.scale(variables.$color-line, $lightness: -5%);
+
+      + .select__icon {
+        color: color.scale(variables.$color-text-dark, $lightness: -5%);
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      cursor: default;
+      user-select: none;
+      opacity: 0.5;
+
+      + .select__icon {
+        opacity: 0.5;
+      }
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}

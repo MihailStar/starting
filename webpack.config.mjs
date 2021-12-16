@@ -10,8 +10,8 @@ const defaultConfiguration = {
   module: {
     rules: [
       {
-        exclude: /(dist|node_modules)/,
-        test: /\.(js|ts)$/,
+        exclude: /(?:dist|node_modules)/,
+        test: /\.(?:js|ts)$/,
         use: {
           loader: 'babel-loader',
         },
@@ -33,8 +33,8 @@ const productionConfiguration = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        exclude: /(dist|node_modules)/,
-        test: /\.(js|ts)$/,
+        exclude: /(?:dist|node_modules)/,
+        test: /\.(?:js|ts)$/,
         terserOptions: {
           output: {
             comments: false,
