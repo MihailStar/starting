@@ -18,7 +18,7 @@ const directory = {
 
 const paths = {
   archive: {
-    src: `${directory.dest}/**/*.*`,
+    src: `${directory.dest}/**/*`,
     dest: directory.dest,
     watch: '',
   },

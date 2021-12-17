@@ -1,3 +1,5 @@
+/* eslint no-param-reassign: ['error', { props: true, ignorePropertyModificationsFor: ['buttonElement'] }] */
+
 import {
   ControlKey as SchemeControlKey,
   Language as SchemeLanguage,
