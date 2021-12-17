@@ -3,20 +3,41 @@
     "browser": true,
     "jquery": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:import/recommended",
-    "airbnb-base",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier"
-  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+      "files": ["*.js", "*.mjs"],
       "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "import/extensions": ["error", "ignorePackages"],
+        "import/prefer-default-export": "off",
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ]
+      }
+    },
+    {
+      "extends": [
+        "eslint:recommended",
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier"
+      ],
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "import/prefer-default-export": "off",
         "jsdoc/no-types": "error"
       }
     }
@@ -24,25 +45,12 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
-    "project": ["./tsconfig.eslint.json"],
+    "project": "./tsconfig.eslint.json",
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "jsdoc"],
   "root": true,
   "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-shadow": "error",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "import/prefer-default-export": "off",
     "jsdoc/check-access": "error",
     "jsdoc/check-alignment": "error",
     // "jsdoc/check-examples": "error",
@@ -53,21 +61,6 @@
     "jsdoc/check-syntax": "error",
     "jsdoc/check-tag-names": "error",
     "jsdoc/check-types": "error",
-    "jsdoc/check-values": "error",
-    "lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
-      }
-    ],
-    "no-param-reassign": [
-      "error",
-      {
-        "props": false
-      }
-    ],
-    "no-shadow": "off",
-    "quotes": ["error", "single"]
+    "jsdoc/check-values": "error"
   }
 }
