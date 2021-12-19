@@ -6,7 +6,7 @@
       "script": "dev",
       "problemMatcher": [],
       "label": "npm: dev",
-      "detail": "react-scripts start",
+      "detail": "cross-env NODE_ENV=development gulp default",
       "group": {
         "kind": "build",
         "isDefault": true
