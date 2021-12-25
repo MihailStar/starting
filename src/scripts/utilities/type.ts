@@ -1,17 +1,17 @@
-type DeepPartial<O> = {
-  [K in keyof O]+?: O[K] extends object ? DeepPartial<O[K]> : O[K];
+type DeepPartial<Obj> = {
+  [K in keyof Obj]+?: Obj[K] extends object ? DeepPartial<Obj[K]> : Obj[K];
 };
 
-type ExtractArrayType<A> = A extends Array<infer U> ? U : never;
+type ExtractArrayType<Arr> = Arr extends Array<infer U> ? U : never;
 
-type FilterKeysByType<O, T> = {
-  [K in keyof O]: O[K] extends T ? K : never;
-}[keyof O];
+type FilterKeysByType<Obj, Type> = {
+  [K in keyof Obj]: Obj[K] extends Type ? K : never;
+}[keyof Obj];
 
-type Keys<O> = keyof O;
+type Keys<Obj> = keyof Obj;
 
-type NonReadonly<O> = {
-  -readonly [K in keyof O]+?: O[K];
+type NonReadonly<Obj> = {
+  -readonly [K in keyof Obj]+?: Obj[K];
 };
 
 export { DeepPartial, ExtractArrayType, FilterKeysByType, Keys, NonReadonly };

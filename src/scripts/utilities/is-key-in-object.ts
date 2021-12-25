@@ -1,8 +1,8 @@
-function isKeyInObject<O extends object>(
-  key: unknown,
-  object: O
-): key is keyof O {
-  return (key as keyof O) in object;
+function isKeyInObject<Obj extends object>(
+  key: PropertyKey,
+  object: Obj
+): key is keyof Obj {
+  return key in object;
 }
 
 export { isKeyInObject };
