@@ -10,7 +10,7 @@ class RequestError extends Error {
 /**
  * @throws {RequestError}
  */
-export async function makeRequest<Type extends object>(
+async function makeRequest<Type extends object>(
   url: string,
   options?: RequestInit
 ): Promise<Type> {
@@ -22,3 +22,5 @@ export async function makeRequest<Type extends object>(
 
   return (await response.json()) as Promise<Type>;
 }
+
+export { makeRequest };
