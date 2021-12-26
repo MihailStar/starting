@@ -30,6 +30,7 @@
       ],
       "files": ["*.ts"],
       "rules": {
+        "@typescript-eslint/explicit-function-return-type": "error",
         "@typescript-eslint/lines-between-class-members": [
           "error",
           "always",
@@ -37,6 +38,7 @@
             "exceptAfterSingleLine": true
           }
         ],
+        "@typescript-eslint/member-ordering": "error",
         "import/prefer-default-export": "off",
         "jsdoc/no-types": "error"
       }
