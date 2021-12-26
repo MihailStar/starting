@@ -2,7 +2,7 @@ class Storage<Type extends object> {
   private readonly getNamespace: () => string;
 
   constructor(namespace: string) {
-    this.getNamespace = () => namespace;
+    this.getNamespace = (): typeof namespace => namespace;
   }
 
   static isAvailable(): boolean {

@@ -18,7 +18,7 @@ class EventEmitter {
   on(type: string, listener: Listener): () => void {
     this.events[type] = (this.events[type] ?? []).concat(listener);
 
-    return () => this.off(type, listener);
+    return (): void => this.off(type, listener);
   }
 
   off(type: string, listener: Listener): void {

@@ -1,13 +1,13 @@
 import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter';
 
 class Counter extends MyEventEmitter {
-  private elements: {
+  private readonly elements: {
     decreaseButton: HTMLButtonElement;
     input: HTMLInputElement;
     increaseButton: HTMLButtonElement;
   };
 
-  private props: {
+  private readonly props: {
     value: number;
     min: number;
     max: number;
@@ -57,6 +57,14 @@ class Counter extends MyEventEmitter {
     });
   }
 
+  get isMin(): boolean {
+    return this.props.value <= this.props.min;
+  }
+
+  get isMax(): boolean {
+    return this.props.value >= this.props.max;
+  }
+
   get value(): number {
     return this.props.value;
   }
@@ -77,14 +85,6 @@ class Counter extends MyEventEmitter {
     this.props.value = normalizeValue;
     this.elements.input.value = String(normalizeValue);
     this.emit('event:change', { value: normalizeValue });
-  }
-
-  get isMin(): boolean {
-    return this.props.value <= this.props.min;
-  }
-
-  get isMax(): boolean {
-    return this.props.value >= this.props.max;
   }
 
   decrease(): void {

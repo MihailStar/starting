@@ -21,8 +21,8 @@ type ButtonProps = {
 };
 
 class Keyboard extends MyEventEmitter {
-  private elements: Array<HTMLButtonElement>;
-  private props: {
+  private readonly elements: Array<HTMLButtonElement>;
+  private readonly props: {
     currentLanguage: SchemeLanguage;
     isAltPressed: boolean;
     isCapsLockPressed: boolean;

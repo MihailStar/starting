@@ -3,6 +3,7 @@ class RequestError extends Error {
 
   constructor(statusCode: number) {
     super(`Request failed. HTTP response status code: ${statusCode}`);
+
     this.statusCode = statusCode;
   }
 }
