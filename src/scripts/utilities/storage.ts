@@ -1,4 +1,4 @@
-class Storage<Type> {
+class Storage<Type extends object> {
   private readonly getNamespace: () => string;
 
   constructor(namespace: string) {
