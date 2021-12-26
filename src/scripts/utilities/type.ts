@@ -8,10 +8,8 @@ type FilterKeysByType<Obj, Type> = {
   [K in keyof Obj]: Obj[K] extends Type ? K : never;
 }[keyof Obj];
 
-type Keys<Obj> = keyof Obj;
-
 type NonReadonly<Obj> = {
   -readonly [K in keyof Obj]+?: Obj[K];
 };
 
-export { DeepPartial, ExtractArrayType, FilterKeysByType, Keys, NonReadonly };
+export { DeepPartial, ExtractArrayType, FilterKeysByType, NonReadonly };
