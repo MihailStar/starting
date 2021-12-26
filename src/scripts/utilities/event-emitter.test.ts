@@ -3,10 +3,10 @@ import { EventEmitter as MyEventEmitter } from './event-emitter';
 
 const myEventEmitter = new MyEventEmitter();
 
-interface Logger {
+type Logger = {
   (data: { [key: string]: unknown }): void;
   data?: Parameters<Logger>[0];
-}
+};
 
 const logger: Logger = (data) => {
   logger.data = data;
