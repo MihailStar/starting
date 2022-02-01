@@ -6,6 +6,7 @@ import { compileImages } from './images.mjs';
 import { compileScripts } from './scripts.mjs';
 import { compileStyles } from './styles.mjs';
 import { compileTemplates } from './templates.mjs';
+import { copyAssets } from './assets.mjs';
 import { generateSprite } from './sprite.mjs';
 
 const taskFunction = gulp.parallel(
@@ -14,6 +15,7 @@ const taskFunction = gulp.parallel(
   compileScripts,
   compileStyles,
   compileTemplates,
+  copyAssets,
   generateSprite
 );
 

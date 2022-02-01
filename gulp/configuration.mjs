@@ -22,6 +22,13 @@ const paths = {
     dest: directory.dest,
     watch: '',
   },
+  assets: {
+    src: `${directory.src}/assets/**/*`,
+    dest: `${directory.dest}/assets`,
+    get watch() {
+      return this.src;
+    },
+  },
   base64: {
     src: `${directory.src}/images/base64/**/*.{gif,jpg,png,svg,webp}`,
     dest: `${directory.dest}/images/base64`,
