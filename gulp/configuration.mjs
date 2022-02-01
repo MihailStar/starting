@@ -106,8 +106,8 @@ const imageminConfiguration = [
 ];
 
 const isProductionMinimized = {
-  styles: false,
-  templates: false,
+  styles: true,
+  templates: true,
 };
 
 export {
