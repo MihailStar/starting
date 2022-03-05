@@ -17,7 +17,7 @@ if (
   !(modalContainer instanceof HTMLElement) ||
   !(ratingContainer instanceof HTMLElement)
 ) {
-  throw new Error('No container');
+  throw new Error('Container not found');
 }
 
 new MyCounter(counterContainer).on('event:change', console.log);
