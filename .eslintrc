@@ -6,9 +6,8 @@
   "overrides": [
     {
       "extends": ["eslint:recommended", "airbnb-base", "prettier"],
-      "files": ["*.js", "*.mjs"],
+      "files": ["*.js"],
       "rules": {
-        "import/extensions": ["error", "ignorePackages"],
         "import/prefer-default-export": "off",
         "lines-between-class-members": [
           "error",
@@ -91,7 +90,13 @@
           }
         ],
         "import/prefer-default-export": "off",
-        "jsdoc/no-types": "error"
+        "jsdoc/no-types": "error",
+        "no-void": [
+          "error",
+          {
+            "allowAsStatement": true
+          }
+        ]
       }
     }
   ],

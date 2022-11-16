@@ -39,7 +39,6 @@
     "gulp-svgstore": "^9.0.0",
     "gulp-wait": "0.0.2",
     "gulp-zip": "^5.1.0",
-    "htmlhint": "^0.16.3",
     "husky": "^7.0.4",
     "imagemin-webp": "^6.0.0",
     "lint-staged": "^12.1.2",
@@ -65,17 +64,18 @@
     "yaspeller": "^8.0.0"
   },
   "engines": {
-    "node": "^14.19.0",
-    "npm": "^6.14.0"
+    "node": "^16.18.0",
+    "npm": "^8.19.0"
   },
+  "license": "WTFPL",
   "name": "starting",
   "private": true,
   "scripts": {
     "archive": "cross-env NODE_ENV=production gulp archive",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
-    "component": "node ./create-component.mjs",
     "build": "cross-env NODE_ENV=production gulp default",
     "clear": "rm --force --recursive ./dist",
+    "component": "node ./create-component.js",
     "deploy": "gh-pages --dist ./dist --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
@@ -87,5 +87,6 @@
     "prettier": "prettier --check ./src/**/*.{css,js,pug,scss,ts}",
     "speller": "yaspeller ./src",
     "sprite": "cross-env NODE_ENV=production gulp generateSprite"
-  }
+  },
+  "type": "module"
 }

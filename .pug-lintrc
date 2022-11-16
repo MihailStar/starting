@@ -14,6 +14,7 @@
   "requireClassLiteralsBeforeAttributes": true,
   "requireIdLiteralsBeforeAttributes": true,
   "requireLineFeedAtFileEnd": true,
+  "requireLowerCaseAttributes": true,
   "requireLowerCaseTags": true,
   "requireSpaceAfterCodeOperator": true,
   "requireSpecificAttributes": [
@@ -32,5 +33,5 @@
   "validateIndentation": 2,
   "validateLineBreaks": "LF",
   "validateSelfClosingTags": true,
-  "validateTemplateString": true
+  "validateTemplateString": ["string", "concatenation"]
 }
