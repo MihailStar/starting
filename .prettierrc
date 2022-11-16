@@ -1,6 +1,5 @@
 {
   "htmlWhitespaceSensitivity": "ignore",
-  "printWidth": 84,
   "pugSingleQuote": false,
   "singleQuote": true,
   "xmlWhitespaceSensitivity": "ignore"

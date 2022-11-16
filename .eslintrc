@@ -8,13 +8,12 @@
       "extends": ["eslint:recommended", "airbnb-base", "prettier"],
       "files": ["*.js"],
       "rules": {
+        "import/extensions": ["error", "ignorePackages"],
         "import/prefer-default-export": "off",
         "lines-between-class-members": [
           "error",
           "always",
-          {
-            "exceptAfterSingleLine": true
-          }
+          { "exceptAfterSingleLine": true }
         ]
       }
     },
@@ -33,9 +32,7 @@
         "@typescript-eslint/lines-between-class-members": [
           "error",
           "always",
-          {
-            "exceptAfterSingleLine": true
-          }
+          { "exceptAfterSingleLine": true }
         ],
         "@typescript-eslint/member-ordering": [
           "error",
@@ -89,14 +86,10 @@
             ]
           }
         ],
+        "import/extensions": ["error", "ignorePackages", { "ts": "never" }],
         "import/prefer-default-export": "off",
         "jsdoc/no-types": "error",
-        "no-void": [
-          "error",
-          {
-            "allowAsStatement": true
-          }
-        ]
+        "no-void": ["error", { "allowAsStatement": true }]
       }
     }
   ],
