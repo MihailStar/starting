@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import imageDataURI from 'gulp-image-data-uri';
 import imagemin from 'gulp-imagemin';
 import size from 'gulp-size';
-import { paths, imageminConfiguration } from '../configuration.mjs';
+import { paths, imageminConfiguration } from '../configuration.js';
 
 function convertImageToBase64() {
   return gulp

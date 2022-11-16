@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
-import { paths, isDevelopment } from '../configuration.mjs';
+import { paths, isDevelopment } from '../configuration.js';
 
 function compileFonts() {
   return gulp

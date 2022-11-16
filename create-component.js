@@ -1,9 +1,9 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import path from 'path';
+import url from 'url';
 import fs from 'fs';
 
 const DIRECTORY = path.join(
-  dirname(fileURLToPath(import.meta.url)),
+  path.dirname(url.fileURLToPath(import.meta.url)),
   './src/components'
 );
 
@@ -13,7 +13,7 @@ const filesData = {
   .${componentName}&attributes(attributes)
     block
 `,
-  scss: `@use '../../styles/utilities/box-sizing-border-box';
+  scss: `@use '../../styles/utilities/box-sizing-border-box.scss';
 
 .${componentName} {
   @extend %box-sizing-border-box;

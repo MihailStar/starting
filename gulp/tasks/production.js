@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import { build } from './build.mjs';
-import { clear } from './clear.mjs';
+import { build } from './build.js';
+import { clear } from './clear.js';
 
 const taskFunction = gulp.series(clear, build);
 

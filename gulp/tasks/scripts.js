@@ -3,8 +3,8 @@
 import gulp from 'gulp';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
-import { paths } from '../configuration.mjs';
-import { webpackConfiguration } from '../../webpack.config.mjs';
+import { paths } from '../configuration.js';
+import { webpackConfiguration } from '../../webpack.config.js';
 
 function compileScripts() {
   return gulp

@@ -14,12 +14,8 @@ import prettier from 'gulp-prettier';
 import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import wait from 'gulp-wait';
-import {
-  isDevelopment,
-  isProductionMinimized,
-  paths,
-} from '../configuration.mjs';
-import { server } from './server.mjs';
+import { isDevelopment, isProductionMinimized, paths } from '../configuration.js';
+import { server } from './server.js';
 
 const sass = gulpSass(dartSass);
 

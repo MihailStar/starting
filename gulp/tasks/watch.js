@@ -1,16 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import { compileFonts } from './fonts.mjs';
-import { compileImages } from './images.mjs';
-import { compileScripts } from './scripts.mjs';
-import { compileStyles } from './styles.mjs';
-import { compileTemplates } from './templates.mjs';
-import { convertImageToBase64 } from './base64.mjs';
-import { copyAssets } from './assets.mjs';
-import { generateSprite } from './sprite.mjs';
-import { paths } from '../configuration.mjs';
-import { reloadServer } from './server.mjs';
+import { compileFonts } from './fonts.js';
+import { compileImages } from './images.js';
+import { compileScripts } from './scripts.js';
+import { compileStyles } from './styles.js';
+import { compileTemplates } from './templates.js';
+import { convertImageToBase64 } from './base64.js';
+import { copyAssets } from './assets.js';
+import { generateSprite } from './sprite.js';
+import { paths } from '../configuration.js';
+import { reloadServer } from './server.js';
 
 function watch() {
   const watchFor = {

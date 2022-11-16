@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
-import { build } from './build.mjs';
-import { clear } from './clear.mjs';
-import { initializeServer } from './server.mjs';
-import { watch } from './watch.mjs';
+import { build } from './build.js';
+import { clear } from './clear.js';
+import { initializeServer } from './server.js';
+import { watch } from './watch.js';
 
 const taskFunction = gulp.series(
   clear,
