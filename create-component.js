@@ -1,6 +1,6 @@
+import fs from 'fs';
 import path from 'path';
 import url from 'url';
-import fs from 'fs';
 
 const DIRECTORY = path.join(
   path.dirname(url.fileURLToPath(import.meta.url)),
@@ -57,10 +57,10 @@ function createFile(filePath, fileData) {
 
 /**
  * @param {string} directoryPath
- * @returns {Promise<Array<string>>}
+ * @returns {Promise<string[]>}
  */
 function createFiles(directoryPath) {
-  /** @type {Array<Promise<string>>} */
+  /** @type {Promise<string>[]} */
   const promises = [];
 
   Object.entries(filesData).forEach(([extension, fileData]) => {

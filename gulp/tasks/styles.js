@@ -1,20 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import autoprefixer from 'autoprefixer';
-import dartSass from 'sass';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
-import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
+import prettier from 'gulp-prettier';
+import gulpSass from 'gulp-sass';
+import size from 'gulp-size';
+import sourcemaps from 'gulp-sourcemaps';
+import wait from 'gulp-wait';
 import postcss100vhFix from 'postcss-100vh-fix';
 import postcssCsso from 'postcss-csso';
 import postcssImport from 'postcss-import';
 import postcssMediaMinmax from 'postcss-media-minmax';
-import prettier from 'gulp-prettier';
-import size from 'gulp-size';
-import sourcemaps from 'gulp-sourcemaps';
-import wait from 'gulp-wait';
-import { isDevelopment, isProductionMinimized, paths } from '../configuration.js';
+import dartSass from 'sass';
+import {
+  isDevelopment,
+  isProductionMinimized,
+  paths,
+} from '../configuration.js';
 import { server } from './server.js';
 
 const sass = gulpSass(dartSass);

@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
-import { paths, isDevelopment } from '../configuration.js';
+import { isDevelopment, paths } from '../configuration.js';
 
 function copyAssets() {
   return gulp

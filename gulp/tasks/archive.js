@@ -4,9 +4,9 @@ import fs from 'fs';
 import gulp from 'gulp';
 import size from 'gulp-size';
 import zip from 'gulp-zip';
+import { paths } from '../configuration.js';
 import { build } from './build.js';
 import { clear } from './clear.js';
-import { paths } from '../configuration.js';
 
 const projectName = (fs
   .readFileSync('./package.json', 'utf-8')

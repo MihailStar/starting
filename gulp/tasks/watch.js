@@ -1,16 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import gulp from 'gulp';
+import { paths } from '../configuration.js';
+import { copyAssets } from './assets.js';
+import { convertImageToBase64 } from './base64.js';
 import { compileFonts } from './fonts.js';
 import { compileImages } from './images.js';
 import { compileScripts } from './scripts.js';
+import { reloadServer } from './server.js';
+import { generateSprite } from './sprite.js';
 import { compileStyles } from './styles.js';
 import { compileTemplates } from './templates.js';
-import { convertImageToBase64 } from './base64.js';
-import { copyAssets } from './assets.js';
-import { generateSprite } from './sprite.js';
-import { paths } from '../configuration.js';
-import { reloadServer } from './server.js';
 
 function watch() {
   const watchFor = {

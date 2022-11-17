@@ -6,13 +6,19 @@ import prettier from 'gulp-prettier';
 import pug from 'gulp-pug';
 import replace from 'gulp-replace';
 import size from 'gulp-size';
-import { isDevelopment, isProductionMinimized, paths } from '../configuration.js';
+import {
+  isDevelopment,
+  isProductionMinimized,
+  paths,
+} from '../configuration.js';
 
 function compileTemplates() {
   return gulp
     .src(paths.templates.src)
     .pipe(pug())
-    .pipe(gulpIf(!isDevelopment && !isProductionMinimized.templates, prettier()))
+    .pipe(
+      gulpIf(!isDevelopment && !isProductionMinimized.templates, prettier())
+    )
     .pipe(gulpIf(!isDevelopment, replace(/\s*<!-- *prettier-ignore *-->/g, '')))
     .pipe(
       gulpIf(

@@ -5,7 +5,11 @@ import gulpIf from 'gulp-if';
 import imagemin from 'gulp-imagemin';
 import newer from 'gulp-newer';
 import size from 'gulp-size';
-import { imageminConfiguration, isDevelopment, paths } from '../configuration.js';
+import {
+  imageminConfiguration,
+  isDevelopment,
+  paths,
+} from '../configuration.js';
 
 function compileImages() {
   return gulp
