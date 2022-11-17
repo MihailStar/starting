@@ -1,6 +1,6 @@
-import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter';
+import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';
 
-class Counter extends MyEventEmitter {
+class Counter extends MyEventEmitter<{ value: number }> {
   private readonly elements: {
     decreaseButton: HTMLButtonElement;
     input: HTMLInputElement;

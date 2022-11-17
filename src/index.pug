@@ -2,8 +2,13 @@ extends ./templates/main.pug
 
 block variables
   -
-    const pageTitle = 'Стартовый шаблон для верстки';
     const pageClass = 'starting';
+    const pageTitle = 'Стартовый шаблон для верстки';
+
+    const documentLanguage = void 0;
+    const isVisibleForRobots = void 0;
+    const pageDescription = void 0;
+    const pageKeyword = void 0;
 
 block head
   link(rel="preconnect", href="https://fonts.googleapis.com")
@@ -69,22 +74,19 @@ block body
     tr
       td
         b button
-        +button("Example")(type="button")
-        +button("Example").button_accent(type="button")
-        +button("Example")(href="javascript:void(0);")
-        +button("Example").button_accent(href="javascript:void(0);")
+        +button(type="button") Example
+        +button.button_accent(type="button") Example
+        +button(href="javascript:void(0);") Example
+        +button.button_accent(href="javascript:void(0);") Example
       td
         b
-        +button("Example")(type="button", disabled="disabled")
-        +button("Example").button_accent(
-          type="button",
-          disabled="disabled"
-        )
-        +button("Example")(href="javascript:void(0);", tabindex="-1")
-        +button("Example").button_accent(
+        +button(type="button", disabled="disabled") Example
+        +button.button_accent(type="button", disabled="disabled") Example
+        +button(href="javascript:void(0);", tabindex="-1") Example
+        +button.button_accent(
           href="javascript:void(0);",
           tabindex="-1"
-        )
+        ) Example
 
     tr
       td
@@ -124,11 +126,6 @@ block body
       td(colspan="2")
         b keyboard
         +keyboard
-
-    tr
-      td(colspan="2")
-        b modal
-        +modal
 
     tr
       td

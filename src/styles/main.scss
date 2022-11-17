@@ -1,24 +1,25 @@
-@use '../components/button/button';
-@use '../components/checkbox/checkbox';
-@use '../components/counter/counter';
-@use '../components/icon/icon';
-@use '../components/input/input';
-@use '../components/keyboard/keyboard';
-@use '../components/modal/modal';
-@use '../components/radio/radio';
-@use '../components/rating/rating';
-@use '../components/select/select';
-@use '../components/switch/switch';
-@use '../components/textarea/textarea';
-@use './utilities/visually-hidden';
+@use '../components/button/button.scss';
+@use '../components/checkbox/checkbox.scss';
+@use '../components/counter/counter.scss';
+@use '../components/icon/icon.scss';
+@use '../components/input/input.scss';
+@use '../components/keyboard/keyboard.scss';
+@use '../components/radio/radio.scss';
+@use '../components/rating/rating.scss';
+@use '../components/select/select.scss';
+@use '../components/switch/switch.scss';
+@use '../components/textarea/textarea.scss';
+@use './utilities/visually-hidden.scss';
 
 .starting {
-  min-height: 100vh;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  font-family: system-ui, sans-serif;
+  &__body {
+    min-height: 100vh;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    font-family: system-ui, sans-serif;
+  }
 }
 
 .visually-hidden {

@@ -2,11 +2,11 @@
 
 @use 'sass:color';
 @use 'sass:math';
-@use '../../styles/utilities/box-sizing-border-box';
-@use '../../styles/variables';
-@use '../button/button';
-@use '../icon/icon';
-@use '../input/input';
+@use '../../styles/utilities/box-sizing-border-box.scss';
+@use '../../styles/variables.scss';
+@use '../button/button.scss';
+@use '../icon/icon.scss';
+@use '../input/input.scss';
 
 .counter {
   $font-size: variables.base-units(4);

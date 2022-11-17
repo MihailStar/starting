@@ -1,6 +1,6 @@
 @use 'sass:map';
-@use './utilities/box-sizing-border-box';
-@use './variables';
+@use './utilities/box-sizing-border-box.scss';
+@use './variables.scss';
 
 .grid {
   @extend %box-sizing-border-box;

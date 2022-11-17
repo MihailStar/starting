@@ -1,4 +1,4 @@
-import { Modifier as SchemeModifier } from './scheme';
+import type { Modifier as SchemeModifier } from './scheme.js';
 
 function createButton(options: {
   char: string;

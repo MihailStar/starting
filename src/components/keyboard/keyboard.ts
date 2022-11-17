@@ -5,10 +5,10 @@ import {
   Language as SchemeLanguage,
   Modifier as SchemeModifier,
   scheme,
-} from './scheme';
-import { codes } from './codes';
-import { createButton } from './button';
-import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter';
+} from './scheme.js';
+import { codes } from './codes.js';
+import { createButton } from './button.js';
+import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';
 
 const CLASS_ACTIVITY = 'keyboard__button_accent';
 
@@ -20,7 +20,14 @@ type ButtonProps = {
   modifiers: Array<SchemeModifier>;
 };
 
-class Keyboard extends MyEventEmitter {
+class Keyboard extends MyEventEmitter<{
+  char: string;
+  code: string;
+  key: string;
+  altKey: boolean;
+  ctrlKey: boolean;
+  shiftKey: boolean;
+}> {
   private readonly elements: Array<HTMLButtonElement>;
   private readonly props: {
     currentLanguage: SchemeLanguage;

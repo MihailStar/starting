@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use 'sass:math';
-@use '../../styles/utilities/box-sizing-border-box';
-@use '../../styles/variables';
+@use '../../styles/utilities/box-sizing-border-box.scss';
+@use '../../styles/variables.scss';
 
 .input,
 %input {

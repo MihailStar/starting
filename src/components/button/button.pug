@@ -1,19 +1,19 @@
 //- @param {string} text
-//- @example +button("Example")(type="button")
-//- @example +button("Example").button_accent(type="button")
-//- @example +button("Example")(href="javascript:void(0);")
-//- @example +button("Example").button_accent(href="javascript:void(0);")
-//- @example +button("Example")(type="button", disabled="disabled")
-//- @example +button("Example").button_accent(type="button", disabled="disabled")
-//- @example +button("Example")(href="javascript:void(0);", tabindex="-1")
-//- @example +button("Example").button_accent(href="javascript:void(0);", tabindex="-1")
+//- @example +button(type="button") Example
+//- @example +button.button_accent(type="button") Example
+//- @example +button(href="javascript:void(0);") Example
+//- @example +button.button_accent(href="javascript:void(0);") Example
+//- @example +button(type="button", disabled="disabled") Example
+//- @example +button.button_accent(type="button", disabled="disabled") Example
+//- @example +button(href="javascript:void(0);", tabindex="-1") Example
+//- @example +button.button_accent(href="javascript:void(0);", tabindex="-1") Example
 mixin button(text)
   if attributes.href
     a.button(
-      rel=attributes.target === '_blank' ? 'noopener noreferrer' : undefined
+      rel=attributes.target === "_blank" ? "noopener noreferrer" : undefined
     )&attributes(attributes)
       span.button__text= text
-        block
+      block
   else
     button.button&attributes(attributes)
       span.button__text= text

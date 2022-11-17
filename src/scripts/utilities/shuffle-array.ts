@@ -1,4 +1,4 @@
-import { getRandomInt } from './get-random-int';
+import { getRandomInt } from './get-random-int.js';
 
 function shuffleArray<Type>(array: Type[], inPlace = true): Type[] {
   const result = inPlace ? array : [...array];
