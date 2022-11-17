@@ -6,6 +6,9 @@ import { isDevelopment } from './gulp/configuration.js';
 const defaultConfiguration = {
   resolve: {
     extensions: ['.js', '.ts'],
+    extensionAlias: {
+      '.js': ['.ts', '.js'],
+    },
   },
   module: {
     rules: [
