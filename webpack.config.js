@@ -53,5 +53,5 @@ const configuration = {
   ...(isDevelopment ? developmentConfiguration : productionConfiguration),
 };
 
-export { configuration as webpackConfiguration };
+export { configuration };
 export default configuration;

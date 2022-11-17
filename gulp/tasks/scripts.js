@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 import { paths } from '../configuration.js';
-import { webpackConfiguration } from '../../webpack.config.js';
+import { configuration as webpackConfiguration } from '../../webpack.config.js';
 
 function compileScripts() {
   return gulp
