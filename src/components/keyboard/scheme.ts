@@ -1,47 +1,42 @@
-enum Language {
-  EN = 'en',
-  RU = 'ru',
-}
+type Language = 'en' | 'ru';
 
-enum ControlKey {
-  CAN_CAPS_LOCK = 'canCapsLock',
-  SWITCH_ALT = 'switchAlt',
-  SWITCH_CAPS_LOCK = 'switchCapsLock',
-  SWITCH_CONTROL = 'switchControl',
-  SWITCH_LANGUAGE = 'switchLanguage',
-  SWITCH_SHIFT = 'switchShift',
-}
+type ControlKey =
+  | 'canCapsLock'
+  | 'switchAlt'
+  | 'switchCapsLock'
+  | 'switchControl'
+  | 'switchLanguage'
+  | 'switchShift';
 
-enum Modifier {
-  ALT_LEFT = 'alt-left',
-  ALT_RIGHT = 'alt-right',
-  BACKSPACE = 'backspace',
-  CAPS_LOCK = 'caps-lock',
-  CONTROL_LEFT = 'control-left',
-  CONTROL_RIGHT = 'control-right',
-  DELETE = 'delete',
-  ENTER = 'enter',
-  LANGUAGE = 'language',
-  SHIFT_LEFT = 'shift-left',
-  SHIFT_RIGHT = 'shift-right',
-  SPACE = 'space',
-  TAB = 'tab',
-}
+type Modifier =
+  | 'alt-left'
+  | 'alt-right'
+  | 'backspace'
+  | 'caps-lock'
+  | 'control-left'
+  | 'control-right'
+  | 'delete'
+  | 'enter'
+  | 'language'
+  | 'shift-left'
+  | 'shift-right'
+  | 'space'
+  | 'tab';
 
-type ButtonDescription = {
+type Button = {
   chars: [string] | [string, string];
-  controlKeys?: Array<ControlKey>;
   keys: [string] | [string, string];
-  modifiers?: Array<Modifier>;
+  controlKeys?: ControlKey[];
+  modifiers?: Modifier[];
 };
 
 type Scheme = {
-  [key in Language]: Array<Array<ButtonDescription>>;
+  [Key in Language]: Button[][];
 };
 
 // prettier-ignore
 const scheme: Scheme = {
-  [Language.EN]: [
+  en: [
     [
       { chars: ['⎋'], keys: ['Escape'] },
       { chars: ['`', '~'], keys: ['`', '~'] },
@@ -57,73 +52,73 @@ const scheme: Scheme = {
       { chars: ['0', ')'], keys: ['0', ')'] },
       { chars: ['-', '_'], keys: ['-', '_'] },
       { chars: ['=', '+'], keys: ['=', '+'] },
-      { chars: ['⌫'], keys: ['Backspace'], modifiers: [Modifier.BACKSPACE] },
+      { chars: ['⌫'], keys: ['Backspace'], modifiers: ['backspace'] },
     ],
     [
-      { chars: ['⇥'], keys: ['Tab'], modifiers: [Modifier.TAB] },
-      { chars: ['q', 'Q'], keys: ['q', 'Q'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['w', 'W'], keys: ['w', 'W'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['e', 'E'], keys: ['e', 'E'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['r', 'R'], keys: ['r', 'R'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['t', 'T'], keys: ['t', 'T'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['y', 'Y'], keys: ['y', 'Y'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['u', 'U'], keys: ['u', 'U'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['i', 'I'], keys: ['i', 'I'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['o', 'O'], keys: ['o', 'O'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['p', 'P'], keys: ['p', 'P'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['⇥'], keys: ['Tab'], modifiers: ['tab'] },
+      { chars: ['q', 'Q'], keys: ['q', 'Q'], controlKeys: ['canCapsLock'] },
+      { chars: ['w', 'W'], keys: ['w', 'W'], controlKeys: ['canCapsLock'] },
+      { chars: ['e', 'E'], keys: ['e', 'E'], controlKeys: ['canCapsLock'] },
+      { chars: ['r', 'R'], keys: ['r', 'R'], controlKeys: ['canCapsLock'] },
+      { chars: ['t', 'T'], keys: ['t', 'T'], controlKeys: ['canCapsLock'] },
+      { chars: ['y', 'Y'], keys: ['y', 'Y'], controlKeys: ['canCapsLock'] },
+      { chars: ['u', 'U'], keys: ['u', 'U'], controlKeys: ['canCapsLock'] },
+      { chars: ['i', 'I'], keys: ['i', 'I'], controlKeys: ['canCapsLock'] },
+      { chars: ['o', 'O'], keys: ['o', 'O'], controlKeys: ['canCapsLock'] },
+      { chars: ['p', 'P'], keys: ['p', 'P'], controlKeys: ['canCapsLock'] },
       { chars: ['[', '{'], keys: ['[', '{'] },
       { chars: [']', '}'], keys: [']', '}'] },
       { chars: ['\\', '|'], keys: ['\\', '|'] },
-      { chars: ['⌦'], keys: ['Delete'], modifiers: [Modifier.DELETE] },
+      { chars: ['⌦'], keys: ['Delete'], modifiers: ['delete'] },
     ],
     [
-      { chars: ['⇪'], keys: ['CapsLock'], modifiers: [Modifier.CAPS_LOCK], controlKeys: [ControlKey.SWITCH_CAPS_LOCK] },
-      { chars: ['a', 'A'], keys: ['a', 'A'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['s', 'S'], keys: ['s', 'S'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['d', 'D'], keys: ['d', 'D'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['f', 'F'], keys: ['f', 'F'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['g', 'G'], keys: ['g', 'G'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['h', 'H'], keys: ['h', 'H'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['j', 'J'], keys: ['j', 'J'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['k', 'K'], keys: ['k', 'K'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['l', 'L'], keys: ['l', 'L'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['⇪'], keys: ['CapsLock'], controlKeys: ['switchCapsLock'], modifiers: ['caps-lock'] },
+      { chars: ['a', 'A'], keys: ['a', 'A'], controlKeys: ['canCapsLock'] },
+      { chars: ['s', 'S'], keys: ['s', 'S'], controlKeys: ['canCapsLock'] },
+      { chars: ['d', 'D'], keys: ['d', 'D'], controlKeys: ['canCapsLock'] },
+      { chars: ['f', 'F'], keys: ['f', 'F'], controlKeys: ['canCapsLock'] },
+      { chars: ['g', 'G'], keys: ['g', 'G'], controlKeys: ['canCapsLock'] },
+      { chars: ['h', 'H'], keys: ['h', 'H'], controlKeys: ['canCapsLock'] },
+      { chars: ['j', 'J'], keys: ['j', 'J'], controlKeys: ['canCapsLock'] },
+      { chars: ['k', 'K'], keys: ['k', 'K'], controlKeys: ['canCapsLock'] },
+      { chars: ['l', 'L'], keys: ['l', 'L'], controlKeys: ['canCapsLock'] },
       { chars: [';', ':'], keys: [';', ':'] },
-      { chars: ['\'', '"'], keys: ['\'', '"'] },
-      { chars: ['↵'], keys: ['Enter'], modifiers: [Modifier.ENTER] },
+      { chars: ["'", '"'], keys: ["'", '"'] },
+      { chars: ['↵'], keys: ['Enter'], modifiers: ['enter'] },
     ],
     [
-      { chars: ['⇧'], keys: ['Shift'], modifiers: [Modifier.SHIFT_LEFT], controlKeys: [ControlKey.SWITCH_SHIFT] },
-      { chars: ['z', 'Z'], keys: ['z', 'Z'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['x', 'X'], keys: ['x', 'X'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['c', 'C'], keys: ['c', 'C'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['v', 'V'], keys: ['v', 'V'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['b', 'B'], keys: ['b', 'B'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['n', 'N'], keys: ['n', 'N'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['m', 'M'], keys: ['m', 'M'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['⇧'], keys: ['Shift'], controlKeys: ['switchShift'], modifiers: ['shift-left'] },
+      { chars: ['z', 'Z'], keys: ['z', 'Z'], controlKeys: ['canCapsLock'] },
+      { chars: ['x', 'X'], keys: ['x', 'X'], controlKeys: ['canCapsLock'] },
+      { chars: ['c', 'C'], keys: ['c', 'C'], controlKeys: ['canCapsLock'] },
+      { chars: ['v', 'V'], keys: ['v', 'V'], controlKeys: ['canCapsLock'] },
+      { chars: ['b', 'B'], keys: ['b', 'B'], controlKeys: ['canCapsLock'] },
+      { chars: ['n', 'N'], keys: ['n', 'N'], controlKeys: ['canCapsLock'] },
+      { chars: ['m', 'M'], keys: ['m', 'M'], controlKeys: ['canCapsLock'] },
       { chars: [',', '<'], keys: [',', '<'] },
       { chars: ['.', '>'], keys: ['.', '>'] },
       { chars: ['/', '?'], keys: ['/', '?'] },
       { chars: ['↑'], keys: ['ArrowUp'] },
-      { chars: ['⇧'], keys: ['Shift'], modifiers: [Modifier.SHIFT_RIGHT], controlKeys: [ControlKey.SWITCH_SHIFT] },
+      { chars: ['⇧'], keys: ['Shift'], controlKeys: ['switchShift'], modifiers: ['shift-right'] },
     ],
     [
-      { chars: ['⌃'], keys: ['Control'], modifiers: [Modifier.CONTROL_LEFT], controlKeys: [ControlKey.SWITCH_CONTROL] },
+      { chars: ['⌃'], keys: ['Control'], controlKeys: ['switchControl'], modifiers: ['control-left'] },
       { chars: [''], keys: [''] },
       { chars: [''], keys: [''] },
-      { chars: ['⌥'], keys: ['Alt'], modifiers: [Modifier.ALT_LEFT], controlKeys: [ControlKey.SWITCH_ALT] },
-      { chars: [' '], keys: [' '], modifiers: [Modifier.SPACE] },
-      { chars: ['⌥'], keys: ['Alt'], modifiers: [Modifier.ALT_RIGHT], controlKeys: [ControlKey.SWITCH_ALT] },
-      { chars: ['⌃'], keys: ['Control'], modifiers: [Modifier.CONTROL_RIGHT], controlKeys: [ControlKey.SWITCH_CONTROL] },
+      { chars: ['⌥'], keys: ['Alt'], controlKeys: ['switchAlt'], modifiers: ['alt-left'] },
+      { chars: [' '], keys: [' '], modifiers: ['space'] },
+      { chars: ['⌥'], keys: ['Alt'], controlKeys: ['switchAlt'], modifiers: ['alt-right'] },
+      { chars: ['⌃'], keys: ['Control'], controlKeys: ['switchControl'], modifiers: ['control-right'] },
       { chars: ['←'], keys: ['ArrowLeft'] },
       { chars: ['↓'], keys: ['ArrowDown'] },
       { chars: ['→'], keys: ['ArrowRight'] },
-      { chars: [Language.RU], keys: ['Language'], modifiers: [Modifier.LANGUAGE], controlKeys: [ControlKey.SWITCH_LANGUAGE] },
+      { chars: ['ru'], keys: ['Language'], controlKeys: ['switchLanguage'], modifiers: ['language'] },
     ],
   ],
-  [Language.RU]: [
+  ru: [
     [
       { chars: ['⎋'], keys: ['Escape'] },
-      { chars: ['ё', 'Ё'], keys: ['ё', 'Ё'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['ё', 'Ё'], keys: ['ё', 'Ё'], controlKeys: ['canCapsLock'] },
       { chars: ['1', '!'], keys: ['1', '!'] },
       { chars: ['2', '"'], keys: ['2', '"'] },
       { chars: ['3', '№'], keys: ['3', '№'] },
@@ -136,69 +131,70 @@ const scheme: Scheme = {
       { chars: ['0', ')'], keys: ['0', ')'] },
       { chars: ['-', '_'], keys: ['-', '_'] },
       { chars: ['=', '+'], keys: ['=', '+'] },
-      { chars: ['⌫'], keys: ['Backspace'], modifiers: [Modifier.BACKSPACE] },
+      { chars: ['⌫'], keys: ['Backspace'], modifiers: ['backspace'] },
     ],
     [
-      { chars: ['⇥'], keys: ['Tab'], modifiers: [Modifier.TAB] },
-      { chars: ['й', 'Й'], keys: ['й', 'Й'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ц', 'Ц'], keys: ['ц', 'Ц'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['у', 'У'], keys: ['у', 'У'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['к', 'К'], keys: ['к', 'К'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['е', 'Е'], keys: ['е', 'Е'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['н', 'Н'], keys: ['н', 'Н'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['г', 'Г'], keys: ['г', 'Г'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ш', 'Ш'], keys: ['ш', 'Ш'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['щ', 'Щ'], keys: ['щ', 'Щ'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['з', 'З'], keys: ['з', 'З'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['х', 'Х'], keys: ['х', 'Х'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ъ', 'Ъ'], keys: ['ъ', 'Ъ'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['⇥'], keys: ['Tab'], modifiers: ['tab'] },
+      { chars: ['й', 'Й'], keys: ['й', 'Й'], controlKeys: ['canCapsLock'] },
+      { chars: ['ц', 'Ц'], keys: ['ц', 'Ц'], controlKeys: ['canCapsLock'] },
+      { chars: ['у', 'У'], keys: ['у', 'У'], controlKeys: ['canCapsLock'] },
+      { chars: ['к', 'К'], keys: ['к', 'К'], controlKeys: ['canCapsLock'] },
+      { chars: ['е', 'Е'], keys: ['е', 'Е'], controlKeys: ['canCapsLock'] },
+      { chars: ['н', 'Н'], keys: ['н', 'Н'], controlKeys: ['canCapsLock'] },
+      { chars: ['г', 'Г'], keys: ['г', 'Г'], controlKeys: ['canCapsLock'] },
+      { chars: ['ш', 'Ш'], keys: ['ш', 'Ш'], controlKeys: ['canCapsLock'] },
+      { chars: ['щ', 'Щ'], keys: ['щ', 'Щ'], controlKeys: ['canCapsLock'] },
+      { chars: ['з', 'З'], keys: ['з', 'З'], controlKeys: ['canCapsLock'] },
+      { chars: ['х', 'Х'], keys: ['х', 'Х'], controlKeys: ['canCapsLock'] },
+      { chars: ['ъ', 'Ъ'], keys: ['ъ', 'Ъ'], controlKeys: ['canCapsLock'] },
       { chars: ['\\', '/'], keys: ['\\', '/'] },
-      { chars: ['⌦'], keys: ['Delete'], modifiers: [Modifier.DELETE] },
+      { chars: ['⌦'], keys: ['Delete'], modifiers: ['delete'] },
     ],
     [
-      { chars: ['⇪'], keys: ['CapsLock'], modifiers: [Modifier.CAPS_LOCK], controlKeys: [ControlKey.SWITCH_CAPS_LOCK] },
-      { chars: ['ф', 'Ф'], keys: ['ф', 'Ф'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ы', 'Ы'], keys: ['ы', 'Ы'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['в', 'В'], keys: ['в', 'В'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['а', 'А'], keys: ['а', 'А'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['п', 'П'], keys: ['п', 'П'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['р', 'Р'], keys: ['р', 'Р'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['о', 'О'], keys: ['о', 'О'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['л', 'Л'], keys: ['л', 'Л'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['д', 'Д'], keys: ['д', 'Д'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ж', 'Ж'], keys: ['ж', 'Ж'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['э', 'Э'], keys: ['э', 'Э'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['↵'], keys: ['Enter'], modifiers: [Modifier.ENTER] },
+      { chars: ['⇪'], keys: ['CapsLock'], controlKeys: ['switchCapsLock'], modifiers: ['caps-lock'] },
+      { chars: ['ф', 'Ф'], keys: ['ф', 'Ф'], controlKeys: ['canCapsLock'] },
+      { chars: ['ы', 'Ы'], keys: ['ы', 'Ы'], controlKeys: ['canCapsLock'] },
+      { chars: ['в', 'В'], keys: ['в', 'В'], controlKeys: ['canCapsLock'] },
+      { chars: ['а', 'А'], keys: ['а', 'А'], controlKeys: ['canCapsLock'] },
+      { chars: ['п', 'П'], keys: ['п', 'П'], controlKeys: ['canCapsLock'] },
+      { chars: ['р', 'Р'], keys: ['р', 'Р'], controlKeys: ['canCapsLock'] },
+      { chars: ['о', 'О'], keys: ['о', 'О'], controlKeys: ['canCapsLock'] },
+      { chars: ['л', 'Л'], keys: ['л', 'Л'], controlKeys: ['canCapsLock'] },
+      { chars: ['д', 'Д'], keys: ['д', 'Д'], controlKeys: ['canCapsLock'] },
+      { chars: ['ж', 'Ж'], keys: ['ж', 'Ж'], controlKeys: ['canCapsLock'] },
+      { chars: ['э', 'Э'], keys: ['э', 'Э'], controlKeys: ['canCapsLock'] },
+      { chars: ['↵'], keys: ['Enter'], modifiers: ['enter'] },
     ],
     [
-      { chars: ['⇧'], keys: ['Shift'], modifiers: [Modifier.SHIFT_LEFT], controlKeys: [ControlKey.SWITCH_SHIFT] },
-      { chars: ['я', 'Я'], keys: ['я', 'Я'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ч', 'Ч'], keys: ['ч', 'Ч'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['с', 'С'], keys: ['с', 'С'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['м', 'М'], keys: ['м', 'М'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['и', 'И'], keys: ['и', 'И'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['т', 'Т'], keys: ['т', 'Т'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ь', 'Ь'], keys: ['ь', 'Ь'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['б', 'Б'], keys: ['б', 'Б'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
-      { chars: ['ю', 'Ю'], keys: ['ю', 'Ю'], controlKeys: [ControlKey.CAN_CAPS_LOCK] },
+      { chars: ['⇧'], keys: ['Shift'], controlKeys: ['switchShift'], modifiers: ['shift-left'] },
+      { chars: ['я', 'Я'], keys: ['я', 'Я'], controlKeys: ['canCapsLock'] },
+      { chars: ['ч', 'Ч'], keys: ['ч', 'Ч'], controlKeys: ['canCapsLock'] },
+      { chars: ['с', 'С'], keys: ['с', 'С'], controlKeys: ['canCapsLock'] },
+      { chars: ['м', 'М'], keys: ['м', 'М'], controlKeys: ['canCapsLock'] },
+      { chars: ['и', 'И'], keys: ['и', 'И'], controlKeys: ['canCapsLock'] },
+      { chars: ['т', 'Т'], keys: ['т', 'Т'], controlKeys: ['canCapsLock'] },
+      { chars: ['ь', 'Ь'], keys: ['ь', 'Ь'], controlKeys: ['canCapsLock'] },
+      { chars: ['б', 'Б'], keys: ['б', 'Б'], controlKeys: ['canCapsLock'] },
+      { chars: ['ю', 'Ю'], keys: ['ю', 'Ю'], controlKeys: ['canCapsLock'] },
       { chars: ['.', ','], keys: ['.', ','] },
       { chars: ['↑'], keys: ['ArrowUp'] },
-      { chars: ['⇧'], keys: ['Shift'], modifiers: [Modifier.SHIFT_RIGHT], controlKeys: [ControlKey.SWITCH_SHIFT] },
+      { chars: ['⇧'], keys: ['Shift'], controlKeys: ['switchShift'], modifiers: ['shift-right'] },
     ],
     [
-      { chars: ['⌃'], keys: ['Control'], modifiers: [Modifier.CONTROL_LEFT], controlKeys: [ControlKey.SWITCH_CONTROL] },
+      { chars: ['⌃'], keys: ['Control'], controlKeys: ['switchControl'], modifiers: ['control-left'] },
       { chars: [''], keys: [''] },
       { chars: [''], keys: [''] },
-      { chars: ['⌥'], keys: ['Alt'], modifiers: [Modifier.ALT_LEFT], controlKeys: [ControlKey.SWITCH_ALT] },
-      { chars: [' '], keys: [' '], modifiers: [Modifier.SPACE] },
-      { chars: ['⌥'], keys: ['Alt'], modifiers: [Modifier.ALT_RIGHT], controlKeys: [ControlKey.SWITCH_ALT] },
-      { chars: ['⌃'], keys: ['Control'], modifiers: [Modifier.CONTROL_RIGHT], controlKeys: [ControlKey.SWITCH_CONTROL] },
+      { chars: ['⌥'], keys: ['Alt'], controlKeys: ['switchAlt'], modifiers: ['alt-left'] },
+      { chars: [' '], keys: [' '], modifiers: ['space'] },
+      { chars: ['⌥'], keys: ['Alt'], controlKeys: ['switchAlt'], modifiers: ['alt-right'] },
+      { chars: ['⌃'], keys: ['Control'], controlKeys: ['switchControl'], modifiers: ['control-right'] },
       { chars: ['←'], keys: ['ArrowLeft'] },
       { chars: ['↓'], keys: ['ArrowDown'] },
       { chars: ['→'], keys: ['ArrowRight'] },
-      { chars: [Language.EN], keys: ['Language'], modifiers: [Modifier.LANGUAGE], controlKeys: [ControlKey.SWITCH_LANGUAGE] },
+      { chars: ['en'], keys: ['Language'], controlKeys: ['switchLanguage'], modifiers: ['language'] },
     ],
   ],
 };
 
-export { Language, ControlKey, Modifier, ButtonDescription, scheme };
+export type { Language, ControlKey, Modifier };
+export { scheme };

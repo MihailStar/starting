@@ -2,11 +2,11 @@ import type { Modifier as SchemeModifier } from './scheme.js';
 
 function createButton(options: {
   char: string;
-  modifiers?: Array<SchemeModifier>;
+  modifiers?: SchemeModifier[];
 }): HTMLButtonElement {
   const { char, modifiers = [] } = options;
   const classModifiers = modifiers
-    .map((modifier: SchemeModifier) => `keyboard__button_${modifier}`)
+    .map((modifier) => `keyboard__button_${modifier}`)
     .join(' ');
   const buttonElement = document.createElement('button');
 

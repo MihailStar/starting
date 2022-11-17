@@ -1,4 +1,4 @@
-const codes: Array<Array<string>> = [
+const codes: string[][] = [
   [
     'Escape',
     'Backquote',

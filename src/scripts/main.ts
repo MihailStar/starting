@@ -2,7 +2,6 @@
 
 import { Counter as MyCounter } from '../components/counter/counter';
 import { Keyboard as MyKeyboard } from '../components/keyboard/keyboard';
-import { Language } from '../components/keyboard/scheme';
 import { Rating as MyRating } from '../components/rating/rating';
 
 const counterContainer = document.querySelector('.starting .counter');
@@ -19,6 +18,6 @@ if (
 
 new MyCounter(counterContainer).on('event:change', console.log);
 new MyKeyboard(keyboardContainer, {
-  language: Language.EN,
+  language: 'en',
 }).on('event:change', console.log);
 new MyRating(ratingContainer).on('event:change', console.log);

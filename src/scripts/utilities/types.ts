@@ -16,4 +16,4 @@ type NonReadonly<Obj> = {
   -readonly [K in keyof Obj]+?: Obj[K];
 };
 
-export { DeepPartial, ExtractArrayType, FilterKeysByType, NonReadonly };
+export type { DeepPartial, ExtractArrayType, FilterKeysByType, NonReadonly };

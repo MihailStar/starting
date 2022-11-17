@@ -1,23 +1,23 @@
 /* eslint no-param-reassign: ['error', { props: true, ignorePropertyModificationsFor: ['buttonElement'] }] */
 
-import {
+import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';
+import { createButton } from './button.js';
+import { codes } from './codes.js';
+import type {
   ControlKey as SchemeControlKey,
   Language as SchemeLanguage,
   Modifier as SchemeModifier,
-  scheme,
 } from './scheme.js';
-import { codes } from './codes.js';
-import { createButton } from './button.js';
-import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';
+import { scheme } from './scheme.js';
 
-const CLASS_ACTIVITY = 'keyboard__button_accent';
+const ACTIVE_BUTTON_CLASS = 'keyboard__button_accent';
 
 type ButtonProps = {
   char: string;
   code: string;
-  controlKeys: Array<SchemeControlKey>;
+  controlKeys: SchemeControlKey[];
   key: string;
-  modifiers: Array<SchemeModifier>;
+  modifiers: SchemeModifier[];
 };
 
 class Keyboard extends MyEventEmitter<{
@@ -28,7 +28,7 @@ class Keyboard extends MyEventEmitter<{
   ctrlKey: boolean;
   shiftKey: boolean;
 }> {
-  private readonly elements: Array<HTMLButtonElement>;
+  private readonly elements: HTMLButtonElement[];
   private readonly props: {
     currentLanguage: SchemeLanguage;
     isAltPressed: boolean;
@@ -87,26 +87,26 @@ class Keyboard extends MyEventEmitter<{
       const { controlKeys } = this.getButtonProps(buttonElement);
       let isResetControl = true;
 
-      if (controlKeys.indexOf(SchemeControlKey.SWITCH_ALT) !== -1) {
+      if (controlKeys.includes('switchAlt')) {
         this.switchAlt();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(SchemeControlKey.SWITCH_CAPS_LOCK) !== -1) {
+      if (controlKeys.includes('switchCapsLock')) {
         this.switchCapsLock();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(SchemeControlKey.SWITCH_CONTROL) !== -1) {
+      if (controlKeys.includes('switchControl')) {
         this.switchControl();
         isResetControl = false;
       }
 
-      if (controlKeys.indexOf(SchemeControlKey.SWITCH_LANGUAGE) !== -1) {
+      if (controlKeys.includes('switchLanguage')) {
         this.switchLanguage();
       }
 
-      if (controlKeys.indexOf(SchemeControlKey.SWITCH_SHIFT) !== -1) {
+      if (controlKeys.includes('switchShift')) {
         this.switchShift();
         isResetControl = false;
       }
@@ -179,7 +179,7 @@ class Keyboard extends MyEventEmitter<{
         return 0;
       }
 
-      if (controlKeys.indexOf(SchemeControlKey.CAN_CAPS_LOCK) !== -1) {
+      if (controlKeys.includes('canCapsLock')) {
         return (this.props.isCapsLockPressed && this.props.isShiftPressed) ||
           (!this.props.isCapsLockPressed && !this.props.isShiftPressed)
           ? 0
@@ -198,11 +198,11 @@ class Keyboard extends MyEventEmitter<{
     };
   }
 
-  getButtonsOnControlKey(key: SchemeControlKey): Array<HTMLButtonElement> {
+  getButtonsOnControlKey(key: SchemeControlKey): HTMLButtonElement[] {
     return this.elements.filter((buttonElement) => {
       const { controlKeys } = this.getButtonProps(buttonElement);
 
-      if (controlKeys.indexOf(key) !== -1) {
+      if (controlKeys.includes(key)) {
         return true;
       }
 
@@ -220,48 +220,40 @@ class Keyboard extends MyEventEmitter<{
 
   switchAlt(position = !this.props.isAltPressed): void {
     this.props.isAltPressed = position;
-    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_ALT).forEach(
-      (buttonElement) => {
-        if (this.props.isAltPressed) {
-          buttonElement.classList.add(CLASS_ACTIVITY);
-        } else {
-          buttonElement.classList.remove(CLASS_ACTIVITY);
-        }
+    this.getButtonsOnControlKey('switchAlt').forEach((buttonElement) => {
+      if (this.props.isAltPressed) {
+        buttonElement.classList.add(ACTIVE_BUTTON_CLASS);
+      } else {
+        buttonElement.classList.remove(ACTIVE_BUTTON_CLASS);
       }
-    );
+    });
   }
 
   switchCapsLock(position = !this.props.isCapsLockPressed): void {
     this.props.isCapsLockPressed = position;
     this.rerenderButtonChars();
-    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_CAPS_LOCK).forEach(
-      (buttonElement) => {
-        if (this.props.isCapsLockPressed) {
-          buttonElement.classList.add(CLASS_ACTIVITY);
-        } else {
-          buttonElement.classList.remove(CLASS_ACTIVITY);
-        }
+    this.getButtonsOnControlKey('switchCapsLock').forEach((buttonElement) => {
+      if (this.props.isCapsLockPressed) {
+        buttonElement.classList.add(ACTIVE_BUTTON_CLASS);
+      } else {
+        buttonElement.classList.remove(ACTIVE_BUTTON_CLASS);
       }
-    );
+    });
   }
 
   switchControl(position = !this.props.isControlPressed): void {
     this.props.isControlPressed = position;
-    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_CONTROL).forEach(
-      (buttonElement) => {
-        if (this.props.isControlPressed) {
-          buttonElement.classList.add(CLASS_ACTIVITY);
-        } else {
-          buttonElement.classList.remove(CLASS_ACTIVITY);
-        }
+    this.getButtonsOnControlKey('switchControl').forEach((buttonElement) => {
+      if (this.props.isControlPressed) {
+        buttonElement.classList.add(ACTIVE_BUTTON_CLASS);
+      } else {
+        buttonElement.classList.remove(ACTIVE_BUTTON_CLASS);
       }
-    );
+    });
   }
 
   switchLanguage(
-    language: SchemeLanguage = this.props.currentLanguage === SchemeLanguage.EN
-      ? SchemeLanguage.RU
-      : SchemeLanguage.EN
+    language: SchemeLanguage = this.props.currentLanguage === 'en' ? 'ru' : 'en'
   ): void {
     this.props.currentLanguage = language;
     this.rerenderButtonChars();
@@ -270,15 +262,13 @@ class Keyboard extends MyEventEmitter<{
   switchShift(position = !this.props.isShiftPressed): void {
     this.props.isShiftPressed = position;
     this.rerenderButtonChars();
-    this.getButtonsOnControlKey(SchemeControlKey.SWITCH_SHIFT).forEach(
-      (buttonElement) => {
-        if (this.props.isShiftPressed) {
-          buttonElement.classList.add(CLASS_ACTIVITY);
-        } else {
-          buttonElement.classList.remove(CLASS_ACTIVITY);
-        }
+    this.getButtonsOnControlKey('switchShift').forEach((buttonElement) => {
+      if (this.props.isShiftPressed) {
+        buttonElement.classList.add(ACTIVE_BUTTON_CLASS);
+      } else {
+        buttonElement.classList.remove(ACTIVE_BUTTON_CLASS);
       }
-    );
+    });
   }
 }
 

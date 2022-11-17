@@ -1,7 +1,7 @@
 type Listener<Data> = (data: Data) => void;
 
 class EventEmitter<Type extends object> {
-  private readonly events: { [event: string]: Array<Listener<Type>> };
+  private readonly events: { [event: string]: Listener<Type>[] };
 
   constructor() {
     this.events = {};
