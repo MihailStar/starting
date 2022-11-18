@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import { paths } from '../configuration.js';
 import { copyAssets } from './assets.js';
 import { convertImageToBase64 } from './base64.js';
-import { compileFonts } from './fonts.js';
+import { copyFonts } from './fonts.js';
 import { compileImages } from './images.js';
 import { compileScripts } from './scripts.js';
 import { reloadServer } from './server.js';
@@ -16,7 +16,7 @@ function watch() {
   const watchFor = {
     assets: [copyAssets],
     base64: [convertImageToBase64],
-    fonts: [compileFonts, reloadServer],
+    fonts: [copyFonts, reloadServer],
     images: [compileImages, reloadServer],
     scripts: [compileScripts, reloadServer],
     sprite: [generateSprite, reloadServer],
