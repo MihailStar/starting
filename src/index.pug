@@ -59,13 +59,16 @@ block head
 
     b:not(:empty)::before {
       font-weight: 400;
-      content: "component: ";
+      content: "компонент ";
     }
 
 block body
   include ./templates/utilities/get-random-double-id.pug
 
   table
+    tr
+      td(colspan="2") демонстрационные компоненты
+
     tr
       td
         b button
