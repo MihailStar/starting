@@ -17,18 +17,14 @@ const fileName = `${projectName ? `${projectName}-` : ''}${new Date()
   .replace(/[T:]/g, '-')
   .slice(0, -5)}.zip`;
 
-function archive() {
+function archiveProject() {
   return gulp
     .src(paths.archive.src)
     .pipe(zip(fileName))
-    .pipe(
-      size({
-        title: 'archive',
-      })
-    )
+    .pipe(size({ title: 'archiveProject' }))
     .pipe(gulp.dest(paths.archive.dest));
 }
 
-const taskFunction = gulp.series(clear, build, archive);
+const taskFunction = gulp.series(clear, build, archiveProject);
 
-export { taskFunction as archive };
+export { taskFunction as archiveProject };

@@ -5,7 +5,7 @@ import { paths } from '../configuration.js';
 import { copyAssets } from './assets.js';
 import { convertImageToBase64 } from './base64.js';
 import { copyFonts } from './fonts.js';
-import { compileImages } from './images.js';
+import { convertImages } from './images.js';
 import { compileScripts } from './scripts.js';
 import { reloadServer } from './server.js';
 import { generateSprite } from './sprite.js';
@@ -17,7 +17,7 @@ function watch() {
     assets: [copyAssets],
     base64: [convertImageToBase64],
     fonts: [copyFonts, reloadServer],
-    images: [compileImages, reloadServer],
+    images: [convertImages, reloadServer],
     scripts: [compileScripts, reloadServer],
     sprite: [generateSprite, reloadServer],
     styles: [compileStyles],

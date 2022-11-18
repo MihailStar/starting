@@ -11,20 +11,13 @@ import {
   paths,
 } from '../configuration.js';
 
-function compileImages() {
+function convertImages() {
   return gulp
     .src(paths.images.src)
     .pipe(newer(paths.images.dest))
     .pipe(gulpIf(!isDevelopment, imagemin(imageminConfiguration)))
-    .pipe(
-      gulpIf(
-        !isDevelopment,
-        size({
-          title: 'compileImages',
-        })
-      )
-    )
+    .pipe(gulpIf(!isDevelopment, size({ title: 'compileImages' })))
     .pipe(gulp.dest(paths.images.dest));
 }
 
-export { compileImages };
+export { convertImages };

@@ -11,17 +11,9 @@ function generateSprite() {
   return gulp
     .src(paths.sprite.src)
     .pipe(imagemin(imageminConfiguration))
-    .pipe(
-      rename({
-        prefix: 'icon-',
-      })
-    )
+    .pipe(rename({ prefix: 'icon-' }))
     .pipe(svgstore())
-    .pipe(
-      size({
-        title: 'generateSprite',
-      })
-    )
+    .pipe(size({ title: 'generateSprite' }))
     .pipe(gulp.dest(paths.sprite.dest));
 }
 

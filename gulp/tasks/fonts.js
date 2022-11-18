@@ -6,19 +6,12 @@ import newer from 'gulp-newer';
 import size from 'gulp-size';
 import { isDevelopment, paths } from '../configuration.js';
 
-function compileFonts() {
+function copyFonts() {
   return gulp
     .src(paths.fonts.src)
     .pipe(newer(paths.fonts.dest))
-    .pipe(
-      gulpIf(
-        !isDevelopment,
-        size({
-          title: 'compileFonts',
-        })
-      )
-    )
+    .pipe(gulpIf(!isDevelopment, size({ title: 'compileFonts' })))
     .pipe(gulp.dest(paths.fonts.dest));
 }
 
-export { compileFonts };
+export { copyFonts };

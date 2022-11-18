@@ -1,9 +1,9 @@
 import { isDevelopment } from './gulp/configuration.js';
-import { archive } from './gulp/tasks/archive.js';
+import { archiveProject } from './gulp/tasks/archive.js';
 import { convertImageToBase64 } from './gulp/tasks/base64.js';
 import { development } from './gulp/tasks/development.js';
 import { production } from './gulp/tasks/production.js';
 import { generateSprite } from './gulp/tasks/sprite.js';
 
-export { archive, convertImageToBase64, generateSprite };
+export { archiveProject, convertImageToBase64, generateSprite };
 export default isDevelopment ? development : production;

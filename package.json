@@ -71,7 +71,7 @@
   "name": "starting",
   "private": true,
   "scripts": {
-    "archive": "cross-env NODE_ENV=production gulp archive",
+    "archive": "cross-env NODE_ENV=production gulp archiveProject",
     "base64": "cross-env NODE_ENV=production gulp convertImageToBase64",
     "build": "cross-env NODE_ENV=production gulp default",
     "clear": "rm --force --recursive ./dist",

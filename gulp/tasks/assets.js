@@ -10,14 +10,7 @@ function copyAssets() {
   return gulp
     .src(paths.assets.src)
     .pipe(newer(paths.assets.dest))
-    .pipe(
-      gulpIf(
-        !isDevelopment,
-        size({
-          title: 'copyAssets',
-        })
-      )
-    )
+    .pipe(gulpIf(!isDevelopment, size({ title: 'copyAssets' })))
     .pipe(gulp.dest(paths.assets.dest));
 }
 
