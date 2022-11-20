@@ -5,7 +5,7 @@
     "alwaysStrict": true,
     "exactOptionalPropertyTypes": true,
     "importsNotUsedAsValues": "error",
-    "lib": ["dom", "es2021"],
+    "lib": ["DOM", "ES2022"],
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -21,7 +21,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es2021",
+    "target": "ES2022",
     "useUnknownInCatchVariables": true
   },
   "exclude": ["dist", "node_modules"],

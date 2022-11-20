@@ -7,7 +7,7 @@ const defaultConfiguration = {
   resolve: {
     extensions: ['.js', '.ts'],
     extensionAlias: {
-      '.js': ['.ts', '.js'],
+      '.js': ['.js', '.ts'],
     },
   },
   module: {
