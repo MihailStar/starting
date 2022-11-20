@@ -6,6 +6,7 @@
     "exactOptionalPropertyTypes": true,
     "importsNotUsedAsValues": "error",
     "lib": ["DOM", "ES2022"],
+    "module": "ESNext",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
