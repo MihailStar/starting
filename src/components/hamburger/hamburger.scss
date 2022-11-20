@@ -1,0 +1,100 @@
+@use 'sass:math';
+@use 'sass:color';
+@use '../button/button.scss';
+@use '../../styles/variables.scss';
+
+.hamburger {
+  $font-size: variables.base-units(4);
+  @extend %button;
+  position: relative;
+  width: math.div(variables.base-units(10), $font-size) * 1em;
+  min-width: auto;
+  height: math.div(variables.base-units(10), $font-size) * 1em;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-transform: none;
+
+  &__part-of-icon {
+    position: absolute;
+    right: math.div(variables.base-units(2), $font-size) * 1em;
+    left: math.div(variables.base-units(2), $font-size) * 1em;
+    height: math.div(variables.base-units(0.5), $font-size) * 1em;
+    pointer-events: none;
+    user-select: none;
+    background-color: variables.$color-text-dark;
+    transition: top math.div(variables.$transition-duration, 2)
+        math.div(variables.$transition-duration, 2),
+      bottom math.div(variables.$transition-duration, 2)
+        math.div(variables.$transition-duration, 2),
+      background-color variables.$transition-duration,
+      opacity math.div(variables.$transition-duration, 2)
+        math.div(variables.$transition-duration, 2),
+      transform math.div(variables.$transition-duration, 2);
+    transform-origin: 50% 50%;
+
+    &:nth-child(1) {
+      top: variables.base-units(3);
+      transform: rotate(0);
+    }
+
+    &:nth-child(2) {
+      top: math.div((variables.base-units(10) - variables.base-units(0.5)), 2);
+      opacity: 1;
+    }
+
+    &:nth-child(3) {
+      bottom: variables.base-units(3);
+      transform: rotate(0);
+    }
+
+    .hamburger_pressed & {
+      transition: top math.div(variables.$transition-duration, 2),
+        bottom math.div(variables.$transition-duration, 2),
+        background-color variables.$transition-duration,
+        opacity math.div(variables.$transition-duration, 2),
+        transform math.div(variables.$transition-duration, 2)
+          math.div(variables.$transition-duration, 2);
+
+      &:nth-child(1) {
+        top: math.div(
+          (variables.base-units(10) - variables.base-units(0.5)),
+          2
+        );
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        top: math.div(
+          (variables.base-units(10) - variables.base-units(0.5)),
+          2
+        );
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        bottom: math.div(
+          (variables.base-units(10) - variables.base-units(0.5)),
+          2
+        );
+        transform: rotate(-45deg);
+      }
+    }
+
+    .hamburger:focus &,
+    .hamburger:hover & {
+      background-color: color.scale(
+        variables.$color-text-dark,
+        $lightness: -5%
+      );
+    }
+
+    .hamburger:active & {
+      background-color: color.scale(
+        variables.$color-text-dark,
+        $lightness: -10%
+      );
+    }
+  }
+}
