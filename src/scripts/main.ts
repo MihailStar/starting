@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 
-import { Counter as MyCounter } from '../components/counter/counter';
-import { Keyboard as MyKeyboard } from '../components/keyboard/keyboard';
-import { Rating as MyRating } from '../components/rating/rating';
+import { Counter as MyCounter } from '../components/counter/counter.js';
+import { Keyboard as MyKeyboard } from '../components/keyboard/keyboard.js';
+import { Rating as MyRating } from '../components/rating/rating.js';
 
 const counterContainer = document.querySelector('.starting .counter');
 const keyboardContainer = document.querySelector('.starting .keyboard');
