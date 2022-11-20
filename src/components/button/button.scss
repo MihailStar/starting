@@ -33,10 +33,6 @@
     inset 0 2px 4px 0 rgba(#000000, 0);
   transition: variables.$transition-duration;
 
-  &__text {
-    pointer-events: none;
-  }
-
   &:focus,
   &:hover {
     color: color.scale(variables.$color-text-dark, $lightness: -5%);
