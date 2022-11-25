@@ -18,8 +18,8 @@
 
   &__part-of-icon {
     position: absolute;
-    right: math.div(variables.base-units(2), $font-size) * 1em;
-    left: math.div(variables.base-units(2), $font-size) * 1em;
+    right: math.div(variables.base-units(2) - 1px, $font-size) * 1em;
+    left: math.div(variables.base-units(2) - 1px, $font-size) * 1em;
     height: math.div(variables.base-units(0.5), $font-size) * 1em;
     pointer-events: none;
     user-select: none;
@@ -35,17 +35,20 @@
     transform-origin: 50% 50%;
 
     &:nth-child(1) {
-      top: variables.base-units(3);
+      top: variables.base-units(3) - 1px;
       transform: rotate(0);
     }
 
     &:nth-child(2) {
-      top: math.div((variables.base-units(10) - variables.base-units(0.5)), 2);
+      top: math.div(
+        (variables.base-units(10) - 1px * 2 - variables.base-units(0.5)),
+        2
+      );
       opacity: 1;
     }
 
     &:nth-child(3) {
-      bottom: variables.base-units(3);
+      bottom: variables.base-units(3) - 1px;
       transform: rotate(0);
     }
 
@@ -59,7 +62,7 @@
 
       &:nth-child(1) {
         top: math.div(
-          (variables.base-units(10) - variables.base-units(0.5)),
+          (variables.base-units(10) - 1px * 2 - variables.base-units(0.5)),
           2
         );
         transform: rotate(45deg);
@@ -67,7 +70,7 @@
 
       &:nth-child(2) {
         top: math.div(
-          (variables.base-units(10) - variables.base-units(0.5)),
+          (variables.base-units(10) - 1px * 2 - variables.base-units(0.5)),
           2
         );
         opacity: 0;
@@ -75,7 +78,7 @@
 
       &:nth-child(3) {
         bottom: math.div(
-          (variables.base-units(10) - variables.base-units(0.5)),
+          (variables.base-units(10) - 1px * 2 - variables.base-units(0.5)),
           2
         );
         transform: rotate(-45deg);

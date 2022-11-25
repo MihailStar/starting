@@ -7,13 +7,13 @@
   $font-size: variables.base-units(4);
   @extend %box-sizing-border-box;
   display: inline-block;
-  padding-top: math.div(variables.base-units(0.5), $font-size) * 1em;
-  padding-right: math.div(variables.base-units(0.5), $font-size) * 1em;
-  padding-bottom: math.div(variables.base-units(0.5), $font-size) * 1em;
-  padding-left: math.div(variables.base-units(0.5), $font-size) * 1em;
+  padding-top: math.div(variables.base-units(0.5) - 1px, $font-size) * 1em;
+  padding-right: math.div(variables.base-units(0.5) - 1px, $font-size) * 1em;
+  padding-bottom: math.div(variables.base-units(0.5) - 1px, $font-size) * 1em;
+  padding-left: math.div(variables.base-units(0.5) - 1px, $font-size) * 1em;
   font-size: $font-size;
+  border: 1px solid variables.$color-line;
   border-radius: math.div(variables.base-units(1), $font-size) * 1em;
-  box-shadow: inset 0 0 0 1px variables.$color-line;
 
   &__row {
     display: flex;

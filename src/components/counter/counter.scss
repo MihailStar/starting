@@ -88,7 +88,7 @@
     &:focus {
       color: variables.$color-text-dark;
       background-color: variables.$color-body;
-      box-shadow: inset 0 0 0 1px variables.$color-line;
+      border-color: color.scale(variables.$color-line);
     }
   }
 }
