@@ -4,41 +4,46 @@ Pug -> HTML, SCSS -> PostCSS -> CSS, TypeScript -> JavaScript
 
 ## Установка
 
-https://github.com/MihailStar/starting/generate - создает новый репозиторий из данного шаблона, для авторизованного GitHub пользователя
+### С использованием шаблонного репозитория
+
+https://github.com/MihailStar/starting/generate - создает новый репозиторий, из данного шаблона, для [залогинившегося](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FMihailStar%2Fstarting) пользователя GitHub
 
 ```bash
-npm i  # (npm install) устанавливает зависимости
+git clone https://github.com/{login}/{repository}.git  # клонирует репозиторий
+npm i  # устанавливает зависимости
+```
+
+### Без использования шаблонного репозитория
+
+```bash
+git clone https://github.com/MihailStar/starting.git --depth 1  # клонирует репозиторий
+git remote rm origin  # удаляет ссылку на origin репозиторий
+git remote add origin https://github.com/{login}/{repository}.git  # добавляет ссылку на origin репозиторий
+npm i  # устанавливает зависимости
 ```
 
 либо
 
 ```bash
-git clone https://github.com/MihailStar/starting.git --depth 1 new-project  # клонирует репозиторий
-git remote rm origin  # (git remote remove origin) удаляет ссылку на origin репозиторий
-git remote add origin https://github.com/MihailStar/new-repository.git  # добавляет ссылку на origin репозиторий
-git remote -v  # (git remote --verbose) отображает ссылки на удаленные репозитории
-npm i  # (npm install) устанавливает зависимости
-```
-
-либо
-
-```bash
-git clone https://github.com/MihailStar/starting.git --depth 1 new-project  # клонирует репозиторий
-cd new-project  # переходит в папку проекта
-rm -rf ./.git  # (rm --recursive --force ./.git) удаляет основу репозитория
+git clone https://github.com/MihailStar/starting.git --depth 1  # клонирует репозиторий
+cd starting  # переходит в папку проекта
+rm -rf ./.git  # удаляет основу репозитория
 git init  # создает основу репозитория
-git remote add origin https://github.com/MihailStar/new-repository.git  # добавляет ссылку на origin репозиторий
-git remote -v  # (git remote --verbose) отображает ссылки на удаленные репозитории
-npm i  # (npm install) устанавливает зависимости
+git remote add origin https://github.com/{login}/{repository}.git  # добавляет ссылку на origin репозиторий
+npm i  # устанавливает зависимости
 ```
+
+\* где `{login}` - логин на GitHub, `{repository}` - название репозитория, созданного из шаблона
 
 ## Запуск
+
+### Запуск в development режиме
 
 ```bash
 npm run dev  # стартует development сборку, с BrowserSync'ом и Watch'ером
 ```
 
-либо
+### Запуск в production режиме
 
 ```bash
 npm run build  # стартует production сборку, без BrowserSync'а и Watch'ера
