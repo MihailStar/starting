@@ -2,7 +2,13 @@
 
 ~~Nunjucks~~ Pug -> HTML, ~~Sass~~ SCSS -> PostCSS -> CSS, ~~Flow~~ TypeScript -> JavaScript
 
+## Установка
+
+https://github.com/MihailStar/starting/generate
+
 ```bash
+# либо
+
 git clone https://github.com/MihailStar/starting.git --depth 1 new-project # клонирует репозиторий
 git remote rm origin # (git remote remove origin) удаляет ссылку на origin репозиторий
 git remote add origin https://github.com/MihailStar/new-repository.git # добавляет ссылку на origin репозиторий
@@ -20,6 +26,8 @@ git remote -v # (git remote --verbose) отображает ссылки на у
 npm i # (npm install) устанавливает зависимости
 ```
 
+## Запуск
+
 ```bash
 npm run dev # стартует development сборку, с BrowserSync'ом и Watch'ером
 
@@ -27,6 +35,8 @@ npm run dev # стартует development сборку, с BrowserSync'ом и 
 
 npm run build # стартует production сборку, без BrowserSync'а и Watch'ера
 ```
+
+## Команды
 
 ```bash
 npm run archive # архивирует production сборку ZIP'ом
