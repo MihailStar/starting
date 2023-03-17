@@ -4,7 +4,7 @@ Pug -> HTML, SCSS -> PostCSS -> CSS, TypeScript -> JavaScript
 
 ## Установка
 
-https://github.com/MihailStar/starting/generate - создает новый репозиторий из данного шаблона
+https://github.com/MihailStar/starting/generate - создает новый репозиторий из данного шаблона, для авторизованного GitHub пользователя
 
 ```bash
 npm i  # (npm install) устанавливает зависимости
