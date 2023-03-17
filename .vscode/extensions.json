@@ -1,7 +1,8 @@
 {
   "recommendations": [
-    "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format"
   ]
 }
