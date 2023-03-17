@@ -1,7 +1,2 @@
-.env
-.git
-.parcel-cache
-.publish
-build
 dist
 node_modules
