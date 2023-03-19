@@ -37,13 +37,13 @@ npm i  # устанавливает зависимости
 
 ## Запуск
 
-### Запуск в development режиме
+### В development режиме
 
 ```bash
 npm run dev  # стартует development сборку, с BrowserSync'ом и Watch'ером
 ```
 
-### Запуск в production режиме
+### В production режиме
 
 ```bash
 npm run build  # стартует production сборку, без BrowserSync'а и Watch'ера
