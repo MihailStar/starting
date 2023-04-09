@@ -2,8 +2,7 @@
   "extends": [
     "stylelint-config-recommended-scss",
     "stylelint-config-sass-guidelines",
-    "stylelint-config-recess-order",
-    "stylelint-config-prettier"
+    "stylelint-config-recess-order"
   ],
   "overrides": [
     {
