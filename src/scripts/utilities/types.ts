@@ -2,18 +2,28 @@ type DeepPartial<Obj> = {
   [K in keyof Obj]+?: Obj[K] extends object ? DeepPartial<Obj[K]> : Obj[K];
 };
 
-/* type ExtractArrayType<Arr> = Arr[Exclude<keyof Arr, keyof []>]; */
-/* type ExtractArrayType<Arr> = Arr[Extract<keyof Arr, number>]; */
-type ExtractArrayType<Arr> = Arr extends Array<infer U> | ReadonlyArray<infer U>
+type NonReadonly<Obj> = {
+  -readonly [K in keyof Obj]: Obj[K];
+};
+
+/* type GetArrayType<Arr> = Arr[Exclude<keyof Arr, keyof []>]; */
+/* type GetArrayType<Arr> = Arr[Extract<keyof Arr, number>]; */
+type GetArrayType<Arr> = Arr extends Array<infer U> | ReadonlyArray<infer U>
   ? U
   : never;
 
-type FilterKeysByType<Obj, Type> = {
+type ExcludeKeysByType<Obj, Type> = {
+  [K in keyof Obj]: Obj[K] extends Type ? never : K;
+}[keyof Obj];
+
+type ExtractKeysByType<Obj, Type> = {
   [K in keyof Obj]: Obj[K] extends Type ? K : never;
 }[keyof Obj];
 
-type NonReadonly<Obj> = {
-  -readonly [K in keyof Obj]+?: Obj[K];
+export type {
+  DeepPartial,
+  NonReadonly,
+  GetArrayType,
+  ExcludeKeysByType,
+  ExtractKeysByType,
 };
-
-export type { DeepPartial, ExtractArrayType, FilterKeysByType, NonReadonly };
