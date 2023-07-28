@@ -29,6 +29,7 @@
       "files": ["*.ts"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-member-accessibility": "error",
         "@typescript-eslint/lines-between-class-members": [
           "error",
           "always",
@@ -44,7 +45,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2022,
+    "ecmaVersion": 2023,
     "project": "./tsconfig.eslint.json",
     "sourceType": "module"
   },

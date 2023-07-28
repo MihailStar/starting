@@ -79,7 +79,7 @@
     "deploy": "gh-pages --dist ./dist --message deploy",
     "dev": "cross-env NODE_ENV=development gulp default",
     "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:templates",
-    "lint:scripts": "eslint --ext .js,.ts ./src",
+    "lint:scripts": "tsc --noEmit && eslint --ext .js,.ts ./src",
     "lint:styles": "stylelint ./src/**/*.{css,scss}",
     "lint:templates": "pug-lint ./src",
     "predeploy": "npm run prod",
