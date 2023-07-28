@@ -14,7 +14,7 @@ class Counter extends MyEventEmitter<{ value: number }> {
     step: number;
   };
 
-  constructor(container: HTMLElement) {
+  public constructor(container: HTMLElement) {
     super();
 
     const decreaseButton = container.querySelector('.counter__button_decrease');
@@ -57,19 +57,19 @@ class Counter extends MyEventEmitter<{ value: number }> {
     });
   }
 
-  get isMin(): boolean {
+  public get isMin(): boolean {
     return this.props.value <= this.props.min;
   }
 
-  get isMax(): boolean {
+  public get isMax(): boolean {
     return this.props.value >= this.props.max;
   }
 
-  get value(): number {
+  public get value(): number {
     return this.props.value;
   }
 
-  set value(value: number) {
+  public set value(value: number) {
     let normalizeValue = value;
 
     if (value <= this.props.min) {
@@ -87,11 +87,11 @@ class Counter extends MyEventEmitter<{ value: number }> {
     this.emit('event:change', { value: normalizeValue });
   }
 
-  decrease(): void {
+  public decrease(): void {
     this.value -= this.props.step;
   }
 
-  increase(): void {
+  public increase(): void {
     this.value += this.props.step;
   }
 }

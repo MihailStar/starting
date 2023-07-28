@@ -1,11 +1,11 @@
 class Storage<Type extends object> {
   private readonly getNamespace: () => string;
 
-  constructor(namespace: string) {
+  public constructor(namespace: string) {
     this.getNamespace = (): typeof namespace => namespace;
   }
 
-  static isAvailable(): boolean {
+  public static isAvailable(): boolean {
     const identifier = Date.now().toString();
 
     try {
@@ -18,7 +18,7 @@ class Storage<Type extends object> {
     }
   }
 
-  get(): Type | null {
+  public get(): Type | null {
     try {
       const data = localStorage.getItem(this.getNamespace());
 
@@ -28,7 +28,7 @@ class Storage<Type extends object> {
     }
   }
 
-  set(data: Type): boolean {
+  public set(data: Type): boolean {
     try {
       localStorage.setItem(this.getNamespace(), JSON.stringify(data));
 

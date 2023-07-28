@@ -1,7 +1,7 @@
 import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';
 
 class Rating extends MyEventEmitter<{ value: number }> {
-  constructor(container: HTMLElement) {
+  public constructor(container: HTMLElement) {
     super();
 
     container.addEventListener('click', ({ target }) => {

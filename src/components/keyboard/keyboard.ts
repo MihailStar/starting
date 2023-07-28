@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 /* eslint no-param-reassign: ['error', { props: true, ignorePropertyModificationsFor: ['buttonElement'] }] */
 
 import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-emitter.js';

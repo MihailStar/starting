@@ -1,9 +1,11 @@
 class RequestError extends Error {
-  readonly statusCode: number;
+  public readonly statusCode: number;
 
-  constructor(statusCode: number) {
-    super(`Request failed. HTTP response status code: ${statusCode}`);
+  public constructor(statusCode: number) {
+    super();
 
+    this.message = `Request failed. Response status code: ${statusCode}`;
+    this.name = 'RequestError';
     this.statusCode = statusCode;
   }
 }

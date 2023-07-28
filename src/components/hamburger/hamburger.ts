@@ -3,7 +3,7 @@ import { EventEmitter as MyEventEmitter } from '../../scripts/utilities/event-em
 class Hamburger extends MyEventEmitter<{ pressed: boolean }> {
   private isPressed = false;
 
-  constructor(container: HTMLElement) {
+  public constructor(container: HTMLElement) {
     super();
 
     this.isPressed = container.getAttribute('aria-pressed') === 'true';
