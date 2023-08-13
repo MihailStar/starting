@@ -1,5 +1,10 @@
 {
   "htmlWhitespaceSensitivity": "ignore",
+  "plugins": [
+    "@prettier/plugin-pug",
+    "@prettier/plugin-xml",
+    "prettier-plugin-organize-imports"
+  ],
   "pugSingleQuote": false,
   "singleQuote": true,
   "xmlWhitespaceSensitivity": "ignore"
