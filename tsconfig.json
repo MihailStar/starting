@@ -9,6 +9,6 @@
     "target": "ES2022"
   },
   "exclude": ["dist", "node_modules"],
-  "extends": ["@tsconfig/strictest/tsconfig.json"],
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "include": ["src/components/**/*", "src/scripts/**/*"]
 }
