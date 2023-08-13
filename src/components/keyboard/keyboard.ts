@@ -43,7 +43,7 @@ class Keyboard extends MyEventEmitter<{
     container: HTMLElement,
     options: {
       language: SchemeLanguage;
-    }
+    },
   ) {
     super();
 
@@ -138,7 +138,7 @@ class Keyboard extends MyEventEmitter<{
             onButtonClick(target);
           }
         },
-        true
+        true,
       );
     };
 
@@ -149,8 +149,8 @@ class Keyboard extends MyEventEmitter<{
   forEachButton(
     callback: (
       buttonElement: HTMLButtonElement,
-      buttonProps: ButtonProps
-    ) => void
+      buttonProps: ButtonProps,
+    ) => void,
   ): void {
     this.elements.forEach((buttonElement) => {
       const buttonProps = this.getButtonProps(buttonElement);
@@ -254,7 +254,9 @@ class Keyboard extends MyEventEmitter<{
   }
 
   switchLanguage(
-    language: SchemeLanguage = this.props.currentLanguage === 'en' ? 'ru' : 'en'
+    language: SchemeLanguage = this.props.currentLanguage === 'en'
+      ? 'ru'
+      : 'en',
   ): void {
     this.props.currentLanguage = language;
     this.rerenderButtonChars();

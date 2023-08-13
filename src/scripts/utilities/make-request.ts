@@ -15,7 +15,7 @@ class RequestError extends Error {
  */
 async function makeRequest<Type extends object>(
   url: string,
-  options?: RequestInit
+  options?: RequestInit,
 ): Promise<Type> {
   const response = await fetch(url, options);
 

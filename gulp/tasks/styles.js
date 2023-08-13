@@ -42,8 +42,8 @@ function compileStyles() {
           postcssMediaMinmax(),
           autoprefixer(),
           postcssCsso({ comments: false }),
-        ])
-      )
+        ]),
+      ),
     )
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(gulpIf(!isDevelopment && !isProductionMinimized.styles, prettier()))

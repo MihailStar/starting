@@ -16,7 +16,7 @@ const taskFunction = gulp.parallel(
   convertImages,
   copyAssets,
   copyFonts,
-  generateSprite
+  generateSprite,
 );
 
 export { taskFunction as build };

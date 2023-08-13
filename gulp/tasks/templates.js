@@ -17,7 +17,7 @@ function compileTemplates() {
     .src(paths.templates.src)
     .pipe(pug())
     .pipe(
-      gulpIf(!isDevelopment && !isProductionMinimized.templates, prettier())
+      gulpIf(!isDevelopment && !isProductionMinimized.templates, prettier()),
     )
     .pipe(gulpIf(!isDevelopment, replace(/\s*<!-- *prettier-ignore *-->/g, '')))
     .pipe(gulpIf(!isDevelopment, size({ title: 'compileTemplates' })))

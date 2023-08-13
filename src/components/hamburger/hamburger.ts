@@ -14,7 +14,7 @@ class Hamburger extends MyEventEmitter<{ pressed: boolean }> {
 
         container.setAttribute('aria-pressed', String(this.isPressed));
         container.classList[this.isPressed ? 'add' : 'remove'](
-          `hamburger_pressed`
+          `hamburger_pressed`,
         );
 
         this.emit('event:change', { pressed: this.isPressed });

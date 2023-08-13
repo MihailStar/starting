@@ -22,7 +22,7 @@ class EventEmitter<Type extends object> {
 
   public off(type: string, listener: Listener<Type>): void {
     this.events[type] = (this.events[type] ?? []).filter(
-      (func) => func !== listener
+      (func) => func !== listener,
     );
   }
 

@@ -4,7 +4,7 @@ import url from 'url';
 
 const DIRECTORY = path.join(
   path.dirname(url.fileURLToPath(import.meta.url)),
-  './src/components'
+  './src/components',
 );
 
 const [, , componentName] = process.argv;
@@ -67,8 +67,8 @@ function createFiles(directoryPath) {
     promises.push(
       createFile(
         path.join(directoryPath, `${componentName}.${extension}`),
-        String(fileData)
-      )
+        String(fileData),
+      ),
     );
   });
 

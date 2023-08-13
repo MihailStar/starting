@@ -20,10 +20,10 @@ type ExtractKeysByType<Obj, Type> = {
   [K in keyof Obj]: Obj[K] extends Type ? K : never;
 }[keyof Obj];
 
-export type {
-  DeepPartial,
-  NonReadonly,
-  GetArrayType,
-  ExcludeKeysByType,
-  ExtractKeysByType,
+export {
+  type DeepPartial,
+  type ExcludeKeysByType,
+  type ExtractKeysByType,
+  type GetArrayType,
+  type NonReadonly,
 };

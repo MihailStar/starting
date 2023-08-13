@@ -24,7 +24,7 @@ function watch() {
     templates: [compileTemplates, reloadServer],
   };
   Object.keys(watchFor).forEach((path) =>
-    gulp.watch(paths[path].watch, gulp.series(...watchFor[path]))
+    gulp.watch(paths[path].watch, gulp.series(...watchFor[path])),
   );
 }
 

@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 
 function cachingDecorator<Arg, Val>(
-  func: (argument: Arg) => Val
+  func: (argument: Arg) => Val,
 ): (arg: Arg) => Val {
   const cache = new Map<Arg, Val>();
 

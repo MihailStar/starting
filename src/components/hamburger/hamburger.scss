@@ -24,7 +24,8 @@
     pointer-events: none;
     user-select: none;
     background-color: variables.$color-text-dark;
-    transition: top math.div(variables.$transition-duration, 2)
+    transition:
+      top math.div(variables.$transition-duration, 2)
         math.div(variables.$transition-duration, 2),
       bottom math.div(variables.$transition-duration, 2)
         math.div(variables.$transition-duration, 2),
@@ -53,7 +54,8 @@
     }
 
     .hamburger_pressed & {
-      transition: top math.div(variables.$transition-duration, 2),
+      transition:
+        top math.div(variables.$transition-duration, 2),
         bottom math.div(variables.$transition-duration, 2),
         background-color variables.$transition-duration,
         opacity math.div(variables.$transition-duration, 2),

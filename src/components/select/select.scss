@@ -37,12 +37,12 @@
     line-height: math.div(variables.base-units(6), $font-size) * 1em;
     color: variables.$color-text-dark;
     vertical-align: middle;
+    appearance: none;
     cursor: pointer;
     background-color: variables.$color-body;
     border: 1px solid variables.$color-line;
     border-radius: math.div(variables.base-units(1), $font-size) * 1em;
     transition: variables.$transition-duration;
-    appearance: none;
 
     &::-ms-expand {
       display: none;

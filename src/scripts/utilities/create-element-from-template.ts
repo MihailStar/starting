@@ -1,5 +1,5 @@
 function createElementFromTemplate<Type extends Element = Element>(
-  template: string
+  template: string,
 ): Type {
   const container = document.createElement('template');
 

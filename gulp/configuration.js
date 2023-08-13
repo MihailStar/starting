@@ -118,9 +118,9 @@ const isProductionMinimized = {
 };
 
 export {
-  isDevelopment,
   directory,
-  paths,
   imageminConfiguration,
+  isDevelopment,
   isProductionMinimized,
+  paths,
 };

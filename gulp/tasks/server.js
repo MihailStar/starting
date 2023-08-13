@@ -23,4 +23,4 @@ function reloadServer(done) {
   done();
 }
 
-export { server, initializeServer, reloadServer };
+export { initializeServer, reloadServer, server };

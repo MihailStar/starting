@@ -3,6 +3,6 @@
 /**
  * Проверяет на необработанные `case` в `switch`
  */
-function exhaustiveCheck(value: never): void {}
+function exhaustiveCheck(_value: never): void {}
 
 export { exhaustiveCheck };

@@ -196,5 +196,4 @@ const scheme: Scheme = {
   ],
 };
 
-export type { Language, ControlKey, Modifier };
-export { scheme };
+export { scheme, type ControlKey, type Language, type Modifier };

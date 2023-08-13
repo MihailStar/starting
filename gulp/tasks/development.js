@@ -9,7 +9,7 @@ import { watch } from './watch.js';
 const taskFunction = gulp.series(
   clear,
   build,
-  gulp.parallel(initializeServer, watch)
+  gulp.parallel(initializeServer, watch),
 );
 
 export { taskFunction as development };
