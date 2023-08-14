@@ -9,6 +9,7 @@
       "files": ["*.js"],
       "rules": {
         "import/extensions": ["error", "ignorePackages"],
+        "import/order": "off",
         "import/prefer-default-export": "off",
         "lines-between-class-members": [
           "error",
@@ -37,6 +38,7 @@
         ],
         "@typescript-eslint/member-ordering": "error",
         "import/extensions": ["error", "ignorePackages"],
+        "import/order": "off",
         "import/prefer-default-export": "off",
         "jsdoc/no-types": "error",
         "no-void": ["error", { "allowAsStatement": true }]
