@@ -4,17 +4,6 @@ Pug -> HTML, SCSS -> PostCSS -> CSS, TypeScript -> JavaScript
 
 ## Установка
 
-### С использованием шаблонного репозитория
-
-https://github.com/MihailStar/starting/generate - создает новый репозиторий, из данного шаблона, для [залогинившегося](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FMihailStar%2Fstarting) пользователя GitHub
-
-```bash
-git clone https://github.com/{login}/{repository}.git  # клонирует репозиторий
-npm i  # устанавливает зависимости
-```
-
-### Без использования шаблонного репозитория
-
 ```bash
 git clone https://github.com/MihailStar/starting.git --depth 1  # клонирует репозиторий
 git remote rm origin  # удаляет ссылку на origin репозиторий
