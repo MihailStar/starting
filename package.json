@@ -1,5 +1,4 @@
 {
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
@@ -7,9 +6,9 @@
     "@prettier/plugin-pug": "^3.0.0",
     "@prettier/plugin-xml": "^3.2.0",
     "@tsconfig/strictest": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "autoprefixer": "^10.4.14",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "autoprefixer": "^10.4.15",
     "babel-loader": "^9.1.3",
     "browser-sync": "^2.29.3",
     "browserslist": "^4.21.10",
@@ -40,7 +39,7 @@
     "gulp-zip": "^5.1.0",
     "husky": "^8.0.3",
     "imagemin-webp": "^8.0.0",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^14.0.0",
     "postcss": "^8.4.27",
     "postcss-100vh-fix": "^1.0.2",
     "postcss-csso": "^6.0.1",
